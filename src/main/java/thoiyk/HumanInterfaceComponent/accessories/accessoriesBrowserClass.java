@@ -80,9 +80,9 @@ extends KDataBrowserBaseClass {
             // define column settings
            setColumnNames( "acs", "ID", "ID" );
             //setColumnNames( "acs", "ACCESSORIESTYPEID", "TypeID" );
-            setColumnNames( "act", "TYPE", "TypeName" );                                           
+            setColumnNames( "act", "TYPE", "Type Name" );                                           
             //setColumnNames( "acs", "SUPPLIERID", "SupplierID" );
-            setColumnNames( "acs", "SUPPLIER", "SupplierName" );
+            setColumnNames( "acs", "SUPPLIER", "Supplier Name" );
             setColumnNames( "acs", "KODE", "Code" );
             setColumnNames( "acs", "UKURAN", "Size" );
             setColumnNames( "acs", "COLOUR", "Colour" );
