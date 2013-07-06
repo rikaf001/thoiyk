@@ -163,7 +163,6 @@ implements KDialogInterface
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Client Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 10))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
 
-        lblID.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         lblID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblID.setText("Id :");
 
@@ -172,25 +171,25 @@ implements KDialogInterface
         ID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ID.setName("id"); // NOI18N
 
-        lblNama.setText("Nama:");
+        lblNama.setText("Name          :");
 
         Nama.setName("nama"); // NOI18N
 
-        lblTelp.setText("Alamat :");
+        lblTelp.setText("Adress        :");
 
         jTextField2.setName("alamat"); // NOI18N
 
-        lblHp.setText("Telp. :");
+        lblHp.setText("Phone         :");
 
         jTextField3.setName("telp"); // NOI18N
 
-        jLabel1.setText("Fax :");
+        jLabel1.setText("Fax            :");
 
         jTextField1.setName("fax"); // NOI18N
 
         jTextField4.setName("npwp"); // NOI18N
 
-        jLabel3.setText("NPWP :");
+        jLabel3.setText("NPWP         :");
 
         jLabel2.setText("No. Izin TPB :");
 
@@ -244,9 +243,11 @@ implements KDialogInterface
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .add(2, 2, 2)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(ID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(lblID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(4, 4, 4)
+                        .add(lblID, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(lblNama)
@@ -276,10 +277,10 @@ implements KDialogInterface
                     .add(jLabel4)
                     .add(buyerkontakidLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jButton1))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jPanel1.setBounds(0, 0, 510, 230);
+        jPanel1.setBounds(0, 0, 510, 280);
         jLayeredPane1.add(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         okButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
@@ -323,8 +324,8 @@ implements KDialogInterface
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 250, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 0, 0))
+                .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 285, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
         

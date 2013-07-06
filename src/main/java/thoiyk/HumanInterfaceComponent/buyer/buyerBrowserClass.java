@@ -77,13 +77,13 @@ extends KDataBrowserBaseClass {
 
             // define column settings
             setColumnNames( "byr", "ID", "ID" );
-            setColumnNames( "byr", "NAMA", "NAMA" );
-            setColumnNames( "byr", "ALAMAT", "ALAMAT" );                                      
-            setColumnNames( "byr", "TELP", "TELP" );
-            setColumnNames( "byr", "FAX", "FAX" );                                      
+            setColumnNames( "byr", "NAMA", "Name" );
+            setColumnNames( "byr", "ALAMAT", "Adress" );                                      
+            setColumnNames( "byr", "TELP", "Phone" );
+            setColumnNames( "byr", "FAX", "Fax" );                                      
             setColumnNames( "byr", "NPWP", "NPWP" );
             setColumnNames( "byr", "NOIZINTPB", "NOIZINTPB" );
-            setColumnNames( "byr", "BUYERKONTAKID", "BUYERKONTAKID" );
+            setColumnNames( "byr", "BUYERKONTAKID", "Contact Person" );
             
             setDefaultOrder( "  NAMA " );
 
@@ -92,8 +92,8 @@ extends KDataBrowserBaseClass {
             super.initializeTable();   
             
             // some customization
-            adjustColumnWidth( "NAMA", 100 );
-            adjustColumnWidth( "ALAMAT", 200 );                        
+            adjustColumnWidth( "Name", 100 );
+            adjustColumnWidth( "Adress", 200 );                        
  
             adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
     }        
