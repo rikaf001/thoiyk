@@ -26,6 +26,7 @@ local_region=FR
 // CLUSTER CONFIGURATION
 server_address0=http://localhost:8080/Sample2Server1/KFrameworkServerClassService?WSDL
 server_address1=http://localhost:4848/Sample2Server1/KFrameworkServerClassService?WSDL
+server_address2=http://sea-6900076287:8080/Sample2Server1/KFrameworkServerClassService?WSDL
 
 // DATABASE DIALECT
 databaseType=oracle
