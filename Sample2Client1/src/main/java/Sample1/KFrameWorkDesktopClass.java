@@ -481,7 +481,7 @@ implements desktopAccessInterface, ActionListener
         });
         MainMenu.add(SampleRecord);
 
-        outstandingorderItem.setText("Outstanding Order");
+        outstandingorderItem.setText("Reserved Order");
         outstandingorderItem.setName("outstandingorderItem"); // NOI18N
         outstandingorderItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -917,7 +917,7 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }//GEN-LAST:event_supplierItemActionPerformed
 
     private void outstandingorderItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outstandingorderItemActionPerformed
-    openInternalFrame( outstandingorderFrameClass.class, "Outstanding Order" );                      
+    openInternalFrame( outstandingorderFrameClass.class, "Reserved Order" );                      
     }//GEN-LAST:event_outstandingorderItemActionPerformed
 
     private void PRNewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRNewItemActionPerformed
