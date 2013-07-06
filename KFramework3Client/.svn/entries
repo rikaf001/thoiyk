@@ -1,7 +1,7 @@
 10
 
 dir
-912
+933
 https://svn.code.sf.net/p/k-framework/code/trunk/KFramework3Client
 https://svn.code.sf.net/p/k-framework/code
 
@@ -23,7 +23,7 @@ svn:special svn:externals svn:needs-lock
 
 
 
-
+incomplete
 5af50125-c909-4175-a8d9-2fb2f3153ed6
 
 
@@ -35,7 +35,7 @@ svn:special svn:externals svn:needs-lock
 
 catalog.xml
 file
-
+912
 
 
 
@@ -69,7 +69,7 @@ vmaxxed
 
 nb-configuration.xml
 file
-
+912
 
 
 
@@ -103,7 +103,7 @@ vmaxxed
 
 pom.xml
 file
-
+912
 
 
 
