@@ -18,12 +18,10 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-package thoiyk.HumanInterfaceComponent.pr_newitem;
+package thoiyk.HumanInterfaceComponent.ProdutionRecordItem;
 
 
 // k
-import thoiyk.HumanInterfaceComponent.pr_newitem.*;
-import thoiyk.HumanInterfaceComponent.pr_newitem.*;
 import KFramework30.Base.*;
 import KFramework30.Communication.persistentObjectManagerClass;
 import KFramework30.Widgets.DataBrowser.recordClass;
@@ -48,7 +46,7 @@ import java.util.logging.Logger;
 import thoiyk.HumanInterfaceComponent.v_sr_item.v_sr_itemBrowserClass;
 
 
-public class pr_newitemEditDialogClass 
+public class PRitemEditDialogClass 
 extends javax.swing.JDialog
 implements KDialogInterface
 {
@@ -65,7 +63,7 @@ implements KDialogInterface
     //end of object persistent functions------------------------------------------------------
 
     /** Creates new form facturaEditDialogClass */
-    public pr_newitemEditDialogClass( 
+    public PRitemEditDialogClass( 
         KConfigurationClass configurationParam, KLogClass logParam, java.awt.Window parentWindow )
         throws KExceptionClass
     {

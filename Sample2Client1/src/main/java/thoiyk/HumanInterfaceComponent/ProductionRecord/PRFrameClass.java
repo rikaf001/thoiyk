@@ -19,11 +19,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
 
-package thoiyk.HumanInterfaceComponent.pr_new;
+package thoiyk.HumanInterfaceComponent.ProductionRecord;
 
 
-import thoiyk.HumanInterfaceComponent.pr_new.*;
-import thoiyk.HumanInterfaceComponent.pr_new.*;
 import Sample1.desktopToolbarListenerInterface;
 import Sample1.desktopAccessInterface;
 import KFramework30.Base.*;
@@ -33,7 +31,7 @@ import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 
 
-public class pr_newFrameClass extends javax.swing.JInternalFrame 
+public class PRFrameClass extends javax.swing.JInternalFrame 
 implements desktopToolbarListenerInterface, InternalFrameListener
 {
 
@@ -43,7 +41,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         private desktopAccessInterface          mainToolbar;
 
 	// has - defaulted
-	private pr_newBrowserClass             browser;
+	private PRBrowserClass             browser;
                 
         public void internalFrameOpened(InternalFrameEvent e) {}
         public void internalFrameClosing(InternalFrameEvent e) {}
@@ -77,7 +75,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         }
                         
 
-    public pr_newFrameClass(KConfigurationClass configurationParam,KLogClass logParam,desktopAccessInterface systemDesktopParam ) throws KExceptionClass
+    public PRFrameClass(KConfigurationClass configurationParam,KLogClass logParam,desktopAccessInterface systemDesktopParam ) throws KExceptionClass
     {        
         initComponents ();
         
@@ -87,7 +85,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         mainToolbar = systemDesktopParam;
         
 	// has defaulted
-	browser =  new pr_newBrowserClass( configuration, log, justificationTable, mainToolbar.getDesktopsWindow()  );                           
+	browser =  new PRBrowserClass( configuration, log, justificationTable, mainToolbar.getDesktopsWindow()  );                           
         browser.initializeTable();        
         
         // init

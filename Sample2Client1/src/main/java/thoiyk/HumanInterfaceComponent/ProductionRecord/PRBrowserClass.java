@@ -9,7 +9,7 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.pr_new;
+package thoiyk.HumanInterfaceComponent.ProductionRecord;
 
 /**
  *
@@ -36,7 +36,7 @@ import thoiyk.HumanInterfaceComponent.mesin.mesinEditDialogClass;
 import thoiyk.HumanInterfaceComponent.pr_from_sr.pr_from_srEditDialogClass;
 
 
-public class pr_newBrowserClass 
+public class PRBrowserClass 
 extends KDataBrowserBaseClass {   
         
     // uses                       	
@@ -44,7 +44,7 @@ extends KDataBrowserBaseClass {
     // has
 
     /** Creates new viajeBrowserClass */
-    public pr_newBrowserClass(
+    public PRBrowserClass(
             KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,
@@ -57,7 +57,7 @@ extends KDataBrowserBaseClass {
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
                     pr_newClass.class,
-                    pr_newEditDialogClass.class
+                    PREditDialogClass.class
             );  
             
             // uses                   

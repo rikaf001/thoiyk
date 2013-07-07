@@ -9,7 +9,7 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.pr_newitem;
+package thoiyk.HumanInterfaceComponent.ProdutionRecordItem;
 
 /**
  *
@@ -17,7 +17,6 @@ package thoiyk.HumanInterfaceComponent.pr_newitem;
  */
 
 //rtl
-import thoiyk.HumanInterfaceComponent.pr_newitem.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -43,10 +42,10 @@ import ProblemDomainComponent.sample_facturaClass;
 // system
 //import ProblemDomainComponent.pr_newitemClass;
 import ProblemDomainComponent.productionrecorditemClass;
-import thoiyk.HumanInterfaceComponent.pr_new.pr_newBrowserClass;
-import static thoiyk.HumanInterfaceComponent.pr_newitem.pr_newitemBrowserClass.ALL_SAMPLERECORD;
-import static thoiyk.HumanInterfaceComponent.pr_newitem.pr_newitemBrowserClass.SRITEM_BY_SR;
-import thoiyk.HumanInterfaceComponent.pr_newitem.pr_newitemEditDialogClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.PRBrowserClass;
+import static thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemBrowserClass.ALL_SAMPLERECORD;
+import static thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemBrowserClass.SRITEM_BY_SR;
+import thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemEditDialogClass;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Properties;
@@ -55,7 +54,7 @@ import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderEditDialo
 
 
 
-public class pr_newitemBrowserClass 
+public class PRitemBrowserClass 
 extends KDataBrowserBaseClass 
 implements 
 cellRenderingHookInterface,  // to customize the data at runtime OPTIONAL
@@ -76,7 +75,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
         
     
     /** Creates new viajeBrowserClass */
-    public pr_newitemBrowserClass(
+    public PRitemBrowserClass(
             KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,            
@@ -89,7 +88,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
                     productionrecorditemClass.class,
-                    pr_newitemEditDialogClass.class
+                    PRitemEditDialogClass.class
             );  
             
             // uses   
@@ -372,7 +371,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                         if( mode == ALL_SAMPLERECORD ){
 
                             // build a client browser
-                               pr_newBrowserClass pr_new = new pr_newBrowserClass(
+                               PRBrowserClass pr_new = new PRBrowserClass(
                                         configuration, log, new javax.swing.JTable(), getParentWindow() );
 
                                pr_new.initializeTable();   

@@ -18,11 +18,10 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-package thoiyk.HumanInterfaceComponent.pr_new;
+package thoiyk.HumanInterfaceComponent.ProductionRecord;
 
 
 // k
-import thoiyk.HumanInterfaceComponent.pr_new.*;
 import KFramework30.Base.*;
 import KFramework30.Communication.persistentObjectManagerClass;
 import KFramework30.Widgets.DataBrowser.recordClass;
@@ -33,7 +32,6 @@ import KFramework30.Widgets.KDialogControllerClass;
 import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
 import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
-import thoiyk.HumanInterfaceComponent.pr_new.*;
 import ProblemDomainComponent.pr_newClass;
 import ProblemDomainComponent.systemMailClass;
 import Sample1.UserCustomWidgets.JCalendarDemoWidgetAdapterClass;
@@ -48,10 +46,10 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;
-import thoiyk.HumanInterfaceComponent.pr_newitem.pr_newitemBrowserClass;
+import thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemBrowserClass;
 
 
-public class pr_newEditDialogClass 
+public class PREditDialogClass 
 extends javax.swing.JDialog
 implements KDialogInterface
 {
@@ -62,7 +60,7 @@ implements KDialogInterface
     private long                            parentID;
    
     // has defaulted   
-    private pr_newitemBrowserClass             browser;   
+    private PRitemBrowserClass             browser;   
     private KNonVisibleBinaryWidgetClass    productPictureRawDataContainer;
     private KDialogControllerClass            KDialogController;
 
@@ -70,7 +68,7 @@ implements KDialogInterface
     //end of object persistent functions------------------------------------------------------
 
     /** Creates new form facturaEditDialogClass */
-    public pr_newEditDialogClass( 
+    public PREditDialogClass( 
         KConfigurationClass configurationParam, KLogClass logParam, java.awt.Window parentWindow )
         throws KExceptionClass
     {
@@ -141,9 +139,9 @@ implements KDialogInterface
                        
         
         
-       browser = new pr_newitemBrowserClass(
+       browser = new PRitemBrowserClass(
                 configuration, log, FacturasBrowserJTable, 
-                pr_newitemBrowserClass.SRITEM_BY_SR, id, this );
+                PRitemBrowserClass.SRITEM_BY_SR, id, this );
         
       //  browser.saveSQLOperation( 
       //          totalLabel, " sum( fac.fac_total ) ", facturaBrowserClass.BROWSER_COLUMN_TYPE_CURRENCY, true );        

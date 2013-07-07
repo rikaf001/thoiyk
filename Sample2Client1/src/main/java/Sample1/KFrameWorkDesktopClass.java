@@ -47,7 +47,7 @@ import thoiyk.HumanInterfaceComponent.mesintype.mesintypeFrameClass;
 import thoiyk.HumanInterfaceComponent.negara.negaraFrameClass;
 import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderFrameClass;
 import thoiyk.HumanInterfaceComponent.pr_from_sr.pr_from_srFrameClass;
-import thoiyk.HumanInterfaceComponent.pr_new.pr_newFrameClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.PRFrameClass;
 import thoiyk.HumanInterfaceComponent.samplerecord.samplerecordFrameClass;
 import thoiyk.HumanInterfaceComponent.sparepart.sparepartFrameClass;
 import thoiyk.HumanInterfaceComponent.spareparttype.spareparttypeFrameClass;
@@ -110,9 +110,7 @@ implements desktopAccessInterface, ActionListener
         supplierItem = new javax.swing.JMenuItem();
         SampleRecord = new javax.swing.JMenuItem();
         outstandingorderItem = new javax.swing.JMenuItem();
-        productionRecord = new javax.swing.JMenu();
-        PRNewItem = new javax.swing.JMenuItem();
-        PRFromSRItem = new javax.swing.JMenuItem();
+        PRItem = new javax.swing.JMenuItem();
         POItem = new javax.swing.JMenuItem();
         clientItem = new javax.swing.JMenuItem();
         facturasItem = new javax.swing.JMenuItem();
@@ -490,28 +488,14 @@ implements desktopAccessInterface, ActionListener
         });
         MainMenu.add(outstandingorderItem);
 
-        productionRecord.setText("Production Record");
-        productionRecord.setName("productionRecord"); // NOI18N
-
-        PRNewItem.setText("PR New");
-        PRNewItem.setName("PRNewItem"); // NOI18N
-        PRNewItem.addActionListener(new java.awt.event.ActionListener() {
+        PRItem.setText("jMenuItem1");
+        PRItem.setName("PRItem"); // NOI18N
+        PRItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PRNewItemActionPerformed(evt);
+                PRItemActionPerformed(evt);
             }
         });
-        productionRecord.add(PRNewItem);
-
-        PRFromSRItem.setText("PR from SR");
-        PRFromSRItem.setName("PRFromSRItem"); // NOI18N
-        PRFromSRItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PRFromSRItemActionPerformed(evt);
-            }
-        });
-        productionRecord.add(PRFromSRItem);
-
-        MainMenu.add(productionRecord);
+        MainMenu.add(PRItem);
 
         POItem.setText("Purchase Order");
         POItem.setName("POItem"); // NOI18N
@@ -920,17 +904,13 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     openInternalFrame( outstandingorderFrameClass.class, "Received Order" );                      
     }//GEN-LAST:event_outstandingorderItemActionPerformed
 
-    private void PRNewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRNewItemActionPerformed
-     openInternalFrame( pr_newFrameClass.class, "PR New" ); 
-    }//GEN-LAST:event_PRNewItemActionPerformed
-
-    private void PRFromSRItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRFromSRItemActionPerformed
-     openInternalFrame( pr_from_srFrameClass.class, "PR From SR" );
-    }//GEN-LAST:event_PRFromSRItemActionPerformed
-
     private void POItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_POItemActionPerformed
      openInternalFrame( PurchaseOrderFrameClass.class, "Purchase Order" );
     }//GEN-LAST:event_POItemActionPerformed
+
+    private void PRItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRItemActionPerformed
+      openInternalFrame( PRFrameClass.class, "Prpdocution Record" );
+    }//GEN-LAST:event_PRItemActionPerformed
 
    
 
@@ -942,8 +922,7 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenu MenuEdit;
     private javax.swing.JMenu MenuHelp;
     private javax.swing.JMenuItem POItem;
-    private javax.swing.JMenuItem PRFromSRItem;
-    private javax.swing.JMenuItem PRNewItem;
+    private javax.swing.JMenuItem PRItem;
     private javax.swing.JMenuItem SampleLIMSDataNavigator;
     private javax.swing.JMenuItem SampleLIMSReports;
     private javax.swing.JMenuItem SampleRecord;
@@ -995,7 +974,6 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JButton printButton;
     private javax.swing.JMenuItem printMenuItem;
     private javax.swing.JMenuItem productCatalogue;
-    private javax.swing.JMenu productionRecord;
     private javax.swing.JButton refreshButton;
     private javax.swing.JMenuItem refreshMenuItem;
     private javax.swing.JMenuItem setPage;
