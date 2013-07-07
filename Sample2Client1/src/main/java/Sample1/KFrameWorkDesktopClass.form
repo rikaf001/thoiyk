@@ -174,7 +174,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="outstandingorderItem">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Reserved Order"/>
+                <Property name="text" type="java.lang.String" value="Received Order"/>
                 <Property name="name" type="java.lang.String" value="outstandingorderItem" noResource="true"/>
               </Properties>
               <Events>
