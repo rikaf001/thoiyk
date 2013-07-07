@@ -70,10 +70,11 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " ID, BUYERID, STYLE, QTY, to_CHAR( shipdate, 'yyyy-mm-dd HH24:MI:SS' ) as shipdate, productin, productout, line, remark ",
+                " os.ID, os.BUYERID, byr.nama as buyername, os.STYLE, os.QTY, to_CHAR( os.shipdate, 'yyyy-mm-dd HH24:MI:SS' ) as shipdate, os.productin, os.productout, os.line, os.remark ",
                 
                 // 2 tablas and joins                                             
-                " outstandingorder os   "  ,
+                " outstandingorder os   " +
+                    " left join buyer byr on byr.id=os.buyerid ",
                                                    
                 // 3 llave principal (mayusculas!)
                 "ID" 

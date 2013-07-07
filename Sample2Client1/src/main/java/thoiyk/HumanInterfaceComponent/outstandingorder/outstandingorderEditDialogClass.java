@@ -39,6 +39,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;
 import thoiyk.HumanInterfaceComponent.samplerecord.samplerecordBrowserClass;
+import thoiyk.HumanInterfaceComponent.reservedorderitem.reservedorderitemBrowserClass;
 
 
 public class outstandingorderEditDialogClass 
@@ -52,6 +53,7 @@ implements KDialogInterface
     private long                            parentID;
    
     // has defaulted   
+    private reservedorderitemBrowserClass             browser; 
     private KDialogControllerClass            KDialogController;
 
     
@@ -74,6 +76,7 @@ implements KDialogInterface
         log = logParam;
         
         // has - defaulted     
+        
         KDialogController = new KDialogControllerClass(                 
                 configuration, log, 
                 outstandingorderClass.class, this, getContentPane() );        
@@ -107,6 +110,16 @@ implements KDialogInterface
 
         checkSecurity();
         
+        
+           // display the buyer name                
+                persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
+
+                // read the client of this invoice, no SQL anywhere ...
+                buyerClass buyer = new buyerClass();
+                buyer = ( buyerClass ) POM.copy4( ((outstandingorderClass)KDialogController.getCurrentObjectDisplayed()).getBuyerid(), buyerClass.class );
+
+                buyernameLbl.setText( buyer.getNama() );
+        
     }
     
     //---------------------------------------------------------------------------
@@ -125,8 +138,48 @@ implements KDialogInterface
     {
                        
         
+        
+       browser = new reservedorderitemBrowserClass(
+                configuration, log, FacturasBrowserJTable, 
+                reservedorderitemBrowserClass.SRITEM_BY_SR, id, this );
+        
+      //  browser.saveSQLOperation( 
+      //          totalLabel, " sum( fac.fac_total ) ", facturaBrowserClass.BROWSER_COLUMN_TYPE_CURRENCY, true );        
+        
+        browser.initializeTable();
+        
+        //if (browser.getSelectedFieldValue("ID")=="0")
+        //{
+            //issuedby2Label.setText("Tes");
+            
+        //}
+                
+        
+
+        //setup container button
+        newButton.addActionListener( browser );
+        deleteButton.addActionListener( browser );
+        editButton.addActionListener( browser );        
+        sortButton.addActionListener( browser );
+        filterButton.addActionListener( browser );     
+        printButton.addActionListener( browser );   
+        refreshButton.addActionListener( browser );          
+        saveChangesButton1.addActionListener( browser );  
+
+        saveChangesButton1.setEnabled( true);        
+        newButton.setEnabled( true);
+        deleteButton.setEnabled( true);
+        editButton.setEnabled( true);        
+        sortButton.setEnabled( true);
+        filterButton.setEnabled( true);
+        printButton.setEnabled( true);
+        refreshButton.setEnabled( true);    
                         
     }
+    
+    
+    
+    
      
     public void saveBrowserChanges() {
         
@@ -180,6 +233,8 @@ implements KDialogInterface
         jTextArea1 = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         buyernameLbl = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        sridLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -443,6 +498,13 @@ implements KDialogInterface
         buyernameLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         buyernameLbl.setName("buyerid"); // NOI18N
 
+        jButton3.setText("New");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -476,31 +538,28 @@ implements KDialogInterface
                         .add(0, 0, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(ID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(buyerid, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(214, 214, 214)
-                                .add(jButton2)
-                                .add(54, 54, 54))
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .add(buyernameLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 165, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 37, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(156, 156, 156))))))
+                            .add(ID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(buyerid, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(buyernameLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 165, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 37, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(154, 154, 154))))
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel3)
-                    .add(jLabel4))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(toleranceLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 188, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 395, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(34, 34, 34))
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(0, 0, Short.MAX_VALUE)
+                        .add(jButton2)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jButton3))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jLabel3)
+                            .add(jLabel4))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(toleranceLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 188, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 395, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                .add(1, 1, 1))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -509,7 +568,9 @@ implements KDialogInterface
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(lblID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(ID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jButton2))
+                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                        .add(jButton2)
+                        .add(jButton3)))
                 .add(1, 1, 1)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
@@ -549,6 +610,10 @@ implements KDialogInterface
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        sridLbl.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        sridLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        sridLbl.setName("srid"); // NOI18N
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -560,6 +625,11 @@ implements KDialogInterface
                     .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                     .add(jLayeredPane1))
                 .add(DesktopToolbar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 620, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                    .add(285, 285, 285)
+                    .add(sridLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(285, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -573,6 +643,11 @@ implements KDialogInterface
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 203, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                    .add(287, 287, 287)
+                    .add(sridLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(288, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
         
@@ -598,6 +673,10 @@ implements KDialogInterface
               // show error message
               KMetaUtilsClass.showErrorMessageFromException( getOwner(), error );               
         }
+        
+        
+        // refresh item
+        refreshButton.doClick();
               
       
   }//GEN-LAST:event_okButtonActionPerformed
@@ -698,14 +777,16 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
             if( parentID == -1 )
             {
+                sridLbl.setText("0");
                 throw new KExceptionClass( "You must select a Sample Record !", null);
+                
             }    
             else
             {
                 persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
 
                 samplerecordClass SR = new samplerecordClass();
-                SR = ( samplerecordClass ) POM.copy4( ((outstandingorderClass)KDialogController.getCurrentObjectDisplayed()).getId(), samplerecordClass.class );
+                SR = ( samplerecordClass ) POM.copy4( parentID, samplerecordClass.class );
                 
                 // buyer ID
                 buyerid.setText(Long.toString(SR.getBuyerid()));
@@ -716,10 +797,15 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 persistentObjectManagerClass BuyerPOM = new persistentObjectManagerClass(configuration, log);
 
                 buyerClass Buyer = new buyerClass();
-                Buyer = ( buyerClass ) BuyerPOM.copy4( ((samplerecordClass)KDialogController.getCurrentObjectDisplayed()).getId(), buyerClass.class );
+                Buyer = ( buyerClass ) BuyerPOM.copy4( SR.getBuyerid(), buyerClass.class );
                 
                 buyernameLbl.setText(Buyer.getNama());
+                
+                sridLbl.setText(Long.toString(parentID));
                
+                //disable all related field
+                buyernameLbl.setEnabled(false);
+                styleLbl.setEnabled(false);
                 
 
                 //clientNameLabel.setText( client.getClientName() );
@@ -733,6 +819,16 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             KMetaUtilsClass.showErrorMessageFromException( this, error );
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        buyernameLbl.setEnabled(true);
+        styleLbl.setEnabled(true);
+        sridLbl.setText("0");
+        // clear
+        buyernameLbl.setText("");
+        buyerid.setText("0");
+        styleLbl.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     
@@ -751,6 +847,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JButton filterButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -776,6 +873,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton saveChangesButton1;
     private javax.swing.JButton sortButton;
+    private javax.swing.JLabel sridLbl;
     private javax.swing.JTextField styleLbl;
     private javax.swing.JTextField toleranceLabel;
     private javax.swing.JTextField toleranceLabel1;
