@@ -61,8 +61,7 @@ extends KBusinessObjectClass
     private String colour;
     @Column(name = "description")
     private String description;
-    @Column(name = "qty")
-    private long qty;
+   
        
     @Lob
     @Column(name = "image")
@@ -129,14 +128,6 @@ extends KBusinessObjectClass
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public long getQty() {
-        return qty;
-    }
-
-    public void setQty(long qty) {
-        this.qty = qty;
     }
 
    public byte[] getImage() {

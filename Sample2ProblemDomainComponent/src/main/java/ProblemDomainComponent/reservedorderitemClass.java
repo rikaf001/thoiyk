@@ -34,8 +34,8 @@ import javax.persistence.TableGenerator;
     valueColumnName="SEQ_COUNT", 
     pkColumnValue="SEQ_GEN_TABLE", 
     allocationSize=1) 
-@Table(name = "SAMPLERECORDITEM")
-public class samplerecorditemClass 
+@Table(name = "RESERVEDORDERITEM")
+public class reservedorderitemClass 
 extends KBusinessObjectClass
 {
     
@@ -69,7 +69,7 @@ extends KBusinessObjectClass
     private long version;
  
 
-    public samplerecorditemClass() throws KExceptionClass {
+    public reservedorderitemClass() throws KExceptionClass {
            fieldTypes.put( "clientId", NUMERIC_NOFORMAT );
     }
 
@@ -127,7 +127,7 @@ extends KBusinessObjectClass
     }
 
     public void setQtyneed(double qtyneed) {
-        this.qtyneed = (comp*tolerance*qty)+(qty*comp);
+        this.qtyneed = comp*tolerance*qty;
     }
 
     public long getVersion() {

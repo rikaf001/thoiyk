@@ -58,8 +58,7 @@ extends KBusinessObjectClass
     private String ukuran;
     @Column(name = "mesin")
     private String mesin;
-    @Column(name = "qty")
-    private String qty;
+    
   
     @Lob
     @Column(name = "image")
@@ -116,15 +115,7 @@ extends KBusinessObjectClass
     public void setMesin(String mesin) {
         this.mesin = mesin;
     }
-
-    public String getQty() {
-        return qty;
-    }
-
-    public void setQty(String qty) {
-        this.qty = qty;
-    }
-
+    
     public byte[] getImage() {
         return image;
     }

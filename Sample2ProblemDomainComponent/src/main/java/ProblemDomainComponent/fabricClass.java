@@ -66,8 +66,7 @@ extends KBusinessObjectClass
     private String width;
     @Column(name = "weight")
     private String weight;
-    @Column(name = "qty")
-    private long qty;
+   
 
         
     @Lob
@@ -157,14 +156,6 @@ extends KBusinessObjectClass
 
     public void setWeight(String weight) {
         this.weight = weight;
-    }
-
-    public long getQty() {
-        return qty;
-    }
-
-    public void setQty(long qty) {
-        this.qty = qty;
     }
 
     public byte[] getImage() {

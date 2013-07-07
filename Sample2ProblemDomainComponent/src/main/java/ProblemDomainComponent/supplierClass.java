@@ -58,8 +58,8 @@ extends KBusinessObjectClass
     private String telp;
     @Column(name = "fax")
     private String fax;
-    @Column(name = "negaraid")
-    private String negaraid;
+    @Column(name = "negara")
+    private String negara;
     @Column(name = "npwp")
     private String npwp;
    
@@ -67,11 +67,11 @@ extends KBusinessObjectClass
     }
 
     //=================================================================    
-    public Long getId() {
+       public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -107,12 +107,12 @@ extends KBusinessObjectClass
         this.fax = fax;
     }
 
-    public String getNegaraid() {
-        return negaraid;
+    public String getNegara() {
+        return negara;
     }
 
-    public void setNegaraid(String negaraid) {
-        this.negaraid = negaraid;
+    public void setNegara(String negara) {
+        this.negara = negara;
     }
 
     public String getNpwp() {
@@ -122,7 +122,7 @@ extends KBusinessObjectClass
     public void setNpwp(String npwp) {
         this.npwp = npwp;
     }
-
+   
     @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {
     }

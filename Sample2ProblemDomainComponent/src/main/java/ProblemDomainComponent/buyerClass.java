@@ -61,8 +61,8 @@ extends KBusinessObjectClass
     private String npwp;
     @Column(name = "noizintpb")
     private String noizintpb;
-    @Column(name = "buyerkontakid")
-    private String buyerkontakid;
+    @Column(name = "contactperson")
+    private String contactperson;
     
     @KObjectVersion
     @Column(name = "version")
@@ -130,12 +130,12 @@ extends KBusinessObjectClass
         this.noizintpb = noizintpb;
     }
 
-    public String getBuyerkontakid() {
-        return buyerkontakid;
+    public String getContactperson() {
+        return contactperson;
     }
 
-    public void setBuyerkontakid(String buyerkontakid) {
-        this.buyerkontakid = buyerkontakid;
+    public void setContactperson(String contactperson) {
+        this.contactperson = contactperson;
     }
 
     public long getVersion() {

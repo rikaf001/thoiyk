@@ -47,7 +47,10 @@ extends KBusinessObjectClass
     @GeneratedValue( strategy = javax.persistence.GenerationType.TABLE, generator="KIDGenerator" )    
     @Column(name = "id")
     private long id;
-        
+    
+    @Column(name = "srid")
+    private long srid;
+    
     @Column(name = "buyerid")
     private long buyerid;
     
@@ -104,6 +107,15 @@ extends KBusinessObjectClass
         this.id = id;
     }
 
+    public long getSrid() {
+        return srid;
+    }
+
+    public void setSrid(long srid) {
+        this.srid = srid;
+    }
+
+    
     public long getBuyerid() {
         return buyerid;
     }

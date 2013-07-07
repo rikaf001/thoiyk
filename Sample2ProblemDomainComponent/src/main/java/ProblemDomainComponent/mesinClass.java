@@ -56,8 +56,7 @@ extends KBusinessObjectClass
     private String supplierid;
     @Column(name = "description")
     private String description;
-    @Column(name = "qty")
-    private long qty;
+    
 
         
     @Lob
@@ -106,14 +105,6 @@ extends KBusinessObjectClass
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public long getQty() {
-        return qty;
-    }
-
-    public void setQty(long qty) {
-        this.qty = qty;
     }
 
     public byte[] getImage() {

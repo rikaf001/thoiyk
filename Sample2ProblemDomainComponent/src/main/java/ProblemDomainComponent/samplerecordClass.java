@@ -53,9 +53,6 @@ extends KBusinessObjectClass
     @Column(name = "id")
     private long id;
     
-    @Column(name = "samplerecordstatusid")
-    private long samplerecordstatusid;
-
     @Column(name = "samplerecordtypeid")
     private long samplerecordtypeid;
     
@@ -93,15 +90,7 @@ extends KBusinessObjectClass
         this.id = id;
     }
 
-    public long getSamplerecordstatusid() {
-        return samplerecordstatusid;
-    }
-
-    public void setSamplerecordstatusid(long samplerecordstatusid) {
-        this.samplerecordstatusid = samplerecordstatusid;
-    }
-
-
+    
     public String getDescription() {
         return description;
     }
