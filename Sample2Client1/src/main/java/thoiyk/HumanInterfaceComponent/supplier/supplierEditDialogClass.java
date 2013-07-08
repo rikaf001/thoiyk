@@ -184,9 +184,9 @@ implements KDialogInterface
 
         jTextField1.setName("fax"); // NOI18N
 
-        jTextField4.setName("negaraid"); // NOI18N
+        jTextField4.setName("negara"); // NOI18N
 
-        jLabel2.setText("NegaraID:");
+        jLabel2.setText("Negara");
 
         jLabel4.setText("NPWP:");
 

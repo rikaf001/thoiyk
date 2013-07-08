@@ -226,12 +226,12 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField4">
               <Properties>
-                <Property name="name" type="java.lang.String" value="negaraid" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="negara" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="NegaraID:"/>
+                <Property name="text" type="java.lang.String" value="Negara"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
