@@ -18,14 +18,11 @@ package ProblemDomainComponent;
 import KFramework30.Base.KBusinessObjectClass;
 import KFramework30.Base.KExceptionClass;
 import java.awt.Component;
-import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
@@ -60,6 +57,8 @@ extends KBusinessObjectClass
     private String fax;
     @Column(name = "negara")
     private String negara;
+    @Column(name = "contactname")
+    private String contactname;
     @Column(name = "npwp")
     private String npwp;
    
@@ -122,6 +121,15 @@ extends KBusinessObjectClass
     public void setNpwp(String npwp) {
         this.npwp = npwp;
     }
+
+    public String getContactname() {
+        return contactname;
+    }
+
+    public void setContactname(String contactname) {
+        this.contactname = contactname;
+    }
+    
    
     @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {
