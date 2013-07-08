@@ -488,7 +488,7 @@ implements desktopAccessInterface, ActionListener
         });
         MainMenu.add(outstandingorderItem);
 
-        PRItem.setText("jMenuItem1");
+        PRItem.setText("Production Record");
         PRItem.setName("PRItem"); // NOI18N
         PRItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -909,7 +909,7 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }//GEN-LAST:event_POItemActionPerformed
 
     private void PRItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRItemActionPerformed
-      openInternalFrame( PRFrameClass.class, "Prpdocution Record" );
+      openInternalFrame( PRFrameClass.class, "Prodocution Record" );
     }//GEN-LAST:event_PRItemActionPerformed
 
    

@@ -111,17 +111,7 @@ implements KDialogInterface
         checkSecurity();
         
         
-           // display the buyer name                
-                persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
-
-                // read the client of this invoice, no SQL anywhere ...
-                buyerClass buyer = new buyerClass();
-                buyer = ( buyerClass ) POM.copy4( ((outstandingorderClass)KDialogController.getCurrentObjectDisplayed()).getBuyerid(), buyerClass.class );
-
-                buyernameLbl.setText( buyer.getNama() );
-        
-    }
-    
+    }    
     //---------------------------------------------------------------------------
     
     private void checkSecurity()
@@ -174,7 +164,32 @@ implements KDialogInterface
         filterButton.setEnabled( true);
         printButton.setEnabled( true);
         refreshButton.setEnabled( true);    
-                        
+        
+/*        try
+        {
+        // display the buyer name                
+                persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
+
+                // read the client of this invoice, no SQL anywhere ...
+                buyerClass buyer = new buyerClass();
+                
+                if(((outstandingorderClass)KDialogController.getCurrentObjectDisplayed()).getBuyerid()==0)
+                {
+                    buyer = ( buyerClass ) POM.copy4( 0, buyerClass.class );
+                    buyernameLbl.setText( buyer.getNama() );        
+                    
+                }
+                else
+                {
+                    buyer = ( buyerClass ) POM.copy4( ((outstandingorderClass)KDialogController.getCurrentObjectDisplayed()).getBuyerid(), buyerClass.class );
+                    buyernameLbl.setText( buyer.getNama() );        
+                    }
+        }
+        catch( Exception error	){
+            log.log( this, KMetaUtilsClass.getStackTrace( error ) );
+            KMetaUtilsClass.showErrorMessageFromException( this, error );
+        }
+  */                      
     }
     
     
@@ -239,6 +254,9 @@ implements KDialogInterface
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                GetBuyerName(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 closeDialog(evt);
             }
@@ -455,6 +473,11 @@ implements KDialogInterface
         buyerid.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         buyerid.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         buyerid.setName("buyerid"); // NOI18N
+        buyerid.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                DisplayBuyerName(evt);
+            }
+        });
 
         lblID1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         lblID1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -829,6 +852,14 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         buyerid.setText("0");
         styleLbl.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void GetBuyerName(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_GetBuyerName
+       
+    }//GEN-LAST:event_GetBuyerName
+
+    private void DisplayBuyerName(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DisplayBuyerName
+        
+    }//GEN-LAST:event_DisplayBuyerName
 
 
     

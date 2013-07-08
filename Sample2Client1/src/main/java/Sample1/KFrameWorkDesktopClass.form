@@ -183,7 +183,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="PRItem">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+                <Property name="text" type="java.lang.String" value="Production Record"/>
                 <Property name="name" type="java.lang.String" value="PRItem" noResource="true"/>
               </Properties>
               <Events>

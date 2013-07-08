@@ -24,34 +24,29 @@ package thoiyk.HumanInterfaceComponent.ProductionRecord;
 // k
 import KFramework30.Base.*;
 import KFramework30.Communication.persistentObjectManagerClass;
-import KFramework30.Widgets.DataBrowser.recordClass;
-import KFramework30.Widgets.KDataBrowserBaseClass;
 import KFramework30.Widgets.KDialogControllerClass;
 
 //app
 import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
 import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
+import ProblemDomainComponent.outstandingorderClass;
 import ProblemDomainComponent.pr_newClass;
-import ProblemDomainComponent.systemMailClass;
-import Sample1.UserCustomWidgets.JCalendarDemoWidgetAdapterClass;
+import ProblemDomainComponent.samplerecordClass;
 
 // rtl
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;
 import thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemBrowserClass;
+import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderBrowserClass;
 
 
 public class PREditDialogClass 
 extends javax.swing.JDialog
-implements KDialogInterface
+implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterface
 {
     
     // uses
@@ -84,16 +79,23 @@ implements KDialogInterface
         log = logParam;
         
         // has - defaulted     
-        
+        KDialogController = new KDialogControllerClass(                 
+                configurationParam, logParam, 
+                pr_newClass.class, 
+                this, getContentPane() );   
+          /*
         KDialogController = new KDialogControllerClass(                 
                 configuration, log, 
                 pr_newClass.class, this, getContentPane() );        
-        
+        */
           productPictureRawDataContainer = new KNonVisibleBinaryWidgetClass(
                    configurationParam, logParam, "image", 1024 /* 1Kb start size, its dynamic dont worry */ );
                          
         // add for auto binding and forget, just code the postEdit as shown below
         KDialogController.addNonVisibleWidget( productPictureRawDataContainer );
+        
+        KDialogController.setEventCallback(this);
+
 
                             
     }
@@ -119,6 +121,7 @@ implements KDialogInterface
         KDialogController.initializeDialog( dialogModeParam, ID, null  );
 
         checkSecurity();
+
         
     }
     
@@ -204,7 +207,7 @@ implements KDialogInterface
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        client_name = new javax.swing.JTextField();
+        descriptionLbl = new javax.swing.JTextField();
         client_id = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -218,19 +221,20 @@ implements KDialogInterface
         jLabel5 = new javax.swing.JLabel();
         issuedbyLabel = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        client_name2 = new javax.swing.JTextField();
+        styleLbl = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         client_name1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        PickfROBtn = new javax.swing.JButton();
         system_user_mask = new javax.swing.JLabel();
         okButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
         applyButton = new javax.swing.JButton();
+        selectidLbl = new javax.swing.JLabel();
+        SRStatusIDLbl = new javax.swing.JLabel();
         topLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         FacturasBrowserJTable = new javax.swing.JTable();
-        client_id1 = new javax.swing.JLabel();
-        client_id2 = new javax.swing.JLabel();
         DesktopToolbar = new javax.swing.JToolBar();
         newButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
@@ -264,8 +268,8 @@ implements KDialogInterface
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("Id ");
 
-        client_name.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        client_name.setName("description"); // NOI18N
+        descriptionLbl.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        descriptionLbl.setName("description"); // NOI18N
 
         client_id.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_id.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -328,8 +332,8 @@ implements KDialogInterface
             }
         });
 
-        client_name2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        client_name2.setName("style"); // NOI18N
+        styleLbl.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        styleLbl.setName("style"); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -341,6 +345,13 @@ implements KDialogInterface
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         jLabel7.setText("image best fit size:  197 x 134 px");
+
+        PickfROBtn.setText("Pick from Receive Order");
+        PickfROBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PickfROBtnActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -366,11 +377,12 @@ implements KDialogInterface
                                         .add(18, 18, 18)
                                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                             .add(cbSRType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 172, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                            .add(client_name, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 221, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                            .add(descriptionLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 221, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(PickfROBtn)))
                                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .add(client_name2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 221, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                        .add(styleLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 221, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                     .add(jPanel1Layout.createSequentialGroup()
                                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                             .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -406,8 +418,9 @@ implements KDialogInterface
                         .add(2, 2, 2)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 16, Short.MAX_VALUE)
+                            .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, PickfROBtn))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 8, Short.MAX_VALUE)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -416,10 +429,10 @@ implements KDialogInterface
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(client_name, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(descriptionLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(client_name2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(styleLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jLabel2))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -439,7 +452,7 @@ implements KDialogInterface
                         .add(pictureLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(1, 1, 1)
                         .add(jLabel7)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 15, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 20, Short.MAX_VALUE)
                         .add(jButton1))))
         );
 
@@ -482,6 +495,18 @@ implements KDialogInterface
         applyButton.setBounds(530, 140, 80, 20);
         jLayeredPane1.add(applyButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        selectidLbl.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        selectidLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        selectidLbl.setName("selectid"); // NOI18N
+        selectidLbl.setBounds(0, 0, 4, 4);
+        jLayeredPane1.add(selectidLbl, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        SRStatusIDLbl.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        SRStatusIDLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        SRStatusIDLbl.setName("samplerecordstatusid"); // NOI18N
+        SRStatusIDLbl.setBounds(0, 0, 4, 4);
+        jLayeredPane1.add(SRStatusIDLbl, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         topLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         topLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/topBar.jpg"))); // NOI18N
         topLabel1.setMaximumSize(new java.awt.Dimension(100, 44));
@@ -502,14 +527,6 @@ implements KDialogInterface
             }
         ));
         jScrollPane1.setViewportView(FacturasBrowserJTable);
-
-        client_id1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        client_id1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        client_id1.setName("selectid"); // NOI18N
-
-        client_id2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        client_id2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        client_id2.setName("samplerecordstatusid"); // NOI18N
 
         DesktopToolbar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         DesktopToolbar.setFloatable(false);
@@ -655,12 +672,6 @@ implements KDialogInterface
             .add(jScrollPane1)
             .add(jLayeredPane1)
             .add(layout.createSequentialGroup()
-                .addContainerGap()
-                .add(client_id2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(20, 20, 20)
-                .add(client_id1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .add(layout.createSequentialGroup()
                 .add(DesktopToolbar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 620, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(0, 0, Short.MAX_VALUE))
         );
@@ -672,11 +683,7 @@ implements KDialogInterface
                 .add(DesktopToolbar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(5, 5, 5)
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 194, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, client_id1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, client_id2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
         
@@ -781,7 +788,8 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
             buyerid.setText( Long.toString(parentID));
 
-            //if( parentID == -1 ) throw new KExceptionClass( "You must select a client for the invoice!", null);
+            
+            
 
             /*
             * */
@@ -791,6 +799,69 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             KMetaUtilsClass.showErrorMessageFromException( this, error );
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void PickfROBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PickfROBtnActionPerformed
+
+        try
+        {
+            outstandingorderBrowserClass outstandingorderBrowser = new outstandingorderBrowserClass(
+                configuration, log, new javax.swing.JTable(), this );
+
+            outstandingorderBrowser.initializeTable();
+
+            selectDialogClass selector = new selectDialogClass(
+                configuration, log, this, outstandingorderBrowser, "Select Received Order" );
+
+            // dont want to allow this, for example
+            selector.getNewButton().setEnabled(false);
+            selector.getEditButton().setEnabled(false);
+            selector.getDeleteButton().setEnabled(false);
+            
+
+            parentID = selector.showDialog();
+
+            buyerid.setText( Long.toString(parentID));
+
+if( parentID == -1 ) 
+            {
+                throw new KExceptionClass( "You must select a Received Order!", null);
+            }
+            else
+            {
+                persistentObjectManagerClass ROPOM = new persistentObjectManagerClass(configuration, log);
+                outstandingorderClass ROClass = new outstandingorderClass();
+                ROClass = ( outstandingorderClass ) ROPOM.copy4( parentID, outstandingorderClass.class );
+                //mining the data
+                styleLbl.setText(ROClass.getStyle());
+                buyerid.setText(Long.toString(ROClass.getBuyerid()));
+                
+                //refresh item
+                refreshButton.doClick();
+                
+                selectidLbl.setText(Long.toString(ROClass.getId()));
+                
+                //get image
+                if(ROClass.getSrid()>0)
+                {
+                    // its mean there is picture
+                    persistentObjectManagerClass SRPOM = new persistentObjectManagerClass(configuration, log);
+                    samplerecordClass SRClass = new samplerecordClass();
+                    SRClass = ( samplerecordClass ) SRPOM.copy4( ROClass.getSrid(), samplerecordClass.class );                    
+                    
+                    pictureLabel.setIcon( new ImageIcon( SRClass.getImage() ));
+                    descriptionLbl.setText(SRClass.getDescription());
+                }
+                
+                
+                
+
+            }
+        }
+        catch( Exception error	){
+            log.log( this, KMetaUtilsClass.getStackTrace( error ) );
+            KMetaUtilsClass.showErrorMessageFromException( this, error );
+        }
+    }//GEN-LAST:event_PickfROBtnActionPerformed
 
 public void loadPic(){
     
@@ -832,17 +903,16 @@ public void loadPic(){
     private javax.swing.JButton CancelButton;
     private javax.swing.JToolBar DesktopToolbar;
     private javax.swing.JTable FacturasBrowserJTable;
+    private javax.swing.JButton PickfROBtn;
+    private javax.swing.JLabel SRStatusIDLbl;
     private javax.swing.JButton applyButton;
     private javax.swing.JLabel buyerid;
     private javax.swing.JComboBox cbSRType;
     private javax.swing.ButtonGroup clientDiscountGroup;
     private javax.swing.JLabel client_id;
-    private javax.swing.JLabel client_id1;
-    private javax.swing.JLabel client_id2;
-    private javax.swing.JTextField client_name;
     private javax.swing.JTextField client_name1;
-    private javax.swing.JTextField client_name2;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JTextField descriptionLbl;
     private javax.swing.JButton editButton;
     private javax.swing.JButton filterButton;
     private javax.swing.JLabel issuedbyLabel;
@@ -870,12 +940,54 @@ public void loadPic(){
     private javax.swing.JButton printButton;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton saveChangesButton1;
+    private javax.swing.JLabel selectidLbl;
     private javax.swing.JButton sortButton;
+    private javax.swing.JTextField styleLbl;
     private javax.swing.JLabel system_user_mask;
     private javax.swing.JLabel topLabel1;
     // End of variables declaration//GEN-END:variables
 
 
     
+    @Override
+    public void preNewObject() throws Exception {
+    }
+
+    @Override
+    public void postNewObject(KBusinessObjectClass businessObject) throws Exception {
+    }
+
+    @Override
+    public void prePushBack(KBusinessObjectClass businessObject) throws Exception {
+    }
+
+    @Override
+    public void postPushBack(KBusinessObjectClass businessObject) throws Exception {
+    }
+
+    @Override
+    public void preEdit() throws Exception {
+    }
+
+    @Override
+    public void postEdit(KBusinessObjectClass businessObject) throws Exception {
+        
+        pr_newClass product = (pr_newClass) businessObject;
+        if( product.getImage() != null ){
+            
+            pictureLabel.setIcon(  new ImageIcon( product.getImage() ) );            
+        }
+        
+        
+    }
+
+    @Override
+    public void preUpdate(KBusinessObjectClass businessObject) throws Exception {
+    }
+
+    @Override
+    public void postUpdate(KBusinessObjectClass businessObject) throws Exception {
+    }    
     
+
 }

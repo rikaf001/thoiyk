@@ -13,6 +13,7 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="2"/>
   </SyntheticProperties>
   <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="GetBuyerName"/>
     <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="closeDialog"/>
   </Events>
   <AuxValues>
@@ -661,6 +662,9 @@
             </Property>
             <Property name="name" type="java.lang.String" value="buyerid" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="DisplayBuyerName"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblID1">
           <Properties>
