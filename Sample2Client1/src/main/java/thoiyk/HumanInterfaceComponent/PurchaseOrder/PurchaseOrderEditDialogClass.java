@@ -108,6 +108,14 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
   //      KDialogController.includeCustomWidgetForMapping( dateChooserAdapter );                
         //-------------------------------------------------------------                           
 
+        // dont forget to visually set the "name" property to the  field you want to map
+        JCalendarDemoWidgetAdapterClass dateChooserAdapter = new JCalendarDemoWidgetAdapterClass( jDateChooser1, "PODate" );                
+        KDialogController.includeCustomWidgetForMapping( dateChooserAdapter ); 
+        JCalendarDemoWidgetAdapterClass dateChooserAdapter2 = new JCalendarDemoWidgetAdapterClass( jDateChooser2, "DeliveryDate" );                
+        KDialogController.includeCustomWidgetForMapping( dateChooserAdapter2 );                
+      
+        //-------------------------------------------------------------                           
+
         // start
 //        KDialogController.initializeDialog( dialogModeParam, ID, foreingKeys );
           KDialogController.initializeDialog( dialogModeParam, ID, null  );
@@ -267,8 +275,6 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         statusidLbl2 = new javax.swing.JLabel();
         statusidLbl3 = new javax.swing.JLabel();
         statusidLbl4 = new javax.swing.JLabel();
-        statusidLbl5 = new javax.swing.JLabel();
-        statusidLbl6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(100, 100));
@@ -692,14 +698,6 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         statusidLbl4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         statusidLbl4.setName("CheckedDate"); // NOI18N
 
-        statusidLbl5.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        statusidLbl5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        statusidLbl5.setName("PODate"); // NOI18N
-
-        statusidLbl6.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        statusidLbl6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        statusidLbl6.setName("DeliveryDate"); // NOI18N
-
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -718,37 +716,25 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(statusidLbl3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(statusidLbl4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(32, 32, 32)
-                        .add(statusidLbl5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(statusidLbl6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(statusidLbl4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(1, 1, 1)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 366, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(DesktopToolbar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(1, 1, 1)
                 .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 150, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(1, 1, 1)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(statusidLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(statusidLbl1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(statusidLbl2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(statusidLbl3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(statusidLbl4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(statusidLbl5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(16, Short.MAX_VALUE))
-                    .add(layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(statusidLbl6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                    .add(statusidLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(statusidLbl1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(statusidLbl2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(statusidLbl3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(statusidLbl4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
         );
     }// </editor-fold>//GEN-END:initComponents
         
@@ -906,8 +892,6 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JLabel statusidLbl2;
     private javax.swing.JLabel statusidLbl3;
     private javax.swing.JLabel statusidLbl4;
-    private javax.swing.JLabel statusidLbl5;
-    private javax.swing.JLabel statusidLbl6;
     private javax.swing.JLabel supp_text02;
     private javax.swing.JLabel supp_text03;
     private javax.swing.JLabel supp_text04;
