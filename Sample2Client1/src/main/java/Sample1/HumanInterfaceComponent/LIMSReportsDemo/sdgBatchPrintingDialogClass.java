@@ -522,6 +522,7 @@ extends javax.swing.JDialog
             headerSection.printText(sdg.getSdgLabId(),                                 405, 120 );
             
             // ---------------------------------------------------------------------------------------
+            // ---------------------------------------------------------------------------------------
             
             // Address section
             KPrintSectionClass addressSection = new KPrintSectionClass(configuration, log, 520, 130 );                 
@@ -1014,7 +1015,7 @@ extends javax.swing.JDialog
                     dbTable.setPrintingField( "METHOD" );
                     dbTable.setPrintingField( "PRICE" );        
                     dbTable.setPrintingField( "DISCOUNT" );                        
-                    dbTable.setPrintingField( "CLIENT PRICE" );                        
+                    //dbTable.setPrintingField( "CLIENT PRICE" );                        
                     //DBPrinter.setPrintingField( "SAMPLE ID" );  
                     
                     
