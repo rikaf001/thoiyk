@@ -65,7 +65,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " ID , NAMA, ALAMAT, TELP, FAX, NPWP, NOIZINTPB, BUYERKONTAKID ",
+                " ID , NAMA, ALAMAT, TELP, FAX, NPWP, NOIZINTPB, CONTACTPERSON ",
                 
                 // 2 tablas and joins                                             
                 " BUYER byr ",  
@@ -77,13 +77,13 @@ extends KDataBrowserBaseClass {
 
             // define column settings
             setColumnNames( "byr", "ID", "ID" );
-            setColumnNames( "byr", "NAMA", "NAMA" );
-            setColumnNames( "byr", "ALAMAT", "ALAMAT" );                                      
-            setColumnNames( "byr", "TELP", "TELP" );
+            setColumnNames( "byr", "NAMA", "Name" );
+            setColumnNames( "byr", "ALAMAT", "Address" );                                      
+            setColumnNames( "byr", "TELP", "Phone" );
             setColumnNames( "byr", "FAX", "FAX" );                                      
             setColumnNames( "byr", "NPWP", "NPWP" );
             setColumnNames( "byr", "NOIZINTPB", "NOIZINTPB" );
-            setColumnNames( "byr", "BUYERKONTAKID", "BUYERKONTAKID" );
+            setColumnNames( "byr", "CONTACTPERSON", "CONTACTPERSON" );
             
             setDefaultOrder( "  NAMA " );
 
@@ -92,8 +92,8 @@ extends KDataBrowserBaseClass {
             super.initializeTable();   
             
             // some customization
-            adjustColumnWidth( "NAMA", 100 );
-            adjustColumnWidth( "ALAMAT", 200 );                        
+            adjustColumnWidth( "Name", 100 );
+            adjustColumnWidth( "Address", 200 );                        
  
             adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
     }        

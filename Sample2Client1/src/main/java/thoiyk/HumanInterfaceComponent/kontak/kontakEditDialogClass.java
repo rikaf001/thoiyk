@@ -192,9 +192,8 @@ implements KDialogInterface
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(ID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(Nama)
-                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                        .add(org.jdesktop.layout.GroupLayout.LEADING, jTextField3)
-                        .add(org.jdesktop.layout.GroupLayout.LEADING, jTextField2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
+                    .add(jTextField3)
+                    .add(jTextField2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                     .add(jTextField1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -220,7 +219,7 @@ implements KDialogInterface
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel1)
                     .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jPanel1.setBounds(0, 0, 510, 180);
@@ -247,7 +246,7 @@ implements KDialogInterface
         jLayeredPane1.add(CancelButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         applyButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        applyButton.setText("Apply"); // NOI18N
+        applyButton.setText("Reset"); // NOI18N
         applyButton.setName("applyButton"); // NOI18N
         applyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,20 +309,11 @@ implements KDialogInterface
     }//GEN-LAST:event_closeDialog
 
 private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyButtonActionPerformed
-    
-        try {
+Nama.setText("");
+jTextField2.setText("");
+jTextField1.setText("");
+jTextField3.setText("");
 
-            KDialogController.OKbuttonActionPerformed();
-                            
-        } catch (KExceptionClass error ) {
-
-              // log error
-              log.log( this, KMetaUtilsClass.getStackTrace( error ) );
-
-              // show error message
-              KMetaUtilsClass.showErrorMessageFromException(  getOwner(), error );               
-        }    
-    
     
 }//GEN-LAST:event_applyButtonActionPerformed
 

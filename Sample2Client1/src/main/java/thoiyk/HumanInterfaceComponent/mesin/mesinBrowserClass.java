@@ -64,7 +64,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " msn.ID, msn.MESINTYPEID,mt.nama TYPE, msn.SUPPLIERID,sup.nama SUPPLIER, msn.KODE, msn.DESCRIPTION, msn.QTY",
+                " msn.ID,mt.nama TYPE,sup.nama SUPPLIER, msn.KODE, msn.DESCRIPTION",
                 
                 // 2 tablas and joins                                             
                 " MESIN msn   "  +
@@ -78,13 +78,13 @@ extends KDataBrowserBaseClass {
 
             // define column settings
            setColumnNames( "msn", "ID", "ID" );
-           setColumnNames( "msn", "MESINTYPEID", "TypeID" );
+          // setColumnNames( "msn", "MESINTYPEID", "TypeID" );
            setColumnNames( "mt", "TYPE", "TypeName" );
-           setColumnNames( "msn", "SUPPLIERID", "SupplierID" );
+          // setColumnNames( "msn", "SUPPLIERID", "SupplierID" );
            setColumnNames( "sup", "SUPPLIER", "SupplierName" );
            setColumnNames( "msn", "KODE", "Code" );
            setColumnNames( "msn", "DESCRIPTION", "Description" );
-           setColumnNames( "msn", "QTY", "Qty" );
+           //setColumnNames( "msn", "QTY", "Qty" );
        /*     setColumnNames( "stk", "STOCKTYPEID", "StockTypeID" );
             setColumnNames( "stk", "BUYERID", "BuyerID" );                                      
             //setColumnNames( "stk", "PRODUCT", "Product" );                                      

@@ -121,7 +121,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname,sri.qtyneed ",    
+                        " sri.id , vsri.category,vsri.nama itemname,sri.qty,sri.comp,sri.tolerance,sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " samplerecorditem sri " +
@@ -145,10 +145,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 // Read Only
                 
                 setColumnNames( "sri", "ID", "ID" );             
-                setColumnNames( "sri", "ITEMID", "ItemID" );             
+                //setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
-                setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
+                setColumnNames( "vsri", "ITEMNAME", "Item Name" ); 
+                setColumnNames( "sri", "QTY", "Qty" ); 
+                setColumnNames( "sri", "COMP", "Comp" ); 
+                setColumnNames( "sri", "TOLERANCE", "Toleransi" ); 
+                setColumnNames( "sri", "QTYNEED", "Qty Need" );             
                 
                 // writeable -> true
                 //setColumnNames( "FAC", "FAC_DATE", "Date", true );                        
@@ -171,7 +174,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qtyneed ",    
+                        " sri.id ,vsri.category,vsri.nama itemname, sri.qty, sri.comp, sri.tolerance, sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " samplerecorditem sri " +
@@ -208,9 +211,12 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "FAC", "FAC_TOTAL", "TOTAL" );                                
               */  
                 setColumnNames( "sri", "ID", "ID" );             
-                setColumnNames( "sri", "ITEMID", "ItemID" );             
+                //setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
+                setColumnNames( "vsri", "ITEMNAME", "Item Name" ); 
+                setColumnNames( "sri", "QTY", "Qty" );  
+                setColumnNames( "sri", "COMP", "Comp" );  
+                setColumnNames( "sri", "TOLERANCE", "Tolerance" );  
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
 
               /*setColumnNames( "sri", "id", "id" ); 

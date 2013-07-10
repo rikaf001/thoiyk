@@ -9,25 +9,34 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.sparepart;
+package thoiyk.HumanInterfaceComponent.pr_new;
 
 /**
  *
  * @author yoserizy
  */
-
 //rtl
 import javax.swing.*;
+import java.awt.*;
 
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import KFramework30.Communication.persistentObjectManagerClass;
 
 // system
-import ProblemDomainComponent.sparepartClass;
+import KFramework30.Widgets.DataBrowser.TableCellRenderers.ImageCellRendererClass;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_CURRENCY;
+import Sample1.HumanInterfaceComponent.system_mail.*;
+import ProblemDomainComponent.mesinClass;
+import ProblemDomainComponent.pr_from_srClass;
+import ProblemDomainComponent.pr_newClass;
+import java.util.HashMap;
+import thoiyk.HumanInterfaceComponent.mesin.mesinEditDialogClass;
+import thoiyk.HumanInterfaceComponent.pr_from_sr.pr_from_srEditDialogClass;
 
 
-public class sparepartBrowserClass 
+public class pr_newBrowserClass 
 extends KDataBrowserBaseClass {   
         
     // uses                       	
@@ -35,7 +44,7 @@ extends KDataBrowserBaseClass {
     // has
 
     /** Creates new viajeBrowserClass */
-    public sparepartBrowserClass(
+    public pr_newBrowserClass(
             KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,
@@ -47,8 +56,8 @@ extends KDataBrowserBaseClass {
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    sparepartClass.class,
-                    sparepartEditDialogClass.class
+                    pr_newClass.class,
+                    pr_newEditDialogClass.class
             );  
             
             // uses                   
@@ -63,32 +72,30 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                // 1 campos                    
-                " sp.ID,spt.NAMA TYPE,sup.nama SUPPLIER, sp.KODE, sp.UKURAN, sp.MESIN",
+                " pr.ID,st.nama type, pr.STYLE, pr.BUYERID,byr.NAMA BUYERNAME,pr.DESCRIPTION, pr.QTY ",
                 
                 // 2 tablas and joins                                             
-                " SPAREPART sp   "  +
-                " left join SPAREPARTTYPE spt on sp.spareparttypeid=spt.id" +
-                " left join SUPPLIER sup on sp.supplierid=sup.id"    ,
-                                                   
+                " productionrecord pr   "  +
+                " left join stocktype st on pr.samplerecordtypeid = st.id "   +
+                " left join BUYER byr on pr.BUYERID=byr.id where pr.selectid<=0 "  
+                 ,
+                                                                
                 // 3 llave principal (mayusculas!)
                 "ID" 
                                                                                              
                     );   
 
-            // define column settings
-            setColumnNames( "sp", "ID", "ID" );
-            //setColumnNames( "sp", "SPAREPARTTYPEID", "TypeID" );
-            setColumnNames( "spt", "TYPE", "TypeName" );
-            //setColumnNames( "sp", "SUPPLIERID", "SupplierID" );
-            setColumnNames( "sup", "SUPPLIER", "SupplierName" );
-            setColumnNames( "sp", "KODE", "Code" );
-            setColumnNames( "sp", "UKURAN", "Size" );
-            setColumnNames( "sp", "MESIN", "Machine" );
-            //setColumnNames( "sp", "QTY", "Qty" );
-            setDefaultOrder( "  ID " );
+     
+            setColumnNames( "pr", "ID", "ID" );
+            setColumnNames( "st", "TYPE", "TypeName" );
+            setColumnNames( "pr", "STYLE", "Style" );
+            setColumnNames( "pr", "BUYERID", "BuyerID" );
+            setColumnNames( "byr", "BUYERNAME", "BuyerName" );
+            setColumnNames( "pr", "DESCRIPTION", "Description" );
+            setColumnNames( "pr", "QTY", "Qty" );
+       
 
-            //            setRowsHeight( 150 );
+            //setRowsHeight( 150 );
             
             // load data
             super.initializeTable();   
@@ -102,8 +109,8 @@ extends KDataBrowserBaseClass {
             //adjustColumnFont(  "Cost",  new Font( "arial", Font.BOLD, 10  ) );             
             //adjustColumnForegroundColor( "Cost", Color.BLUE  );
             
-  //          adjustColumnWidth( "IMAGE", 210 );  
-   //         setColumnRenderer( "IMAGE", new ImageCellRendererClass( tableModel, log, 120, 150 ) );
+            //adjustColumnWidth( "IMAGE", 210 );  
+            //setColumnRenderer( "IMAGE", new ImageCellRendererClass( tableModel, log, 120, 150 ) );
             
     }        
 

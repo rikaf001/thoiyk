@@ -65,7 +65,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                "sr.ID, 'SR'||sr.ID as nomor, srt.nama as type, srs.nama as status,sr.style, byr.nama buyer, description, issuedby ",
+                "sr.ID, 'SR'||sr.YEAR||sr.ID as nomor, srt.nama as type,sr.style, byr.nama buyer, description, issuedby ",
                 
                 // 2 tablas and joins                                             
                 " SAMPLERECORD sr   " +
@@ -82,7 +82,7 @@ extends KDataBrowserBaseClass {
             setColumnNames( "sr", "ID", "ID" );
             setColumnNames( "sr", "NOMOR", "SRid" );
             setColumnNames( "srt", "TYPE", "Type" );
-            setColumnNames( "sr", "STATUS", "Status" );
+            //setColumnNames( "sr", "STATUS", "Status" );
             setColumnNames( "sr", "STYLE", "Style" );
             setColumnNames( "byr", "BUYER", "Buyer" );
             setColumnNames( "sr", "DESCRIPTION", "Description" );

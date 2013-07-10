@@ -80,7 +80,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " ID,PRID,SRID,PRNO,BUYERID,BUYERNAME,DESCRIPTION,ISSUEDBY,ITEMID ",
+                " ID,PRID,SRID,PRNO,BUYERNAME,DESCRIPTION,ISSUEDBY,ITEMID ",
                 
                 // 2 tablas and joins                                             
                 " V_PRHEADITEM vpo  "    ,

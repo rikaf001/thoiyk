@@ -18,12 +18,12 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-package thoiyk.HumanInterfaceComponent.samplerecorditem;
+package thoiyk.HumanInterfaceComponent.pr_newitem;
 
 
 // k
-import thoiyk.HumanInterfaceComponent.samplerecorditem.*;
-import thoiyk.HumanInterfaceComponent.samplerecorditem.*;
+import thoiyk.HumanInterfaceComponent.pr_newitem.*;
+import thoiyk.HumanInterfaceComponent.pr_newitem.*;
 import KFramework30.Base.*;
 import KFramework30.Communication.persistentObjectManagerClass;
 import KFramework30.Widgets.DataBrowser.recordClass;
@@ -33,8 +33,9 @@ import KFramework30.Widgets.KDialogControllerClass;
 //app
 import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
 import KFramework30.Widgets.selectDialogClass;
-import ProblemDomainComponent.samplerecordClass;
-import ProblemDomainComponent.samplerecorditemClass;
+import ProblemDomainComponent.pr_newClass;
+//import ProblemDomainComponent.pr_newitemClass;
+import ProblemDomainComponent.productionrecorditemClass;
 import ProblemDomainComponent.systemMailClass;
 
 // rtl
@@ -47,7 +48,7 @@ import java.util.logging.Logger;
 import thoiyk.HumanInterfaceComponent.v_sr_item.v_sr_itemBrowserClass;
 
 
-public class samplerecorditemEditDialogClass 
+public class pr_newitemEditDialogClass 
 extends javax.swing.JDialog
 implements KDialogInterface
 {
@@ -64,7 +65,7 @@ implements KDialogInterface
     //end of object persistent functions------------------------------------------------------
 
     /** Creates new form facturaEditDialogClass */
-    public samplerecorditemEditDialogClass( 
+    public pr_newitemEditDialogClass( 
         KConfigurationClass configurationParam, KLogClass logParam, java.awt.Window parentWindow )
         throws KExceptionClass
     {
@@ -82,7 +83,7 @@ implements KDialogInterface
         // has - defaulted     
         KDialogController = new KDialogControllerClass(                 
                 configuration, log, 
-                samplerecorditemClass.class, this, getContentPane() );        
+                productionrecorditemClass.class, this, getContentPane() );        
                             
     }
     
@@ -96,8 +97,8 @@ implements KDialogInterface
         /*
            persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
          // read the client of this invoice, no SQL anywhere ...
-                samplerecordClass sample = new samplerecordClass();
-                sample = ( samplerecordClass ) POM.copy4( ((samplerecorditemClass)KDialogController.getCurrentObjectDisplayed()).getId(), samplerecordClass.class );
+                pr_newClass sample = new pr_newClass();
+                sample = ( pr_newClass ) POM.copy4( ((pr_newitemClass)KDialogController.getCurrentObjectDisplayed()).getId(), pr_newClass.class );
 
                 descriptionLabel.setText( sample.getDescription() );
           */      
@@ -168,7 +169,7 @@ implements KDialogInterface
         jLayeredPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Sample Record Item Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 10))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Product Record Item Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 10))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
 
         lblID.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
@@ -200,7 +201,7 @@ implements KDialogInterface
 
         lblID1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         lblID1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblID1.setText("NO SampleRecord");
+        lblID1.setText("PordRecID:");
 
         jLabel2.setText("QtyNeed:");
 
@@ -243,12 +244,12 @@ implements KDialogInterface
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(6, 6, 6)
                         .add(lblID1)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 8, Short.MAX_VALUE)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(system_user_id1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(itemidLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .add(itemidLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 37, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(337, 337, 337))
@@ -297,10 +298,10 @@ implements KDialogInterface
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(jLabel2)
                     .add(qtyneedLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBounds(0, 0, 510, 240);
+        jPanel1.setBounds(0, 0, 510, 210);
         jLayeredPane1.add(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         okButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
@@ -342,10 +343,9 @@ implements KDialogInterface
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+            .add(layout.createSequentialGroup()
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 281, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 0, 0))
+                .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 221, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
         
@@ -436,7 +436,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
                 // read the client of this invoice, no SQL anywhere ...
                 buyerClass buyer = new buyerClass();
-                buyer = ( buyerClass ) POM.copy4( ((samplerecorditemClass)KDialogController.getCurrentObjectDisplayed()).getId(), buyerClass.class );
+                buyer = ( buyerClass ) POM.copy4( ((pr_newitemClass)KDialogController.getCurrentObjectDisplayed()).getId(), buyerClass.class );
 
                 clientNameLabel.setText( client.getClientName() );
                 // ---------------------------------------------------------------------        

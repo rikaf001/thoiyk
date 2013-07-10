@@ -1,43 +1,59 @@
 /*
-This source code is part of the Thoyik
-Copyright (C) 2013  Yoserizal
-Feedback / Bug Reports yoser174@gmail.com
+This source code is part of the KFRAMEWORK  (http://k-framework.sourceforge.net/)
+Copyright (C) 2001  Alejandro Vazquez, Ke Li
+Feedback / Bug Reports vmaxxed@users.sourceforge.net
 
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
 
-This project used:
-KFRAMEWORK  (http://k-framework.sourceforge.net/)
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+package thoiyk.HumanInterfaceComponent.pr_new;
 
-package thoiyk.HumanInterfaceComponent.samplerecord;
-
-/**
- *
- * @author yoserizy
- */
 
 // k
-import thoiyk.HumanInterfaceComponent.samplerecord.*;
+import thoiyk.HumanInterfaceComponent.pr_new.*;
 import KFramework30.Base.*;
+import KFramework30.Communication.persistentObjectManagerClass;
+import KFramework30.Widgets.DataBrowser.recordClass;
+import KFramework30.Widgets.KDataBrowserBaseClass;
 import KFramework30.Widgets.KDialogControllerClass;
 
 //app
 import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
 import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
-import ProblemDomainComponent.samplerecordClass;
+import thoiyk.HumanInterfaceComponent.pr_new.*;
+import ProblemDomainComponent.pr_newClass;
+import ProblemDomainComponent.systemMailClass;
+import Sample1.UserCustomWidgets.JCalendarDemoWidgetAdapterClass;
 
 // rtl
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;
-import thoiyk.HumanInterfaceComponent.samplerecorditem.samplerecorditemBrowserClass;
+import thoiyk.HumanInterfaceComponent.pr_newitem.pr_newitemBrowserClass;
 
 
-public class samplerecordEditDialogClass 
+public class pr_newEditDialogClass 
 extends javax.swing.JDialog
-implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterface
+implements KDialogInterface
 {
     
     // uses
@@ -46,7 +62,7 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
     private long                            parentID;
    
     // has defaulted   
-    private samplerecorditemBrowserClass             browser;   
+    private pr_newitemBrowserClass             browser;   
     private KNonVisibleBinaryWidgetClass    productPictureRawDataContainer;
     private KDialogControllerClass            KDialogController;
 
@@ -54,7 +70,7 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
     //end of object persistent functions------------------------------------------------------
 
     /** Creates new form facturaEditDialogClass */
-    public samplerecordEditDialogClass( 
+    public pr_newEditDialogClass( 
         KConfigurationClass configurationParam, KLogClass logParam, java.awt.Window parentWindow )
         throws KExceptionClass
     {
@@ -70,23 +86,16 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
         log = logParam;
         
         // has - defaulted     
-      /*  
+        
         KDialogController = new KDialogControllerClass(                 
                 configuration, log, 
-                samplerecordClass.class, this, getContentPane() );        
-        */
-          KDialogController = new KDialogControllerClass(                 
-                configurationParam, logParam, 
-                samplerecordClass.class, 
-                this, getContentPane() );   
-          
+                pr_newClass.class, this, getContentPane() );        
+        
           productPictureRawDataContainer = new KNonVisibleBinaryWidgetClass(
                    configurationParam, logParam, "image", 1024 /* 1Kb start size, its dynamic dont worry */ );
                          
         // add for auto binding and forget, just code the postEdit as shown below
         KDialogController.addNonVisibleWidget( productPictureRawDataContainer );
-        
-        KDialogController.setEventCallback(  this);
 
                             
     }
@@ -94,7 +103,10 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
     
     public void initializeDialog(int dialogModeParam, Long ID, Map foreingKeys ) throws KExceptionClass {
                         
+        
+
             
+        
         KDropDownFillerClass typeComboFiller = new KDropDownFillerClass(
                         configuration, log, 
                         //SQL, might have parameters and where clause or order by
@@ -129,9 +141,9 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
                        
         
         
-       browser = new samplerecorditemBrowserClass(
+       browser = new pr_newitemBrowserClass(
                 configuration, log, FacturasBrowserJTable, 
-                samplerecorditemBrowserClass.SRITEM_BY_SR, id, this );
+                pr_newitemBrowserClass.SRITEM_BY_SR, id, this );
         
       //  browser.saveSQLOperation( 
       //          totalLabel, " sum( fac.fac_total ) ", facturaBrowserClass.BROWSER_COLUMN_TYPE_CURRENCY, true );        
@@ -202,13 +214,15 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
         jButton1 = new javax.swing.JButton();
         buyerid = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        client_name1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         cbSRType = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         issuedbyLabel = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        client_name2 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        client_name1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         system_user_mask = new javax.swing.JLabel();
         okButton = new javax.swing.JButton();
@@ -217,6 +231,8 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
         topLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         FacturasBrowserJTable = new javax.swing.JTable();
+        client_id1 = new javax.swing.JLabel();
+        client_id2 = new javax.swing.JLabel();
         DesktopToolbar = new javax.swing.JToolBar();
         newButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
@@ -243,7 +259,7 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
         jLayeredPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Sample Record Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 10))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Production Record Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 10))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
@@ -284,12 +300,9 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("Buyer");
 
-        client_name1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        client_name1.setName("style"); // NOI18N
-
         jLabel4.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("SR");
+        jLabel4.setText("PR");
 
         cbSRType.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         cbSRType.setName("cbSamplerecordstatus"); // NOI18N
@@ -317,6 +330,17 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
             }
         });
 
+        client_name2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        client_name2.setName("style"); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel6.setText("Qty");
+        jLabel6.setName("labelQty"); // NOI18N
+
+        client_name1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        client_name1.setName("qty"); // NOI18N
+
         jLabel7.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         jLabel7.setText("image best fit size:  197 x 134 px");
 
@@ -324,52 +348,70 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                .add(4, 4, 4)
-                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 28, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(18, 18, 18)
-                .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(client_id, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(cbSRType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 172, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(63, 63, 63))
             .add(jPanel1Layout.createSequentialGroup()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(pictureLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(4, 4, 4)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel1Layout.createSequentialGroup()
-                                .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(18, 18, 18)
-                                .add(buyerid, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 86, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(jPanel1Layout.createSequentialGroup()
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jLabel10)
-                                    .add(jLabel11))
-                                .add(18, 18, 18)
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(6, 6, 6)
+                                        .add(jLabel7))
+                                    .add(pictureLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(1, 1, 1)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                    .add(client_name1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                                    .add(client_name)))
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(jLabel10)
+                                            .add(jLabel11))
+                                        .add(18, 18, 18)
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(cbSRType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 172, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(client_name, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 221, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .add(client_name2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 221, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                        .add(18, 18, 18)
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(issuedbyLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 86, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(jPanel1Layout.createSequentialGroup()
+                                                .add(buyerid, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 86, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                                .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jLabel6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .add(client_name1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 221, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                             .add(jPanel1Layout.createSequentialGroup()
-                                .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 28, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
-                                .add(issuedbyLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 86, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                        .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 119, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(jLabel7)))
+                                .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(client_id, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 119, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(client_id, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(32, 32, 32)
+                        .add(2, 2, 2)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 16, Short.MAX_VALUE)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel1Layout.createSequentialGroup()
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabel11)
                             .add(cbSRType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -379,36 +421,31 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
                             .add(client_name, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(jLabel2)
-                            .add(client_name1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(client_name2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jLabel2))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(buyerid, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jLabel3)
+                            .add(buyerid, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jButton2))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jLabel5)
-                            .add(issuedbyLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(0, 17, Short.MAX_VALUE))
+                            .add(issuedbyLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jLabel5))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel6)
+                            .add(client_name1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(client_id, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(2, 2, 2)
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(pictureLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jLabel7)
-                .add(2, 2, 2)
-                .add(jButton1)
-                .addContainerGap())
+                        .add(pictureLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(1, 1, 1)
+                        .add(jLabel7)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 15, Short.MAX_VALUE)
+                        .add(jButton1))))
         );
 
-        jPanel1.setBounds(0, 60, 510, 260);
+        jPanel1.setBounds(10, 70, 510, 250);
         jLayeredPane1.add(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         system_user_mask.setText("jLabel2");
@@ -467,6 +504,14 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
             }
         ));
         jScrollPane1.setViewportView(FacturasBrowserJTable);
+
+        client_id1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        client_id1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        client_id1.setName("selectid"); // NOI18N
+
+        client_id2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        client_id2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        client_id2.setName("samplerecordstatusid"); // NOI18N
 
         DesktopToolbar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         DesktopToolbar.setFloatable(false);
@@ -612,6 +657,12 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
             .add(jScrollPane1)
             .add(jLayeredPane1)
             .add(layout.createSequentialGroup()
+                .addContainerGap()
+                .add(client_id2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(20, 20, 20)
+                .add(client_id1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .add(layout.createSequentialGroup()
                 .add(DesktopToolbar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 620, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(0, 0, Short.MAX_VALUE))
         );
@@ -621,9 +672,13 @@ implements  KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfa
                 .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 333, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(DesktopToolbar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 147, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(5, 5, 5)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 194, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, client_id1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, client_id2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
         
@@ -784,8 +839,11 @@ public void loadPic(){
     private javax.swing.JComboBox cbSRType;
     private javax.swing.ButtonGroup clientDiscountGroup;
     private javax.swing.JLabel client_id;
+    private javax.swing.JLabel client_id1;
+    private javax.swing.JLabel client_id2;
     private javax.swing.JTextField client_name;
     private javax.swing.JTextField client_name1;
+    private javax.swing.JTextField client_name2;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton filterButton;
@@ -799,6 +857,7 @@ public void loadPic(){
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
@@ -819,46 +878,6 @@ public void loadPic(){
     // End of variables declaration//GEN-END:variables
 
 
-// We want call backs on display and materialize, to render pic...
-// these are activated as we implement KDialogEventCallbackInterface
     
-    @Override
-    public void preNewObject() throws Exception {
-    }
-
-    @Override
-    public void postNewObject(KBusinessObjectClass businessObject) throws Exception {
-    }
-
-    @Override
-    public void prePushBack(KBusinessObjectClass businessObject) throws Exception {
-    }
-
-    @Override
-    public void postPushBack(KBusinessObjectClass businessObject) throws Exception {
-    }
-
-    @Override
-    public void preEdit() throws Exception {
-    }
-
-    @Override
-    public void postEdit(KBusinessObjectClass businessObject) throws Exception {
-        
-        samplerecordClass product = (samplerecordClass) businessObject;
-        
-        if( product.getImage() != null ){
-            
-            pictureLabel.setIcon(  new ImageIcon( product.getImage() ) );            
-        }
-    }
-
-    @Override
-    public void preUpdate(KBusinessObjectClass businessObject) throws Exception {
-    }
-
-    @Override
-    public void postUpdate(KBusinessObjectClass businessObject) throws Exception {
-    }    
     
 }

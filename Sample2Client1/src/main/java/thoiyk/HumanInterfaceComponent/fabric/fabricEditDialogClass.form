@@ -111,7 +111,6 @@
                                           <Component id="client_address5" alignment="0" max="32767" attributes="0"/>
                                           <Component id="client_address6" alignment="0" max="32767" attributes="0"/>
                                           <Component id="client_address7" max="32767" attributes="0"/>
-                                          <Component id="client_address8" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -158,7 +157,6 @@
                                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                       <Component id="client_address2" min="-2" pref="170" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel17" min="-2" pref="80" max="-2" attributes="0"/>
                                   <Component id="jLabel16" min="-2" pref="80" max="-2" attributes="0"/>
                                   <Component id="jLabel15" min="-2" pref="80" max="-2" attributes="0"/>
                               </Group>
@@ -240,12 +238,7 @@
                           <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="client_address7" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="client_address8" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -423,22 +416,6 @@
                 <Property name="name" type="java.lang.String" value="weight" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel17">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="10" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Qty:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="client_address8">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="10" style="0"/>
-                </Property>
-                <Property name="name" type="java.lang.String" value="qty" noResource="true"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JComboBox" name="cbFabricType">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -521,7 +498,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Apply" noResource="true"/>
+            <Property name="text" type="java.lang.String" value="Reset" noResource="true"/>
             <Property name="name" type="java.lang.String" value="applyButton" noResource="true"/>
           </Properties>
           <Events>

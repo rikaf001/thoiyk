@@ -127,8 +127,6 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         client_address2 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         client_address3 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        client_address4 = new javax.swing.JTextField();
         cbSparepartType = new javax.swing.JComboBox();
         jLabel14 = new javax.swing.JLabel();
         supplierID = new javax.swing.JLabel();
@@ -199,12 +197,6 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         client_address3.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_address3.setName("mesin"); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel13.setText("Qty");
-
-        client_address4.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        client_address4.setName("qty"); // NOI18N
-
         cbSparepartType.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         cbSparepartType.setName("cbSparepartType"); // NOI18N
         cbSparepartType.addActionListener(new java.awt.event.ActionListener() {
@@ -238,8 +230,9 @@ implements  KDialogInterface, KDialogEventCallbackInterface
                 .add(4, 4, 4)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(pictureLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel7)
-                    .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 119, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                        .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 119, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jLabel7)))
                 .add(1, 1, 1)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(jPanel1Layout.createSequentialGroup()
@@ -249,11 +242,9 @@ implements  KDialogInterface, KDialogEventCallbackInterface
                         .add(35, 35, 35)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(client_address3)
-                            .add(client_address2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 174, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(client_address4)))
+                            .add(client_address2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 174, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
                                 .add(jLabel8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 110, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -311,21 +302,11 @@ implements  KDialogInterface, KDialogEventCallbackInterface
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(client_address3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jLabel12))))
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(jLabel13)
-                        .add(7, 73, Short.MAX_VALUE))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(client_address4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(0, 67, Short.MAX_VALUE))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jLabel7)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jButton1)
-                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jLabel7)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jButton1)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jPanel1.setBounds(0, 60, 540, 290);
@@ -357,7 +338,7 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         jLayeredPane1.add(CancelButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         applyButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        applyButton.setText("Apply"); // NOI18N
+        applyButton.setText("Reset"); // NOI18N
         applyButton.setName("applyButton"); // NOI18N
         applyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -424,18 +405,12 @@ implements  KDialogInterface, KDialogEventCallbackInterface
     }//GEN-LAST:event_closeDialog
 
 private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyButtonActionPerformed
-        try {
+supplierID.setText("");
+client_address1.setText("");
+client_address2.setText("");
+client_address3.setText("");
+pictureLabel.setIcon(null);
 
-            KDialogController.OKbuttonActionPerformed();
-                            
-        } catch (KExceptionClass error ) {
-
-              // log error
-              log.log( this, KMetaUtilsClass.getStackTrace( error ) );
-
-              // show error message
-              KMetaUtilsClass.showErrorMessageFromException( getOwner(), error );               
-        } 
 }//GEN-LAST:event_applyButtonActionPerformed
 
 private void loadImage(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadImage
@@ -523,7 +498,6 @@ public void loadPic(){
     private javax.swing.JTextField client_address1;
     private javax.swing.JTextField client_address2;
     private javax.swing.JTextField client_address3;
-    private javax.swing.JTextField client_address4;
     private javax.swing.JLabel client_id1;
     private javax.swing.JLabel client_id2;
     private javax.swing.JButton jButton1;
@@ -532,7 +506,6 @@ public void loadPic(){
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
