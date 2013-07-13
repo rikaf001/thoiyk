@@ -101,13 +101,13 @@
                           <Component id="jLabel12" min="-2" pref="80" max="-2" attributes="0"/>
                           <Component id="jLabel14" min="-2" pref="80" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jLabel13" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="client_id2" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Component id="client_address2" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                          <Component id="client_address5" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                          <Component id="client_address3" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                          <Component id="client_address2" alignment="0" pref="179" max="32767" attributes="0"/>
+                          <Component id="client_address3" alignment="0" pref="179" max="32767" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="supplierID" max="32767" attributes="0"/>
@@ -116,7 +116,9 @@
                               </Group>
                               <Component id="cbAccType" min="-2" pref="140" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="client_address1" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                          <Component id="client_address5" pref="179" max="32767" attributes="0"/>
+                          <Component id="client_address4" alignment="0" max="32767" attributes="0"/>
+                          <Component id="client_address1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -142,32 +144,30 @@
                                   <Component id="jLabel8" alignment="3" min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="cbAccType" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                      <Component id="jLabel9" min="-2" pref="10" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="supplierID" min="-2" pref="20" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel10" min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="client_address1" min="-2" pref="20" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="client_address2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="supplierID" min="-2" pref="20" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jLabel9" alignment="1" min="-2" pref="10" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="client_address4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="jLabel13" alignment="3" min="-2" pref="10" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="client_address1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="jLabel10" alignment="3" min="-2" pref="10" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="client_address2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="client_address5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -177,7 +177,6 @@
                                   <Component id="client_address3" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="pictureLabel" min="-2" pref="140" max="-2" attributes="0"/>
@@ -185,9 +184,10 @@
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="38" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -358,6 +358,22 @@
                   <Font name="Tahoma" size="11" style="2"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="image best fit size:  197 x 134 px"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="client_address4">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="unit" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel13">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Unit:"/>
               </Properties>
             </Component>
           </SubComponents>
