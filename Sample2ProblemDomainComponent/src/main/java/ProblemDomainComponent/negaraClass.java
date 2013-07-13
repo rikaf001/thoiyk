@@ -52,18 +52,18 @@ extends KBusinessObjectClass
  
     @Column(name = "nama")
     private String nama;
-    @Column(name = "matauangid")
-    private String matauangid;
+    @Column(name = "currency")
+    private String currency;
     
     public negaraClass() throws KExceptionClass {
     }
 
     //=================================================================    
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -75,14 +75,15 @@ extends KBusinessObjectClass
         this.nama = nama;
     }
 
-    public String getMatauangid() {
-        return matauangid;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setMatauangid(String matauangid) {
-        this.matauangid = matauangid;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
     
+
     
 
 

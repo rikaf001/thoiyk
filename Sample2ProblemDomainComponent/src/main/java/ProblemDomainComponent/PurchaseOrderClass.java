@@ -78,6 +78,13 @@ extends KBusinessObjectClass
     @Column(name = "supplier_text04")
     private String Supplier_Text04;
     
+    @Column(name = "ppn")
+    private double PPN;
+    
+    @Column(name = "nonppn")
+    private double NonPPN;
+
+    
     @Column(name = "issuedby")
     private String IssuedBy;
     
@@ -199,6 +206,22 @@ extends KBusinessObjectClass
 
     public void setSupplier_Text04(String Supplier_Text04) {
         this.Supplier_Text04 = Supplier_Text04;
+    }
+
+    public double getPPN() {
+        return PPN;
+    }
+
+    public void setPPN(double PPN) {
+        this.PPN = PPN;
+    }
+
+    public double getNonPPN() {
+        return NonPPN;
+    }
+
+    public void setNonPPN(double NonPPN) {
+        this.NonPPN = NonPPN;
     }
 
     public String getIssuedBy() {

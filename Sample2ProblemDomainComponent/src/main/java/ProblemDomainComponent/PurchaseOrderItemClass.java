@@ -59,6 +59,12 @@ extends KBusinessObjectClass
     
     @Column(name = "itemid")
     private long ItemID;
+
+    @Column(name = "currencyid")
+    private long CurrencyID;
+    
+    @Column(name = "unitprice")
+    private double UnitPrice;
     
     @Column(name = "qty")
     private double Qty;
@@ -105,6 +111,22 @@ extends KBusinessObjectClass
         this.ItemID = ItemID;
     }
 
+    public long getCurrencyID() {
+        return CurrencyID;
+    }
+
+    public void setCurrencyID(long CurrencyID) {
+        this.CurrencyID = CurrencyID;
+    }
+
+    public double getUnitPrice() {
+        return UnitPrice;
+    }
+
+    public void setUnitPrice(double UnitPrice) {
+        this.UnitPrice = UnitPrice;
+    }
+
     public double getQty() {
         return Qty;
     }
@@ -112,8 +134,6 @@ extends KBusinessObjectClass
     public void setQty(double Qty) {
         this.Qty = Qty;
     }
-
-    
 
     public long getVersion() {
         return version;
