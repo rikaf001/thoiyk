@@ -753,7 +753,7 @@
                 <EtchetBorder/>
               </Border>
             </Property>
-            <Property name="name" type="java.lang.String" value="buyerid" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="buyername" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">

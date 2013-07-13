@@ -519,7 +519,7 @@ implements KDialogInterface
 
         buyernameLbl.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         buyernameLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        buyernameLbl.setName("buyerid"); // NOI18N
+        buyernameLbl.setName("buyername"); // NOI18N
 
         jButton3.setText("New");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -756,8 +756,11 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
             buyerid.setText( Long.toString(parentID));
 
-            if( parentID == -1 ) throw new KExceptionClass( "You must select a buyer !", null)
-            /*else
+            if( parentID == -1 )
+            {
+                throw new KExceptionClass( "You must select a buyer !", null);
+                        }              
+            else
             {
                // ---------------------------------------------------------------------
                 // display the buyer name                
@@ -767,10 +770,10 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 buyerClass buyer = new buyerClass();
                 buyer = ( buyerClass ) POM.copy4( ((outstandingorderClass)KDialogController.getCurrentObjectDisplayed()).getId(), buyerClass.class );
 
-                clientNameLabel.setText( client.getClientName() );
+                buyernameLbl.setText( buyer.getNama() );
                 // ---------------------------------------------------------------------        
             } 
-            */;
+            
             
         }
         catch( Exception error	){

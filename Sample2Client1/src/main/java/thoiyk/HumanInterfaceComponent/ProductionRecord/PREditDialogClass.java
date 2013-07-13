@@ -213,7 +213,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         jButton2 = new javax.swing.JButton();
         styleLbl = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        client_name1 = new javax.swing.JTextField();
+        qtyLbl = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         PickfROBtn = new javax.swing.JButton();
         buyernameLbl = new javax.swing.JLabel();
@@ -328,8 +328,8 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         jLabel6.setText("Qty");
         jLabel6.setName("labelQty"); // NOI18N
 
-        client_name1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        client_name1.setName("qty"); // NOI18N
+        qtyLbl.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        qtyLbl.setName("qty"); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         jLabel7.setText("image best fit size:  197 x 134 px");
@@ -401,7 +401,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(jLabel6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
-                                .add(client_name1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                                .add(qtyLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                     .add(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 119, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
@@ -445,7 +445,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabel6)
-                            .add(client_name1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(qtyLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(pictureLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -852,6 +852,7 @@ if( parentID == -1 )
                 refreshButton.doClick();
                 
                 selectidLbl.setText(Long.toString(ROClass.getId()));
+                qtyLbl.setText(Long.toString((long)ROClass.getQty()));
                 
                 //get image
                 if(ROClass.getSrid()>0)
@@ -861,8 +862,17 @@ if( parentID == -1 )
                     samplerecordClass SRClass = new samplerecordClass();
                     SRClass = ( samplerecordClass ) SRPOM.copy4( ROClass.getSrid(), samplerecordClass.class );                    
                     
-                    pictureLabel.setIcon( new ImageIcon( SRClass.getImage() ));
+                    if(SRClass.getImage().length>0)
+                    {
+                        pictureLabel.setIcon( new ImageIcon( SRClass.getImage() ));
+                    }
                     descriptionLbl.setText(SRClass.getDescription());
+                    cbSRType.setSelectedIndex((int) SRClass.getSamplerecordtypeid());
+                    styleLbl.setText(SRClass.getStyle());
+                    buyerid.setText(Long.toString(SRClass.getBuyerid()));
+                    buyernameLbl.setText(SRClass.getBuyername());
+                    //qtyLbl.setText(SRClass.getQ);
+                    
                 }
                 
                 
@@ -925,7 +935,6 @@ public void loadPic(){
     private javax.swing.ButtonGroup clientDiscountGroup;
     private javax.swing.JLabel client_id;
     private javax.swing.JLabel client_id1;
-    private javax.swing.JTextField client_name1;
     private javax.swing.JButton deleteButton;
     private javax.swing.JTextField descriptionLbl;
     private javax.swing.JButton editButton;
@@ -952,6 +961,7 @@ public void loadPic(){
     private javax.swing.JButton okButton;
     private javax.swing.JLabel pictureLabel;
     private javax.swing.JButton printButton;
+    private javax.swing.JTextField qtyLbl;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton saveChangesButton1;
     private javax.swing.JLabel selectidLbl;
