@@ -52,6 +52,8 @@ extends KBusinessObjectClass
     private long fabrictypeid;
     @Column(name = "supplierid")
     private long supplierid;
+    @Column(name = "unit")
+    private String unit;
     @Column(name = "kode")
     private String kode;
     @Column(name = "content")
@@ -78,11 +80,11 @@ extends KBusinessObjectClass
     }
 
     //=================================================================    
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -100,6 +102,14 @@ extends KBusinessObjectClass
 
     public void setSupplierid(long supplierid) {
         this.supplierid = supplierid;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public String getKode() {

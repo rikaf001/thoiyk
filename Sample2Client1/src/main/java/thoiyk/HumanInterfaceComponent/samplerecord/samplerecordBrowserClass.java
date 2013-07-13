@@ -65,7 +65,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                "sr.ID, 'SR'||sr.ID as nomor, srt.nama as type,sr.style, byr.nama buyer, description, issuedby ",
+                "sr.ID, sr.srno as nomor, srt.nama as type,sr.style, byr.nama buyer, description, issuedby ",
                 
                 // 2 tablas and joins                                             
                 " SAMPLERECORD sr   " +

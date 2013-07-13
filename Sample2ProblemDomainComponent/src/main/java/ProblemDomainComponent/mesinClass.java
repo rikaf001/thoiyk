@@ -50,6 +50,8 @@ extends KBusinessObjectClass
     
     @Column(name = "mesintypeid")
     private long mesintypeid;
+    @Column(name = "unit")
+    private String unit;
     @Column(name = "kode")
     private String kode;
     @Column(name = "supplierid")
@@ -67,11 +69,11 @@ extends KBusinessObjectClass
     }
 
     //=================================================================    
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -81,6 +83,14 @@ extends KBusinessObjectClass
 
     public void setMesintypeid(long mesintypeid) {
         this.mesintypeid = mesintypeid;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public String getKode() {
@@ -115,7 +125,6 @@ extends KBusinessObjectClass
         this.image = image;
     }
     
-
  
 
     @Override

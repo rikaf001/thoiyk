@@ -58,6 +58,12 @@ extends KBusinessObjectClass
     
     @Column(name = "buyerid")
     private long  buyerid;
+
+    @Column(name = "buyername")
+    private String buyername;
+    
+    @Column(name = "srno")
+    private String srno;
         
     @Column(name = "description")
     private String description;
@@ -90,29 +96,12 @@ extends KBusinessObjectClass
         this.id = id;
     }
 
-    
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public long getSamplerecordtypeid() {
         return samplerecordtypeid;
     }
 
     public void setSamplerecordtypeid(long samplerecordtypeid) {
         this.samplerecordtypeid = samplerecordtypeid;
-    }
-
-    public String getStyle() {
-        return style;
-    }
-
-    public void setStyle(String style) {
-        this.style = style;
     }
 
     public long getBuyerid() {
@@ -123,8 +112,38 @@ extends KBusinessObjectClass
         this.buyerid = buyerid;
     }
 
-    
-    
+    public String getBuyername() {
+        return buyername;
+    }
+
+    public void setBuyername(String buyername) {
+        this.buyername = buyername;
+    }
+
+    public String getSrno() {
+        return srno;
+    }
+
+    public void setSrno(String srno) {
+        this.srno = srno;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
     public byte[] getImage() {
         return image;
     }
@@ -148,6 +167,7 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
+    
     
  
     @Override

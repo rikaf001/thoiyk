@@ -63,7 +63,7 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " pr.ID,st.nama type, pr.STYLE, pr.BUYERID,byr.NAMA BUYERNAME,pr.DESCRIPTION, pr.QTY ",
+                " pr.ID, pr.prno, st.nama type, pr.STYLE, pr.BUYERID,byr.NAMA BUYERNAME,pr.DESCRIPTION, pr.QTY ",
                 
                 // 2 tablas and joins                                             
                 " productionrecord pr   "  +
@@ -78,6 +78,7 @@ extends KDataBrowserBaseClass {
 
      
             setColumnNames( "pr", "ID", "ID" );
+            setColumnNames( "pr", "PRNO", "PRNo" );
             setColumnNames( "st", "TYPE", "TypeName" );
             setColumnNames( "pr", "STYLE", "Style" );
             setColumnNames( "pr", "BUYERID", "BuyerID" );

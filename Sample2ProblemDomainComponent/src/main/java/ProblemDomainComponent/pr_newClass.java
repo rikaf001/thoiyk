@@ -64,7 +64,13 @@ extends KBusinessObjectClass
     
     @Column(name = "buyerid")
     private long  buyerid;
-        
+
+    @Column(name = "buyername")
+    private String buyername;
+
+    @Column(name = "prno")
+    private String prno;
+
     @Column(name = "description")
     private String description;
     
@@ -108,22 +114,12 @@ extends KBusinessObjectClass
         this.selectid = selectid;
     }
 
-    
     public long getSamplerecordstatusid() {
         return samplerecordstatusid;
     }
 
     public void setSamplerecordstatusid(long samplerecordstatusid) {
         this.samplerecordstatusid = samplerecordstatusid;
-    }
-
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public long getSamplerecordtypeid() {
@@ -134,20 +130,44 @@ extends KBusinessObjectClass
         this.samplerecordtypeid = samplerecordtypeid;
     }
 
-    public String getStyle() {
-        return style;
-    }
-
-    public void setStyle(String style) {
-        this.style = style;
-    }
-
     public long getBuyerid() {
         return buyerid;
     }
 
     public void setBuyerid(long buyerid) {
         this.buyerid = buyerid;
+    }
+
+    public String getBuyername() {
+        return buyername;
+    }
+
+    public void setBuyername(String buyername) {
+        this.buyername = buyername;
+    }
+
+    public String getPrno() {
+        return prno;
+    }
+
+    public void setPrno(String prno) {
+        this.prno = prno;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
     }
 
     public String getQty() {
@@ -158,8 +178,6 @@ extends KBusinessObjectClass
         this.qty = qty;
     }
 
-    
-    
     public byte[] getImage() {
         return image;
     }
@@ -183,6 +201,7 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
+    
     
  
     @Override

@@ -53,6 +53,8 @@ extends KBusinessObjectClass
     private long accessoriestypeid;
     @Column(name = "supplierid")
     private long supplierid;
+    @Column(name = "unit")
+    private String unit;
     @Column(name = "kode")
     private String kode;
     @Column(name = "ukuran")
@@ -71,12 +73,11 @@ extends KBusinessObjectClass
     public accessoriesClass() throws KExceptionClass {
     }
 
-    //=================================================================    
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -96,6 +97,14 @@ extends KBusinessObjectClass
         this.supplierid = supplierid;
     }
 
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
     public String getKode() {
         return kode;
     }
@@ -111,8 +120,6 @@ extends KBusinessObjectClass
     public void setUkuran(String ukuran) {
         this.ukuran = ukuran;
     }
-
-    
 
     public String getColour() {
         return colour;
@@ -130,15 +137,13 @@ extends KBusinessObjectClass
         this.description = description;
     }
 
-   public byte[] getImage() {
+    public byte[] getImage() {
         return image;
     }
 
     public void setImage(byte[] image) {
         this.image = image;
     }
-
-
 
 
     @Override
