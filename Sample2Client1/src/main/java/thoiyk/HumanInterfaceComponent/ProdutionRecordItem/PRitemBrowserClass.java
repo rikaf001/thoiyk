@@ -121,7 +121,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qtyneed ",    
+                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qty, sri.comp, sri.tolerance, sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " productionrecorditem sri " +
@@ -142,6 +142,9 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
+                setColumnNames( "sri", "QTY", "Qty" );             
+                setColumnNames( "sri", "COMP", "Comp" );             
+                setColumnNames( "sri", "TOLERANCE", "Tolerance" );             
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
                                 
                 // replace criteria
@@ -158,7 +161,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qtyneed ",    
+                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qty, sri.comp, sri.tolerance, sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " productionrecorditem sri " +
@@ -180,6 +183,9 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
+                setColumnNames( "sri", "QTY", "Qty" );             
+                setColumnNames( "sri", "COMP", "Comp" );             
+                setColumnNames( "sri", "TOLERANCE", "Tolerance" );             
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
                 
             }
