@@ -109,7 +109,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname,sri.qtyneed ",    
+                        " sri.id , vsri.category,vsri.nama itemname, sri.qty, sri.comp, sri.tolerance,sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " reservedorderitem sri " +
@@ -133,19 +133,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 // Read Only
                 
                 setColumnNames( "sri", "ID", "ID" );             
-                setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
+                setColumnNames( "sri", "QTY", "Qty" ); 
+                setColumnNames( "sri", "COMP", "Comp" ); 
+                setColumnNames( "sri", "TOLERANCE", "Tolerance" ); 
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
                 
-                // writeable -> true
-                //setColumnNames( "FAC", "FAC_DATE", "Date", true );                        
-                //setColumnNames( "STATUS", "FACSTATUS_STATUS", "STATUS", true );                
-                //setColumnNames( "FAC", "FAC_TOTAL", "TOTAL", false );   
-                
-                // replace criteria
-                //setDefaultCriteria( " client_id = ? " );                
-                //bindDefaultParameter1( ":client_id",  parentID  );       
                 setDefaultCriteria( " samplerecordid = ? " );               
                 bindDefaultParameter1( ":samperecordid",  parentID  );     
                 
@@ -159,7 +153,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qty, sri.comp, sri.tolerance, sri.qtyneed ",    
+                        " sri.id , vsri.category,vsri.nama itemname, sri.qty, sri.comp, sri.tolerance, sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " reservedorderitem sri " +
@@ -167,17 +161,6 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                         // 3 key of primary PDC object
                         //"sri.id"
                         "ID"
-
-                            /*
-                            // 1 fields                    
-                        "  fac.fac_id , fac.fac_name, to_CHAR( fac.fac_date, 'yyyy-mm-dd HH24:MI:SS' ) as fac_date, status.facstatus_status, fac.fac_total ",    
-
-                        // 2 tables and joins                                                
-                        " sample_factura fac " +
-                        " left join sample_factura_status status on status.facstatus_id = fac.facstatus_id  ",  
-
-                        // 3 key of primary PDC object
-                        "FAC_ID"*/                                                                                              
                             );    
                     
                 }else{
@@ -185,18 +168,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     throw new KExceptionClass( "Data base type not recognized " + configuration.getField("databaseType"), null );
                 }               
                 
-                // FOR ALL INVOICES
-                
-              /*
-                // mayusculas
-                setColumnNames( "FAC", "FAC_ID", "id" );             
-                setColumnNames( "FAC", "FAC_NAME", "Name" );            
-                setColumnNames( "FAC", "FAC_DATE", "Date" );                        
-                setColumnNames( "STATUS", "FACSTATUS_STATUS", "STATUS" );
-                setColumnNames( "FAC", "FAC_TOTAL", "TOTAL" );                                
-              */  
                 setColumnNames( "sri", "ID", "ID" );             
-                setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" ); 
                 setColumnNames( "sri", "QTY", "Qty" ); 
@@ -204,23 +176,15 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "sri", "TOLERANCE", "Tolerance" ); 
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
 
-              /*setColumnNames( "sri", "id", "id" ); 
-                setColumnNames( "sri", "samplerecordid", "SampleRecordID" ); 
-                setColumnNames( "sri", "itemid", "ItemID" ); 
-                setColumnNames( "sri", "qty", "Qty" ); 
-                setColumnNames( "sri", "comp", "Comp" ); 
-                setColumnNames( "sri", "qtyneed", "QtyNeed" ); 
-                */
                 
             }
 
-            setDefaultOrder( "itemid" );
+            setDefaultOrder( "id" );
                                 
             
             super.initializeTable();             
 
             adjustColumnWidth( "ID", 50 );
-            adjustColumnWidth( "ItemID", 50 );
             adjustColumnWidth( "Category", 150 );
             adjustColumnWidth( "ItemName", 200 );
             
