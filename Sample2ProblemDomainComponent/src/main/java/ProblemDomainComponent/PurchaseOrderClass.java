@@ -78,11 +78,9 @@ extends KBusinessObjectClass
     @Column(name = "supplier_text04")
     private String Supplier_Text04;
     
-    @Column(name = "ppn")
-    private double PPN;
     
-    @Column(name = "nonppn")
-    private double NonPPN;
+    @Column(name = "vat")
+    private String vat;
 
     
     @Column(name = "issuedby")
@@ -208,20 +206,12 @@ extends KBusinessObjectClass
         this.Supplier_Text04 = Supplier_Text04;
     }
 
-    public double getPPN() {
-        return PPN;
+    public String getVat() {
+        return vat;
     }
 
-    public void setPPN(double PPN) {
-        this.PPN = PPN;
-    }
-
-    public double getNonPPN() {
-        return NonPPN;
-    }
-
-    public void setNonPPN(double NonPPN) {
-        this.NonPPN = NonPPN;
+    public void setVat(String vat) {
+        this.vat = vat;
     }
 
     public String getIssuedBy() {
@@ -287,7 +277,6 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
-    
 
 
     @Override
