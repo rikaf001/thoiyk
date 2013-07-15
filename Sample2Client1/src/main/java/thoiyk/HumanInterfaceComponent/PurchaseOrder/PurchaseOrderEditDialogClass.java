@@ -248,7 +248,6 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         SupplierID = new javax.swing.JLabel();
         supp_text02 = new javax.swing.JLabel();
         supp_text03 = new javax.swing.JLabel();
-        supp_text04 = new javax.swing.JLabel();
         termCombo = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
@@ -267,6 +266,8 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         qtyLbl1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        Supplier_Text03Edit = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
         topLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         POItemBrowserJTable = new javax.swing.JTable();
@@ -382,10 +383,6 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         supp_text03.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         supp_text03.setName("Supplier_Text03"); // NOI18N
 
-        supp_text04.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        supp_text04.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        supp_text04.setName("Supplier_Text04"); // NOI18N
-
         termCombo.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         termCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30 days", "60 days", "120 days" }));
         termCombo.setName("TermPaymentIDCombo"); // NOI18N
@@ -452,6 +449,11 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
 
         jLabel15.setText("%");
 
+        Supplier_Text03Edit.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        Supplier_Text03Edit.setName("Supplier_Text03"); // NOI18N
+
+        jLabel16.setText("Atn.");
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -486,8 +488,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                                         .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .add(1, 1, 1)
                                         .add(suppliernameLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 291, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                    .add(supp_text03, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 291, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(supp_text04, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 291, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(supp_text03, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 291, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .add(60, 60, 60)
                                 .add(printGraphButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(jPanel1Layout.createSequentialGroup()
@@ -521,15 +522,22 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(jLabel12)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(qtyLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabel13)
-                                .add(56, 56, 56)
-                                .add(jLabel14)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(qtyLbl1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabel15)))
+                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(qtyLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(jLabel13)
+                                        .add(56, 56, 56)
+                                        .add(jLabel14)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(qtyLbl1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(jLabel15))
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(120, 120, 120)
+                                        .add(jLabel16)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(Supplier_Text03Edit, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 266, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
                         .add(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -558,9 +566,11 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                         .add(supp_text02, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(supp_text03, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(supp_text04, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 7, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(Supplier_Text03Edit, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jLabel16))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel12)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, qtyLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -894,7 +904,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 suppliernameLbl.setText( supplier.getNama() );
                 supp_text02.setText(supplier.getAlamat());
                 supp_text03.setText("Telp."+supplier.getTelp()+" Fax."+supplier.getFax());
-                supp_text04.setText(supplier.getContactname());
+          //      supp_text04.setText(supplier.getContactname());
                 // ---------------------------------------------------------------------        
             }   
 
@@ -1155,6 +1165,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JToolBar DesktopToolbar;
     private javax.swing.JTable POItemBrowserJTable;
     private javax.swing.JLabel SupplierID;
+    private javax.swing.JTextField Supplier_Text03Edit;
     private javax.swing.JButton applyButton;
     private javax.swing.JLabel client_id3;
     private javax.swing.JLabel client_id6;
@@ -1175,6 +1186,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1206,7 +1218,6 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JLabel statusidLbl4;
     private javax.swing.JLabel supp_text02;
     private javax.swing.JLabel supp_text03;
-    private javax.swing.JLabel supp_text04;
     private javax.swing.JLabel suppliernameLbl;
     private javax.swing.JComboBox termCombo;
     private javax.swing.JLabel topLabel;

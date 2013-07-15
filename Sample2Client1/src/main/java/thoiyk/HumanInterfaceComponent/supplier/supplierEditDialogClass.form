@@ -104,7 +104,6 @@
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -115,7 +114,6 @@
                           <Component id="jTextField1" alignment="0" pref="243" max="32767" attributes="0"/>
                           <Component id="jTextField4" alignment="0" pref="243" max="32767" attributes="0"/>
                           <Component id="jTextField6" alignment="0" pref="243" max="32767" attributes="0"/>
-                          <Component id="jTextField7" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="195" max="32767" attributes="0"/>
                   </Group>
@@ -159,12 +157,7 @@
                           <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="26" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -250,16 +243,6 @@
             <Component class="javax.swing.JTextField" name="jTextField6">
               <Properties>
                 <Property name="name" type="java.lang.String" value="npwp" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Contact"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
-              <Properties>
-                <Property name="name" type="java.lang.String" value="contactname" noResource="true"/>
               </Properties>
             </Component>
           </SubComponents>

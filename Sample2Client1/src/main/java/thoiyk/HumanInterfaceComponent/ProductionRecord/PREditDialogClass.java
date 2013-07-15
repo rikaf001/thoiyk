@@ -862,7 +862,7 @@ if( parentID == -1 )
                     samplerecordClass SRClass = new samplerecordClass();
                     SRClass = ( samplerecordClass ) SRPOM.copy4( ROClass.getSrid(), samplerecordClass.class );                    
                     
-                    if(SRClass.getImage().length>0)
+                    if(SRClass.getImage()!=null)
                     {
                         pictureLabel.setIcon( new ImageIcon( SRClass.getImage() ));
                     }

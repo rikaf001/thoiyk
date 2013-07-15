@@ -26,17 +26,8 @@ import KFramework30.Base.*;
 import KFramework30.Communication.dbTransactionClientClass;
 import KFramework30.Communication.persistentObjectManagerClass;
 import KFramework30.Widgets.DataBrowser.KBrowserDataWriterInterface;
-import KFramework30.Widgets.DataBrowser.TableCellRenderers.CalendarCellEditorClass;
-import KFramework30.Widgets.DataBrowser.TableCellRenderers.CalendarCellRendererClass;
-import KFramework30.Widgets.DataBrowser.TableCellRenderers.CheckBoxCellEditorClass;
-import KFramework30.Widgets.DataBrowser.TableCellRenderers.CheckBoxCellRendererClass;
-import KFramework30.Widgets.DataBrowser.TableCellRenderers.ComboCellEditorClass;
-import KFramework30.Widgets.DataBrowser.TableCellRenderers.ComboCellRendererClass;
 import KFramework30.Widgets.DataBrowser.cellRenderingHookInterface;
 import KFramework30.Widgets.DataBrowser.recordClass;
-import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_CURRENCY;
-import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_DATE;
-import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 import ProblemDomainComponent.sample_facturaClass;
 
 // system
@@ -45,11 +36,9 @@ import ProblemDomainComponent.productionrecorditemClass;
 import thoiyk.HumanInterfaceComponent.ProductionRecord.PRBrowserClass;
 import static thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemBrowserClass.ALL_SAMPLERECORD;
 import static thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemBrowserClass.SRITEM_BY_SR;
-import thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemEditDialogClass;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Properties;
-import java.util.Vector;
 import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderEditDialogClass;
 
 
@@ -138,7 +127,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
                                
 
-                setColumnNames( "sri", "ID", "ID" );             
+                setColumnNames( "sri", "ID", "TypeID" );             
                 setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
@@ -179,7 +168,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 // FOR ALL INVOICES
                 
 
-                setColumnNames( "sri", "ID", "ID" );             
+                setColumnNames( "sri", "ID", "TypeID" );             
                 setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" );             

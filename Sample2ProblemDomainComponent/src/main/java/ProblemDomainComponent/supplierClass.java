@@ -57,8 +57,6 @@ extends KBusinessObjectClass
     private String fax;
     @Column(name = "negara")
     private String negara;
-    @Column(name = "contactname")
-    private String contactname;
     @Column(name = "npwp")
     private String npwp;
    
@@ -122,13 +120,6 @@ extends KBusinessObjectClass
         this.npwp = npwp;
     }
 
-    public String getContactname() {
-        return contactname;
-    }
-
-    public void setContactname(String contactname) {
-        this.contactname = contactname;
-    }
     
    
     @Override
