@@ -106,7 +106,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         typeComboFiller.load();        
         KDialogController.addNonVisibleWidget( typeComboFiller );  // to map it           
 
-       KDropDownFillerClass typeComboFillerCurr = new KDropDownFillerClass(
+/*       KDropDownFillerClass typeComboFillerCurr = new KDropDownFillerClass(
                         configuration, log, 
                         //SQL, might have parameters and where clause or order by
                         " select ID,  CURRENCY from NEGARA ",
@@ -115,7 +115,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
 
         typeComboFillerCurr.load();        
         KDialogController.addNonVisibleWidget( typeComboFillerCurr );  // to map it           
-
+*/
         
         //-------------------------------------------------------------                           
         //DEMO cuastom swing component integration with adapter  
@@ -453,7 +453,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         clientExpressDelivery.setName("vat"); // NOI18N
 
         currCombo.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        currCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30 days", "60 days", "120 days" }));
+        currCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "IDR", "USD" }));
         currCombo.setName("TermPaymentIDCombo"); // NOI18N
         currCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

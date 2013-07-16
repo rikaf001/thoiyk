@@ -96,13 +96,12 @@ implements desktopAccessInterface, ActionListener
         accessoriesItem = new javax.swing.JMenuItem();
         accessoriestypeItem = new javax.swing.JMenuItem();
         buyerItem = new javax.swing.JMenuItem();
+        countryandcurrItem = new javax.swing.JMenuItem();
         fabricItem = new javax.swing.JMenuItem();
         fabrictypeItem = new javax.swing.JMenuItem();
         kontakItem = new javax.swing.JMenuItem();
-        matauangItem = new javax.swing.JMenuItem();
         mesinItem = new javax.swing.JMenuItem();
         mesintypeItem = new javax.swing.JMenuItem();
-        negaraItem = new javax.swing.JMenuItem();
         sparepartItem = new javax.swing.JMenuItem();
         spareparttypeItem = new javax.swing.JMenuItem();
         stockItem = new javax.swing.JMenuItem();
@@ -360,6 +359,15 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(buyerItem);
 
+        countryandcurrItem.setText("Country & Currency");
+        countryandcurrItem.setName("countryandcurrItem"); // NOI18N
+        countryandcurrItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countryandcurrItemActionPerformed(evt);
+            }
+        });
+        masterData.add(countryandcurrItem);
+
         fabricItem.setText("Fabric");
         fabricItem.setName("fabricItem"); // NOI18N
         fabricItem.addActionListener(new java.awt.event.ActionListener() {
@@ -387,15 +395,6 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(kontakItem);
 
-        matauangItem.setText("Mata Uang");
-        matauangItem.setName("matauangItem"); // NOI18N
-        matauangItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                matauangItemActionPerformed(evt);
-            }
-        });
-        masterData.add(matauangItem);
-
         mesinItem.setText("Mesin");
         mesinItem.setName("mesinItem"); // NOI18N
         mesinItem.addActionListener(new java.awt.event.ActionListener() {
@@ -413,15 +412,6 @@ implements desktopAccessInterface, ActionListener
             }
         });
         masterData.add(mesintypeItem);
-
-        negaraItem.setText("Negara");
-        negaraItem.setName("negaraItem"); // NOI18N
-        negaraItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                negaraItemActionPerformed(evt);
-            }
-        });
-        masterData.add(negaraItem);
 
         sparepartItem.setText("Sparepart");
         sparepartItem.setName("sparepartItem"); // NOI18N
@@ -868,10 +858,6 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     openInternalFrame( fabrictypeFrameClass.class, "Fabric Type" );                     
     }//GEN-LAST:event_fabrictypeItemActionPerformed
 
-    private void matauangItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matauangItemActionPerformed
-    openInternalFrame( matauangFrameClass.class, "Mata Uang" );                     
-    }//GEN-LAST:event_matauangItemActionPerformed
-
     private void mesinItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesinItemActionPerformed
     openInternalFrame( mesinFrameClass.class, "Machine" );                     
     }//GEN-LAST:event_mesinItemActionPerformed
@@ -880,9 +866,9 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     openInternalFrame( mesintypeFrameClass.class, "Machine Type" );                     
     }//GEN-LAST:event_mesintypeItemActionPerformed
 
-    private void negaraItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negaraItemActionPerformed
+    private void countryandcurrItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryandcurrItemActionPerformed
     openInternalFrame( negaraFrameClass.class, "Negara" );                     
-    }//GEN-LAST:event_negaraItemActionPerformed
+    }//GEN-LAST:event_countryandcurrItemActionPerformed
 
     private void sparepartItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparepartItemActionPerformed
     openInternalFrame( sparepartFrameClass.class, "Sparepart" );                     
@@ -933,6 +919,7 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem buyerItem;
     private javax.swing.JMenuItem cambioPasswordMenu;
     private javax.swing.JMenuItem clientItem;
+    private javax.swing.JMenuItem countryandcurrItem;
     private javax.swing.JButton deleteButton;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktop;
@@ -962,11 +949,9 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem mail;
     private javax.swing.JLabel mainProgressIcon;
     private javax.swing.JMenu masterData;
-    private javax.swing.JMenuItem matauangItem;
     private javax.swing.JMenu menuCatalogosAdmin;
     private javax.swing.JMenuItem mesinItem;
     private javax.swing.JMenuItem mesintypeItem;
-    private javax.swing.JMenuItem negaraItem;
     private javax.swing.JButton newButton;
     private javax.swing.JMenuItem newMenuItem;
     private javax.swing.JMenuItem openHelp;
