@@ -106,7 +106,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         typeComboFiller.load();        
         KDialogController.addNonVisibleWidget( typeComboFiller );  // to map it           
 
-/*       KDropDownFillerClass typeComboFillerCurr = new KDropDownFillerClass(
+       KDropDownFillerClass typeComboFillerCurr = new KDropDownFillerClass(
                         configuration, log, 
                         //SQL, might have parameters and where clause or order by
                         " select ID,  CURRENCY from NEGARA ",
@@ -115,7 +115,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
 
         typeComboFillerCurr.load();        
         KDialogController.addNonVisibleWidget( typeComboFillerCurr );  // to map it           
-*/
+
         
         //-------------------------------------------------------------                           
         //DEMO cuastom swing component integration with adapter  
@@ -291,7 +291,6 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         refreshButton = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JToolBar.Separator();
         statusidLbl = new javax.swing.JLabel();
-        statusidLbl1 = new javax.swing.JLabel();
         statusidLbl2 = new javax.swing.JLabel();
         statusidLbl3 = new javax.swing.JLabel();
         statusidLbl4 = new javax.swing.JLabel();
@@ -758,10 +757,6 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         statusidLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         statusidLbl.setName("StatusID"); // NOI18N
 
-        statusidLbl1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        statusidLbl1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        statusidLbl1.setName("CurrencyID"); // NOI18N
-
         statusidLbl2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         statusidLbl2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         statusidLbl2.setName("IssuedDate"); // NOI18N
@@ -785,9 +780,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                     .add(DesktopToolbar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 770, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(layout.createSequentialGroup()
                         .add(statusidLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(58, 58, 58)
-                        .add(statusidLbl1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(123, 123, 123)
                         .add(statusidLbl2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(statusidLbl3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -807,7 +800,6 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(statusidLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(statusidLbl1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(statusidLbl2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(statusidLbl3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(statusidLbl4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
@@ -1212,7 +1204,6 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton sortButton;
     private javax.swing.JLabel statusidLbl;
-    private javax.swing.JLabel statusidLbl1;
     private javax.swing.JLabel statusidLbl2;
     private javax.swing.JLabel statusidLbl3;
     private javax.swing.JLabel statusidLbl4;

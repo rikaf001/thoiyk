@@ -79,7 +79,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " ID, PRID, BUYERID,BUYERNAME, CATEGORY, ITEMNAME, QTYNEED",
+                " ID, PRNO, BUYERID,BUYERNAME, CATEGORY, ITEMNAME, QTYNEED",
                 
                 // 2 tablas and joins                                             
                 " v_po_item vpoi"    ,
@@ -92,7 +92,7 @@ extends KDataBrowserBaseClass {
 
             // define column settings
             setColumnNames( "vpoi", "ID", "ID" );
-            setColumnNames( "vpoi", "PRID", "PRID" );
+            setColumnNames( "vpoi", "PRNO", "PRNO" );
             setColumnNames( "vpoi", "BUYERID", "BuyerID" );
             setColumnNames( "vpoi", "CATEGORY", "Category" );
             setColumnNames( "vpoi", "ITEMNAME", "ItemName" );

@@ -108,11 +108,11 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "poi.id , poi.itemid , vsri.category,vsri.itemname,poi.qty  ",    
+                        "poi.id  , vsri.category,poi.prno,vsri.description itemname, poi.unitprice, poi.qty, (poi.unitprice * poi.qty) price",    
 
                         // 2 tables and joins                                                
-                        " purchaseorderitem poi " +
-                            " left join v_po_item vsri on poi.itemid=vsri.id",
+                        " purchaseorderitem poi " +                            
+                            " left join v_po_dtl vsri on poi.itemid=vsri.id",
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -124,10 +124,12 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 }
                 
                 setColumnNames( "poi", "ID", "ID" );             
-                setColumnNames( "poi", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
-                setColumnNames( "poi", "QTY", "Qty" );             
+                setColumnNames( "poi", "PRNO", "PRNo" );             
+                setColumnNames( "poi", "UNITPRICE", "UnitPrice" );             
+                setColumnNames( "poi", "QTY", "Qty" );        
+                setColumnNames( "poi", "PRICE", "Price" );             
                   
                 // replace criteria
                 setDefaultCriteria( " purchaseorderid = ? " );               
@@ -143,11 +145,11 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "poi.id , poi.itemid , vsri.category,vsri.itemname,poi.qty  ",    
+                        "poi.id , vsri.category,vsri.description itemname,poi.prno, poi.unitprice, poi.qty, (poi.unitprice * poi.qty) price ",    
 
                         // 2 tables and joins                                                
                         " purchaseorderitem poi " +
-                            " left join v_po_item vsri on poi.itemid=vsri.id",
+                            " left join v_po_dtl vsri on poi.itemid=vsri.id",
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -162,10 +164,12 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 // FOR ALL INVOICES
                 
                 setColumnNames( "poi", "ID", "ID" );             
-                setColumnNames( "poi", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
-                setColumnNames( "poi", "QTY", "Qty" );             
+                setColumnNames( "poi", "PRNO", "PRNo" );             
+                setColumnNames( "poi", "UNITPRICE", "UnitPrice" );             
+                setColumnNames( "poi", "QTY", "Qty" );        
+                setColumnNames( "poi", "PRICE", "Price" );             
                 
             }
 

@@ -57,11 +57,13 @@ extends KBusinessObjectClass
     @Column(name = "productionrecordid")
     private long ProductionRecordID;
     
+    @Column(name = "prno")
+    private String PRNo;
+    
+    
     @Column(name = "itemid")
     private long ItemID;
 
-    @Column(name = "currencyid")
-    private long CurrencyID;
     
     @Column(name = "unitprice")
     private double UnitPrice;
@@ -111,13 +113,6 @@ extends KBusinessObjectClass
         this.ItemID = ItemID;
     }
 
-    public long getCurrencyID() {
-        return CurrencyID;
-    }
-
-    public void setCurrencyID(long CurrencyID) {
-        this.CurrencyID = CurrencyID;
-    }
 
     public double getUnitPrice() {
         return UnitPrice;
@@ -142,6 +137,16 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
+
+    public String getPRNo() {
+        return PRNo;
+    }
+
+    public void setPRNo(String PRNo) {
+        this.PRNo = PRNo;
+    }
+
+    
     
 
 
