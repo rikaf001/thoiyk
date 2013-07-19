@@ -127,7 +127,7 @@ extends KBusinessObjectClass
     }
 
     public void setQtyneed(double qtyneed) {
-        this.qtyneed = qty*tolerance*comp;
+        this.qtyneed = (comp*tolerance*qty)+(qty*comp);
     }
 
     public long getVersion() {

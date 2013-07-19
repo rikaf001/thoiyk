@@ -48,6 +48,8 @@ import thoiyk.HumanInterfaceComponent.negara.negaraFrameClass;
 import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderFrameClass;
 import thoiyk.HumanInterfaceComponent.pr_from_sr.pr_from_srFrameClass;
 import thoiyk.HumanInterfaceComponent.ProductionRecord.PRFrameClass;
+import thoiyk.HumanInterfaceComponent.Service.ServiceFrameClass;
+import thoiyk.HumanInterfaceComponent.ServiceType.ServiceTypeFrameClass;
 import thoiyk.HumanInterfaceComponent.samplerecord.samplerecordFrameClass;
 import thoiyk.HumanInterfaceComponent.sparepart.sparepartFrameClass;
 import thoiyk.HumanInterfaceComponent.spareparttype.spareparttypeFrameClass;
@@ -102,6 +104,8 @@ implements desktopAccessInterface, ActionListener
         kontakItem = new javax.swing.JMenuItem();
         mesinItem = new javax.swing.JMenuItem();
         mesintypeItem = new javax.swing.JMenuItem();
+        serviceItem = new javax.swing.JMenuItem();
+        servicetypeItem = new javax.swing.JMenuItem();
         sparepartItem = new javax.swing.JMenuItem();
         spareparttypeItem = new javax.swing.JMenuItem();
         stockItem = new javax.swing.JMenuItem();
@@ -412,6 +416,24 @@ implements desktopAccessInterface, ActionListener
             }
         });
         masterData.add(mesintypeItem);
+
+        serviceItem.setText("Service");
+        serviceItem.setName("serviceItem"); // NOI18N
+        serviceItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                serviceItemActionPerformed(evt);
+            }
+        });
+        masterData.add(serviceItem);
+
+        servicetypeItem.setText("Service Type");
+        servicetypeItem.setName("servicetypeItem"); // NOI18N
+        servicetypeItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                servicetypeItemActionPerformed(evt);
+            }
+        });
+        masterData.add(servicetypeItem);
 
         sparepartItem.setText("Sparepart");
         sparepartItem.setName("sparepartItem"); // NOI18N
@@ -898,6 +920,14 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
       openInternalFrame( PRFrameClass.class, "Prodocution Record" );
     }//GEN-LAST:event_PRItemActionPerformed
 
+    private void serviceItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceItemActionPerformed
+      openInternalFrame( ServiceFrameClass.class, "Service" );
+    }//GEN-LAST:event_serviceItemActionPerformed
+
+    private void servicetypeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicetypeItemActionPerformed
+      openInternalFrame( ServiceTypeFrameClass.class, "Service Type" );
+    }//GEN-LAST:event_servicetypeItemActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -961,6 +991,8 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem productCatalogue;
     private javax.swing.JButton refreshButton;
     private javax.swing.JMenuItem refreshMenuItem;
+    private javax.swing.JMenuItem serviceItem;
+    private javax.swing.JMenuItem servicetypeItem;
     private javax.swing.JMenuItem setPage;
     private javax.swing.JMenuItem setPrinter;
     private javax.swing.JButton sortButton;
