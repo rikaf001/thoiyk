@@ -45,7 +45,7 @@ extends KBusinessObjectClass{
     @Column(name = "id")
     private long ID;
     
-    @Column(name = "servicetype")
+    @Column(name = "servicetypeid")
     private long ServiceTypeID;
     
     @Column(name = "name")

@@ -35,6 +35,8 @@ import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
 import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.PurchaseOrderClass;
+import ProblemDomainComponent.PurchaseOrderTermClass;
+//import ProblemDomainComponent.PurchaseOrderTermClass;
 import ProblemDomainComponent.supplierClass;
 import java.awt.Font;
 import java.awt.print.PageFormat;
@@ -929,9 +931,13 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             //PurchaseOrderClass po = new PurchaseOrderClass();
             PurchaseOrderClass po = ( PurchaseOrderClass ) POM.copy4( ((PurchaseOrderClass)KDialogController.getCurrentObjectDisplayed()).getID(), PurchaseOrderClass.class );
             
-            // materialize the delivery
-            //supplierClass sup = new supplierClass();
-            //sup = (supplierClass) persistentObjectManager.copy4( po.getSupplierID(), supplierClass.class );  
+            //materialize the term
+            persistentObjectManagerClass POMTerm = new persistentObjectManagerClass(configuration, log);
+            PurchaseOrderTermClass poterm = new PurchaseOrderTermClass();
+            poterm = ( PurchaseOrderTermClass ) POMTerm.copy4( po.getTermPaymentID(), PurchaseOrderTermClass.class );
+
+            //PurchaseOrderTermClass poterm = new PurchaseOrderTermClass();
+            //poterm = (PurchaseOrderTermClass) persistentObjectManager.copy4( po.getTermPaymentID(), PurchaseOrderTermClass.class );  
             
 
           //KMetaUtilsClass.showMessage(this,po.getSupplier_Text01() );
@@ -951,7 +957,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 //            
             headerSection.setFont( new Font( "arial", Font.PLAIN,                       12) );
             headerSection.printText("PURCHASE ORDER ",          170, 100 );
-            headerSection.printLine(170,114,363,114);            
+            headerSection.printLine(170,114,290,114);            
 //            headerSection.setFont( new Font( "arial", Font.PLAIN,                        10) );
 //            headerSection.printText("Date:",                                          0, 120 );
 //            headerSection.printText( KMetaUtilsClass.time(),                          70, 120 );
@@ -985,15 +991,15 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
            // KPrintSectionClass rightTopSection = new KPrintSectionClass(configuration, log, 520, 130 );                 
             leftTopSection.setFont( new Font( "arial", Font.PLAIN, 10) );
-            leftTopSection.printText("Ship To",                                         340, 20 );
-            leftTopSection.printText("Pintu Mas Garmindo PT",                           395, 20 );
-            leftTopSection.printText("Jl.Raya Dramarga Km 7 No 61",                     395, 30 );
-            leftTopSection.printText("Kab.Bogor Jawa Barat 16650",                      395, 40 );
-            leftTopSection.printText("NPWP",                                            340, 50 );
-            leftTopSection.printText("123.123.123.123",                                 395, 50 );
-            leftTopSection.printText("Phone: +62 123456 Fax: +62 212334",               395, 60 );
-            leftTopSection.printText("Atn.",                                            340, 70 );
-            leftTopSection.printText("Arum / Ibu Lisye",                                395, 70 );
+            leftTopSection.printText("Ship To",                                         320, 20 );
+            leftTopSection.printText("Pintu Mas Garmindo PT",                           360, 20 );
+            leftTopSection.printText("Jl.Raya Dramarga Km 7 No 61",                     360, 30 );
+            leftTopSection.printText("Kab.Bogor Jawa Barat 16650",                      360, 40 );
+            leftTopSection.printText("NPWP",                                            320, 50 );
+            leftTopSection.printText("123.123.123.123",                                 360, 50 );
+            leftTopSection.printText("Phone: +62 123456 Fax: +62 212334",               360, 60 );
+            leftTopSection.printText("Atn.",                                            320, 70 );
+            leftTopSection.printText("Arum / Ibu Lisye",                                360, 70 );
 
             // heading and Analytical Testing Service Summary
             // get a KePrintJob
@@ -1024,7 +1030,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
             dbTransaction.prepare(
 
-                " select ITEMNAME,KODE,PRID,sum(QTY) qty, sum(QTY*UNITPRICE) price " +
+                " select ITEMNAME,KODE,poi.PRNO,sum(QTY) qty, sum(unitprice) unitprice, sum(QTY*UNITPRICE) price " +
                  // End Fields used in the receipt
                  //--------------------------------------------------
                  "from "+
@@ -1033,7 +1039,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                  "v_po_item on poi.itemid=v_po_item.id " +
                 " where " +
                     "poi.purchaseorderid=:v1 " +
-                     "group by ITEMNAME,KODE,PRID " );
+                     "group by ITEMNAME,KODE,poi.PRNO " );
 
                 dbTransaction.bind( ":v1",  po.getID() );                  
 
@@ -1061,11 +1067,12 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                                dbTransaction, printJob, 0, 655356 );
                 
                     //print anasys info
-                    dbTable.addField( "ITEMNAME",        "ITEMNAME",        125 );   
-                    dbTable.addField( "KODE",      "KODE",       60 );
-                    dbTable.addField( "PRID",       "PRID",        40 );        
-                    dbTable.addField( "QTY",    "QTY",     40 );                        
-                    dbTable.addField( "PRICE",       "PRICE",        100 );        
+                    dbTable.addField( "ITEMNAME", "ItemName",230 );   
+                    dbTable.addField( "KODE","Code",50 );
+                    dbTable.addField( "PRNO","PRNo",50 );        
+                    dbTable.addField( "QTY","Qty",30 ); 
+                    dbTable.addField( "UNITPRICE","UnitPrice",40 );
+                    dbTable.addField( "PRICE","Price",40 );        
                     //dbTable.addField( "ANALYSIS_CLIENT_PRICE","CLIENT PRICE", 100, KPrintJobClass.RIGHT );                        
                     
                     
@@ -1073,19 +1080,20 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     //dbTable.addSummary( "CLIENT PRICE", KPrintDataTableClass.SUM, "Total: $", null, 2 );
                     
                     
-                    dbTable.setPrintingField( "ITEMNAME" );
-                    dbTable.setPrintingField( "KODE" );
-                    dbTable.setPrintingField( "PRID" );        
-                    dbTable.setPrintingField( "QTY" );                        
-                    dbTable.setPrintingField( "PRICE" );
+                    dbTable.setPrintingField( "ItemName" );
+                    dbTable.setPrintingField( "Code" );
+                    dbTable.setPrintingField( "PRNo" );        
+                    dbTable.setPrintingField( "Qty" );                        
+                    dbTable.setPrintingField( "UnitPrice" );
+                    dbTable.setPrintingField( "Price" );
                     //dbTable.setPrintingField( "CLIENT PRICE" );                        
                     //DBPrinter.setPrintingField( "SAMPLE ID" );  
                     
                     
-                    dbTable.setHorizontalSpace( 20 );
+                    dbTable.setHorizontalSpace( 10 );
                     printJob.setDefaultFont( new Font("Arial", Font.PLAIN, 8) ); 
                     int oldLeftMargin = printJob.getLeftMargin();
-                    printJob.setLeftMargin(75);              
+                    printJob.setLeftMargin(40);              
                     dbTable.setHeadersMode( dbTable.HEADER_TYPE_INLINEHEADER );                 
                     
                     dbTable.print();
@@ -1098,12 +1106,13 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     
                     footerSection.setFont( new Font( "arial", Font.PLAIN, 10) );
                     
-                    footerSection.printText("Approval By",                                   0, 10 );
+                    footerSection.printText("Issued By",                                   0, 10 );
+                    footerSection.printText(po.getIssuedBy(),0, 30 );
                     footerSection.printText("Checked By",                                   200, 10 );
                     footerSection.printText("Authorized Signature",                         400, 10 );
                     
                     footerSection.printText("Term Payment",                                   0, 120 );
-                    footerSection.printText(po.getNomor(),                                   100, 120 );
+                    footerSection.printText(poterm.getName(),                                   100, 120 );
                     footerSection.printText("Delivery Date",                                  0, 130 );
                     footerSection.printText(po.getDeliveryDate().toLocaleString(),                 100, 130 );
                     footerSection.printText("Note",                                            0, 140 );
