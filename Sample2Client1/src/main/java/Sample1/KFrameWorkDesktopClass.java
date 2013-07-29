@@ -35,6 +35,7 @@ import java.lang.reflect.Constructor;
 import java.net.URL;
 import java.util.Locale;
 import javax.swing.*;
+import thoiyk.HumanInterfaceComponent.ProductInHeader.ProductInHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderFrameClass;
 import thoiyk.HumanInterfaceComponent.accessories.accessoriesFrameClass;
 import thoiyk.HumanInterfaceComponent.accessoriestype.accessoriestypeFrameClass;
@@ -115,6 +116,8 @@ implements desktopAccessInterface, ActionListener
         outstandingorderItem = new javax.swing.JMenuItem();
         PRItem = new javax.swing.JMenuItem();
         POItem = new javax.swing.JMenuItem();
+        ProductInOutMenu = new javax.swing.JMenu();
+        ProductInItem = new javax.swing.JMenuItem();
         clientItem = new javax.swing.JMenuItem();
         facturasItem = new javax.swing.JMenuItem();
         productCatalogue = new javax.swing.JMenuItem();
@@ -517,6 +520,20 @@ implements desktopAccessInterface, ActionListener
             }
         });
         MainMenu.add(POItem);
+
+        ProductInOutMenu.setText("Product In / Out");
+        ProductInOutMenu.setName("ProductInOutMenu"); // NOI18N
+
+        ProductInItem.setText("Product In");
+        ProductInItem.setName("ProductInItem"); // NOI18N
+        ProductInItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProductInItemActionPerformed(evt);
+            }
+        });
+        ProductInOutMenu.add(ProductInItem);
+
+        MainMenu.add(ProductInOutMenu);
 
         clientItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         clientItem.setText("Clients");
@@ -928,6 +945,10 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
       openInternalFrame( ServiceTypeFrameClass.class, "Service Type" );
     }//GEN-LAST:event_servicetypeItemActionPerformed
 
+    private void ProductInItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductInItemActionPerformed
+      openInternalFrame( ProductInHeaderFrameClass.class, "Product In" );
+    }//GEN-LAST:event_ProductInItemActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -939,6 +960,8 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenu MenuHelp;
     private javax.swing.JMenuItem POItem;
     private javax.swing.JMenuItem PRItem;
+    private javax.swing.JMenuItem ProductInItem;
+    private javax.swing.JMenu ProductInOutMenu;
     private javax.swing.JMenuItem SampleLIMSDataNavigator;
     private javax.swing.JMenuItem SampleLIMSReports;
     private javax.swing.JMenuItem SampleRecord;

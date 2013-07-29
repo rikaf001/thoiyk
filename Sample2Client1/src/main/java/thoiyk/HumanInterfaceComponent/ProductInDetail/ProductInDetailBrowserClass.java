@@ -9,42 +9,32 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.ProdutionRecordItem;
+package thoiyk.HumanInterfaceComponent.ProductInDetail;
 
 /**
  *
  * @author yoserizy
  */
-
 //rtl
 import javax.swing.*;
-import java.awt.*;
 
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
-import KFramework30.Communication.dbTransactionClientClass;
-import KFramework30.Communication.persistentObjectManagerClass;
 import KFramework30.Widgets.DataBrowser.KBrowserDataWriterInterface;
 import KFramework30.Widgets.DataBrowser.cellRenderingHookInterface;
 import KFramework30.Widgets.DataBrowser.recordClass;
-import ProblemDomainComponent.sample_facturaClass;
 
 // system
-//import ProblemDomainComponent.pr_newitemClass;
-import ProblemDomainComponent.productionrecorditemClass;
-//import thoiyk.HumanInterfaceComponent.ProdutionRecord.PRBrowserClass;
-import static thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemBrowserClass.ALL_SAMPLERECORD;
-import static thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemBrowserClass.SRITEM_BY_SR;
+import ProblemDomainComponent.ProductInDetailClass;
+import java.awt.Color;
+import java.awt.Component;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Properties;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.PRBrowserClass;
-import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderEditDialogClass;
+import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderBrowserClass;
 
 
 
-public class PRitemBrowserClass 
+public class ProductInDetailBrowserClass 
 extends KDataBrowserBaseClass 
 implements 
 cellRenderingHookInterface,  // to customize the data at runtime OPTIONAL
@@ -52,8 +42,8 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
 {   
         
         // modes
-        static public final int ALL_SAMPLERECORD = 0;
-        static public final int SRITEM_BY_SR = 1;
+        static public final int ALL_POITEM = 0;
+        static public final int POITEM_BY_PO = 1;
     
 	// uses
         private int                             mode;
@@ -65,7 +55,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
         
     
     /** Creates new viajeBrowserClass */
-    public PRitemBrowserClass(
+    public ProductInDetailBrowserClass(
             KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,            
@@ -77,8 +67,8 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    productionrecorditemClass.class,
-                    PRitemEditDialogClass.class
+                    ProductInDetailClass.class,
+                    ProductInDetailEditDialogClass.class
             );  
             
             // uses   
@@ -101,7 +91,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
  
 
                                             
-            if( mode == SRITEM_BY_SR ){   
+            if( mode == POITEM_BY_PO ){   
                 
                 // this is a read write browsers
                 setBrowserSaveListener(this);
@@ -111,14 +101,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qty, sri.comp, sri.tolerance, sri.qtyneed ",    
+                        "pi.id, pi.hdrid, pi.itemid, pi.itemqty, pi.itemunitid, pi.actualqty,pi.actualunitid, pi.createdby,pi.datecreated,pi.modifiedby,pi.datemodified",    
 
                         // 2 tables and joins                                                
-                        " productionrecorditem sri " +
-                       " left join v_sr_item vsri on sri.itemid=vsri.id"   ,
+                        " productin_dtl pi " ,
 
                         // 3 key of primary PDC object
-                        "ID"
+                        "ID"                                                                                              
                             );    
                     
                 }else{
@@ -126,20 +115,21 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     throw new KExceptionClass( "Data base type not recognized " + configuration.getField("databaseType"), null );
                 }
                 
-                               
-
-                setColumnNames( "sri", "ID", "TypeID" );             
-                setColumnNames( "sri", "ITEMID", "ItemID" );             
-                setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
-                setColumnNames( "sri", "QTY", "Qty" );             
-                setColumnNames( "sri", "COMP", "Comp" );             
-                setColumnNames( "sri", "TOLERANCE", "Tolerance" );             
-                setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
-                                
+                setColumnNames( "pi", "ID", "ID" );             
+                setColumnNames( "pi", "HDRID", "HDRID" );
+                setColumnNames( "pi", "ITEMID", "ItemID" );             
+                setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
+                setColumnNames( "pi", "ITEMUNITID", "ItemUnitID" );
+                setColumnNames( "pi", "ACTUALQTY", "ActualQTY" );
+                setColumnNames( "pi", "ACTUALUNITID", "ActualUnitID" );
+                setColumnNames( "pi", "CREATEDBY", "CreatedBy" );
+                setColumnNames( "pi", "DATECREATED", "DateCreated" );
+                setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
+                setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
+                  
                 // replace criteria
-                setDefaultCriteria( " samplerecordid = ? " );               
-                bindDefaultParameter1( ":samperecordid",  parentID  );     
+                setDefaultCriteria( " hdrid = ? " );               
+                bindDefaultParameter1( ":hdrid",  parentID  );     
                 
             }else{  // mode = ALL_INVOICES
                 
@@ -151,14 +141,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qty, sri.comp, sri.tolerance, sri.qtyneed ",    
+                        "pi.id, pi.hdrid, pi.itemid, pi.itemqty, pi.itemunitid, pi.actualqty,pi.actualunitid, pi.createdby,pi.datecreated,pi.modifiedby,pi.datemodified",    
 
                         // 2 tables and joins                                                
-                        " productionrecorditem sri " +
-                       " left join v_sr_item vsri on sri.itemid=vsri.id"   ,
+                        " productin_dtl pi " ,
 
                         // 3 key of primary PDC object
-                        "ID"
+                        "ID"                                                                                              
                             );    
                     
                 }else{
@@ -168,15 +157,17 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
                 // FOR ALL INVOICES
                 
-
-                setColumnNames( "sri", "ID", "TypeID" );             
-                setColumnNames( "sri", "ITEMID", "ItemID" );             
-                setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
-                setColumnNames( "sri", "QTY", "Qty" );             
-                setColumnNames( "sri", "COMP", "Comp" );             
-                setColumnNames( "sri", "TOLERANCE", "Tolerance" );             
-                setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
+                setColumnNames( "pi", "ID", "ID" );             
+                setColumnNames( "pi", "HDRID", "HDRID" );
+                setColumnNames( "pi", "ITEMID", "ItemID" );             
+                setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
+                setColumnNames( "pi", "ITEMUNITID", "ItemUnitID" );
+                setColumnNames( "pi", "ACTUALQTY", "ActualQTY" );
+                setColumnNames( "pi", "ACTUALUNITID", "ActualUnitID" );
+                setColumnNames( "pi", "CREATEDBY", "CreatedBy" );
+                setColumnNames( "pi", "DATECREATED", "DateCreated" );
+                setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
+                setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
                 
             }
 
@@ -185,53 +176,10 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
             
             super.initializeTable();             
 
-          /*  adjustColumnWidth( "id", 60 );
-            adjustColumnWidth( "Name", 200 );
-            adjustColumnWidth( "Date", 130 );
-            adjustColumnWidth( "STATUS", 100 );            
-            adjustColumnWidth( "TOTAL", 100 );
-            
-            adjustColumnType( "Date", BROWSER_COLUMN_TYPE_DATE ); // so that autofilter will use date format
-            */
-            if( mode == SRITEM_BY_SR ){                        
-                
-                
-                //DATE -->>
-     //           setColumnRenderer("Date", new CalendarCellRendererClass(tableModel, log)); //<-- no necessary and looks awful
-      //          setColumnEditor("Date", new CalendarCellEditorClass(tableModel, log));
-                //DATE -->>
-                
-                
-                
-                // OK box
-//                setColumnRenderer("OK", new CheckBoxCellRendererClass(tableModel, log) );
-//                setColumnEditor("OK", new CheckBoxCellEditorClass(tableModel, log) );                
-//                adjustColumnWidth( "OK", 30 );            
-                
-               
-                
-                // STATUS COMBO
-        //        dbTransactionClientClass query = new dbTransactionClientClass(configuration, log);
-        //        query.prepare( " select FACSTATUS_STATUS from SAMPLE_FACTURA_STATUS " );
-        //        query.executeQuery( 0 , 999 );                  
-         //       Vector< String > options = new Vector< String >();
-         //       while( query.fetch() ) options.add( (String )query.getField( "FACSTATUS_STATUS" ) );                
-                
-         //       setColumnEditor("STATUS", new ComboCellEditorClass( options,  tableModel, log, true ) );
-         //       setColumnRenderer("STATUS", new ComboCellRendererClass( options, tableModel, log) );
-                   
-                // TOTAL
-                // for the total, leave the default text editor assigned when set to editable
+            if( mode == POITEM_BY_PO ){                        
                 
             }
             
-//            adjustColumnType( "TOTAL", BROWSER_COLUMN_TYPE_CURRENCY );
-            
- //           adjustColumnFont(  "id",  new Font( "arial", Font.PLAIN, 10  ) );            
-  //          adjustColumnFont(  "Name",  new Font( "arial", Font.PLAIN, 10 )  );                        
-   //         adjustColumnFont(  "Date",  new Font( "arial", Font.PLAIN, 10 )  );                        
-   //         adjustColumnFont(  "STATUS",  new Font( "arial", Font.PLAIN, 10 )  );                        
-   //         adjustColumnFont(  "TOTAL",  new Font( "arial", Font.BOLD, 10 )  );            
                        
     }        
 
@@ -246,6 +194,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
         @Override
         public void save( java.util.List< String > fieldNames, java.util.List< recordClass > data ){                
             
+            /*
             try {            
             
                 // load status
@@ -302,7 +251,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
 
             }
                 
-            
+            */
            
         
     }      
@@ -364,10 +313,10 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 // ------------------------------------------------
                 // when not inside a client edit dialog
             
-                        if( mode == ALL_SAMPLERECORD ){
+                        if( mode == ALL_POITEM ){
 
                             // build a client browser
-                               PRBrowserClass pr_new = new PRBrowserClass(
+                               PurchaseOrderBrowserClass pr_new = new PurchaseOrderBrowserClass(
                                         configuration, log, new javax.swing.JTable(), getParentWindow() );
 
                                pr_new.initializeTable();   
@@ -393,8 +342,8 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
             
                 
                 HashMap foreingKeys = new HashMap();
-                foreingKeys.put( "itemid", productID );                                             
-                foreingKeys.put( "samplerecordid", parentID );
+                //foreingKeys.put( "itemid", productID );                                             
+                foreingKeys.put( "hdrid", parentID );
                 super.newButtonActionPerformed( foreingKeys ); 
                 
                 

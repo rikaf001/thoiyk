@@ -9,16 +9,14 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.ProductionRecord;
+package thoiyk.HumanInterfaceComponent.ProductInHeader;
 
 /**
  *
  * @author yoserizy
  */
 //rtl
-import thoiyk.HumanInterfaceComponent.ProductionRecord.PREditDialogClass;
 import javax.swing.*;
-import java.awt.*;
 
 // utilities
 import KFramework30.Widgets.*;
@@ -28,7 +26,7 @@ import KFramework30.Base.*;
 import ProblemDomainComponent.pr_newClass;
 
 
-public class PRBrowserClass 
+public class ProductInHeaderBrowserClass 
 extends KDataBrowserBaseClass {   
         
     // uses                       	
@@ -36,7 +34,7 @@ extends KDataBrowserBaseClass {
     // has
 
     /** Creates new viajeBrowserClass */
-    public PRBrowserClass(
+    public ProductInHeaderBrowserClass(
             KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,
@@ -49,7 +47,7 @@ extends KDataBrowserBaseClass {
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
                     pr_newClass.class,
-                    PREditDialogClass.class
+                    ProductInHeaderEditDialogClass.class
             );  
             
             // uses                   
@@ -64,12 +62,12 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " pr.ID, pr.prno, st.nama type, pr.STYLE, pr.BUYERID,byr.NAMA BUYERNAME,pr.DESCRIPTION, pr.QTY ",
+                " pr.ID,pt.nama type, pr.nomor, pr.tanggal, sup.nama suppliername,pr.nosj,pr.tglsj, pr.nobc, pr.tglbc ",
                 
                 // 2 tablas and joins                                             
-                " productionrecord pr   "  +
-                " left join stocktype st on pr.samplerecordtypeid = st.id "   +
-                " left join BUYER byr on pr.BUYERID=byr.id "  
+                " productin_hdr pr   "  +
+                " left join productintype pt on pr.typeid = pt.id "   +
+                " left join supplier sup on pr.supplierid=sup.id "  
                  ,
                                                                 
                 // 3 llave principal (mayusculas!)
@@ -79,13 +77,14 @@ extends KDataBrowserBaseClass {
 
      
             setColumnNames( "pr", "ID", "ID" );
-            setColumnNames( "pr", "PRNO", "PRNo" );
-            setColumnNames( "st", "TYPE", "TypeName" );
-            setColumnNames( "pr", "STYLE", "Style" );
-            setColumnNames( "pr", "BUYERID", "BuyerID" );
-            setColumnNames( "byr", "BUYERNAME", "BuyerName" );
-            setColumnNames( "pr", "DESCRIPTION", "Description" );
-            setColumnNames( "pr", "QTY", "Qty" );
+            setColumnNames( "pt", "TYPE", "Type" );
+            setColumnNames( "pr", "NOMOR", "Nomor" );
+            setColumnNames( "pr", "TANGGAL", "Tanggal" );
+            setColumnNames( "sup", "SUPPLIERNAME", "SupplierName" );
+            setColumnNames( "pr", "NOSJ", "NoSJ" );
+            setColumnNames( "pr", "TGLSJ", "TglSJ" );
+            setColumnNames( "pr", "NOBC", "NoBC" );
+            setColumnNames( "pr", "TGLBC", "TglBC" );
        
 
             // load data

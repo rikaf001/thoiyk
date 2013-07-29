@@ -19,10 +19,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
 
-package thoiyk.HumanInterfaceComponent.ProductionRecord;
+package thoiyk.HumanInterfaceComponent.ProductInHeader;
 
 
-import thoiyk.HumanInterfaceComponent.ProductionRecord.PRBrowserClass;
 import Sample1.desktopToolbarListenerInterface;
 import Sample1.desktopAccessInterface;
 import KFramework30.Base.*;
@@ -32,7 +31,7 @@ import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 
 
-public class PRFrameClass extends javax.swing.JInternalFrame 
+public class ProductInHeaderFrameClass extends javax.swing.JInternalFrame 
 implements desktopToolbarListenerInterface, InternalFrameListener
 {
 
@@ -42,7 +41,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         private desktopAccessInterface          mainToolbar;
 
 	// has - defaulted
-	private PRBrowserClass             browser;
+	private ProductInHeaderBrowserClass             browser;
                 
         public void internalFrameOpened(InternalFrameEvent e) {}
         public void internalFrameClosing(InternalFrameEvent e) {}
@@ -76,7 +75,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         }
                         
 
-    public PRFrameClass(KConfigurationClass configurationParam,KLogClass logParam,desktopAccessInterface systemDesktopParam ) throws KExceptionClass
+    public ProductInHeaderFrameClass(KConfigurationClass configurationParam,KLogClass logParam,desktopAccessInterface systemDesktopParam ) throws KExceptionClass
     {        
         initComponents ();
         
@@ -86,7 +85,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         mainToolbar = systemDesktopParam;
         
 	// has defaulted
-	browser =  new PRBrowserClass( configuration, log, justificationTable, mainToolbar.getDesktopsWindow()  );                           
+	browser =  new ProductInHeaderBrowserClass( configuration, log, justificationTable, mainToolbar.getDesktopsWindow()  );                           
         browser.initializeTable();        
         
         // init
