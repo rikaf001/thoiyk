@@ -53,7 +53,7 @@ extends KBusinessObjectClass
     private long POID;
     
     @Column(name = "nomor")
-    private long Nomor;
+    private String Nomor;
 
     @Column(name = "tanggal")
     @Temporal(TemporalType.TIMESTAMP)   
@@ -95,9 +95,10 @@ extends KBusinessObjectClass
     private Date DateModified;
 
 
+    @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
     private long version;
-
+    
     public ProductInHeaderClass() throws KExceptionClass{
     }
 
@@ -126,14 +127,15 @@ extends KBusinessObjectClass
         this.POID = POID;
     }
 
-    
-    public long getNomor() {
+    public String getNomor() {
         return Nomor;
     }
 
-    public void setNomor(long Nomor) {
+    public void setNomor(String Nomor) {
         this.Nomor = Nomor;
     }
+
+    
 
     public Date getTanggal() {
         return Tanggal;
