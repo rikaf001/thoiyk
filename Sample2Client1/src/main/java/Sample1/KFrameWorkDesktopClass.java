@@ -36,6 +36,7 @@ import java.net.URL;
 import java.util.Locale;
 import javax.swing.*;
 import thoiyk.HumanInterfaceComponent.ProductInHeader.ProductInHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.ProductOutHeader.ProductOutHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderFrameClass;
 import thoiyk.HumanInterfaceComponent.accessories.accessoriesFrameClass;
 import thoiyk.HumanInterfaceComponent.accessoriestype.accessoriestypeFrameClass;
@@ -118,6 +119,7 @@ implements desktopAccessInterface, ActionListener
         POItem = new javax.swing.JMenuItem();
         ProductInOutMenu = new javax.swing.JMenu();
         ProductInItem = new javax.swing.JMenuItem();
+        ProductOutItem = new javax.swing.JMenuItem();
         clientItem = new javax.swing.JMenuItem();
         facturasItem = new javax.swing.JMenuItem();
         productCatalogue = new javax.swing.JMenuItem();
@@ -532,6 +534,15 @@ implements desktopAccessInterface, ActionListener
             }
         });
         ProductInOutMenu.add(ProductInItem);
+
+        ProductOutItem.setText("Product Out");
+        ProductOutItem.setName("ProductOutItem"); // NOI18N
+        ProductOutItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProductOutItemActionPerformed(evt);
+            }
+        });
+        ProductInOutMenu.add(ProductOutItem);
 
         MainMenu.add(ProductInOutMenu);
 
@@ -949,6 +960,10 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
       openInternalFrame( ProductInHeaderFrameClass.class, "Product In" );
     }//GEN-LAST:event_ProductInItemActionPerformed
 
+    private void ProductOutItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductOutItemActionPerformed
+      openInternalFrame( ProductOutHeaderFrameClass.class, "Product Out" );
+    }//GEN-LAST:event_ProductOutItemActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -962,6 +977,7 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem PRItem;
     private javax.swing.JMenuItem ProductInItem;
     private javax.swing.JMenu ProductInOutMenu;
+    private javax.swing.JMenuItem ProductOutItem;
     private javax.swing.JMenuItem SampleLIMSDataNavigator;
     private javax.swing.JMenuItem SampleLIMSReports;
     private javax.swing.JMenuItem SampleRecord;
