@@ -49,7 +49,7 @@ extends KBusinessObjectClass
     
 
     @Column(name = "typeid")
-    private long typeID;
+    private long TypeID;
 
     @Column(name = "prid")
     private long PRID;
@@ -60,7 +60,11 @@ extends KBusinessObjectClass
     @Column(name = "tanggal")
     @Temporal(TemporalType.TIMESTAMP)   
     private Date Tanggal;
-    
+
+    @Column(name = "tanggalselesai")
+    @Temporal(TemporalType.TIMESTAMP)   
+    private Date TanggalSelesai;
+
     @Column(name = "penerimaid")
     private long PenerimaID;
     
@@ -107,12 +111,14 @@ extends KBusinessObjectClass
     }
 
     public long getTypeID() {
-        return typeID;
+        return TypeID;
     }
 
-    public void setTypeID(long typeID) {
-        this.typeID = typeID;
+    public void setTypeID(long TypeID) {
+        this.TypeID = TypeID;
     }
+
+    
 
     
     public String getNomor() {
@@ -131,6 +137,14 @@ extends KBusinessObjectClass
         this.Tanggal = Tanggal;
     }
 
+    public Date getTanggalSelesai() {
+        return TanggalSelesai;
+    }
+
+    public void setTanggalSelesai(Date TanggalSelesai) {
+        this.TanggalSelesai = TanggalSelesai;
+    }
+    
     public long getPenerimaID() {
         return PenerimaID;
     }
