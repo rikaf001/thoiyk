@@ -122,7 +122,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-              <JLayeredPaneConstraints x="0" y="60" width="660" height="330" layer="0" position="-1"/>
+              <JLayeredPaneConstraints x="0" y="50" width="660" height="340" layer="0" position="-1"/>
             </Constraint>
           </Constraints>
 
@@ -165,7 +165,7 @@
                                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                       <Component id="client_id6" min="-2" pref="59" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                                      <Component id="poidLbl" min="-2" pref="59" max="-2" attributes="0"/>
+                                      <Component id="pridLbl" min="-2" pref="59" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                       <Component id="jButton2" pref="0" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
@@ -173,22 +173,13 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jDateChooser3" min="-2" pref="170" max="-2" attributes="0"/>
-                                              <Component id="Supplier_Text04Edit1" min="-2" pref="145" max="-2" attributes="0"/>
                                               <Component id="Supplier_Text04Edit2" min="-2" pref="145" max="-2" attributes="0"/>
                                               <Component id="jDateChooser4" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                                           </Group>
@@ -196,11 +187,11 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="SupplierID" min="-2" pref="59" max="-2" attributes="0"/>
+                                          <Component id="penerimaidLbl" min="-2" pref="59" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jButton1" min="-2" pref="30" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="suppnameLbl" min="-2" pref="291" max="-2" attributes="0"/>
+                                          <Component id="pennameLbl" min="-2" pref="291" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
@@ -226,7 +217,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="idLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="client_id6" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="poidLbl" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="pridLbl" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -254,18 +245,13 @@
                                                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="SupplierID" min="-2" pref="20" max="-2" attributes="0"/>
-                                                  <Component id="suppnameLbl" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="Supplier_Text04Edit1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                                  <Component id="penerimaidLbl" min="-2" pref="20" max="-2" attributes="0"/>
+                                                  <Component id="pennameLbl" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                       <Component id="jDateChooser3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
@@ -310,7 +296,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="8" pref="11" max="32767" attributes="0"/>
+                      <EmptySpace min="8" pref="9" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -338,7 +324,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="SupplierID"/>
+                <Property name="text" type="java.lang.String" value="PenerimaID"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
@@ -380,7 +366,7 @@
                 <Property name="name" type="java.lang.String" value="ID" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="SupplierID">
+            <Component class="javax.swing.JLabel" name="penerimaidLbl">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="0"/>
@@ -390,10 +376,10 @@
                     <EtchetBorder/>
                   </Border>
                 </Property>
-                <Property name="name" type="java.lang.String" value="SupplierID" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="PenerimaID" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="suppnameLbl">
+            <Component class="javax.swing.JLabel" name="pennameLbl">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="0"/>
@@ -403,12 +389,12 @@
                     <EtchetBorder/>
                   </Border>
                 </Property>
-                <Property name="name" type="java.lang.String" value="SupplierName" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="PenerimaName" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
-                <Property name="text" type="java.lang.String" value="TglSJ"/>
+                <Property name="text" type="java.lang.String" value="Tgl.Selesai"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
@@ -461,7 +447,7 @@
                   <Image iconType="3" name="/resources/print1.gif"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="print"/>
-                <Property name="toolTipText" type="java.lang.String" value="Print Porduct In"/>
+                <Property name="toolTipText" type="java.lang.String" value="Print Porduct Out"/>
                 <Property name="actionCommand" type="java.lang.String" value="edit"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
@@ -496,11 +482,6 @@
                 <Property name="name" type="java.lang.String" value="Nomor" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel16">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="NoSJ"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JComboBox" name="currCombo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -521,14 +502,6 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nomor"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="Supplier_Text04Edit1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="10" style="0"/>
-                </Property>
-                <Property name="name" type="java.lang.String" value="NoSJ" noResource="true"/>
               </Properties>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser3">
@@ -572,7 +545,7 @@
                 <Property name="text" type="java.lang.String" value="DateModified"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="poidLbl">
+            <Component class="javax.swing.JLabel" name="pridLbl">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="0"/>
@@ -582,12 +555,12 @@
                     <EtchetBorder/>
                   </Border>
                 </Property>
-                <Property name="name" type="java.lang.String" value="POID" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="PRID" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Pick from PO"/>
+                <Property name="text" type="java.lang.String" value="Pick from PR"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>

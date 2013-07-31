@@ -9,49 +9,49 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.ProductOutHeader;
+package thoiyk.HumanInterfaceComponent.v_Penerima;
 
 /**
  *
  * @author yoserizy
  */
 //rtl
+import thoiyk.HumanInterfaceComponent.v_Penerima.*;
 import javax.swing.*;
 
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
-import ProblemDomainComponent.pr_newClass;
 
 
-public class ProductOutHeaderBrowserClass 
+public class v_PenerimaBrowserClass 
 extends KDataBrowserBaseClass {   
-        
+    
     // uses                       	
     
     // has
 
-    /** Creates new viajeBrowserClass */
-    public ProductOutHeaderBrowserClass(
+    public v_PenerimaBrowserClass(
             KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,
-            java.awt.Window parentWindow           
-            ) throws KExceptionClass
+            java.awt.Window parentWindow ) throws KExceptionClass
     {
         
             // inherits
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    pr_newClass.class,
-                    ProductOutHeaderEditDialogClass.class
+                    null,
+                    null
             );  
             
             // uses                   
-	    // has            
+	    // has   
+         
     }        
 
 
@@ -62,35 +62,34 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                "  pr.ID,pt.nama type, pr.nomor, pr.tanggal, tr.name penerimaname, pr.nobc, pr.tglbc  ",
+                // 1 campos                    
+                " ID , CATEGORY, NAME ",
                 
                 // 2 tablas and joins                                             
-                "  productout_hdr pr    "  +
-                " left join productintype pt on pr.typeid = pt.id "   +
-                "  left join v_penerima tr on pr.penerimaid=tr.id "  
-                 ,
-                                                                
+                " v_penerima ",  
+                
                 // 3 llave principal (mayusculas!)
                 "ID" 
                                                                                              
                     );   
 
-     
-            setColumnNames( "pr", "ID", "ID" );
-            setColumnNames( "pt", "TYPE", "Type" );
-            setColumnNames( "pr", "NOMOR", "Nomor" );
-            setColumnNames( "pr", "TANGGAL", "Tanggal" );
-            setColumnNames( "sup", "PENERIMANAME", "PenerimaName" );
-            setColumnNames( "pr", "NOBC", "NoBC" );
-            setColumnNames( "pr", "TGLBC", "TglBC" );
-       
+            // define column settings
+            setColumnNames( "sup", "ID", "id" );
+            setColumnNames( "sup", "CATEGORY", "Category" );
+            setColumnNames( "sup", "NAME", "Name" );
+                
+                       
+            setDefaultOrder( "  CATEGORY " );
 
+            
             // load data
             super.initializeTable();   
             
+            // some customization
+            adjustColumnWidth( "Name", 100 );
             
+            adjustColumnType("id",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
     }        
-
 
     
 }

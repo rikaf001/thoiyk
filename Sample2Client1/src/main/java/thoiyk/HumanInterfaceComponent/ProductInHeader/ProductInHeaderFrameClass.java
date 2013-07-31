@@ -31,7 +31,8 @@ import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 
 
-public class ProductInHeaderFrameClass extends javax.swing.JInternalFrame 
+public class ProductInHeaderFrameClass 
+extends javax.swing.JInternalFrame 
 implements desktopToolbarListenerInterface, InternalFrameListener
 {
 
