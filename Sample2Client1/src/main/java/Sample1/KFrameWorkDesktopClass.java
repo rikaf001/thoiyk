@@ -50,6 +50,7 @@ import thoiyk.HumanInterfaceComponent.negara.negaraFrameClass;
 import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderFrameClass;
 import thoiyk.HumanInterfaceComponent.pr_from_sr.pr_from_srFrameClass;
 import thoiyk.HumanInterfaceComponent.ProductionRecord.PRFrameClass;
+import thoiyk.HumanInterfaceComponent.ReturnHeader.ReturnHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.Service.ServiceFrameClass;
 import thoiyk.HumanInterfaceComponent.ServiceType.ServiceTypeFrameClass;
 import thoiyk.HumanInterfaceComponent.samplerecord.samplerecordFrameClass;
@@ -120,6 +121,7 @@ implements desktopAccessInterface, ActionListener
         ProductInOutMenu = new javax.swing.JMenu();
         ProductInItem = new javax.swing.JMenuItem();
         ProductOutItem = new javax.swing.JMenuItem();
+        ReturnItem = new javax.swing.JMenuItem();
         clientItem = new javax.swing.JMenuItem();
         facturasItem = new javax.swing.JMenuItem();
         productCatalogue = new javax.swing.JMenuItem();
@@ -544,6 +546,15 @@ implements desktopAccessInterface, ActionListener
         });
         ProductInOutMenu.add(ProductOutItem);
 
+        ReturnItem.setText("Return");
+        ReturnItem.setName("ReturnItem"); // NOI18N
+        ReturnItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReturnItemActionPerformed(evt);
+            }
+        });
+        ProductInOutMenu.add(ReturnItem);
+
         MainMenu.add(ProductInOutMenu);
 
         clientItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -964,6 +975,10 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
       openInternalFrame( ProductOutHeaderFrameClass.class, "Product Out" );
     }//GEN-LAST:event_ProductOutItemActionPerformed
 
+    private void ReturnItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnItemActionPerformed
+      openInternalFrame( ReturnHeaderFrameClass.class, "Return" );
+    }//GEN-LAST:event_ReturnItemActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -978,6 +993,7 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem ProductInItem;
     private javax.swing.JMenu ProductInOutMenu;
     private javax.swing.JMenuItem ProductOutItem;
+    private javax.swing.JMenuItem ReturnItem;
     private javax.swing.JMenuItem SampleLIMSDataNavigator;
     private javax.swing.JMenuItem SampleLIMSReports;
     private javax.swing.JMenuItem SampleRecord;
