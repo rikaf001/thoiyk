@@ -45,9 +45,6 @@ extends KBusinessObjectClass
     @GeneratedValue( strategy = javax.persistence.GenerationType.TABLE, generator="KIDGenerator" )    
     @Column(name = "id")
     private long ID;
-
-    @Column(name = "typeid")
-    private long TypeID;
     
     @Column(name = "bkbid")
     private long BKBID;
@@ -64,13 +61,6 @@ extends KBusinessObjectClass
 
     @Column(name = "suppliername")
     private String SupplierName;
-
-    @Column(name = "nosj")
-    private String NoSJ;
-
-    @Column(name = "tglsj")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date TglSJ;
 
     @Column(name = "nobc")
     private String NoBC;
@@ -111,13 +101,6 @@ extends KBusinessObjectClass
         this.ID = ID;
     }
 
-    public long getTypeID() {
-        return TypeID;
-    }
-
-    public void setTypeID(long TypeID) {
-        this.TypeID = TypeID;
-    }
 
     public long getBKBID() {
         return BKBID;
@@ -165,22 +148,6 @@ extends KBusinessObjectClass
 
     
     
-    public String getNoSJ() {
-        return NoSJ;
-    }
-
-    public void setNoSJ(String NoSJ) {
-        this.NoSJ = NoSJ;
-    }
-
-    public Date getTglSJ() {
-        return TglSJ;
-    }
-
-    public void setTglSJ(Date TglSJ) {
-        this.TglSJ = TglSJ;
-    }
-
     public String getNoBC() {
         return NoBC;
     }

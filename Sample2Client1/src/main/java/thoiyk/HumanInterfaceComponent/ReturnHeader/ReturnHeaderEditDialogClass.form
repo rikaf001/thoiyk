@@ -108,7 +108,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Product IN Data">
+                <TitledBorder title="Return Data">
                   <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                     <EtchetBorder/>
                   </Border>
@@ -136,12 +136,10 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="23" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="currCombo" max="32767" attributes="0"/>
-                                  <Component id="jDateChooser1" pref="170" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jDateChooser1" min="-2" pref="170" max="-2" attributes="0"/>
                                   <Component id="Supplier_Text04Edit" min="-2" pref="145" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="298" max="-2" attributes="0"/>
@@ -165,29 +163,18 @@
                                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                       <Component id="client_id6" min="-2" pref="59" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                                      <Component id="poidLbl" min="-2" pref="59" max="-2" attributes="0"/>
+                                      <Component id="bkbidLbl" min="-2" pref="59" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                      <Component id="jButton2" min="-2" pref="113" max="-2" attributes="0"/>
+                                      <Component id="jButton2" min="-2" pref="142" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jDateChooser3" min="-2" pref="170" max="-2" attributes="0"/>
-                                              <Component id="Supplier_Text04Edit1" min="-2" pref="145" max="-2" attributes="0"/>
                                               <Component id="Supplier_Text04Edit2" min="-2" pref="145" max="-2" attributes="0"/>
                                               <Component id="jDateChooser4" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                                           </Group>
@@ -225,51 +212,35 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="idLbl" min="-2" max="-2" attributes="0"/>
                           <Component id="client_id6" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="poidLbl" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="bkbidLbl" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="printGraphButton1" min="-2" pref="39" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="currCombo" min="-2" pref="20" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <Component id="Supplier_Text04Edit" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="SupplierID" min="-2" pref="20" max="-2" attributes="0"/>
-                                                  <Component id="suppnameLbl" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="Supplier_Text04Edit1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                              </Group>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="SupplierID" min="-2" pref="20" max="-2" attributes="0"/>
+                                          <Component id="suppnameLbl" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jDateChooser3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="Supplier_Text04Edit2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -309,7 +280,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="8" pref="11" max="32767" attributes="0"/>
+                      <EmptySpace min="8" pref="76" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -323,11 +294,6 @@
             <Component class="javax.swing.JLabel" name="idLbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="ID"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="TypeID"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -403,11 +369,6 @@
                   </Border>
                 </Property>
                 <Property name="name" type="java.lang.String" value="SupplierName" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="TglSJ"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
@@ -495,44 +456,9 @@
                 <Property name="name" type="java.lang.String" value="Nomor" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel16">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="NoSJ"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="currCombo">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Verdana" size="10" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="IDR"/>
-                    <StringItem index="1" value="USD"/>
-                  </StringArray>
-                </Property>
-                <Property name="name" type="java.lang.String" value="TypeIDSelect" noResource="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="currComboActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nomor"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="Supplier_Text04Edit1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="10" style="0"/>
-                </Property>
-                <Property name="name" type="java.lang.String" value="NoSJ" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser3">
-              <Properties>
-                <Property name="name" type="java.lang.String" value="NoSJPick" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="Supplier_Text04Edit2">
@@ -571,7 +497,7 @@
                 <Property name="text" type="java.lang.String" value="DateModified"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="poidLbl">
+            <Component class="javax.swing.JLabel" name="bkbidLbl">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="0"/>
@@ -581,12 +507,12 @@
                     <EtchetBorder/>
                   </Border>
                 </Property>
-                <Property name="name" type="java.lang.String" value="POID" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="BKBID" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Pick from BTB"/>
+                <Property name="text" type="java.lang.String" value="Pick from BKB"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>

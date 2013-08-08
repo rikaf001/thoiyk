@@ -104,7 +104,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                         "pi.id, pi.hdrid, pi.itemid, pi.itemqty, pi.itemunitid, pi.actualqty,pi.actualunitid, pi.createdby,pi.datecreated,pi.modifiedby,pi.datemodified",    
 
                         // 2 tables and joins                                                
-                        " productin_dtl pi " ,
+                        " return_dtl pi " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -144,7 +144,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                         "pi.id, pi.hdrid, pi.itemid, pi.itemqty, pi.itemunitid, pi.actualqty,pi.actualunitid, pi.createdby,pi.datecreated,pi.modifiedby,pi.datemodified",    
 
                         // 2 tables and joins                                                
-                        " productin_dtl pi " ,
+                        " return_dtl pi " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
