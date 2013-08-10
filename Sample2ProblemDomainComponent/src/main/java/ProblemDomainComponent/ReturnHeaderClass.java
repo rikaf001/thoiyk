@@ -56,11 +56,8 @@ extends KBusinessObjectClass
     @Temporal(TemporalType.TIMESTAMP)   
     private Date Tanggal;
 
-    @Column(name = "supplierid")
-    private long SupplierID;
-
-    @Column(name = "suppliername")
-    private String SupplierName;
+    @Column(name = "pemberiname")
+    private String PemberiName;
 
     @Column(name = "nobc")
     private String NoBC;
@@ -130,24 +127,14 @@ extends KBusinessObjectClass
         this.Tanggal = Tanggal;
     }
 
-    public long getSupplierID() {
-        return SupplierID;
+    public String getPemberiName() {
+        return PemberiName;
     }
 
-    public void setSupplierID(long SupplierID) {
-        this.SupplierID = SupplierID;
+    public void setPemberiName(String PemberiName) {
+        this.PemberiName = PemberiName;
     }
 
-    public String getSupplierName() {
-        return SupplierName;
-    }
-
-    public void setSupplierName(String SupplierName) {
-        this.SupplierName = SupplierName;
-    }
-
-    
-    
     public String getNoBC() {
         return NoBC;
     }

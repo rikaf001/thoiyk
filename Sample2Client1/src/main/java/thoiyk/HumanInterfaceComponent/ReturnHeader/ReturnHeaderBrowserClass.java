@@ -63,12 +63,10 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " pr.ID,pt.nama type, pr.nomor, pr.tanggal, sup.nama suppliername,pr.nosj,pr.tglsj, pr.nobc, pr.tglbc ",
+                " pr.ID, pr.nomor, pr.tanggal, pemberiname,pr.nosj,pr.tglsj, pr.nobc, pr.tglbc ",
                 
                 // 2 tablas and joins                                             
-                " return_hdr pr   "  +
-                " left join productintype pt on pr.typeid = pt.id "   +
-                " left join supplier sup on pr.supplierid=sup.id "  
+                " return_hdr pr   " 
                  ,
                                                                 
                 // 3 llave principal (mayusculas!)
@@ -78,10 +76,10 @@ extends KDataBrowserBaseClass {
 
      
             setColumnNames( "pr", "ID", "ID" );
-            setColumnNames( "pt", "TYPE", "Type" );
+            //setColumnNames( "pt", "TYPE", "Type" );
             setColumnNames( "pr", "NOMOR", "Nomor" );
             setColumnNames( "pr", "TANGGAL", "Tanggal" );
-            setColumnNames( "sup", "SUPPLIERNAME", "SupplierName" );
+            setColumnNames( "sup", "PEMBERINAME", "PemberiName" );
             setColumnNames( "pr", "NOSJ", "NoSJ" );
             setColumnNames( "pr", "TGLSJ", "TglSJ" );
             setColumnNames( "pr", "NOBC", "NoBC" );
