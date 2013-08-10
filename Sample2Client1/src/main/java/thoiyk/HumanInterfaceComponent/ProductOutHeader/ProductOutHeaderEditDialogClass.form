@@ -449,7 +449,6 @@
                 <Property name="text" type="java.lang.String" value="print"/>
                 <Property name="toolTipText" type="java.lang.String" value="Print Porduct Out"/>
                 <Property name="actionCommand" type="java.lang.String" value="edit"/>
-                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">

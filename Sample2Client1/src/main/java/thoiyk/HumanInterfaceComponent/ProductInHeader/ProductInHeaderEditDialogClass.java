@@ -857,8 +857,8 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             ProductInTypeClass ProdInType = ( ProductInTypeClass ) POMProdInType.copy4( ProdIn.getTypeID(), ProductInTypeClass.class );
 
             //materialize Supplier
-            persistentObjectManagerClass POMSupp = new persistentObjectManagerClass(configuration, log);
-            supplierClass Supp = ( supplierClass ) POMSupp.copy4( ProdIn.getSupplierID(), supplierClass.class );
+            //persistentObjectManagerClass POMSupp = new persistentObjectManagerClass(configuration, log);
+            //supplierClass Supp = ( supplierClass ) POMSupp.copy4( ProdIn.getSupplierID(), supplierClass.class );
 
             //ProductInHeaderTermClass poterm = new ProductInHeaderTermClass();
             //poterm = (ProductInHeaderTermClass) persistentObjectManager.copy4( po.getTermPaymentID(), ProductInHeaderTermClass.class );  
@@ -921,7 +921,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             leftTopSection.printText("Kab.Bogor Jawa Barat 16650",                      0, 40 );
 //            leftTopSection.printText("NPWP",                                            0, 50 );
 //            leftTopSection.printText("123.123.123.123",                                 0, 60 );
-            leftTopSection.printText("Phone: +62 123456 Fax: +62 212334",               0, 60 );
+            leftTopSection.printText("Phone: +62 123456 Fax: +62 212334",               0, 50 );
 //            leftTopSection.printText("Atn.",                                            320, 70 );
 //            leftTopSection.printText("Arum / Ibu Lisye",                                360, 70 );
 

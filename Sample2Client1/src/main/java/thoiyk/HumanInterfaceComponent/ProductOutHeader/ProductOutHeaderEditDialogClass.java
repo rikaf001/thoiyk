@@ -34,6 +34,8 @@ import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
 import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.ProductOutHeaderClass;
+import ProblemDomainComponent.ProductOutTypeClass;
+import ProblemDomainComponent.productionrecordClass;
 import ProblemDomainComponent.supplierClass;
 import ProblemDomainComponent.v_PenerimaClass;
 import java.awt.Font;
@@ -360,7 +362,6 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         printGraphButton1.setText("print");
         printGraphButton1.setToolTipText("Print Porduct Out");
         printGraphButton1.setActionCommand("edit");
-        printGraphButton1.setEnabled(false);
         printGraphButton1.setFocusable(false);
         printGraphButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         printGraphButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -826,7 +827,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         
       try{
           
-            log.log( this, "Printing PO" );
+            log.log( this, "Printing Product Out" );
             persistentObjectManagerClass persistentObjectManager = 
                     new persistentObjectManagerClass( configuration, log );             
 
@@ -836,12 +837,20 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
             persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
             //ProductOutHeaderClass po = new ProductOutHeaderClass();
-            ProductOutHeaderClass po = ( ProductOutHeaderClass ) POM.copy4( ((ProductOutHeaderClass)KDialogController.getCurrentObjectDisplayed()).getID(), ProductOutHeaderClass.class );
+            ProductOutHeaderClass ProdOut = ( ProductOutHeaderClass ) POM.copy4( ((ProductOutHeaderClass)KDialogController.getCurrentObjectDisplayed()).getID(), ProductOutHeaderClass.class );
             
-            //materialize the term
-            persistentObjectManagerClass POMTerm = new persistentObjectManagerClass(configuration, log);
-//            ProductOutHeaderTermClass poterm = new ProductOutHeaderTermClass();
-//            poterm = ( ProductOutHeaderTermClass ) POMTerm.copy4( po.getTermPaymentID(), ProductOutHeaderTermClass.class );
+            //materialize Product In Type
+            persistentObjectManagerClass POMProdOutType = new persistentObjectManagerClass(configuration, log);
+            ProductOutTypeClass ProdOutType = ( ProductOutTypeClass ) POMProdOutType.copy4( ProdOut.getTypeID(), ProductOutTypeClass.class );
+
+
+            // matelize PR
+            persistentObjectManagerClass POMPR = new persistentObjectManagerClass(configuration, log);
+            productionrecordClass PR = ( productionrecordClass ) POMPR.copy4( ProdOut.getPRID(), productionrecordClass.class );
+
+            //materialize Supplier
+//            persistentObjectManagerClass POMSupp = new persistentObjectManagerClass(configuration, log);
+//            v_PenerimaClass Supp = ( v_PenerimaClass ) POMSupp.copy4( ProdOut.getPenerimaID(), v_PenerimaClass.class );
 
             //ProductOutHeaderTermClass poterm = new ProductOutHeaderTermClass();
             //poterm = (ProductOutHeaderTermClass) persistentObjectManager.copy4( po.getTermPaymentID(), ProductOutHeaderTermClass.class );  
@@ -863,8 +872,8 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 //            headerSection.printText("Email: vmaxxed@users.sourceforge.net",                        350, 90 );
 //            
             headerSection.setFont( new Font( "arial", Font.PLAIN,                       12) );
-            headerSection.printText("PURCHASE ORDER ",          170, 100 );
-            headerSection.printLine(170,114,290,114);            
+            headerSection.printText(ProdOutType.getNama(),          170, 100 );
+            headerSection.printLine(170,114,310,114);            
 //            headerSection.setFont( new Font( "arial", Font.PLAIN,                        10) );
 //            headerSection.printText("Date:",                                          0, 120 );
 //            headerSection.printText( KMetaUtilsClass.time(),                          70, 120 );
@@ -898,16 +907,29 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 */
            // KPrintSectionClass rightTopSection = new KPrintSectionClass(configuration, log, 520, 130 );                 
             leftTopSection.setFont( new Font( "arial", Font.PLAIN, 10) );
-            leftTopSection.printText("Ship To",                                         320, 20 );
-            leftTopSection.printText("Pintu Mas Garmindo PT",                           360, 20 );
-            leftTopSection.printText("Jl.Raya Dramarga Km 7 No 61",                     360, 30 );
-            leftTopSection.printText("Kab.Bogor Jawa Barat 16650",                      360, 40 );
-            leftTopSection.printText("NPWP",                                            320, 50 );
-            leftTopSection.printText("123.123.123.123",                                 360, 50 );
-            leftTopSection.printText("Phone: +62 123456 Fax: +62 212334",               360, 60 );
-            leftTopSection.printText("Atn.",                                            320, 70 );
-            leftTopSection.printText("Arum / Ibu Lisye",                                360, 70 );
+//            leftTopSection.printText("Ship To",                                         320, 20 );
+            leftTopSection.printText("Pintu Mas Garmindo PT",                           0, 20 );
+            leftTopSection.printText("Jl.Raya Dramarga Km 7 No 61",                     0, 30 );
+            leftTopSection.printText("Kab.Bogor Jawa Barat 16650",                      0, 40 );
+//            leftTopSection.printText("NPWP",                                            0, 50 );
+//            leftTopSection.printText("123.123.123.123",                                 0, 60 );
+            leftTopSection.printText("Phone: +62 123456 Fax: +62 212334",               0, 50 );
+//            leftTopSection.printText("Atn.",                                            320, 70 );
+//            leftTopSection.printText("Arum / Ibu Lisye",                                360, 70 );
 
+            
+            // informasi ProductOut
+            leftTopSection.printText("NO",                              300, 20 );
+            leftTopSection.printText(ProdOut.getNomor(),                360, 20 );
+            leftTopSection.printText("Tgl",                             300, 30 );
+            leftTopSection.printText(ProdOut.getTanggal().toString(),   360, 30 );
+            leftTopSection.printText("Penerima",                        300, 40 );
+            leftTopSection.printText(ProdOut.getPenerimaName(),         360, 40 );
+            leftTopSection.printText("PRNo",                            300, 50 );
+            leftTopSection.printText(PR.getPrno(),                      360, 50 );
+            leftTopSection.printText("Style",                           300, 60 );
+            leftTopSection.printText(PR.getStyle(),                     360, 60 );
+            
             // heading and Analytical Testing Service Summary
             // get a KePrintJob
             KPrintJobClass printJob = 
@@ -937,24 +959,17 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
             dbTransaction.prepare(
 
-                " select ITEMNAME,KODE,poi.PRNO,sum(QTY) qty, sum(unitprice) unitprice, sum(QTY*UNITPRICE) price " +
+                " select rownum no, namabarang,jumlah,unit,tglmsk,nobtb,nobc " +
                  // End Fields used in the receipt
                  //--------------------------------------------------
                  "from "+
-                 "purchaseorderitem poi " +
-                 "left join " +
-                 "v_po_item on poi.itemid=v_po_item.id " +
+                 "v_productout_dtl vdtl " +
                 " where " +
-                    "poi.purchaseorderid=:v1 " +
-                     "group by ITEMNAME,KODE,poi.PRNO " );
+                 "vdtl.hdrid=:v1 " );
 
-                dbTransaction.bind( ":v1",  po.getID() );                  
-
-  //              log.log( caller, "Loading ashur sample, sample point data" );                                                                                                                
+                dbTransaction.bind( ":v1",  ProdOut.getID() );                  
                 dbTransaction.executeQuery( 0, 655356 );
-    //            log.log( caller, "Loading complete." );                                                  
-
-            // --------------------------------------------------------    
+                // --------------------------------------------------------    
                 
                //to get analysis info
                 //dbTransactionClientClass AnalysisdbTransaction = 
@@ -974,12 +989,13 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                                dbTransaction, printJob, 0, 655356 );
                 
                     //print anasys info
-                    dbTable.addField( "ITEMNAME", "ItemName",230 );   
-                    dbTable.addField( "KODE","Code",50 );
-                    dbTable.addField( "PRNO","PRNo",50 );        
-                    dbTable.addField( "QTY","Qty",30 ); 
-                    dbTable.addField( "UNITPRICE","UnitPrice",40 );
-                    dbTable.addField( "PRICE","Price",100 );        
+                    //dbTable.addField( "NO","No",10 );
+                    dbTable.addField( "NAMABARANG", "NamaBarang",230 );   
+                    dbTable.addField( "JUMLAH","Jumlah",30 );
+                    dbTable.addField( "UNIT","Unit",50 );        
+                    dbTable.addField( "TGLMSK","TglMsk",50 );        
+                    dbTable.addField( "NOBTB","NoBTB",50 );        
+                    dbTable.addField( "NOBC","NoBC",50 );        
                     //dbTable.addField( "ANALYSIS_CLIENT_PRICE","CLIENT PRICE", 100, KPrintJobClass.RIGHT );                        
                     
                     
@@ -987,18 +1003,19 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     //dbTable.addSummary( "CLIENT PRICE", KPrintDataTableClass.SUM, "Total: $", null, 2 );
                     
                     
-                    dbTable.setPrintingField( "ItemName" );
-                    dbTable.setPrintingField( "Code" );
-                    dbTable.setPrintingField( "PRNo" );        
-                    dbTable.setPrintingField( "Qty" );                        
-                    dbTable.setPrintingField( "UnitPrice" );
-                    dbTable.setPrintingField( "Price" );
-                    //dbTable.setPrintingField( "CLIENT PRICE" );                        
-                    //DBPrinter.setPrintingField( "SAMPLE ID" );  
+                    //dbTable.setPrintingField( "No" );
+                    dbTable.setPrintingField( "NamaBarang" );
+                    dbTable.setPrintingField( "Jumlah" );        
+                    dbTable.setPrintingField( "Unit" );                        
+                    dbTable.setPrintingField( "TglMsk" );
+                    dbTable.setPrintingField( "NoBTB" );
+                    dbTable.setPrintingField( "NoBC" );
+                    
+                   
                     
                     
                     // summary
-                    dbTable.addSummary( "Price", KPrintDataTableClass.SUM, null, null, 2 );
+                    //dbTable.addSummary( "Price", KPrintDataTableClass.SUM, null, null, 2 );
                   
                     
                     dbTable.setHorizontalSpace( 10 );
@@ -1016,19 +1033,19 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     KPrintSectionClass footerSection = new KPrintSectionClass(configuration, log, 520, 140);           
                     
                     footerSection.setFont( new Font( "arial", Font.PLAIN, 10) );
-  /*                  
-                    footerSection.printText("Issued By",                                   0, 10 );
-                    footerSection.printText(po.getIssuedBy(),0, 30 );
-                    footerSection.printText("Checked By",                                   200, 10 );
-                    footerSection.printText("Authorized Signature",                         400, 10 );
                     
-                    footerSection.printText("Term Payment",                                   0, 120 );
-                    footerSection.printText(poterm.getName(),                                   100, 120 );
-                    footerSection.printText("Delivery Date",                                  0, 130 );
-                    footerSection.printText(po.getDeliveryDate().toLocaleString(),                 100, 130 );
-                    footerSection.printText("Note",                                            0, 140 );
+                    footerSection.printText("Dikeluarkan oleh",         0, 10 );
+                    //footerSection.printText(po.getIssuedBy(),0, 30 );
+                    footerSection.printText("Disetujui oleh", 200, 10 );
+                    footerSection.printText("Diterima oleh",       400, 10 );
                     
-    */                
+//                    footerSection.printText("Term Payment",                                   0, 120 );
+//                    footerSection.printText(poterm.getName(),                                   100, 120 );
+//                    footerSection.printText("Delivery Date",                                  0, 130 );
+//                    footerSection.printText(po.getDeliveryDate().toLocaleString(),                 100, 130 );
+//                    footerSection.printText("Note",                                            0, 140 );
+                    
+                   
                     
                     printJob.printSection( footerSection, KPrintJobClass.CENTER );
                     //footerSection.printText(po.get,                         40, 40 );
