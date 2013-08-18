@@ -35,6 +35,12 @@ import java.lang.reflect.Constructor;
 import java.net.URL;
 import java.util.Locale;
 import javax.swing.*;
+import thoiyk.HumanInterfaceComponent.BKBHeader.BKBHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.BKSHeader.BKSHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.BRBHeader.BRBHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.BRSHeader.BRSHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.BTBHeader.BTBHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.BTSHeader.BTSHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.ProductInHeader.ProductInHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.ProductOutHeader.ProductOutHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderFrameClass;
@@ -119,9 +125,12 @@ implements desktopAccessInterface, ActionListener
         PRItem = new javax.swing.JMenuItem();
         POItem = new javax.swing.JMenuItem();
         ProductInOutMenu = new javax.swing.JMenu();
-        ProductInItem = new javax.swing.JMenuItem();
-        ProductOutItem = new javax.swing.JMenuItem();
-        ReturnItem = new javax.swing.JMenuItem();
+        BTBItem = new javax.swing.JMenuItem();
+        BKBItem = new javax.swing.JMenuItem();
+        BTSItem = new javax.swing.JMenuItem();
+        BKSItem = new javax.swing.JMenuItem();
+        BRBItem = new javax.swing.JMenuItem();
+        BRSItem = new javax.swing.JMenuItem();
         clientItem = new javax.swing.JMenuItem();
         facturasItem = new javax.swing.JMenuItem();
         productCatalogue = new javax.swing.JMenuItem();
@@ -528,32 +537,60 @@ implements desktopAccessInterface, ActionListener
         ProductInOutMenu.setText("Product In / Out");
         ProductInOutMenu.setName("ProductInOutMenu"); // NOI18N
 
-        ProductInItem.setText("Product In");
-        ProductInItem.setName("ProductInItem"); // NOI18N
-        ProductInItem.addActionListener(new java.awt.event.ActionListener() {
+        BTBItem.setText("BTB (Bukti Terima Barang)");
+        BTBItem.setName("BTBItem"); // NOI18N
+        BTBItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProductInItemActionPerformed(evt);
+                BTBItemActionPerformed(evt);
             }
         });
-        ProductInOutMenu.add(ProductInItem);
+        ProductInOutMenu.add(BTBItem);
 
-        ProductOutItem.setText("Product Out");
-        ProductOutItem.setName("ProductOutItem"); // NOI18N
-        ProductOutItem.addActionListener(new java.awt.event.ActionListener() {
+        BKBItem.setText("BKB (Bukti Keluar Barang)");
+        BKBItem.setName("BKBItem"); // NOI18N
+        BKBItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProductOutItemActionPerformed(evt);
+                BKBItemActionPerformed(evt);
             }
         });
-        ProductInOutMenu.add(ProductOutItem);
+        ProductInOutMenu.add(BKBItem);
 
-        ReturnItem.setText("Return");
-        ReturnItem.setName("ReturnItem"); // NOI18N
-        ReturnItem.addActionListener(new java.awt.event.ActionListener() {
+        BTSItem.setText("BTS (Bukti Terima Service)");
+        BTSItem.setActionCommand("BTS (Bukti Terima Service)");
+        BTSItem.setName("BTSItem"); // NOI18N
+        BTSItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReturnItemActionPerformed(evt);
+                BTSItemActionPerformed(evt);
             }
         });
-        ProductInOutMenu.add(ReturnItem);
+        ProductInOutMenu.add(BTSItem);
+
+        BKSItem.setText("BKS (Bukti Keluar Service)");
+        BKSItem.setName("BKSItem"); // NOI18N
+        BKSItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BKSItemActionPerformed(evt);
+            }
+        });
+        ProductInOutMenu.add(BKSItem);
+
+        BRBItem.setText("BRB (Bukti Return Barang)");
+        BRBItem.setName("BRBItem"); // NOI18N
+        BRBItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BRBItemActionPerformed(evt);
+            }
+        });
+        ProductInOutMenu.add(BRBItem);
+
+        BRSItem.setText("BRS (Bukti Return Service)");
+        BRSItem.setName("BRSItem"); // NOI18N
+        BRSItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BRSItemActionPerformed(evt);
+            }
+        });
+        ProductInOutMenu.add(BRSItem);
 
         MainMenu.add(ProductInOutMenu);
 
@@ -967,21 +1004,39 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
       openInternalFrame( ServiceTypeFrameClass.class, "Service Type" );
     }//GEN-LAST:event_servicetypeItemActionPerformed
 
-    private void ProductInItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductInItemActionPerformed
-      openInternalFrame( ProductInHeaderFrameClass.class, "Product In" );
-    }//GEN-LAST:event_ProductInItemActionPerformed
+    private void BTBItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTBItemActionPerformed
+      openInternalFrame( BTBHeaderFrameClass.class, "BTB (Bukti Terima Barang)" );
+    }//GEN-LAST:event_BTBItemActionPerformed
 
-    private void ProductOutItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductOutItemActionPerformed
-      openInternalFrame( ProductOutHeaderFrameClass.class, "Product Out" );
-    }//GEN-LAST:event_ProductOutItemActionPerformed
+    private void BKBItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BKBItemActionPerformed
+      openInternalFrame( BKBHeaderFrameClass.class, "BKB (Bukti Keluar Barang)" );
+    }//GEN-LAST:event_BKBItemActionPerformed
 
-    private void ReturnItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnItemActionPerformed
-      openInternalFrame( ReturnHeaderFrameClass.class, "Return" );
-    }//GEN-LAST:event_ReturnItemActionPerformed
+    private void BTSItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTSItemActionPerformed
+      openInternalFrame( BTSHeaderFrameClass.class, "BTS (Bukti Terima Service)" );
+    }//GEN-LAST:event_BTSItemActionPerformed
+
+    private void BKSItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BKSItemActionPerformed
+      openInternalFrame( BKSHeaderFrameClass.class, "BKS (Bukti Keluar Service)" );
+    }//GEN-LAST:event_BKSItemActionPerformed
+
+    private void BRBItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRBItemActionPerformed
+      openInternalFrame( BRBHeaderFrameClass.class, "BRB (Bukti Return Barang)" );
+    }//GEN-LAST:event_BRBItemActionPerformed
+
+    private void BRSItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRSItemActionPerformed
+      openInternalFrame( BRSHeaderFrameClass.class, "BRS (Bukti Return Service)" );
+    }//GEN-LAST:event_BRSItemActionPerformed
 
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem BKBItem;
+    private javax.swing.JMenuItem BKSItem;
+    private javax.swing.JMenuItem BRBItem;
+    private javax.swing.JMenuItem BRSItem;
+    private javax.swing.JMenuItem BTBItem;
+    private javax.swing.JMenuItem BTSItem;
     private javax.swing.JToolBar DesktopToolbar;
     private javax.swing.JMenuItem Exit;
     private javax.swing.JMenu MainMenu;
@@ -990,10 +1045,7 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenu MenuHelp;
     private javax.swing.JMenuItem POItem;
     private javax.swing.JMenuItem PRItem;
-    private javax.swing.JMenuItem ProductInItem;
     private javax.swing.JMenu ProductInOutMenu;
-    private javax.swing.JMenuItem ProductOutItem;
-    private javax.swing.JMenuItem ReturnItem;
     private javax.swing.JMenuItem SampleLIMSDataNavigator;
     private javax.swing.JMenuItem SampleLIMSReports;
     private javax.swing.JMenuItem SampleRecord;

@@ -214,31 +214,59 @@
                 <Property name="name" type="java.lang.String" value="ProductInOutMenu" noResource="true"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="ProductInItem">
+                <MenuItem class="javax.swing.JMenuItem" name="BTBItem">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Product In"/>
-                    <Property name="name" type="java.lang.String" value="ProductInItem" noResource="true"/>
+                    <Property name="text" type="java.lang.String" value="BTB (Bukti Terima Barang)"/>
+                    <Property name="name" type="java.lang.String" value="BTBItem" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProductInItemActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTBItemActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="ProductOutItem">
+                <MenuItem class="javax.swing.JMenuItem" name="BKBItem">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Product Out"/>
-                    <Property name="name" type="java.lang.String" value="ProductOutItem" noResource="true"/>
+                    <Property name="text" type="java.lang.String" value="BKB (Bukti Keluar Barang)"/>
+                    <Property name="name" type="java.lang.String" value="BKBItem" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProductOutItemActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BKBItemActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="ReturnItem">
+                <MenuItem class="javax.swing.JMenuItem" name="BTSItem">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Return"/>
-                    <Property name="name" type="java.lang.String" value="ReturnItem" noResource="true"/>
+                    <Property name="text" type="java.lang.String" value="BTS (Bukti Terima Service)"/>
+                    <Property name="actionCommand" type="java.lang.String" value="BTS (Bukti Terima Service)"/>
+                    <Property name="name" type="java.lang.String" value="BTSItem" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReturnItemActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTSItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="BKSItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="BKS (Bukti Keluar Service)"/>
+                    <Property name="name" type="java.lang.String" value="BKSItem" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BKSItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="BRBItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="BRB (Bukti Return Barang)"/>
+                    <Property name="name" type="java.lang.String" value="BRBItem" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BRBItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="BRSItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="BRS (Bukti Return Service)"/>
+                    <Property name="name" type="java.lang.String" value="BRSItem" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BRSItemActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>
