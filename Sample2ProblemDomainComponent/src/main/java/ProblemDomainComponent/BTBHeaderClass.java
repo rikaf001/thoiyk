@@ -46,9 +46,6 @@ extends KBusinessObjectClass
     @Column(name = "id")
     private long ID;
 
-    @Column(name = "typeid")
-    private long TypeID;
-    
     @Column(name = "poid")
     private long POID;
     
@@ -109,14 +106,6 @@ extends KBusinessObjectClass
 
     public void setID(long ID) {
         this.ID = ID;
-    }
-
-    public long getTypeID() {
-        return TypeID;
-    }
-
-    public void setTypeID(long TypeID) {
-        this.TypeID = TypeID;
     }
 
     public long getPOID() {
