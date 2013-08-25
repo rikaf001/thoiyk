@@ -101,10 +101,19 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "pi.id, pi.hdrid, pi.itemid, pi.itemqty, pi.itemunitid, pi.actualqty,pi.actualunitid, pi.createdby,pi.datecreated,pi.modifiedby,pi.datemodified",    
+                        "btb.id,po.nomor pono,poi.prno,poi.category,poi.itemname,btb.itemqty,uta.nama as itemunit,btb.actualqty,utb.nama actualunit ",    
 
                         // 2 tables and joins                                                
-                        " btb_dtl pi " ,
+                        "btb_dtl btb " +
+                        "left join v_po_item poi " +
+                        "on " +
+                        "btb.itemid=poi.id " +
+                        "left join unittype uta " +
+                        "on btb.itemunitid=uta.id " +
+                        "left join unittype utb " +
+                        "on btb.actualunitid=utb.id "+
+                         "left join btb_hdr hdr on btb.hdrid=hdr.id " +
+                         "left join purchaseorder po on hdr.poid=po.id " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -115,7 +124,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     throw new KExceptionClass( "Data base type not recognized " + configuration.getField("databaseType"), null );
                 }
                 
-                setColumnNames( "pi", "ID", "ID" );             
+                /*setColumnNames( "pi", "ID", "ID" );             
                 setColumnNames( "pi", "HDRID", "HDRID" );
                 setColumnNames( "pi", "ITEMID", "ItemID" );             
                 setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
@@ -126,7 +135,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "pi", "DATECREATED", "DateCreated" );
                 setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
                 setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-                  
+                  */
                 // replace criteria
                 setDefaultCriteria( " hdrid = ? " );               
                 bindDefaultParameter1( ":hdrid",  parentID  );     
@@ -140,11 +149,20 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
-                        // 1 fields                    
-                        "pi.id, pi.hdrid, pi.itemid, pi.itemqty, pi.itemunitid, pi.actualqty,pi.actualunitid, pi.createdby,pi.datecreated,pi.modifiedby,pi.datemodified",    
+                     // 1 fields                    
+                        "btb.id,po.nomor pono,poi.prno,poi.category,poi.itemname,btb.itemqty,uta.nama as itemunit,btb.actualqty,utb.nama actualunit ",    
 
                         // 2 tables and joins                                                
-                        " btb_dtl pi " ,
+                        "btb_dtl btb " +
+                        "left join v_po_item poi " +
+                        "on " +
+                        "btb.itemid=poi.id " +
+                        "left join unittype uta " +
+                        "on btb.itemunitid=uta.id " +
+                        "left join unittype utb " +
+                        "on btb.actualunitid=utb.id "+
+                         "left join btb_hdr hdr on btb.hdrid=hdr.id " +
+                         "left join purchaseorder po on hdr.poid=po.id " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -157,7 +175,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
                 // FOR ALL INVOICES
                 
-                setColumnNames( "pi", "ID", "ID" );             
+                /*setColumnNames( "pi", "ID", "ID" );             
                 setColumnNames( "pi", "HDRID", "HDRID" );
                 setColumnNames( "pi", "ITEMID", "ItemID" );             
                 setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
@@ -168,10 +186,10 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "pi", "DATECREATED", "DateCreated" );
                 setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
                 setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-                
+                */
             }
 
-            setDefaultOrder( "itemid" );
+            setDefaultOrder( "id" );
                                 
             
             super.initializeTable();             

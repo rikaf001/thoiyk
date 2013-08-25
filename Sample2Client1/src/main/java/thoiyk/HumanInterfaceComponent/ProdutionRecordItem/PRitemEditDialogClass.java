@@ -43,6 +43,7 @@ import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import thoiyk.HumanInterfaceComponent.v_pr_item.v_pr_itemBrowserClass;
 import thoiyk.HumanInterfaceComponent.v_sr_item.v_sr_itemBrowserClass;
 
 
@@ -410,7 +411,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try
         {
-            v_sr_itemBrowserClass sr_itemBrowser = new v_sr_itemBrowserClass(
+            v_pr_itemBrowserClass sr_itemBrowser = new v_pr_itemBrowserClass(
                 configuration, log, new javax.swing.JTable(), this );
 
             sr_itemBrowser.initializeTable();

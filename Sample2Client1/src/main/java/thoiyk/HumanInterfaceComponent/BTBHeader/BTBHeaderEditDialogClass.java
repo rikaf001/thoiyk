@@ -34,6 +34,7 @@ import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
 import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.BTBHeaderClass;
+import ProblemDomainComponent.PurchaseOrderClass;
 //import ProblemDomainComponent.BTBTypeClass;
 import ProblemDomainComponent.supplierClass;
 import java.awt.Font;
@@ -1070,6 +1071,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try
         {
+                        
             PurchaseOrderBrowserClass POBrowser = new PurchaseOrderBrowserClass(
                 configuration, log, new javax.swing.JTable(), this );
 
@@ -1094,6 +1096,20 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             {
             
                 poidLbl.setText( Long.toString(parentID) );
+
+                persistentObjectManagerClass persistentObjectManager = 
+                    new persistentObjectManagerClass( configuration, log );
+                
+                PurchaseOrderClass po = new PurchaseOrderClass();
+                supplierClass supp = new supplierClass();
+                
+                po = (PurchaseOrderClass) persistentObjectManager.copy4( parentID, PurchaseOrderClass.class );  
+                
+                supp = (supplierClass) persistentObjectManager.copy4( po.getSupplierID(), supplierClass.class );  
+                
+                SupplierID.setText(Long.toString(supp.getId()));
+                suppnameLbl.setText(supp.getNama());
+
             }   
 
             

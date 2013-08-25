@@ -9,14 +9,12 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.v_sr_item;
+package thoiyk.HumanInterfaceComponent.v_pr_item;
 
 /**
  *
  * @author yoserizy
  */
-//rtl
-import javax.swing.*;
 import javax.swing.*;
 
 // utilities
@@ -27,14 +25,14 @@ import KFramework30.Base.*;
 import ProblemDomainComponent.fabricClass;
 
 
-public class v_sr_itemBrowserClass 
+public class v_pr_itemBrowserClass 
 extends KDataBrowserBaseClass {   
         
     // uses                       	
     
     // has
 
-    public v_sr_itemBrowserClass (KConfigurationClass configurationParam,
+    public v_pr_itemBrowserClass (KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,
             java.awt.Window parentWindow           
@@ -60,7 +58,7 @@ extends KDataBrowserBaseClass {
                 " ID, CATEGORY, NAMA ",
                 
                 // 2 tablas and joins                                             
-                " v_sr_item vsri",
+                " v_pr_item vsri",
                                                    
                 // 3 llave principal (mayusculas!)
                 "ID" 

@@ -38,7 +38,7 @@ import ProblemDomainComponent.supplierClass;
 import java.awt.Font;
 import java.awt.print.PageFormat;
 import thoiyk.HumanInterfaceComponent.BKBHeader.BKBHeaderBrowserClass;
-import thoiyk.HumanInterfaceComponent.ProductOutHeader.ProductOutHeaderBrowserClass;
+//import thoiyk.HumanInterfaceComponent.ProductOutHeader.ProductOutHeaderBrowserClass;
 import thoiyk.HumanInterfaceComponent.BRBHeader.BRBHeaderBrowserClass;
 import thoiyk.HumanInterfaceComponent.BRBDetail.BRBDetailBrowserClass;
 import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderBrowserClass;

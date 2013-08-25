@@ -235,7 +235,6 @@
                 <MenuItem class="javax.swing.JMenuItem" name="BTSItem">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="BTS (Bukti Terima Service)"/>
-                    <Property name="actionCommand" type="java.lang.String" value="BTS (Bukti Terima Service)"/>
                     <Property name="name" type="java.lang.String" value="BTSItem" noResource="true"/>
                   </Properties>
                   <Events>
