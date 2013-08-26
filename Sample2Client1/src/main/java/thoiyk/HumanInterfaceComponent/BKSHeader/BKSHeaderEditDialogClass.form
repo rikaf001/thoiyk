@@ -290,7 +290,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="8" pref="22" max="32767" attributes="0"/>
+                      <EmptySpace min="8" pref="33" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -313,7 +313,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="PenerimaID"/>
+                <Property name="text" type="java.lang.String" value="SupplierID"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
@@ -531,7 +531,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Pick from PR"/>
+                <Property name="text" type="java.lang.String" value="Pick from PO"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>

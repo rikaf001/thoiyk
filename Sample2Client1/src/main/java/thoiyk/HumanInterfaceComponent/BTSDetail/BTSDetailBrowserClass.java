@@ -101,10 +101,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "pi.id, pi.hdrid, pi.itemid, pi.itemqty, pi.itemunitid, pi.actualqty,pi.actualunitid, pi.createdby,pi.datecreated,pi.modifiedby,pi.datemodified",    
+                        "bts.id,poi.category,poi.itemname,bts.itemqty,uta.nama itemunit,bts.actualqty,utb.nama actualunit ",    
 
                         // 2 tables and joins                                                
-                        " bts_dtl pi " ,
+                        " bts_dtl bts " +
+                        "left join v_po_item poi on bts.itemid=poi.id " +
+                        "left join unittype uta on bts.itemunitid=uta.id " +
+                        "left join unittype utb on bts.actualunitid=utb.id " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -115,7 +118,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     throw new KExceptionClass( "Data base type not recognized " + configuration.getField("databaseType"), null );
                 }
                 
-                setColumnNames( "pi", "ID", "ID" );             
+/*                setColumnNames( "pi", "ID", "ID" );             
                 setColumnNames( "pi", "HDRID", "HDRID" );
                 setColumnNames( "pi", "ITEMID", "ItemID" );             
                 setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
@@ -126,7 +129,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "pi", "DATECREATED", "DateCreated" );
                 setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
                 setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-                  
+*/                  
                 // replace criteria
                 setDefaultCriteria( " hdrid = ? " );               
                 bindDefaultParameter1( ":hdrid",  parentID  );     
@@ -140,11 +143,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
-                        // 1 fields                    
-                        "pi.id, pi.hdrid, pi.itemid, pi.itemqty, pi.itemunitid, pi.actualqty,pi.actualunitid, pi.createdby,pi.datecreated,pi.modifiedby,pi.datemodified",    
+                          "bts.id,poi.category,poi.itemname,bts.itemqty,uta.nama itemunit,bts.actualqty,utb.nama actualunit ",    
 
                         // 2 tables and joins                                                
-                        " bts_dtl pi " ,
+                        " bts_dtl bts " +
+                        "left join v_po_item poi on bts.itemid=poi.id " +
+                        "left join unittype uta on bts.itemunitid=uta.id " +
+                        "left join unittype utb on bts.actualunitid=utb.id " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -157,7 +162,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
                 // FOR ALL INVOICES
                 
-                setColumnNames( "pi", "ID", "ID" );             
+  /*              setColumnNames( "pi", "ID", "ID" );             
                 setColumnNames( "pi", "HDRID", "HDRID" );
                 setColumnNames( "pi", "ITEMID", "ItemID" );             
                 setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
@@ -168,7 +173,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "pi", "DATECREATED", "DateCreated" );
                 setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
                 setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-                
+    */            
             }
 
             setDefaultOrder( "itemid" );

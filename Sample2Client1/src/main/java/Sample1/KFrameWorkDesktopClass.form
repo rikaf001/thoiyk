@@ -252,7 +252,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="BRBItem">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="BRB (Bukti Return Barang)"/>
+                    <Property name="text" type="java.lang.String" value="BRP (Bukti Return Pabrik)"/>
                     <Property name="name" type="java.lang.String" value="BRBItem" noResource="true"/>
                   </Properties>
                   <Events>
@@ -261,7 +261,7 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="BRSItem">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="BRS (Bukti Return Service)"/>
+                    <Property name="text" type="java.lang.String" value="BRS (Bukti Return Supplier)"/>
                     <Property name="name" type="java.lang.String" value="BRSItem" noResource="true"/>
                   </Properties>
                   <Events>

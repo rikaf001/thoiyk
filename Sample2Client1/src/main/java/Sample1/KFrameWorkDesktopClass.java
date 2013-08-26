@@ -556,7 +556,6 @@ implements desktopAccessInterface, ActionListener
         ProductInOutMenu.add(BKBItem);
 
         BTSItem.setText("BTS (Bukti Terima Service)");
-        BTSItem.setActionCommand("BTS (Bukti Terima Service)");
         BTSItem.setName("BTSItem"); // NOI18N
         BTSItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -574,7 +573,7 @@ implements desktopAccessInterface, ActionListener
         });
         ProductInOutMenu.add(BKSItem);
 
-        BRBItem.setText("BRB (Bukti Return Barang)");
+        BRBItem.setText("BRP (Bukti Return Pabrik)");
         BRBItem.setName("BRBItem"); // NOI18N
         BRBItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -583,7 +582,7 @@ implements desktopAccessInterface, ActionListener
         });
         ProductInOutMenu.add(BRBItem);
 
-        BRSItem.setText("BRS (Bukti Return Service)");
+        BRSItem.setText("BRS (Bukti Return Supplier)");
         BRSItem.setName("BRSItem"); // NOI18N
         BRSItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1021,11 +1020,11 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }//GEN-LAST:event_BKSItemActionPerformed
 
     private void BRBItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRBItemActionPerformed
-      openInternalFrame( BRBHeaderFrameClass.class, "BRB (Bukti Return Barang)" );
+      openInternalFrame( BRBHeaderFrameClass.class, "BRP (Bukti Return Pabrik)" );
     }//GEN-LAST:event_BRBItemActionPerformed
 
     private void BRSItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRSItemActionPerformed
-      openInternalFrame( BRSHeaderFrameClass.class, "BRS (Bukti Return Service)" );
+      openInternalFrame( BRSHeaderFrameClass.class, "BRS (Bukti Return Supplier)" );
     }//GEN-LAST:event_BRSItemActionPerformed
 
    

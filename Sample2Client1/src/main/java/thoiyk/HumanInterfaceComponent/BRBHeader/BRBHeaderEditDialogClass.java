@@ -284,7 +284,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         jLayeredPane1.add(applyButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "BRB  Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 10))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "BRP  Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 10))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
 
         jDateChooser1.setName("TanggalPick"); // NOI18N

@@ -906,7 +906,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             leftTopSection.printText("NoSJ",                            300, 50 );
             leftTopSection.printText(ProdIn.getNoSJ(),                  360, 50 );
             leftTopSection.printText("TglSJ",                           300, 60 );
-            leftTopSection.printText(ProdIn.getTglSJ().toString(),      360, 60 );
+//            leftTopSection.printText(ProdIn.getTglSJ().toString(),      360, 60 );
             
             // heading and Analytical Testing Service Summary
             // get a KePrintJob

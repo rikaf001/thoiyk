@@ -34,6 +34,7 @@ import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
 import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.BKSHeaderClass;
+import ProblemDomainComponent.PurchaseOrderClass;
 //import ProblemDomainComponent.BKSTypeClass;
 import ProblemDomainComponent.productionrecordClass;
 import ProblemDomainComponent.supplierClass;
@@ -301,7 +302,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
 
         jLabel4.setText("Tanggal");
 
-        jLabel5.setText("PenerimaID");
+        jLabel5.setText("SupplierID");
 
         jButton1.setText("...");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -386,7 +387,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         pridLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pridLbl.setName("PRID"); // NOI18N
 
-        jButton2.setText("Pick from PR");
+        jButton2.setText("Pick from PO");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -522,7 +523,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                             .add(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(issuedbyLbl2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
-                .add(8, 22, Short.MAX_VALUE))
+                .add(8, 33, Short.MAX_VALUE))
         );
 
         jPanel1.setBounds(0, 50, 660, 340);
@@ -751,13 +752,13 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try
         {
-            v_PenerimaBrowserClass penerimaBrowser = new v_PenerimaBrowserClass(
+            supplierBrowserClass penerimaBrowser = new supplierBrowserClass(
                 configuration, log, new javax.swing.JTable(), this );
 
             penerimaBrowser.initializeTable();
 
             selectDialogClass selector = new selectDialogClass(
-                configuration, log, this, penerimaBrowser, "Select Penerima" );
+                configuration, log, this, penerimaBrowser, "Select Supplier" );
 
             // dont want to allow this, for example
             selector.getNewButton().setEnabled(false);
@@ -768,7 +769,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
             if( parentID < 0 ) 
             {
-                throw new KExceptionClass( "You must select a Penerima !", null);
+                throw new KExceptionClass( "You must select a Supplier !", null);
                         
             }            
             else
@@ -1064,13 +1065,13 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try
         {
-            PRBrowserClass PRBrowser = new PRBrowserClass(
+            PurchaseOrderBrowserClass POBrowser = new PurchaseOrderBrowserClass(
                 configuration, log, new javax.swing.JTable(), this );
 
-            PRBrowser.initializeTable();
+            POBrowser.initializeTable();
 
             selectDialogClass selector = new selectDialogClass(
-                configuration, log, this, PRBrowser, "Select Production Record" );
+                configuration, log, this, POBrowser, "Select Purchase Order" );
 
             // dont want to allow this, for example
             selector.getNewButton().setEnabled(false);
@@ -1081,13 +1082,26 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
             if( parentID < 0 ) 
             {
-                throw new KExceptionClass( "You must select a Production Record !", null);
+                throw new KExceptionClass( "You must select a Purchae Order !", null);
                         
             }            
             else
             {
             
                 pridLbl.setText( Long.toString(parentID) );
+                  persistentObjectManagerClass persistentObjectManager = 
+                    new persistentObjectManagerClass( configuration, log );
+                
+                PurchaseOrderClass po = new PurchaseOrderClass();
+                supplierClass supp = new supplierClass();
+                
+                po = (PurchaseOrderClass) persistentObjectManager.copy4( parentID, PurchaseOrderClass.class );  
+                
+                supp = (supplierClass) persistentObjectManager.copy4( po.getSupplierID(), supplierClass.class );  
+                
+                penerimaidLbl.setText(Long.toString(supp.getId()));
+                pennameLbl.setText(supp.getNama());
+
             }   
 
             
