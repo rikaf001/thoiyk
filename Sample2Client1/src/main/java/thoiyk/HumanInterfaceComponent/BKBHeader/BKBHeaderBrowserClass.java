@@ -62,11 +62,11 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                "  pr.ID, pr.nomor, pr.tanggal, tr.name penerimaname, pr.nobc, pr.tglbc  ",
+                "  pr.ID, pr.nomor, pr.tanggal, tr.nama penerimaname, pr.nobc, pr.tglbc  ",
                 
                 // 2 tablas and joins                                             
                 "  bkb_hdr pr    "  +
-                "  left join v_penerima tr on pr.penerimaid=tr.id "  
+                "  left join line tr on pr.penerimaid=tr.id "  
                  ,
                                                                 
                 // 3 llave principal (mayusculas!)

@@ -98,7 +98,16 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         
 
  
-        
+               KDropDownFillerClass typeComboFiller1 = new KDropDownFillerClass(
+                        configuration, log, 
+                        //SQL, might have parameters and where clause or order by
+                        " select ID,  NAMA from LINE ",
+                        "ID", penerimaCb, "PenerimaID"
+                        );
+
+        typeComboFiller1.load();        
+        KDialogController.addNonVisibleWidget( typeComboFiller1 );  // to map it           
+
         // dont forget to visually set the "name" property to the  field you want to map
         JCalendarDemoWidgetAdapterClass dateChooserAdapter = new JCalendarDemoWidgetAdapterClass( jDateChooser1, "Tanggal" );                
         KDialogController.includeCustomWidgetForMapping( dateChooserAdapter ); 
@@ -211,12 +220,9 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         idLbl = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         issuedbyLbl = new javax.swing.JLabel();
         client_id6 = new javax.swing.JLabel();
-        penerimaidLbl = new javax.swing.JLabel();
-        pennameLbl = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -234,6 +240,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         jLabel14 = new javax.swing.JLabel();
         pridLbl = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        penerimaCb = new javax.swing.JComboBox();
         topLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         POItemBrowserJTable = new javax.swing.JTable();
@@ -302,13 +309,6 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
 
         jLabel5.setText("PenerimaID");
 
-        jButton1.setText("...");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jLabel8.setText("CreatedBy");
 
         issuedbyLbl.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
@@ -318,14 +318,6 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         client_id6.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_id6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         client_id6.setName("ID"); // NOI18N
-
-        penerimaidLbl.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        penerimaidLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        penerimaidLbl.setName("PenerimaID"); // NOI18N
-
-        pennameLbl.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        pennameLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        pennameLbl.setName("PenerimaName"); // NOI18N
 
         jLabel7.setText("Tgl.Selesai");
 
@@ -392,6 +384,15 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
             }
         });
 
+        penerimaCb.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        penerimaCb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "???" }));
+        penerimaCb.setName("TypeIDSelect"); // NOI18N
+        penerimaCb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                penerimaCbActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -428,36 +429,33 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                                 .add(104, 104, 104)
                                 .add(pridLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(1, 1, 1)
-                                .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .add(69, 69, 69))
-                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(jPanel1Layout.createSequentialGroup()
-                                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                        .add(jLabel9)
-                                        .add(jLabel7)
-                                        .add(jLabel13))
-                                    .add(41, 41, 41)
-                                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                        .add(jDateChooser3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(Supplier_Text04Edit2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(jDateChooser4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                                .add(jPanel1Layout.createSequentialGroup()
-                                    .add(jLabel5)
-                                    .add(18, 18, 18)
-                                    .add(penerimaidLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                    .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                    .add(pennameLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 291, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .add(jPanel1Layout.createSequentialGroup()
-                                    .add(jLabel8)
-                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                    .add(issuedbyLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 93, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                    .add(jLabel10)
-                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                    .add(issuedbyLbl1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 93, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                        .add(0, 0, Short.MAX_VALUE))))
+                                .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(jLabel9)
+                                            .add(jLabel7)
+                                            .add(jLabel13))
+                                        .add(41, 41, 41)
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(jDateChooser3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(Supplier_Text04Edit2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(jDateChooser4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jLabel5)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(penerimaCb, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jLabel8)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(issuedbyLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 93, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(jLabel10)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(issuedbyLbl1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 93, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(158, 158, 158)))
+                        .add(0, 163, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -480,17 +478,17 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jLabel4)
                                     .add(jPanel1Layout.createSequentialGroup()
                                         .add(jDateChooser1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(1, 1, 1)
                                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                                .add(jLabel5)
-                                                .add(jButton1))
-                                            .add(penerimaidLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, pennameLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                                    .add(jLabel4))
-                                .add(37, 37, 37)
+                                            .add(jPanel1Layout.createSequentialGroup()
+                                                .add(1, 1, 1)
+                                                .add(jLabel5))
+                                            .add(jPanel1Layout.createSequentialGroup()
+                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                                .add(penerimaCb, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jDateChooser3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(jLabel7))
                         .add(3, 3, 3)
@@ -521,7 +519,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                             .add(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(issuedbyLbl2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
-                .add(8, 28, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jPanel1.setBounds(0, 50, 660, 340);
@@ -747,50 +745,6 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         } 
 }//GEN-LAST:event_applyButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try
-        {
-            v_PenerimaBrowserClass penerimaBrowser = new v_PenerimaBrowserClass(
-                configuration, log, new javax.swing.JTable(), this );
-
-            penerimaBrowser.initializeTable();
-
-            selectDialogClass selector = new selectDialogClass(
-                configuration, log, this, penerimaBrowser, "Select Penerima" );
-
-            // dont want to allow this, for example
-            selector.getNewButton().setEnabled(false);
-            selector.getDeleteButton().setEnabled(false);
-            parentID = selector.showDialog();
-
-            penerimaidLbl.setText( Long.toString(parentID));
-
-            if( parentID < 0 ) 
-            {
-                throw new KExceptionClass( "You must select a Penerima !", null);
-                        
-            }            
-            else
-            {
-            
-               // ---------------------------------------------------------------------
-                // display the supplier name                
-                persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
-                v_PenerimaClass penerima = new v_PenerimaClass();
-                penerima = ( v_PenerimaClass ) POM.copy4( parentID, v_PenerimaClass.class );
-
-                pennameLbl.setText( penerima.getName() );
-                // ---------------------------------------------------------------------        
-            }   
-
-            
-        }
-        catch( Exception error	){
-            log.log( this, KMetaUtilsClass.getStackTrace( error ) );
-            KMetaUtilsClass.showErrorMessageFromException( this, error );
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_newButtonActionPerformed
@@ -896,7 +850,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             leftTopSection.printText("Tgl",                             300, 30 );
             leftTopSection.printText(ProdOut.getTanggal().toString(),   360, 30 );
             leftTopSection.printText("Penerima",                        300, 40 );
-            leftTopSection.printText(ProdOut.getPenerimaName(),         360, 40 );
+//            leftTopSection.printText(ProdOut.getPenerimaName(),         360, 40 );
             leftTopSection.printText("PRNo",                            300, 50 );
             leftTopSection.printText(PR.getPrno(),                      360, 50 );
             leftTopSection.printText("Style",                           300, 60 );
@@ -1096,6 +1050,10 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             KMetaUtilsClass.showErrorMessageFromException( this, error );
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void penerimaCbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_penerimaCbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_penerimaCbActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton;
@@ -1113,7 +1071,6 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JLabel issuedbyLbl1;
     private javax.swing.JLabel issuedbyLbl2;
     private javax.swing.JLabel issuedbyLbl3;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser3;
@@ -1137,8 +1094,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JButton newButton;
     private javax.swing.JButton okButton;
-    private javax.swing.JLabel penerimaidLbl;
-    private javax.swing.JLabel pennameLbl;
+    private javax.swing.JComboBox penerimaCb;
     private javax.swing.JLabel pridLbl;
     private javax.swing.JButton printButton;
     private javax.swing.JButton printGraphButton1;
