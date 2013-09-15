@@ -53,7 +53,10 @@ extends KBusinessObjectClass
     
     @Column(name = "qty")
     private double qty;
-
+    
+    @Column(name = "unittypeid")
+    private long unittypeid;
+    
     @Column(name = "comp")
     private double comp;
 
@@ -104,6 +107,14 @@ extends KBusinessObjectClass
 
     public void setQty(double qty) {
         this.qty = qty;
+    }
+
+    public long getUnittypeid() {
+        return unittypeid;
+    }
+
+    public void setUnittypeid(long unittypeid) {
+        this.unittypeid = unittypeid;
     }
 
     public double getComp() {

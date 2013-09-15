@@ -71,6 +71,7 @@ extends KBusinessObjectClass
     @Column(name = "qty")
     private double Qty;
     
+
     
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
@@ -129,6 +130,8 @@ extends KBusinessObjectClass
     public void setQty(double Qty) {
         this.Qty = Qty;
     }
+
+
 
     public long getVersion() {
         return version;

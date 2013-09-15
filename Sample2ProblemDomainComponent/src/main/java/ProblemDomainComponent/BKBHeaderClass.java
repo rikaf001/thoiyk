@@ -66,9 +66,9 @@ extends KBusinessObjectClass
     @Column(name = "penerimaid")
     private long PenerimaID;
     
-    @Column(name = "penerimaname")
+    /*@Column(name = "penerimaname")
     private String PenerimaName;
-    
+    */
     @Column(name = "nobc")
     private String NoBC;
     
@@ -140,15 +140,15 @@ extends KBusinessObjectClass
     public void setPenerimaID(long PenerimaID) {
         this.PenerimaID = PenerimaID;
     }
-
-    public String getPenerimaName() {
-        return PenerimaName;
-    }
-
-    public void setPenerimaName(String PenerimaName) {
-        this.PenerimaName = PenerimaName;
-    }
-    
+//
+//    public String getPenerimaName() {
+//        return PenerimaName;
+//    }
+//
+//    public void setPenerimaName(String PenerimaName) {
+//        this.PenerimaName = PenerimaName;
+//    }
+//    
     
 
     public long getPRID() {
