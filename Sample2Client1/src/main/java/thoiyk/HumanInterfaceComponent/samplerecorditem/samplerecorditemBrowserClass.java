@@ -121,11 +121,12 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , vsri.category,vsri.nama itemname,sri.qty,sri.comp,sri.tolerance,sri.qtyneed ",    
+                        " sri.id , vsri.category,vsri.nama itemname,sri.qty,ut.nama unit,sri.comp,sri.tolerance,sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " samplerecorditem sri " +
-                        " left join v_sr_item vsri on sri.itemid=vsri.id"    ,
+                        " left join v_sr_item vsri on sri.itemid=vsri.id" +
+                        " left join unittype ut on sri.unittypeid=ut.id"    ,
                         // 3 key of primary PDC object
                         "ID"
                             );    
@@ -142,6 +143,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" ); 
                 setColumnNames( "sri", "QTY", "Qty" ); 
+                setColumnNames( "ut", "UNIT", "Unit" ); 
                 setColumnNames( "sri", "COMP", "Comp" ); 
                 setColumnNames( "sri", "TOLERANCE", "Toleransi" ); 
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
@@ -156,11 +158,12 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id ,vsri.category,vsri.nama itemname, sri.qty, sri.comp, sri.tolerance, sri.qtyneed ",    
+                        " sri.id ,vsri.category,vsri.nama itemname, sri.qty,ut.nama unit, sri.comp, sri.tolerance, sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " samplerecorditem sri " +
-                        " left join v_sr_item vsri on sri.itemid=vsri.id"    ,
+                        " left join v_sr_item vsri on sri.itemid=vsri.id"   +
+                        " left join unittype ut on sri.unittypeid=ut.id"    ,
                         // 3 key of primary PDC object
                         "ID"
                             );    
@@ -176,6 +179,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" ); 
                 setColumnNames( "sri", "QTY", "Qty" );  
+                setColumnNames( "ut", "UNIT", "Unit" ); 
                 setColumnNames( "sri", "COMP", "Comp" );  
                 setColumnNames( "sri", "TOLERANCE", "Tolerance" );  
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             

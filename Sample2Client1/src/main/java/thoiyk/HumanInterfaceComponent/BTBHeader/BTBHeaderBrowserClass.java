@@ -84,7 +84,7 @@ extends KDataBrowserBaseClass {
             setColumnNames( "pr", "NOBC", "NoBC" );
             setColumnNames( "pr", "TGLBC", "TglBC" );
        
-
+            setDefaultOrder( "ID" );
             // load data
             super.initializeTable();   
             

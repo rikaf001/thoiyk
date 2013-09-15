@@ -111,11 +111,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qty, sri.comp, sri.tolerance, sri.qtyneed ",    
+                        " sri.id , vsri.category,vsri.nama itemname, sri.qty, ut.nama unit, sri.comp, sri.tolerance, sri.qtyneed,vdtl.stok, vdtl.podate ||' '|| vdtl.pono  as PO, vdtl.poqty, sri.qtyneed-(vdtl.stok+vdtl.poqty) qtyactual,  vdtl.btbdate ||' '|| vdtl.btbno as btb, vdtl.btbqty, vdtl.qtysisa, vdtl.persenqty  ",    
 
                         // 2 tables and joins                                                
                         " productionrecorditem sri " +
-                       " left join v_sr_item vsri on sri.itemid=vsri.id"   ,
+                       " left join v_sr_item vsri on sri.itemid=vsri.id"  +
+                        " left join unittype ut on sri.unittypeid=ut.id"  +
+                        " left join v_pr_item_dtl vdtl on sri.id=vdtl.pritemid"    ,
 
                         // 3 key of primary PDC object
                         "ID"
@@ -129,13 +131,16 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                                
 
                 setColumnNames( "sri", "ID", "TypeID" );             
-                setColumnNames( "sri", "ITEMID", "ItemID" );             
+ //               setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
-                setColumnNames( "sri", "QTY", "Qty" );             
+                setColumnNames( "sri", "QTY", "Qty" );  
+                setColumnNames( "ut", "UNIT", "Unit" );  
                 setColumnNames( "sri", "COMP", "Comp" );             
                 setColumnNames( "sri", "TOLERANCE", "Tolerance" );             
-                setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
+                setColumnNames( "sri", "QTYNEED", "QtyNeed" );  
+
+
                                 
                 // replace criteria
                 setDefaultCriteria( " samplerecordid = ? " );               
@@ -151,11 +156,12 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qty, sri.comp, sri.tolerance, sri.qtyneed ",    
+                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qty,ut.nama unit, sri.comp, sri.tolerance, sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " productionrecorditem sri " +
-                       " left join v_sr_item vsri on sri.itemid=vsri.id"   ,
+                       " left join v_sr_item vsri on sri.itemid=vsri.id"   +
+                        " left join unittype ut on sri.unittypeid=ut.id"     ,
 
                         // 3 key of primary PDC object
                         "ID"
@@ -173,7 +179,8 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
                 setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
-                setColumnNames( "sri", "QTY", "Qty" );             
+                setColumnNames( "sri", "QTY", "Qty" );    
+                setColumnNames( "ut", "UNIT", "Unit" ); 
                 setColumnNames( "sri", "COMP", "Comp" );             
                 setColumnNames( "sri", "TOLERANCE", "Tolerance" );             
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             

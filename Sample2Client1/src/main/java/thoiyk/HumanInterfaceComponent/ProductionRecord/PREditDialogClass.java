@@ -511,7 +511,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         topLabel1.setMaximumSize(new java.awt.Dimension(100, 44));
         topLabel1.setMinimumSize(new java.awt.Dimension(100, 44));
         topLabel1.setPreferredSize(new java.awt.Dimension(100, 647));
-        topLabel1.setBounds(0, 0, 630, 647);
+        topLabel1.setBounds(-40, 0, 670, 647);
         jLayeredPane1.add(topLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         FacturasBrowserJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -669,10 +669,13 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jScrollPane1)
-            .add(jLayeredPane1)
             .add(layout.createSequentialGroup()
                 .add(DesktopToolbar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 620, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 0, Short.MAX_VALUE))
+                .add(0, 123, Short.MAX_VALUE))
+            .add(layout.createSequentialGroup()
+                .add(1, 1, 1)
+                .add(jLayeredPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)

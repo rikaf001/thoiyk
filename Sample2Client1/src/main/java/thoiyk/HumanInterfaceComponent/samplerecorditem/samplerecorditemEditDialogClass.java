@@ -1,49 +1,31 @@
 /*
-This source code is part of the KFRAMEWORK  (http://k-framework.sourceforge.net/)
-Copyright (C) 2001  Alejandro Vazquez, Ke Li
-Feedback / Bug Reports vmaxxed@users.sourceforge.net
+This source code is part of the Thoyik
+Copyright (C) 2013  Yoserizal
+Feedback / Bug Reports yoser174@gmail.com
 
-This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 2.1 of the License, or (at your option) any later version.
 
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-Lesser General Public License for more details.
-
-You should have received a copy of the GNU Lesser General Public
-License along with this library; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+This project used:
+KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 package thoiyk.HumanInterfaceComponent.samplerecorditem;
 
 
 // k
-import thoiyk.HumanInterfaceComponent.samplerecorditem.*;
-import thoiyk.HumanInterfaceComponent.samplerecorditem.*;
-import KFramework30.Base.*;
-import KFramework30.Communication.persistentObjectManagerClass;
-import KFramework30.Widgets.DataBrowser.recordClass;
-import KFramework30.Widgets.KDataBrowserBaseClass;
+import KFramework30.Base.KConfigurationClass;
+import KFramework30.Base.KExceptionClass;
+import KFramework30.Base.KLogClass;
+import KFramework30.Base.KMetaUtilsClass;
 import KFramework30.Widgets.KDialogControllerClass;
 
 //app
 import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
+import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
-import ProblemDomainComponent.samplerecordClass;
 import ProblemDomainComponent.samplerecorditemClass;
-import ProblemDomainComponent.systemMailClass;
 
 // rtl
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import thoiyk.HumanInterfaceComponent.v_sr_item.v_sr_itemBrowserClass;
 
 
@@ -88,21 +70,21 @@ implements KDialogInterface
     
     
     public void initializeDialog(int dialogModeParam, Long ID, Map foreingKeys ) throws KExceptionClass {
-                        
+                       
+        
+         KDropDownFillerClass typeComboFiller = new KDropDownFillerClass(
+                        configuration, log, 
+                        //SQL, might have parameters and where clause or order by
+                        " select ID,  NAMA from unittype ",
+                        "ID", cbSRType, "unittypeid"
+                        );
+
+        typeComboFiller.load();        
+        KDialogController.addNonVisibleWidget( typeComboFiller );  // to map it       
+        
         // start
         KDialogController.initializeDialog( dialogModeParam, ID, foreingKeys  );
                  
-        
-        /*
-           persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
-         // read the client of this invoice, no SQL anywhere ...
-                samplerecordClass sample = new samplerecordClass();
-                sample = ( samplerecordClass ) POM.copy4( ((samplerecorditemClass)KDialogController.getCurrentObjectDisplayed()).getId(), samplerecordClass.class );
-
-                descriptionLabel.setText( sample.getDescription() );
-          */      
-                // ---------------------------------------------------------------------        
-
         checkSecurity();
         
     }
@@ -153,6 +135,7 @@ implements KDialogInterface
         jButton1 = new javax.swing.JButton();
         qtyneedLabel = new javax.swing.JLabel();
         itemidLabel = new javax.swing.JLabel();
+        cbSRType = new javax.swing.JComboBox();
         okButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
         applyButton = new javax.swing.JButton();
@@ -219,6 +202,14 @@ implements KDialogInterface
         itemidLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         itemidLabel.setName("itemid"); // NOI18N
 
+        cbSRType.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        cbSRType.setName("cbSamplerecordstatus"); // NOI18N
+        cbSRType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSRTypeActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -259,6 +250,8 @@ implements KDialogInterface
                             .add(compLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                             .add(toleranceLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                             .add(qtyneedLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(cbSRType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(0, 0, Short.MAX_VALUE))))
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -284,7 +277,9 @@ implements KDialogInterface
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(lblTelp)
-                    .add(qtyLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                        .add(qtyLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(cbSRType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(lblHp)
@@ -297,7 +292,7 @@ implements KDialogInterface
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(jLabel2)
                     .add(qtyneedLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jPanel1.setBounds(0, 0, 510, 240);
@@ -450,12 +445,17 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void cbSRTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSRTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbSRTypeActionPerformed
+
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton;
     private javax.swing.JLabel ID;
     private javax.swing.JButton applyButton;
+    private javax.swing.JComboBox cbSRType;
     private javax.swing.ButtonGroup clientDiscountGroup;
     private javax.swing.JTextField compLabel;
     private javax.swing.JLabel itemidLabel;
