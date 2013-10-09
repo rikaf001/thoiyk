@@ -41,6 +41,7 @@ import thoiyk.HumanInterfaceComponent.BRBHeader.BRBHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BRSHeader.BRSHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BTBHeader.BTBHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BTSHeader.BTSHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.FormKainHeader.FormKainHeaderFrameClass;
 //import thoiyk.HumanInterfaceComponent.ProductInHeader.ProductInHeaderFrameClass;
 //import thoiyk.HumanInterfaceComponent.ProductOutHeader.ProductOutHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderFrameClass;
@@ -131,6 +132,8 @@ implements desktopAccessInterface, ActionListener
         BKSItem = new javax.swing.JMenuItem();
         BRBItem = new javax.swing.JMenuItem();
         BRSItem = new javax.swing.JMenuItem();
+        Gudang = new javax.swing.JMenu();
+        FormKain = new javax.swing.JMenuItem();
         clientItem = new javax.swing.JMenuItem();
         facturasItem = new javax.swing.JMenuItem();
         productCatalogue = new javax.swing.JMenuItem();
@@ -593,6 +596,20 @@ implements desktopAccessInterface, ActionListener
 
         MainMenu.add(ProductInOutMenu);
 
+        Gudang.setText("Gudang");
+        Gudang.setName("Gudang"); // NOI18N
+
+        FormKain.setText("FormKain");
+        FormKain.setName("FormKain"); // NOI18N
+        FormKain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FormKainActionPerformed(evt);
+            }
+        });
+        Gudang.add(FormKain);
+
+        MainMenu.add(Gudang);
+
         clientItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         clientItem.setText("Clients");
         clientItem.setName("clientItem"); // NOI18N
@@ -1027,6 +1044,10 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
       openInternalFrame( BRSHeaderFrameClass.class, "BRS (Bukti Return Supplier)" );
     }//GEN-LAST:event_BRSItemActionPerformed
 
+    private void FormKainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormKainActionPerformed
+         openInternalFrame( FormKainHeaderFrameClass.class, "Form Kain" );
+    }//GEN-LAST:event_FormKainActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1038,6 +1059,8 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem BTSItem;
     private javax.swing.JToolBar DesktopToolbar;
     private javax.swing.JMenuItem Exit;
+    private javax.swing.JMenuItem FormKain;
+    private javax.swing.JMenu Gudang;
     private javax.swing.JMenu MainMenu;
     private javax.swing.JMenu MenuConf;
     private javax.swing.JMenu MenuEdit;
