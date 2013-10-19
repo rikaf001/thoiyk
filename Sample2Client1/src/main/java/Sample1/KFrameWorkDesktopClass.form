@@ -285,6 +285,51 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormKainActionPerformed"/>
                   </Events>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="FormCutting">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="FormCutting"/>
+                    <Property name="name" type="java.lang.String" value="FormCutting" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormCuttingActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="FormSewing">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="FormSewing"/>
+                    <Property name="name" type="java.lang.String" value="FormSewing" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormSewingActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="FormWashing">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="FormWashing"/>
+                    <Property name="name" type="java.lang.String" value="FormWashing" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormWashingActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="FormFinishing">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="FormFinishing"/>
+                    <Property name="name" type="java.lang.String" value="FormFinishing" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormFinishingActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="FormPacking">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="FormPacking"/>
+                    <Property name="name" type="java.lang.String" value="FormPacking" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormPackingActionPerformed"/>
+                  </Events>
+                </MenuItem>
               </SubComponents>
             </Menu>
             <MenuItem class="javax.swing.JMenuItem" name="clientItem">

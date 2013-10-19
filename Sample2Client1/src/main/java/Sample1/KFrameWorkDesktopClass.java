@@ -41,7 +41,12 @@ import thoiyk.HumanInterfaceComponent.BRBHeader.BRBHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BRSHeader.BRSHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BTBHeader.BTBHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BTSHeader.BTSHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.FormCuttingHeader.FormCuttingHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.FormFinishingHeader.FormFinishingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormKainHeader.FormKainHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.FormPackingHeader.FormPackingHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.FormSewingHeader.FormSewingHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.FormWashingHeader.FormWashingHeaderFrameClass;
 //import thoiyk.HumanInterfaceComponent.ProductInHeader.ProductInHeaderFrameClass;
 //import thoiyk.HumanInterfaceComponent.ProductOutHeader.ProductOutHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderFrameClass;
@@ -134,6 +139,11 @@ implements desktopAccessInterface, ActionListener
         BRSItem = new javax.swing.JMenuItem();
         Gudang = new javax.swing.JMenu();
         FormKain = new javax.swing.JMenuItem();
+        FormCutting = new javax.swing.JMenuItem();
+        FormSewing = new javax.swing.JMenuItem();
+        FormWashing = new javax.swing.JMenuItem();
+        FormFinishing = new javax.swing.JMenuItem();
+        FormPacking = new javax.swing.JMenuItem();
         clientItem = new javax.swing.JMenuItem();
         facturasItem = new javax.swing.JMenuItem();
         productCatalogue = new javax.swing.JMenuItem();
@@ -608,6 +618,51 @@ implements desktopAccessInterface, ActionListener
         });
         Gudang.add(FormKain);
 
+        FormCutting.setText("FormCutting");
+        FormCutting.setName("FormCutting"); // NOI18N
+        FormCutting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FormCuttingActionPerformed(evt);
+            }
+        });
+        Gudang.add(FormCutting);
+
+        FormSewing.setText("FormSewing");
+        FormSewing.setName("FormSewing"); // NOI18N
+        FormSewing.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FormSewingActionPerformed(evt);
+            }
+        });
+        Gudang.add(FormSewing);
+
+        FormWashing.setText("FormWashing");
+        FormWashing.setName("FormWashing"); // NOI18N
+        FormWashing.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FormWashingActionPerformed(evt);
+            }
+        });
+        Gudang.add(FormWashing);
+
+        FormFinishing.setText("FormFinishing");
+        FormFinishing.setName("FormFinishing"); // NOI18N
+        FormFinishing.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FormFinishingActionPerformed(evt);
+            }
+        });
+        Gudang.add(FormFinishing);
+
+        FormPacking.setText("FormPacking");
+        FormPacking.setName("FormPacking"); // NOI18N
+        FormPacking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FormPackingActionPerformed(evt);
+            }
+        });
+        Gudang.add(FormPacking);
+
         MainMenu.add(Gudang);
 
         clientItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -1048,6 +1103,26 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
          openInternalFrame( FormKainHeaderFrameClass.class, "Form Kain" );
     }//GEN-LAST:event_FormKainActionPerformed
 
+    private void FormCuttingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormCuttingActionPerformed
+         openInternalFrame( FormCuttingHeaderFrameClass.class, "Form Cutting" );
+    }//GEN-LAST:event_FormCuttingActionPerformed
+
+    private void FormSewingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormSewingActionPerformed
+         openInternalFrame( FormSewingHeaderFrameClass.class, "Form Sewing" );
+    }//GEN-LAST:event_FormSewingActionPerformed
+
+    private void FormWashingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormWashingActionPerformed
+         openInternalFrame( FormWashingHeaderFrameClass.class, "Form Washing" );
+    }//GEN-LAST:event_FormWashingActionPerformed
+
+    private void FormFinishingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormFinishingActionPerformed
+         openInternalFrame( FormFinishingHeaderFrameClass.class, "Form Finishing" );
+    }//GEN-LAST:event_FormFinishingActionPerformed
+
+    private void FormPackingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormPackingActionPerformed
+         openInternalFrame( FormPackingHeaderFrameClass.class, "Form Packing" );
+    }//GEN-LAST:event_FormPackingActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1059,7 +1134,12 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem BTSItem;
     private javax.swing.JToolBar DesktopToolbar;
     private javax.swing.JMenuItem Exit;
+    private javax.swing.JMenuItem FormCutting;
+    private javax.swing.JMenuItem FormFinishing;
     private javax.swing.JMenuItem FormKain;
+    private javax.swing.JMenuItem FormPacking;
+    private javax.swing.JMenuItem FormSewing;
+    private javax.swing.JMenuItem FormWashing;
     private javax.swing.JMenu Gudang;
     private javax.swing.JMenu MainMenu;
     private javax.swing.JMenu MenuConf;
