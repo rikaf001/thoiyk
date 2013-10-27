@@ -35,6 +35,7 @@ import java.lang.reflect.Constructor;
 import java.net.URL;
 import java.util.Locale;
 import javax.swing.*;
+import thoiyk.HumanInterfaceComponent.BCPemasukanBaku.BCPemasukanBakuFrameClass;
 import thoiyk.HumanInterfaceComponent.BKBHeader.BKBHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BKSHeader.BKSHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BRBHeader.BRBHeaderFrameClass;
@@ -47,6 +48,7 @@ import thoiyk.HumanInterfaceComponent.FormKainHeader.FormKainHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormPackingHeader.FormPackingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormSewingHeader.FormSewingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormWashingHeader.FormWashingHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.LaporanProduksiHeader.LaporanProduksiHeaderFrameClass;
 //import thoiyk.HumanInterfaceComponent.ProductInHeader.ProductInHeaderFrameClass;
 //import thoiyk.HumanInterfaceComponent.ProductOutHeader.ProductOutHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderFrameClass;
@@ -144,6 +146,9 @@ implements desktopAccessInterface, ActionListener
         FormWashing = new javax.swing.JMenuItem();
         FormFinishing = new javax.swing.JMenuItem();
         FormPacking = new javax.swing.JMenuItem();
+        LaporanProduksi = new javax.swing.JMenuItem();
+        LaporanBC = new javax.swing.JMenu();
+        PemasukanBaku = new javax.swing.JMenuItem();
         clientItem = new javax.swing.JMenuItem();
         facturasItem = new javax.swing.JMenuItem();
         productCatalogue = new javax.swing.JMenuItem();
@@ -663,7 +668,30 @@ implements desktopAccessInterface, ActionListener
         });
         Gudang.add(FormPacking);
 
+        LaporanProduksi.setText("Laporan Produksi");
+        LaporanProduksi.setName("LaporanProduksi"); // NOI18N
+        LaporanProduksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LaporanProduksiActionPerformed(evt);
+            }
+        });
+        Gudang.add(LaporanProduksi);
+
         MainMenu.add(Gudang);
+
+        LaporanBC.setText("Laporan BC");
+        LaporanBC.setName("LaporanBC"); // NOI18N
+
+        PemasukanBaku.setText("Pemasukan Bahan Baku & Penolong");
+        PemasukanBaku.setName("PemasukanBaku"); // NOI18N
+        PemasukanBaku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PemasukanBakuActionPerformed(evt);
+            }
+        });
+        LaporanBC.add(PemasukanBaku);
+
+        MainMenu.add(LaporanBC);
 
         clientItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         clientItem.setText("Clients");
@@ -1123,6 +1151,14 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
          openInternalFrame( FormPackingHeaderFrameClass.class, "Form Packing" );
     }//GEN-LAST:event_FormPackingActionPerformed
 
+    private void LaporanProduksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanProduksiActionPerformed
+         openInternalFrame( LaporanProduksiHeaderFrameClass.class, "Laporan Produksi" );
+    }//GEN-LAST:event_LaporanProduksiActionPerformed
+
+    private void PemasukanBakuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PemasukanBakuActionPerformed
+        openInternalFrame( BCPemasukanBakuFrameClass.class, "Pemasukan Bahan Baku & Penolong" );
+    }//GEN-LAST:event_PemasukanBakuActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1141,12 +1177,15 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem FormSewing;
     private javax.swing.JMenuItem FormWashing;
     private javax.swing.JMenu Gudang;
+    private javax.swing.JMenu LaporanBC;
+    private javax.swing.JMenuItem LaporanProduksi;
     private javax.swing.JMenu MainMenu;
     private javax.swing.JMenu MenuConf;
     private javax.swing.JMenu MenuEdit;
     private javax.swing.JMenu MenuHelp;
     private javax.swing.JMenuItem POItem;
     private javax.swing.JMenuItem PRItem;
+    private javax.swing.JMenuItem PemasukanBaku;
     private javax.swing.JMenu ProductInOutMenu;
     private javax.swing.JMenuItem SampleLIMSDataNavigator;
     private javax.swing.JMenuItem SampleLIMSReports;
