@@ -80,6 +80,24 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fabrictypeItemActionPerformed"/>
                   </Events>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="JenisDokPabean">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Jenis Dokumen Pabean"/>
+                    <Property name="name" type="java.lang.String" value="JenisDokPabean" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JenisDokPabeanActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="KodeKwsn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Kode Kawasan"/>
+                    <Property name="name" type="java.lang.String" value="KodeKwsn" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KodeKwsnActionPerformed"/>
+                  </Events>
+                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="kontakItem">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Kontak"/>
@@ -354,6 +372,60 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PemasukanBakuActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="BrngDlmProses">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Barang Dalam Proses"/>
+                    <Property name="name" type="java.lang.String" value="BrngDlmProses" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BrngDlmProsesActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="BrngKelBaku">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Barang Keluar Baku"/>
+                    <Property name="name" type="java.lang.String" value="BrngKelBaku" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BrngKelBakuActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="BrngMskJadi">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Barang Masuk Jadi"/>
+                    <Property name="name" type="java.lang.String" value="BrngMskJadi" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BrngMskJadiActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="BrngKelJadi">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Barang Keluar Jadi"/>
+                    <Property name="name" type="java.lang.String" value="BrngKelJadi" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BrngKelJadiActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="BrngKelSisa">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Barang Keluar Sisa"/>
+                    <Property name="name" type="java.lang.String" value="BrngKelSisa" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BrngKelSisaActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="BrngMskSisa">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Barang Masuk Sisa"/>
+                    <Property name="name" type="java.lang.String" value="BrngMskSisa" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BrngMskSisaActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>

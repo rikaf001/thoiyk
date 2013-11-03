@@ -42,12 +42,20 @@ import thoiyk.HumanInterfaceComponent.BRBHeader.BRBHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BRSHeader.BRSHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BTBHeader.BTBHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BTSHeader.BTSHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.BarangDalamProses.BarangDalamProsesFrameClass;
+import thoiyk.HumanInterfaceComponent.BarangKeluarBaku.BarangKeluarBakuFrameClass;
+import thoiyk.HumanInterfaceComponent.BarangKeluarJadi.BarangKeluarJadiFrameClass;
+import thoiyk.HumanInterfaceComponent.BarangKeluarSisa.BarangKeluarSisaFrameClass;
+import thoiyk.HumanInterfaceComponent.BarangMasukJadi.BarangMasukJadiFrameClass;
+import thoiyk.HumanInterfaceComponent.BarangMasukSisa.BarangMasukSisaFrameClass;
 import thoiyk.HumanInterfaceComponent.FormCuttingHeader.FormCuttingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormFinishingHeader.FormFinishingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormKainHeader.FormKainHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormPackingHeader.FormPackingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormSewingHeader.FormSewingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormWashingHeader.FormWashingHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.JenisDokPabean.JenisDokPabeanFrameClass;
+import thoiyk.HumanInterfaceComponent.KodeKawasan.KodeKawasanFrameClass;
 import thoiyk.HumanInterfaceComponent.LaporanProduksiHeader.LaporanProduksiHeaderFrameClass;
 //import thoiyk.HumanInterfaceComponent.ProductInHeader.ProductInHeaderFrameClass;
 //import thoiyk.HumanInterfaceComponent.ProductOutHeader.ProductOutHeaderFrameClass;
@@ -118,6 +126,8 @@ implements desktopAccessInterface, ActionListener
         countryandcurrItem = new javax.swing.JMenuItem();
         fabricItem = new javax.swing.JMenuItem();
         fabrictypeItem = new javax.swing.JMenuItem();
+        JenisDokPabean = new javax.swing.JMenuItem();
+        KodeKwsn = new javax.swing.JMenuItem();
         kontakItem = new javax.swing.JMenuItem();
         mesinItem = new javax.swing.JMenuItem();
         mesintypeItem = new javax.swing.JMenuItem();
@@ -149,6 +159,12 @@ implements desktopAccessInterface, ActionListener
         LaporanProduksi = new javax.swing.JMenuItem();
         LaporanBC = new javax.swing.JMenu();
         PemasukanBaku = new javax.swing.JMenuItem();
+        BrngDlmProses = new javax.swing.JMenuItem();
+        BrngKelBaku = new javax.swing.JMenuItem();
+        BrngMskJadi = new javax.swing.JMenuItem();
+        BrngKelJadi = new javax.swing.JMenuItem();
+        BrngKelSisa = new javax.swing.JMenuItem();
+        BrngMskSisa = new javax.swing.JMenuItem();
         clientItem = new javax.swing.JMenuItem();
         facturasItem = new javax.swing.JMenuItem();
         productCatalogue = new javax.swing.JMenuItem();
@@ -424,6 +440,24 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(fabrictypeItem);
 
+        JenisDokPabean.setText("Jenis Dokumen Pabean");
+        JenisDokPabean.setName("JenisDokPabean"); // NOI18N
+        JenisDokPabean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JenisDokPabeanActionPerformed(evt);
+            }
+        });
+        masterData.add(JenisDokPabean);
+
+        KodeKwsn.setText("Kode Kawasan");
+        KodeKwsn.setName("KodeKwsn"); // NOI18N
+        KodeKwsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KodeKwsnActionPerformed(evt);
+            }
+        });
+        masterData.add(KodeKwsn);
+
         kontakItem.setText("Kontak");
         kontakItem.setName("kontakItem"); // NOI18N
         kontakItem.addActionListener(new java.awt.event.ActionListener() {
@@ -690,6 +724,60 @@ implements desktopAccessInterface, ActionListener
             }
         });
         LaporanBC.add(PemasukanBaku);
+
+        BrngDlmProses.setText("Barang Dalam Proses");
+        BrngDlmProses.setName("BrngDlmProses"); // NOI18N
+        BrngDlmProses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BrngDlmProsesActionPerformed(evt);
+            }
+        });
+        LaporanBC.add(BrngDlmProses);
+
+        BrngKelBaku.setText("Barang Keluar Baku");
+        BrngKelBaku.setName("BrngKelBaku"); // NOI18N
+        BrngKelBaku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BrngKelBakuActionPerformed(evt);
+            }
+        });
+        LaporanBC.add(BrngKelBaku);
+
+        BrngMskJadi.setText("Barang Masuk Jadi");
+        BrngMskJadi.setName("BrngMskJadi"); // NOI18N
+        BrngMskJadi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BrngMskJadiActionPerformed(evt);
+            }
+        });
+        LaporanBC.add(BrngMskJadi);
+
+        BrngKelJadi.setText("Barang Keluar Jadi");
+        BrngKelJadi.setName("BrngKelJadi"); // NOI18N
+        BrngKelJadi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BrngKelJadiActionPerformed(evt);
+            }
+        });
+        LaporanBC.add(BrngKelJadi);
+
+        BrngKelSisa.setText("Barang Keluar Sisa");
+        BrngKelSisa.setName("BrngKelSisa"); // NOI18N
+        BrngKelSisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BrngKelSisaActionPerformed(evt);
+            }
+        });
+        LaporanBC.add(BrngKelSisa);
+
+        BrngMskSisa.setText("Barang Masuk Sisa");
+        BrngMskSisa.setName("BrngMskSisa"); // NOI18N
+        BrngMskSisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BrngMskSisaActionPerformed(evt);
+            }
+        });
+        LaporanBC.add(BrngMskSisa);
 
         MainMenu.add(LaporanBC);
 
@@ -1159,6 +1247,38 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         openInternalFrame( BCPemasukanBakuFrameClass.class, "Pemasukan Bahan Baku & Penolong" );
     }//GEN-LAST:event_PemasukanBakuActionPerformed
 
+    private void KodeKwsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KodeKwsnActionPerformed
+        openInternalFrame( KodeKawasanFrameClass.class, "Kode Kawasan Berikat" );
+    }//GEN-LAST:event_KodeKwsnActionPerformed
+
+    private void JenisDokPabeanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JenisDokPabeanActionPerformed
+        openInternalFrame( JenisDokPabeanFrameClass.class, "Jenis Dokumen Pabean" );
+    }//GEN-LAST:event_JenisDokPabeanActionPerformed
+
+    private void BrngDlmProsesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrngDlmProsesActionPerformed
+        openInternalFrame( BarangDalamProsesFrameClass.class, "Barang Dalam Proses" );
+    }//GEN-LAST:event_BrngDlmProsesActionPerformed
+
+    private void BrngKelBakuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrngKelBakuActionPerformed
+        openInternalFrame( BarangKeluarBakuFrameClass.class, "Barang Keluar Bahan Baku & Penolong" );
+    }//GEN-LAST:event_BrngKelBakuActionPerformed
+
+    private void BrngMskJadiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrngMskJadiActionPerformed
+        openInternalFrame( BarangMasukJadiFrameClass.class, "Barang Masuk Jadi" );
+    }//GEN-LAST:event_BrngMskJadiActionPerformed
+
+    private void BrngKelJadiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrngKelJadiActionPerformed
+          openInternalFrame( BarangKeluarJadiFrameClass.class, "Barang Keluar Jadi" );
+    }//GEN-LAST:event_BrngKelJadiActionPerformed
+
+    private void BrngKelSisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrngKelSisaActionPerformed
+          openInternalFrame( BarangKeluarSisaFrameClass.class, "Barang Keluar Sisa" );
+    }//GEN-LAST:event_BrngKelSisaActionPerformed
+
+    private void BrngMskSisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrngMskSisaActionPerformed
+          openInternalFrame( BarangMasukSisaFrameClass.class, "Barang Masuk Sisa" );
+    }//GEN-LAST:event_BrngMskSisaActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1168,6 +1288,12 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem BRSItem;
     private javax.swing.JMenuItem BTBItem;
     private javax.swing.JMenuItem BTSItem;
+    private javax.swing.JMenuItem BrngDlmProses;
+    private javax.swing.JMenuItem BrngKelBaku;
+    private javax.swing.JMenuItem BrngKelJadi;
+    private javax.swing.JMenuItem BrngKelSisa;
+    private javax.swing.JMenuItem BrngMskJadi;
+    private javax.swing.JMenuItem BrngMskSisa;
     private javax.swing.JToolBar DesktopToolbar;
     private javax.swing.JMenuItem Exit;
     private javax.swing.JMenuItem FormCutting;
@@ -1177,6 +1303,8 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem FormSewing;
     private javax.swing.JMenuItem FormWashing;
     private javax.swing.JMenu Gudang;
+    private javax.swing.JMenuItem JenisDokPabean;
+    private javax.swing.JMenuItem KodeKwsn;
     private javax.swing.JMenu LaporanBC;
     private javax.swing.JMenuItem LaporanProduksi;
     private javax.swing.JMenu MainMenu;
