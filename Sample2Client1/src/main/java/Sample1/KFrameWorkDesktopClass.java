@@ -16,7 +16,6 @@ import KFramework30.Printing.*;
 
 // app
 import Sample1.HumanInterfaceComponent.sample_cliente.clientFrameClass;
-import Sample1.HumanInterfaceComponent.sample_factura.facturaFrameClass;
 import Sample1.HumanInterfaceComponent.LIMSDataNavigatorDemo.LimsDataNavigatorFrameClass;
 import Sample1.HumanInterfaceComponent.system_mail.mailFrameClass;
 import Sample1.HumanInterfaceComponent.system_log.systemLogFrameClass;
@@ -57,30 +56,31 @@ import thoiyk.HumanInterfaceComponent.FormWashingHeader.FormWashingHeaderFrameCl
 import thoiyk.HumanInterfaceComponent.JenisDokPabean.JenisDokPabeanFrameClass;
 import thoiyk.HumanInterfaceComponent.KodeKawasan.KodeKawasanFrameClass;
 import thoiyk.HumanInterfaceComponent.LaporanProduksiHeader.LaporanProduksiHeaderFrameClass;
-//import thoiyk.HumanInterfaceComponent.ProductInHeader.ProductInHeaderFrameClass;
-//import thoiyk.HumanInterfaceComponent.ProductOutHeader.ProductOutHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.MutasiBaku.MutasiBakuFrameClass;
+import thoiyk.HumanInterfaceComponent.MutasiJadi.MutasiJadiFrameClass;
+import thoiyk.HumanInterfaceComponent.MutasiMesin.MutasiMesinFrameClass;
+import thoiyk.HumanInterfaceComponent.MutasiSisa.MutasiSisaFrameClass;
 import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderFrameClass;
 import thoiyk.HumanInterfaceComponent.accessories.accessoriesFrameClass;
 import thoiyk.HumanInterfaceComponent.accessoriestype.accessoriestypeFrameClass;
 import thoiyk.HumanInterfaceComponent.fabric.fabricFrameClass;
 import thoiyk.HumanInterfaceComponent.fabrictype.fabrictypeFrameClass;
 import thoiyk.HumanInterfaceComponent.kontak.kontakFrameClass;
-import thoiyk.HumanInterfaceComponent.matauang.matauangFrameClass;
 import thoiyk.HumanInterfaceComponent.mesin.mesinFrameClass;
 import thoiyk.HumanInterfaceComponent.mesintype.mesintypeFrameClass;
 import thoiyk.HumanInterfaceComponent.negara.negaraFrameClass;
 import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderFrameClass;
-import thoiyk.HumanInterfaceComponent.pr_from_sr.pr_from_srFrameClass;
 import thoiyk.HumanInterfaceComponent.ProductionRecord.PRFrameClass;
-//import thoiyk.HumanInterfaceComponent.ReturnHeader.ReturnHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.Service.ServiceFrameClass;
 import thoiyk.HumanInterfaceComponent.ServiceType.ServiceTypeFrameClass;
+import thoiyk.HumanInterfaceComponent.inv_PemasukanSisa.inv_PemasukanSisaFrameClass;
+import thoiyk.HumanInterfaceComponent.inv_PengeluaranBaku.inv_PengeluaranBakuFrameClass;
+import thoiyk.HumanInterfaceComponent.inv_PengeluaranSisa.inv_PengeluaranSisaFrameClass;
 import thoiyk.HumanInterfaceComponent.samplerecord.samplerecordFrameClass;
 import thoiyk.HumanInterfaceComponent.sparepart.sparepartFrameClass;
 import thoiyk.HumanInterfaceComponent.spareparttype.spareparttypeFrameClass;
 import thoiyk.HumanInterfaceComponent.stock.stockFrameClass;
 import thoiyk.HumanInterfaceComponent.stocktype.stocktypeFrameClass;
-import thoiyk.HumanInterfaceComponent.style.styleFrameClass;
 import thoiyk.HumanInterfaceComponent.supplier.supplierFrameClass;
 
 // misc
@@ -142,14 +142,14 @@ implements desktopAccessInterface, ActionListener
         outstandingorderItem = new javax.swing.JMenuItem();
         PRItem = new javax.swing.JMenuItem();
         POItem = new javax.swing.JMenuItem();
-        ProductInOutMenu = new javax.swing.JMenu();
+        Gudang = new javax.swing.JMenu();
         BTBItem = new javax.swing.JMenuItem();
         BKBItem = new javax.swing.JMenuItem();
         BTSItem = new javax.swing.JMenuItem();
         BKSItem = new javax.swing.JMenuItem();
         BRBItem = new javax.swing.JMenuItem();
         BRSItem = new javax.swing.JMenuItem();
-        Gudang = new javax.swing.JMenu();
+        Produksi = new javax.swing.JMenu();
         FormKain = new javax.swing.JMenuItem();
         FormCutting = new javax.swing.JMenuItem();
         FormSewing = new javax.swing.JMenuItem();
@@ -165,12 +165,16 @@ implements desktopAccessInterface, ActionListener
         BrngKelJadi = new javax.swing.JMenuItem();
         BrngKelSisa = new javax.swing.JMenuItem();
         BrngMskSisa = new javax.swing.JMenuItem();
-        clientItem = new javax.swing.JMenuItem();
-        facturasItem = new javax.swing.JMenuItem();
-        productCatalogue = new javax.swing.JMenuItem();
-        jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        SampleLIMSDataNavigator = new javax.swing.JMenuItem();
-        SampleLIMSReports = new javax.swing.JMenuItem();
+        inventory = new javax.swing.JMenu();
+        PengeluaranBaku = new javax.swing.JMenuItem();
+        PemasukanJadi = new javax.swing.JMenuItem();
+        PemasukanSisa = new javax.swing.JMenuItem();
+        PengeluaranSisa = new javax.swing.JMenuItem();
+        LaporanInventory = new javax.swing.JMenu();
+        MutasiBaku = new javax.swing.JMenuItem();
+        MutasiJadi = new javax.swing.JMenuItem();
+        MutasiSisa = new javax.swing.JMenuItem();
+        MutasiMesin = new javax.swing.JMenuItem();
         jSeparator17 = new javax.swing.JSeparator();
         cambioPasswordMenu = new javax.swing.JMenuItem();
         jSeparator131 = new javax.swing.JSeparator();
@@ -211,7 +215,7 @@ implements desktopAccessInterface, ActionListener
         StatusBar.setAutoscrolls(true);
         StatusBar.setName("StatusBar"); // NOI18N
 
-        desktopStatusLabel.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        desktopStatusLabel.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
         desktopStatusLabel.setText("Starting...");
         desktopStatusLabel.setName("desktopStatusLabel"); // NOI18N
 
@@ -239,7 +243,7 @@ implements desktopAccessInterface, ActionListener
         DesktopToolbar.setMaximumSize(new java.awt.Dimension(367, 42));
         DesktopToolbar.setName("DesktopToolbar"); // NOI18N
 
-        newButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        newButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
         newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/new1.jpg"))); // NOI18N
         newButton.setText("New");
         newButton.setToolTipText("Crea nuevo elemento");
@@ -255,7 +259,7 @@ implements desktopAccessInterface, ActionListener
         newButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(newButton);
 
-        editButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        editButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/edit1.jpg"))); // NOI18N
         editButton.setText("Edit");
         editButton.setActionCommand("edit");
@@ -270,7 +274,7 @@ implements desktopAccessInterface, ActionListener
         editButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(editButton);
 
-        deleteButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        deleteButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
         deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete1.jpg"))); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setActionCommand("delete");
@@ -290,7 +294,7 @@ implements desktopAccessInterface, ActionListener
         jSeparator1.setPreferredSize(new java.awt.Dimension(15, 0));
         DesktopToolbar.add(jSeparator1);
 
-        sortButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        sortButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
         sortButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/sort1.jpg"))); // NOI18N
         sortButton.setText("Sort");
         sortButton.setActionCommand("sort");
@@ -305,7 +309,7 @@ implements desktopAccessInterface, ActionListener
         sortButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(sortButton);
 
-        filterButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        filterButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
         filterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/filter1.jpg"))); // NOI18N
         filterButton.setText("Filter");
         filterButton.setActionCommand("filter");
@@ -325,7 +329,7 @@ implements desktopAccessInterface, ActionListener
         jSeparator2.setPreferredSize(new java.awt.Dimension(15, 0));
         DesktopToolbar.add(jSeparator2);
 
-        printButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        printButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
         printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/print1.jpg"))); // NOI18N
         printButton.setText("Print");
         printButton.setActionCommand("print");
@@ -340,7 +344,7 @@ implements desktopAccessInterface, ActionListener
         printButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(printButton);
 
-        exportButton1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        exportButton1.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
         exportButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/export1.jpg"))); // NOI18N
         exportButton1.setText("Export");
         exportButton1.setActionCommand("exportcsv");
@@ -360,7 +364,7 @@ implements desktopAccessInterface, ActionListener
         jSeparator3.setPreferredSize(new java.awt.Dimension(15, 0));
         DesktopToolbar.add(jSeparator3);
 
-        refreshButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        refreshButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
         refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/refresh1.jpg"))); // NOI18N
         refreshButton.setText("Refresh");
         refreshButton.setActionCommand("refresh");
@@ -375,17 +379,19 @@ implements desktopAccessInterface, ActionListener
         refreshButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(refreshButton);
 
-        jMenuBar1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jMenuBar1.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
         jMenuBar1.setName("jMenuBar1"); // NOI18N
 
         MainMenu.setText("Start");
         MainMenu.setAutoscrolls(true);
-        MainMenu.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        MainMenu.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         MainMenu.setName("Opciones"); // NOI18N
 
         masterData.setText("Master");
+        masterData.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         masterData.setName("masterData"); // NOI18N
 
+        accessoriesItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         accessoriesItem.setText("Accessories");
         accessoriesItem.setName("accessoriesItem"); // NOI18N
         accessoriesItem.addActionListener(new java.awt.event.ActionListener() {
@@ -395,6 +401,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(accessoriesItem);
 
+        accessoriestypeItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         accessoriestypeItem.setText("Accessories Type");
         accessoriestypeItem.setName("accessoriestypeItem"); // NOI18N
         accessoriestypeItem.addActionListener(new java.awt.event.ActionListener() {
@@ -404,6 +411,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(accessoriestypeItem);
 
+        buyerItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         buyerItem.setText("Buyer");
         buyerItem.setName("buyerItem"); // NOI18N
         buyerItem.addActionListener(new java.awt.event.ActionListener() {
@@ -413,6 +421,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(buyerItem);
 
+        countryandcurrItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         countryandcurrItem.setText("Country & Currency");
         countryandcurrItem.setName("countryandcurrItem"); // NOI18N
         countryandcurrItem.addActionListener(new java.awt.event.ActionListener() {
@@ -422,6 +431,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(countryandcurrItem);
 
+        fabricItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         fabricItem.setText("Fabric");
         fabricItem.setName("fabricItem"); // NOI18N
         fabricItem.addActionListener(new java.awt.event.ActionListener() {
@@ -431,6 +441,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(fabricItem);
 
+        fabrictypeItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         fabrictypeItem.setText("Fabric Type");
         fabrictypeItem.setName("fabrictypeItem"); // NOI18N
         fabrictypeItem.addActionListener(new java.awt.event.ActionListener() {
@@ -440,6 +451,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(fabrictypeItem);
 
+        JenisDokPabean.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         JenisDokPabean.setText("Jenis Dokumen Pabean");
         JenisDokPabean.setName("JenisDokPabean"); // NOI18N
         JenisDokPabean.addActionListener(new java.awt.event.ActionListener() {
@@ -449,6 +461,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(JenisDokPabean);
 
+        KodeKwsn.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         KodeKwsn.setText("Kode Kawasan");
         KodeKwsn.setName("KodeKwsn"); // NOI18N
         KodeKwsn.addActionListener(new java.awt.event.ActionListener() {
@@ -458,6 +471,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(KodeKwsn);
 
+        kontakItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         kontakItem.setText("Kontak");
         kontakItem.setName("kontakItem"); // NOI18N
         kontakItem.addActionListener(new java.awt.event.ActionListener() {
@@ -467,6 +481,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(kontakItem);
 
+        mesinItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         mesinItem.setText("Mesin");
         mesinItem.setName("mesinItem"); // NOI18N
         mesinItem.addActionListener(new java.awt.event.ActionListener() {
@@ -476,6 +491,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(mesinItem);
 
+        mesintypeItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         mesintypeItem.setText("Mesin Type");
         mesintypeItem.setName("mesintypeItem"); // NOI18N
         mesintypeItem.addActionListener(new java.awt.event.ActionListener() {
@@ -485,6 +501,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(mesintypeItem);
 
+        serviceItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         serviceItem.setText("Service");
         serviceItem.setName("serviceItem"); // NOI18N
         serviceItem.addActionListener(new java.awt.event.ActionListener() {
@@ -494,6 +511,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(serviceItem);
 
+        servicetypeItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         servicetypeItem.setText("Service Type");
         servicetypeItem.setName("servicetypeItem"); // NOI18N
         servicetypeItem.addActionListener(new java.awt.event.ActionListener() {
@@ -503,6 +521,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(servicetypeItem);
 
+        sparepartItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         sparepartItem.setText("Sparepart");
         sparepartItem.setName("sparepartItem"); // NOI18N
         sparepartItem.addActionListener(new java.awt.event.ActionListener() {
@@ -512,6 +531,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(sparepartItem);
 
+        spareparttypeItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         spareparttypeItem.setText("Sparepart Type");
         spareparttypeItem.setName("spareparttypeItem"); // NOI18N
         spareparttypeItem.addActionListener(new java.awt.event.ActionListener() {
@@ -521,6 +541,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(spareparttypeItem);
 
+        stockItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         stockItem.setText("Stock Product");
         stockItem.setName("stockItem"); // NOI18N
         stockItem.addActionListener(new java.awt.event.ActionListener() {
@@ -530,6 +551,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(stockItem);
 
+        stocktypeItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         stocktypeItem.setText("Stock Type");
         stocktypeItem.setName("stocktypeItem"); // NOI18N
         stocktypeItem.addActionListener(new java.awt.event.ActionListener() {
@@ -539,6 +561,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(stocktypeItem);
 
+        supplierItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         supplierItem.setText("Supplier");
         supplierItem.setName("supplierItem"); // NOI18N
         supplierItem.addActionListener(new java.awt.event.ActionListener() {
@@ -548,8 +571,7 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(supplierItem);
 
-        MainMenu.add(masterData);
-
+        SampleRecord.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         SampleRecord.setText("Sample Record");
         SampleRecord.setName("SampleRecord"); // NOI18N
         SampleRecord.addActionListener(new java.awt.event.ActionListener() {
@@ -557,8 +579,11 @@ implements desktopAccessInterface, ActionListener
                 SampleRecordActionPerformed(evt);
             }
         });
-        MainMenu.add(SampleRecord);
+        masterData.add(SampleRecord);
 
+        MainMenu.add(masterData);
+
+        outstandingorderItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         outstandingorderItem.setText("Received Order");
         outstandingorderItem.setName("outstandingorderItem"); // NOI18N
         outstandingorderItem.addActionListener(new java.awt.event.ActionListener() {
@@ -568,6 +593,7 @@ implements desktopAccessInterface, ActionListener
         });
         MainMenu.add(outstandingorderItem);
 
+        PRItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         PRItem.setText("Production Record");
         PRItem.setName("PRItem"); // NOI18N
         PRItem.addActionListener(new java.awt.event.ActionListener() {
@@ -577,6 +603,7 @@ implements desktopAccessInterface, ActionListener
         });
         MainMenu.add(PRItem);
 
+        POItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         POItem.setText("Purchase Order");
         POItem.setName("POItem"); // NOI18N
         POItem.addActionListener(new java.awt.event.ActionListener() {
@@ -586,9 +613,11 @@ implements desktopAccessInterface, ActionListener
         });
         MainMenu.add(POItem);
 
-        ProductInOutMenu.setText("Product In / Out");
-        ProductInOutMenu.setName("ProductInOutMenu"); // NOI18N
+        Gudang.setText("Gudang");
+        Gudang.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        Gudang.setName("Gudang"); // NOI18N
 
+        BTBItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BTBItem.setText("BTB (Bukti Terima Barang)");
         BTBItem.setName("BTBItem"); // NOI18N
         BTBItem.addActionListener(new java.awt.event.ActionListener() {
@@ -596,8 +625,9 @@ implements desktopAccessInterface, ActionListener
                 BTBItemActionPerformed(evt);
             }
         });
-        ProductInOutMenu.add(BTBItem);
+        Gudang.add(BTBItem);
 
+        BKBItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BKBItem.setText("BKB (Bukti Keluar Barang)");
         BKBItem.setName("BKBItem"); // NOI18N
         BKBItem.addActionListener(new java.awt.event.ActionListener() {
@@ -605,8 +635,9 @@ implements desktopAccessInterface, ActionListener
                 BKBItemActionPerformed(evt);
             }
         });
-        ProductInOutMenu.add(BKBItem);
+        Gudang.add(BKBItem);
 
+        BTSItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BTSItem.setText("BTS (Bukti Terima Service)");
         BTSItem.setName("BTSItem"); // NOI18N
         BTSItem.addActionListener(new java.awt.event.ActionListener() {
@@ -614,8 +645,9 @@ implements desktopAccessInterface, ActionListener
                 BTSItemActionPerformed(evt);
             }
         });
-        ProductInOutMenu.add(BTSItem);
+        Gudang.add(BTSItem);
 
+        BKSItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BKSItem.setText("BKS (Bukti Keluar Service)");
         BKSItem.setName("BKSItem"); // NOI18N
         BKSItem.addActionListener(new java.awt.event.ActionListener() {
@@ -623,8 +655,9 @@ implements desktopAccessInterface, ActionListener
                 BKSItemActionPerformed(evt);
             }
         });
-        ProductInOutMenu.add(BKSItem);
+        Gudang.add(BKSItem);
 
+        BRBItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BRBItem.setText("BRP (Bukti Return Pabrik)");
         BRBItem.setName("BRBItem"); // NOI18N
         BRBItem.addActionListener(new java.awt.event.ActionListener() {
@@ -632,8 +665,9 @@ implements desktopAccessInterface, ActionListener
                 BRBItemActionPerformed(evt);
             }
         });
-        ProductInOutMenu.add(BRBItem);
+        Gudang.add(BRBItem);
 
+        BRSItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BRSItem.setText("BRS (Bukti Return Supplier)");
         BRSItem.setName("BRSItem"); // NOI18N
         BRSItem.addActionListener(new java.awt.event.ActionListener() {
@@ -641,13 +675,15 @@ implements desktopAccessInterface, ActionListener
                 BRSItemActionPerformed(evt);
             }
         });
-        ProductInOutMenu.add(BRSItem);
+        Gudang.add(BRSItem);
 
-        MainMenu.add(ProductInOutMenu);
+        MainMenu.add(Gudang);
 
-        Gudang.setText("Gudang");
-        Gudang.setName("Gudang"); // NOI18N
+        Produksi.setText("Produksi");
+        Produksi.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        Produksi.setName("Produksi"); // NOI18N
 
+        FormKain.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         FormKain.setText("FormKain");
         FormKain.setName("FormKain"); // NOI18N
         FormKain.addActionListener(new java.awt.event.ActionListener() {
@@ -655,8 +691,9 @@ implements desktopAccessInterface, ActionListener
                 FormKainActionPerformed(evt);
             }
         });
-        Gudang.add(FormKain);
+        Produksi.add(FormKain);
 
+        FormCutting.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         FormCutting.setText("FormCutting");
         FormCutting.setName("FormCutting"); // NOI18N
         FormCutting.addActionListener(new java.awt.event.ActionListener() {
@@ -664,8 +701,9 @@ implements desktopAccessInterface, ActionListener
                 FormCuttingActionPerformed(evt);
             }
         });
-        Gudang.add(FormCutting);
+        Produksi.add(FormCutting);
 
+        FormSewing.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         FormSewing.setText("FormSewing");
         FormSewing.setName("FormSewing"); // NOI18N
         FormSewing.addActionListener(new java.awt.event.ActionListener() {
@@ -673,8 +711,9 @@ implements desktopAccessInterface, ActionListener
                 FormSewingActionPerformed(evt);
             }
         });
-        Gudang.add(FormSewing);
+        Produksi.add(FormSewing);
 
+        FormWashing.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         FormWashing.setText("FormWashing");
         FormWashing.setName("FormWashing"); // NOI18N
         FormWashing.addActionListener(new java.awt.event.ActionListener() {
@@ -682,8 +721,9 @@ implements desktopAccessInterface, ActionListener
                 FormWashingActionPerformed(evt);
             }
         });
-        Gudang.add(FormWashing);
+        Produksi.add(FormWashing);
 
+        FormFinishing.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         FormFinishing.setText("FormFinishing");
         FormFinishing.setName("FormFinishing"); // NOI18N
         FormFinishing.addActionListener(new java.awt.event.ActionListener() {
@@ -691,8 +731,9 @@ implements desktopAccessInterface, ActionListener
                 FormFinishingActionPerformed(evt);
             }
         });
-        Gudang.add(FormFinishing);
+        Produksi.add(FormFinishing);
 
+        FormPacking.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         FormPacking.setText("FormPacking");
         FormPacking.setName("FormPacking"); // NOI18N
         FormPacking.addActionListener(new java.awt.event.ActionListener() {
@@ -700,8 +741,9 @@ implements desktopAccessInterface, ActionListener
                 FormPackingActionPerformed(evt);
             }
         });
-        Gudang.add(FormPacking);
+        Produksi.add(FormPacking);
 
+        LaporanProduksi.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         LaporanProduksi.setText("Laporan Produksi");
         LaporanProduksi.setName("LaporanProduksi"); // NOI18N
         LaporanProduksi.addActionListener(new java.awt.event.ActionListener() {
@@ -709,13 +751,15 @@ implements desktopAccessInterface, ActionListener
                 LaporanProduksiActionPerformed(evt);
             }
         });
-        Gudang.add(LaporanProduksi);
+        Produksi.add(LaporanProduksi);
 
-        MainMenu.add(Gudang);
+        MainMenu.add(Produksi);
 
         LaporanBC.setText("Laporan BC");
+        LaporanBC.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         LaporanBC.setName("LaporanBC"); // NOI18N
 
+        PemasukanBaku.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         PemasukanBaku.setText("Pemasukan Bahan Baku & Penolong");
         PemasukanBaku.setName("PemasukanBaku"); // NOI18N
         PemasukanBaku.addActionListener(new java.awt.event.ActionListener() {
@@ -725,6 +769,7 @@ implements desktopAccessInterface, ActionListener
         });
         LaporanBC.add(PemasukanBaku);
 
+        BrngDlmProses.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BrngDlmProses.setText("Barang Dalam Proses");
         BrngDlmProses.setName("BrngDlmProses"); // NOI18N
         BrngDlmProses.addActionListener(new java.awt.event.ActionListener() {
@@ -734,6 +779,7 @@ implements desktopAccessInterface, ActionListener
         });
         LaporanBC.add(BrngDlmProses);
 
+        BrngKelBaku.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BrngKelBaku.setText("Barang Keluar Baku");
         BrngKelBaku.setName("BrngKelBaku"); // NOI18N
         BrngKelBaku.addActionListener(new java.awt.event.ActionListener() {
@@ -743,6 +789,7 @@ implements desktopAccessInterface, ActionListener
         });
         LaporanBC.add(BrngKelBaku);
 
+        BrngMskJadi.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BrngMskJadi.setText("Barang Masuk Jadi");
         BrngMskJadi.setName("BrngMskJadi"); // NOI18N
         BrngMskJadi.addActionListener(new java.awt.event.ActionListener() {
@@ -752,6 +799,7 @@ implements desktopAccessInterface, ActionListener
         });
         LaporanBC.add(BrngMskJadi);
 
+        BrngKelJadi.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BrngKelJadi.setText("Barang Keluar Jadi");
         BrngKelJadi.setName("BrngKelJadi"); // NOI18N
         BrngKelJadi.addActionListener(new java.awt.event.ActionListener() {
@@ -761,6 +809,7 @@ implements desktopAccessInterface, ActionListener
         });
         LaporanBC.add(BrngKelJadi);
 
+        BrngKelSisa.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BrngKelSisa.setText("Barang Keluar Sisa");
         BrngKelSisa.setName("BrngKelSisa"); // NOI18N
         BrngKelSisa.addActionListener(new java.awt.event.ActionListener() {
@@ -770,6 +819,7 @@ implements desktopAccessInterface, ActionListener
         });
         LaporanBC.add(BrngKelSisa);
 
+        BrngMskSisa.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         BrngMskSisa.setText("Barang Masuk Sisa");
         BrngMskSisa.setName("BrngMskSisa"); // NOI18N
         BrngMskSisa.addActionListener(new java.awt.event.ActionListener() {
@@ -781,59 +831,99 @@ implements desktopAccessInterface, ActionListener
 
         MainMenu.add(LaporanBC);
 
-        clientItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        clientItem.setText("Clients");
-        clientItem.setName("clientItem"); // NOI18N
-        clientItem.addActionListener(new java.awt.event.ActionListener() {
+        inventory.setText("Inventory");
+        inventory.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        inventory.setName("inventory"); // NOI18N
+
+        PengeluaranBaku.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        PengeluaranBaku.setText("Pengeluaran Barang Baku & Penolong");
+        PengeluaranBaku.setName("PengeluaranBaku"); // NOI18N
+        PengeluaranBaku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clientItemActionPerformed(evt);
+                PengeluaranBakuActionPerformed(evt);
             }
         });
-        MainMenu.add(clientItem);
+        inventory.add(PengeluaranBaku);
 
-        facturasItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        facturasItem.setText("Invoices");
-        facturasItem.setName("facturasItem"); // NOI18N
-        facturasItem.addActionListener(new java.awt.event.ActionListener() {
+        PemasukanJadi.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        PemasukanJadi.setText("Pemasukan Barang Jadi");
+        PemasukanJadi.setName("PemasukanJadi"); // NOI18N
+        PemasukanJadi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                facturasItemActionPerformed(evt);
+                PemasukanJadiActionPerformed(evt);
             }
         });
-        MainMenu.add(facturasItem);
+        inventory.add(PemasukanJadi);
 
-        productCatalogue.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        productCatalogue.setText("Product catalog");
-        productCatalogue.setName("productCatalogue"); // NOI18N
-        productCatalogue.addActionListener(new java.awt.event.ActionListener() {
+        PemasukanSisa.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        PemasukanSisa.setText("Pemasukan Barang Sisa & Scrap");
+        PemasukanSisa.setName("PemasukanSisa"); // NOI18N
+        PemasukanSisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productCatalogueActionPerformed(evt);
+                PemasukanSisaActionPerformed(evt);
             }
         });
-        MainMenu.add(productCatalogue);
+        inventory.add(PemasukanSisa);
 
-        jSeparator6.setName("jSeparator6"); // NOI18N
-        MainMenu.add(jSeparator6);
-
-        SampleLIMSDataNavigator.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        SampleLIMSDataNavigator.setText("Sample LIMS Data Navigator");
-        SampleLIMSDataNavigator.setName("SampleLIMSDataNavigator"); // NOI18N
-        SampleLIMSDataNavigator.addActionListener(new java.awt.event.ActionListener() {
+        PengeluaranSisa.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        PengeluaranSisa.setText("Pengeluaran Barang Sisa & Scrap");
+        PengeluaranSisa.setName("PengeluaranSisa"); // NOI18N
+        PengeluaranSisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SampleLIMSDataNavigatorActionPerformed(evt);
+                PengeluaranSisaActionPerformed(evt);
             }
         });
-        MainMenu.add(SampleLIMSDataNavigator);
+        inventory.add(PengeluaranSisa);
 
-        SampleLIMSReports.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        SampleLIMSReports.setText("Sample LIMS reporter");
-        SampleLIMSReports.setName("SampleLIMSReports"); // NOI18N
-        SampleLIMSReports.addActionListener(new java.awt.event.ActionListener() {
+        MainMenu.add(inventory);
+
+        LaporanInventory.setText("Laporan Inventory");
+        LaporanInventory.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        LaporanInventory.setName("LaporanInventory"); // NOI18N
+
+        MutasiBaku.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        MutasiBaku.setText("Mutasi Bahan Baku & Penolong");
+        MutasiBaku.setName("MutasiBaku"); // NOI18N
+        MutasiBaku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SampleLIMSReportsActionPerformed(evt);
+                MutasiBakuActionPerformed(evt);
             }
         });
-        MainMenu.add(SampleLIMSReports);
+        LaporanInventory.add(MutasiBaku);
 
+        MutasiJadi.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        MutasiJadi.setText("Mutasi Barang Jadi");
+        MutasiJadi.setName("MutasiJadi"); // NOI18N
+        MutasiJadi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MutasiJadiActionPerformed(evt);
+            }
+        });
+        LaporanInventory.add(MutasiJadi);
+
+        MutasiSisa.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        MutasiSisa.setText("Mutasi Bahan Sisa & Scrap");
+        MutasiSisa.setName("MutasiSisa"); // NOI18N
+        MutasiSisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MutasiSisaActionPerformed(evt);
+            }
+        });
+        LaporanInventory.add(MutasiSisa);
+
+        MutasiMesin.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        MutasiMesin.setText("Mutasi Mesin");
+        MutasiMesin.setName("MutasiMesin"); // NOI18N
+        MutasiMesin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MutasiMesinActionPerformed(evt);
+            }
+        });
+        LaporanInventory.add(MutasiMesin);
+
+        MainMenu.add(LaporanInventory);
+
+        jSeparator17.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jSeparator17.setName("jSeparator17"); // NOI18N
         MainMenu.add(jSeparator17);
 
@@ -847,6 +937,7 @@ implements desktopAccessInterface, ActionListener
         });
         MainMenu.add(cambioPasswordMenu);
 
+        jSeparator131.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jSeparator131.setName("jSeparator131"); // NOI18N
         MainMenu.add(jSeparator131);
 
@@ -870,6 +961,7 @@ implements desktopAccessInterface, ActionListener
         });
         MainMenu.add(setPrinter);
 
+        jSeparator8.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jSeparator8.setName("jSeparator8"); // NOI18N
         MainMenu.add(jSeparator8);
 
@@ -886,7 +978,7 @@ implements desktopAccessInterface, ActionListener
         jMenuBar1.add(MainMenu);
 
         MenuEdit.setText("Edit");
-        MenuEdit.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        MenuEdit.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         MenuEdit.setName("Edicion"); // NOI18N
 
         newMenuItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -959,7 +1051,7 @@ implements desktopAccessInterface, ActionListener
         jMenuBar1.add(MenuEdit);
 
         MenuConf.setText("Configuration");
-        MenuConf.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        MenuConf.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         MenuConf.setName("MenuConf"); // NOI18N
 
         menuCatalogosAdmin.setText("System Admin Menu");
@@ -1002,7 +1094,7 @@ implements desktopAccessInterface, ActionListener
         jMenuBar1.add(MenuConf);
 
         MenuHelp.setText("Help");
-        MenuHelp.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        MenuHelp.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         MenuHelp.setName("Ayuda"); // NOI18N
 
         openHelp.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -1078,38 +1170,8 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     
 }//GEN-LAST:event_openHelpActionPerformed
 
-private void facturasItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturasItemActionPerformed
-
-    //openInternalFrame( facturaFrameClass.class, "Invoices" );             
-        
-}//GEN-LAST:event_facturasItemActionPerformed
 
 
-    private void SampleLIMSDataNavigatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampleLIMSDataNavigatorActionPerformed
-                
-    openInternalFrame( LimsDataNavigatorFrameClass.class, "DEMO Data Navigator" );             
-        
-    }//GEN-LAST:event_SampleLIMSDataNavigatorActionPerformed
-
-
-private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientItemActionPerformed
-
-    openInternalFrame( clientFrameClass.class, "Clients" );             
-}
-//GEN-LAST:event_clientItemActionPerformed
-
-
-    private void SampleLIMSReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampleLIMSReportsActionPerformed
-
-    openInternalFrame( sdgEditFrameClass.class, "DEMO Reports" );                     
-        
-    }//GEN-LAST:event_SampleLIMSReportsActionPerformed
-
-    private void productCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productCatalogueActionPerformed
-
-    openInternalFrame( productFrameClass.class, "Product Catalog" );                     
-                
-    }//GEN-LAST:event_productCatalogueActionPerformed
 
     private void buyerItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyerItemActionPerformed
     openInternalFrame( buyerFrameClass.class, "Buyer" );                     
@@ -1279,6 +1341,38 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
           openInternalFrame( BarangMasukSisaFrameClass.class, "Barang Masuk Sisa" );
     }//GEN-LAST:event_BrngMskSisaActionPerformed
 
+    private void PengeluaranBakuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PengeluaranBakuActionPerformed
+        openInternalFrame( inv_PengeluaranBakuFrameClass.class, "Pengeluaran Barang Baku & Penolong" );
+    }//GEN-LAST:event_PengeluaranBakuActionPerformed
+
+    private void PemasukanJadiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PemasukanJadiActionPerformed
+        openInternalFrame( BarangMasukJadiFrameClass.class, "Pemasukan Barang Jadi" );
+    }//GEN-LAST:event_PemasukanJadiActionPerformed
+
+    private void PemasukanSisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PemasukanSisaActionPerformed
+        openInternalFrame( inv_PemasukanSisaFrameClass.class, "Pemasukan Barang Sisa & Scrap" );
+    }//GEN-LAST:event_PemasukanSisaActionPerformed
+
+    private void PengeluaranSisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PengeluaranSisaActionPerformed
+        openInternalFrame( inv_PengeluaranSisaFrameClass.class, "Pengeluaran Barang Sisa & Scrap" );
+    }//GEN-LAST:event_PengeluaranSisaActionPerformed
+
+    private void MutasiBakuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MutasiBakuActionPerformed
+        openInternalFrame( MutasiBakuFrameClass.class, "Mutasi Bahan Baku & Penolong" );
+    }//GEN-LAST:event_MutasiBakuActionPerformed
+
+    private void MutasiJadiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MutasiJadiActionPerformed
+        openInternalFrame( MutasiJadiFrameClass.class, "Mutasi Barang Jadi" );
+    }//GEN-LAST:event_MutasiJadiActionPerformed
+
+    private void MutasiSisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MutasiSisaActionPerformed
+        openInternalFrame( MutasiSisaFrameClass.class, "Mutasi Bahan Sisa & Scrap" );
+    }//GEN-LAST:event_MutasiSisaActionPerformed
+
+    private void MutasiMesinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MutasiMesinActionPerformed
+         openInternalFrame( MutasiMesinFrameClass.class, "Mutasi Mesin" );
+    }//GEN-LAST:event_MutasiMesinActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1306,17 +1400,24 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem JenisDokPabean;
     private javax.swing.JMenuItem KodeKwsn;
     private javax.swing.JMenu LaporanBC;
+    private javax.swing.JMenu LaporanInventory;
     private javax.swing.JMenuItem LaporanProduksi;
     private javax.swing.JMenu MainMenu;
     private javax.swing.JMenu MenuConf;
     private javax.swing.JMenu MenuEdit;
     private javax.swing.JMenu MenuHelp;
+    private javax.swing.JMenuItem MutasiBaku;
+    private javax.swing.JMenuItem MutasiJadi;
+    private javax.swing.JMenuItem MutasiMesin;
+    private javax.swing.JMenuItem MutasiSisa;
     private javax.swing.JMenuItem POItem;
     private javax.swing.JMenuItem PRItem;
     private javax.swing.JMenuItem PemasukanBaku;
-    private javax.swing.JMenu ProductInOutMenu;
-    private javax.swing.JMenuItem SampleLIMSDataNavigator;
-    private javax.swing.JMenuItem SampleLIMSReports;
+    private javax.swing.JMenuItem PemasukanJadi;
+    private javax.swing.JMenuItem PemasukanSisa;
+    private javax.swing.JMenuItem PengeluaranBaku;
+    private javax.swing.JMenuItem PengeluaranSisa;
+    private javax.swing.JMenu Produksi;
     private javax.swing.JMenuItem SampleRecord;
     private javax.swing.JPanel StatusBar;
     private javax.swing.JMenuItem Usuarios;
@@ -1324,7 +1425,6 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem accessoriestypeItem;
     private javax.swing.JMenuItem buyerItem;
     private javax.swing.JMenuItem cambioPasswordMenu;
-    private javax.swing.JMenuItem clientItem;
     private javax.swing.JMenuItem countryandcurrItem;
     private javax.swing.JButton deleteButton;
     private javax.swing.JMenuItem deleteMenuItem;
@@ -1336,9 +1436,9 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem exportCsvMenuItem;
     private javax.swing.JMenuItem fabricItem;
     private javax.swing.JMenuItem fabrictypeItem;
-    private javax.swing.JMenuItem facturasItem;
     private javax.swing.JButton filterButton;
     private javax.swing.JMenuItem filterMenuItem;
+    private javax.swing.JMenu inventory;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar.Separator jSeparator1;
@@ -1348,7 +1448,6 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JMenuItem kontakItem;
     private javax.swing.JMenuItem logViewer;
@@ -1364,7 +1463,6 @@ private void clientItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JMenuItem outstandingorderItem;
     private javax.swing.JButton printButton;
     private javax.swing.JMenuItem printMenuItem;
-    private javax.swing.JMenuItem productCatalogue;
     private javax.swing.JButton refreshButton;
     private javax.swing.JMenuItem refreshMenuItem;
     private javax.swing.JMenuItem serviceItem;

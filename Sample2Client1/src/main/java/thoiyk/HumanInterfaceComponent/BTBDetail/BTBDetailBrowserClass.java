@@ -101,7 +101,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "btb.id,po.nomor pono,poi.prno,poi.category,poi.itemname,btb.itemqty,uta.nama as itemunit,btb.actualqty,utb.nama actualunit ",    
+                        "btb.id,po.nomor pono,poi.prno,poi.style,poi.itemname name,btb.itemqty,uta.nama as itemunit,btb.actualqty,utb.nama actualunit ",    
 
                         // 2 tables and joins                                                
                         "btb_dtl btb " +

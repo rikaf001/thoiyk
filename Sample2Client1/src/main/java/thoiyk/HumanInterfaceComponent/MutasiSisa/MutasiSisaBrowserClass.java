@@ -9,12 +9,13 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.BTBHeader;
+package thoiyk.HumanInterfaceComponent.MutasiSisa;
 
 /**
  *
  * @author yoserizy
  */
+
 //rtl
 import javax.swing.*;
 
@@ -23,10 +24,10 @@ import KFramework30.Widgets.*;
 import KFramework30.Base.*;
 
 // system
-import ProblemDomainComponent.BTBHeaderClass;
+import ProblemDomainComponent.MutasiSisaClass;
 
 
-public class BTBHeaderBrowserClass 
+public class MutasiSisaBrowserClass 
 extends KDataBrowserBaseClass {   
         
     // uses                       	
@@ -34,7 +35,7 @@ extends KDataBrowserBaseClass {
     // has
 
     /** Creates new viajeBrowserClass */
-    public BTBHeaderBrowserClass(
+    public MutasiSisaBrowserClass(
             KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,
@@ -46,8 +47,8 @@ extends KDataBrowserBaseClass {
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    BTBHeaderClass.class,
-                    BTBHeaderEditDialogClass.class
+                    MutasiSisaClass.class,
+                    MutasiSisaEditDialogClass.class
             );  
             
             // uses                   
@@ -62,33 +63,23 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " pr.ID, pr.nomor, pr.tanggal, sup.nama suppliername,pr.nosj,pr.tglsj, pr.nobc, pr.tglbc ",
+                // 1 campos                    
+                " mb.id,mb.kodekawasanid,mb.barangid,mb.barangnama, mb.unittypeid,mb.stockopname,mb.selisih,mb.saldoawal,mb.pemasukan,mb.pengeluaran,mb.penyesuaian,mb.saldoakhir, mb.createdby, mb.datecreated ",
                 
                 // 2 tablas and joins                                             
-                " btb_hdr pr   "  +
-                " left join supplier sup on pr.supplierid=sup.id "  
-                 ,
-                                                                
+                " MUTASISISA mb  ",
+                                                   
                 // 3 llave principal (mayusculas!)
                 "ID" 
                                                                                              
                     );   
 
-     
-            setColumnNames( "pr", "ID", "ID" );
-            setColumnNames( "pr", "NOMOR", "Nomor" );
-            setColumnNames( "pr", "TANGGAL", "Tanggal" );
-            setColumnNames( "sup", "SUPPLIERNAME", "SupplierName" );
-            setColumnNames( "pr", "NOSJ", "NoSJ" );
-            setColumnNames( "pr", "TGLSJ", "TglSJ" );
-            setColumnNames( "pr", "NOBC", "NoBC" );
-            setColumnNames( "pr", "TGLBC", "TglBC" );
-       
-            setDefaultOrder( "ID" );
+            // define column settings
+            setDefaultOrder( "  ID " );
+            
             // load data
             super.initializeTable();   
-            
-            
+                        
     }        
 
 

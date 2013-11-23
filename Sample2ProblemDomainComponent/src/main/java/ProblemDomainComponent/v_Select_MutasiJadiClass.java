@@ -22,6 +22,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+
 /**
  *
  * @author yoserizy
@@ -32,10 +33,10 @@ import javax.persistence.TableGenerator;
     table="SEQUENCE", 
     pkColumnName="SEQ_NAME", 
     valueColumnName="SEQ_COUNT", 
-    pkColumnValue="SEQ_GEN_TABLE", 
+    pkColumnValue="SEQ_GEN_MUTASIJADI", 
     allocationSize=1)
-@Table(name = "V_BC_PEMASUKAN_BAKU_DTL")
-public class v_BC_PemasukanBakuDetailClass 
+@Table(name = "V_SELECT_MUTASIJADI")
+public class v_Select_MutasiJadiClass 
 extends KBusinessObjectClass{
 
     
@@ -46,22 +47,20 @@ extends KBusinessObjectClass{
     @Column(name = "id")
     private long ID;
 
-    @Column(name = "hdrid")
-    private Long HdrID;
-    
-    @Column(name = "category")
-    private String Category;
-
     @Column(name = "description")
     private String Description;
-   
-    @Column(name = "unit")
-    private String Unit;
-   
-    @Column(name = "itemqty")
-    private Long ItemQty;
 
-    public v_BC_PemasukanBakuDetailClass() throws KExceptionClass {
+    @Column(name = "msk")
+    private long Msk;
+
+    @Column(name = "kel")
+    private Long Kel;
+
+    @KBusinessObjectClass.KObjectVersion
+    @Column(name = "version")
+    private long version;
+
+    public v_Select_MutasiJadiClass() throws KExceptionClass {
     }
 
     //=================================================================    
@@ -73,22 +72,6 @@ extends KBusinessObjectClass{
         this.ID = ID;
     }
 
-    public Long getHdrID() {
-        return HdrID;
-    }
-
-    public void setHdrID(Long HdrID) {
-        this.HdrID = HdrID;
-    }
-
-    public String getCategory() {
-        return Category;
-    }
-
-    public void setCategory(String Category) {
-        this.Category = Category;
-    }
-
     public String getDescription() {
         return Description;
     }
@@ -97,23 +80,30 @@ extends KBusinessObjectClass{
         this.Description = Description;
     }
 
-    public String getUnit() {
-        return Unit;
-    }
-
-    public void setUnit(String Unit) {
-        this.Unit = Unit;
-    }
-
-    public Long getItemQty() {
-        return ItemQty;
-    }
-
-    public void setItemQty(Long ItemQty) {
-        this.ItemQty = ItemQty;
-    }
     
-    
+    public long getMsk() {
+        return Msk;
+    }
+
+    public void setMsk(long Msk) {
+        this.Msk = Msk;
+    }
+
+    public Long getKel() {
+        return Kel;
+    }
+
+    public void setKel(Long Kel) {
+        this.Kel = Kel;
+    }
+
+    public long getVersion() {
+        return version;
+    }
+
+    public void setVersion(long version) {
+        this.version = version;
+    }
     
     //=================================================================
         @Override

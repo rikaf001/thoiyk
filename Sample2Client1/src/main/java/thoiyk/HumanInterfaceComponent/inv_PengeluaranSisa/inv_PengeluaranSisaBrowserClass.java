@@ -9,12 +9,13 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.BTBHeader;
+package thoiyk.HumanInterfaceComponent.inv_PengeluaranSisa;
 
 /**
  *
  * @author yoserizy
  */
+
 //rtl
 import javax.swing.*;
 
@@ -23,10 +24,10 @@ import KFramework30.Widgets.*;
 import KFramework30.Base.*;
 
 // system
-import ProblemDomainComponent.BTBHeaderClass;
+import ProblemDomainComponent.v_inv_PengeluaranSisaClass;
 
 
-public class BTBHeaderBrowserClass 
+public class inv_PengeluaranSisaBrowserClass 
 extends KDataBrowserBaseClass {   
         
     // uses                       	
@@ -34,7 +35,7 @@ extends KDataBrowserBaseClass {
     // has
 
     /** Creates new viajeBrowserClass */
-    public BTBHeaderBrowserClass(
+    public inv_PengeluaranSisaBrowserClass(
             KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,
@@ -46,8 +47,8 @@ extends KDataBrowserBaseClass {
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    BTBHeaderClass.class,
-                    BTBHeaderEditDialogClass.class
+                    v_inv_PengeluaranSisaClass.class,
+                    inv_PengeluaranSisaEditDialogClass.class
             );  
             
             // uses                   
@@ -62,33 +63,23 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " pr.ID, pr.nomor, pr.tanggal, sup.nama suppliername,pr.nosj,pr.tglsj, pr.nobc, pr.tglbc ",
+                // 1 campos                    
+                " br.id,br.tanggal,br.nomor,br.barangid,br.barangnama,br.qty, br.createdby, br.datecreated ",
                 
                 // 2 tablas and joins                                             
-                " btb_hdr pr   "  +
-                " left join supplier sup on pr.supplierid=sup.id "  
-                 ,
-                                                                
+                " V_INV_PENGELUARANSISA br  ",
+                                                   
                 // 3 llave principal (mayusculas!)
                 "ID" 
                                                                                              
                     );   
 
-     
-            setColumnNames( "pr", "ID", "ID" );
-            setColumnNames( "pr", "NOMOR", "Nomor" );
-            setColumnNames( "pr", "TANGGAL", "Tanggal" );
-            setColumnNames( "sup", "SUPPLIERNAME", "SupplierName" );
-            setColumnNames( "pr", "NOSJ", "NoSJ" );
-            setColumnNames( "pr", "TGLSJ", "TglSJ" );
-            setColumnNames( "pr", "NOBC", "NoBC" );
-            setColumnNames( "pr", "TGLBC", "TglBC" );
-       
-            setDefaultOrder( "ID" );
+            // define column settings
+            setDefaultOrder( "  ID " );
+            
             // load data
             super.initializeTable();   
-            
-            
+                        
     }        
 
 
