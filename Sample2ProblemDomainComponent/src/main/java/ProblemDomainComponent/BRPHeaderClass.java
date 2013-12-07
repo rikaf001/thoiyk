@@ -36,8 +36,8 @@ import javax.persistence.TemporalType;
     valueColumnName="SEQ_COUNT", 
     pkColumnValue="GEN_PRD_IN_HDR", 
     allocationSize=1)    
-@Table(name = "BRB_HDR")
-public class BRBHeaderClass 
+@Table(name = "BRP_HDR")
+public class BRPHeaderClass 
 extends KBusinessObjectClass
 {
     @KBusinessObjectClass.KID
@@ -56,37 +56,22 @@ extends KBusinessObjectClass
     @Temporal(TemporalType.TIMESTAMP)   
     private Date Tanggal;
 
-    @Column(name = "pemberiname")
-    private String PemberiName;
+    @Column(name = "penerimaid")
+    private long PenerimaID;
 
-    @Column(name = "nobc")
-    private String NoBC;
+    @Column(name = "auditdate")
+    @Temporal(TemporalType.TIMESTAMP)   
+    private Date AuditDate;
 
-    @Column(name = "tglbc")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date TglBC;
-    
-    
-    @Column(name = "createdby")
-    private String CreatedBy;
-    
-    @Column(name = "datecreated")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateCreated;
-
-    @Column(name = "modifiedby")
-    private String ModifiedBy;
-    
-    @Column(name = "datemodified")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateModified;
+    @Column(name = "audituser")
+    private String AuditUser;
 
 
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
     private long version;
     
-    public BRBHeaderClass() throws KExceptionClass{
+    public BRPHeaderClass() throws KExceptionClass{
     }
 
     //=================================================================
@@ -127,62 +112,30 @@ extends KBusinessObjectClass
         this.Tanggal = Tanggal;
     }
 
-    public String getPemberiName() {
-        return PemberiName;
+    public long getPenerimaID() {
+        return PenerimaID;
     }
 
-    public void setPemberiName(String PemberiName) {
-        this.PemberiName = PemberiName;
+    public void setPenerimaID(long PenerimaID) {
+        this.PenerimaID = PenerimaID;
     }
 
-    public String getNoBC() {
-        return NoBC;
+    public Date getAuditDate() {
+        return AuditDate;
     }
 
-    public void setNoBC(String NoBC) {
-        this.NoBC = NoBC;
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
     }
 
-    public Date getTglBC() {
-        return TglBC;
+    public String getAuditUser() {
+        return AuditUser;
     }
 
-    public void setTglBC(Date TglBC) {
-        this.TglBC = TglBC;
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
     }
 
-    public String getCreatedBy() {
-        return CreatedBy;
-    }
-
-    public void setCreatedBy(String CreatedBy) {
-        this.CreatedBy = CreatedBy;
-    }
-
-    public Date getDateCreated() {
-        return DateCreated;
-    }
-
-    public void setDateCreated(Date DateCreated) {
-        this.DateCreated = DateCreated;
-    }
-
-    public String getModifiedBy() {
-        return ModifiedBy;
-    }
-
-    public void setModifiedBy(String ModifiedBy) {
-        this.ModifiedBy = ModifiedBy;
-    }
-
-    public Date getDateModified() {
-        return DateModified;
-    }
-
-    public void setDateModified(Date DateModified) {
-        this.DateModified = DateModified;
-    }
-   
     
     public long getVersion() {
         return version;

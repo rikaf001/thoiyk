@@ -36,8 +36,8 @@ import javax.persistence.TemporalType;
     valueColumnName="SEQ_COUNT", 
     pkColumnValue="GEN_PRD_IN_DTL", 
     allocationSize=1)    
-@Table(name = "BRB_DTL")
-public class BRBDetailClass 
+@Table(name = "BRP_DTL")
+public class BRPDetailClass 
 extends KBusinessObjectClass
 {
 
@@ -65,28 +65,23 @@ extends KBusinessObjectClass
     @Column(name = "actualunitid")
     private long ActualUnitID;
     
-    @Column(name = "createdby")
-    private String CreatedBy;
-    
-    @Column(name = "datecreated")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateCreated;
+    @Column(name = "keterangan")
+    private String Keterangan;
 
-    @Column(name = "modifiedby")
-    private String ModifiedBy;
-    
-    @Column(name = "datemodified")
+    @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateModified;
-    
-    
+    private Date AuditDate;
+
+    @Column(name = "audituser")
+    private String AuditUser;
+
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
     private long version;
 
     
     
-    public BRBDetailClass() throws KExceptionClass {
+    public BRPDetailClass() throws KExceptionClass {
     }
 
     //=================================================================
@@ -146,37 +141,30 @@ extends KBusinessObjectClass
         this.ActualUnitID = ActualUnitID;
     }
 
-    public String getCreatedBy() {
-        return CreatedBy;
+    public String getKeterangan() {
+        return Keterangan;
     }
 
-    public void setCreatedBy(String CreatedBy) {
-        this.CreatedBy = CreatedBy;
+    public void setKeterangan(String Keterangan) {
+        this.Keterangan = Keterangan;
     }
 
-    public Date getDateCreated() {
-        return DateCreated;
+    public Date getAuditDate() {
+        return AuditDate;
     }
 
-    public void setDateCreated(Date DateCreated) {
-        this.DateCreated = DateCreated;
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
     }
 
-    public String getModifiedBy() {
-        return ModifiedBy;
+    public String getAuditUser() {
+        return AuditUser;
     }
 
-    public void setModifiedBy(String ModifiedBy) {
-        this.ModifiedBy = ModifiedBy;
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
     }
 
-    public Date getDateModified() {
-        return DateModified;
-    }
-
-    public void setDateModified(Date DateModified) {
-        this.DateModified = DateModified;
-    }
 
     public long getVersion() {
         return version;

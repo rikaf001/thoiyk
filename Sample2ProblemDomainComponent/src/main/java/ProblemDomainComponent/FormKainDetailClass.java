@@ -60,41 +60,41 @@ extends KBusinessObjectClass
     private String Warna;
 
     @Column(name = "qtyorder")
-    private long QtyOrder;
+    private double QtyOrder;
 
     @Column(name = "qtyallowance")
-    private long QtyAllowance;
+    private double QtyAllowance;
 
     @Column(name = "qtycut")
-    private long QtyCut;
+    private double QtyCut;
 
     @Column(name = "consumtiongiven")
-    private long ConsumtionGiven;
+    private double ConsumtionGiven;
 
     @Column(name = "consumtionactual")
-    private long ConsumtionActual;
+    private double ConsumtionActual;
 
     @Column(name = "kaindatang")
-    private long KainDatang;
+    private double KainDatang;
 
     @Column(name = "kainbutuh")
-    private long KainButuh;
+    private double KainButuh;
 
     @Column(name = "kainplusmin")
-    private long KainPlusMin;
+    private double KainPlusMin;
 
     @Column(name = "kainpersen")
-    private long KainPersen;
+    private double KainPersen;
 
     @Column(name = "keterangan")
     private String Keterangan;
     
-    @Column(name = "createdby")
-    private String CreatedBy;
-    
-    @Column(name = "datecreated")
+    @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateCreated;
+    private Date AuditDate;
+    
+    @Column(name = "audituser")
+    private String AuditUser;
 
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
@@ -146,75 +146,94 @@ extends KBusinessObjectClass
         this.Warna = Warna;
     }
 
-    public long getQtyOrder() {
+    public double getQtyOrder() {
         return QtyOrder;
     }
 
-    public void setQtyOrder(long QtyOrder) {
+    public void setQtyOrder(double QtyOrder) {
         this.QtyOrder = QtyOrder;
     }
 
-    public long getQtyAllowance() {
+    public double getQtyAllowance() {
         return QtyAllowance;
     }
 
-    public void setQtyAllowance(long QtyAllowance) {
+    public void setQtyAllowance(double QtyAllowance) {
         this.QtyAllowance = QtyAllowance;
     }
 
-    public long getQtyCut() {
+    public double getQtyCut() {
         return QtyCut;
     }
 
-    public void setQtyCut(long QtyCut) {
+    public void setQtyCut(double QtyCut) {
         this.QtyCut = QtyCut;
     }
 
-    public long getConsumtionGiven() {
+    public double getConsumtionGiven() {
         return ConsumtionGiven;
     }
 
-    public void setConsumtionGiven(long ConsumtionGiven) {
+    public void setConsumtionGiven(double ConsumtionGiven) {
         this.ConsumtionGiven = ConsumtionGiven;
     }
 
-    public long getConsumtionActual() {
+    public double getConsumtionActual() {
         return ConsumtionActual;
     }
 
-    public void setConsumtionActual(long ConsumtionActual) {
+    public void setConsumtionActual(double ConsumtionActual) {
         this.ConsumtionActual = ConsumtionActual;
     }
 
-   
-
-    public long getKainDatang() {
+    public double getKainDatang() {
         return KainDatang;
     }
 
-    public void setKainDatang(long KainDatang) {
+    public void setKainDatang(double KainDatang) {
         this.KainDatang = KainDatang;
     }
 
-    public long getKainButuh() {
+    public double getKainButuh() {
         return KainButuh;
     }
 
-    public void setKainButuh(long KainButuh) {
+    public void setKainButuh(double KainButuh) {
         this.KainButuh = KainButuh;
     }
 
-    public long getKainPlusMin() {
+    public double getKainPlusMin() {
         return KainPlusMin;
     }
 
-    public void setKainPlusMin(long KainPlusMin) {
+    public void setKainPlusMin(double KainPlusMin) {
         this.KainPlusMin = KainPlusMin;
     }
 
-    public long getKainPersen() {
+    public double getKainPersen() {
         return KainPersen;
     }
+
+    public void setKainPersen(double KainPersen) {
+        this.KainPersen = KainPersen;
+    }
+
+    public Date getAuditDate() {
+        return AuditDate;
+    }
+
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
+    }
+
+    public String getAuditUser() {
+        return AuditUser;
+    }
+
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
+    }
+
 
     public void setKainPersen(long KainPersen) {
         this.KainPersen = KainPersen;
@@ -228,21 +247,6 @@ extends KBusinessObjectClass
         this.Keterangan = Keterangan;
     }
 
-    public String getCreatedBy() {
-        return CreatedBy;
-    }
-
-    public void setCreatedBy(String CreatedBy) {
-        this.CreatedBy = CreatedBy;
-    }
-
-    public Date getDateCreated() {
-        return DateCreated;
-    }
-
-    public void setDateCreated(Date DateCreated) {
-        this.DateCreated = DateCreated;
-    }
 
     public long getVersion() {
         return version;

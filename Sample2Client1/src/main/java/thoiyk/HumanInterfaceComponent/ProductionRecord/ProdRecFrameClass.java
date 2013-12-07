@@ -1,38 +1,27 @@
 /*
-This source code is part of the KFRAMEWORK  (http://k-framework.sourceforge.net/)
-Copyright (C) 2001  Alejandro Vazquez, Ke Li
-Feedback / Bug Reports vmaxxed@users.sourceforge.net
+This source code is part of the Thoyik
+Copyright (C) 2013  Yoserizal
+Feedback / Bug Reports yoser174@gmail.com
 
-This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 2.1 of the License, or (at your option) any later version.
 
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-Lesser General Public License for more details.
-
-You should have received a copy of the GNU Lesser General Public
-License along with this library; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+This project used:
+KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
 package thoiyk.HumanInterfaceComponent.ProductionRecord;
 
 
-import thoiyk.HumanInterfaceComponent.ProductionRecord.PRBrowserClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserClass;
 import Sample1.desktopToolbarListenerInterface;
 import Sample1.desktopAccessInterface;
 import KFramework30.Base.*;
-import KFramework30.Widgets.*;
 import java.awt.event.ActionListener;
 import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 
 
-public class PRFrameClass extends javax.swing.JInternalFrame 
+public class ProdRecFrameClass extends javax.swing.JInternalFrame 
 implements desktopToolbarListenerInterface, InternalFrameListener
 {
 
@@ -42,7 +31,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         private desktopAccessInterface          mainToolbar;
 
 	// has - defaulted
-	private PRBrowserClass             browser;
+	private ProdRecBrowserClass             browser;
                 
         public void internalFrameOpened(InternalFrameEvent e) {}
         public void internalFrameClosing(InternalFrameEvent e) {}
@@ -76,7 +65,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         }
                         
 
-    public PRFrameClass(KConfigurationClass configurationParam,KLogClass logParam,desktopAccessInterface systemDesktopParam ) throws KExceptionClass
+    public ProdRecFrameClass(KConfigurationClass configurationParam,KLogClass logParam,desktopAccessInterface systemDesktopParam ) throws KExceptionClass
     {        
         initComponents ();
         
@@ -86,7 +75,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         mainToolbar = systemDesktopParam;
         
 	// has defaulted
-	browser =  new PRBrowserClass( configuration, log, justificationTable, mainToolbar.getDesktopsWindow()  );                           
+	browser =  new ProdRecBrowserClass( configuration, log, justificationTable, mainToolbar.getDesktopsWindow()  );                           
         browser.initializeTable();        
         
         // init

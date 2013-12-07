@@ -46,9 +46,15 @@ extends KBusinessObjectClass
     @Column(name = "id")
     private long ID;
     
-    @Column(name = "bkbid")
-    private long BKBID;
+    @Column(name = "btbid")
+    private long BTBID;
     
+    @Column(name = "jenisdokid")
+    private long JenisDokID;
+
+    @Column(name = "kawasanid")
+    private long KawasanID;
+
     @Column(name = "nomor")
     private String Nomor;
 
@@ -56,8 +62,11 @@ extends KBusinessObjectClass
     @Temporal(TemporalType.TIMESTAMP)   
     private Date Tanggal;
 
-    @Column(name = "pemberiname")
-    private String PemberiName;
+    @Column(name = "supplierid")
+    private Long SupplierID;
+
+    @Column(name = "suppliername")
+    private String SupplierName;
 
     @Column(name = "nobc")
     private String NoBC;
@@ -67,20 +76,12 @@ extends KBusinessObjectClass
     private Date TglBC;
     
     
-    @Column(name = "createdby")
-    private String CreatedBy;
-    
-    @Column(name = "datecreated")
+    @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateCreated;
+    private Date AuditDate;
 
-    @Column(name = "modifiedby")
-    private String ModifiedBy;
-    
-    @Column(name = "datemodified")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateModified;
-
+    @Column(name = "audituser")
+    private String AuditUser;
 
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
@@ -99,22 +100,20 @@ extends KBusinessObjectClass
     }
 
 
-    public long getBKBID() {
-        return BKBID;
-    }
-
-    public void setBKBID(long BKBID) {
-        this.BKBID = BKBID;
-    }
-
-    
-
     public String getNomor() {
         return Nomor;
     }
 
     public void setNomor(String Nomor) {
         this.Nomor = Nomor;
+    }
+
+    public Long getSupplierID() {
+        return SupplierID;
+    }
+
+    public void setSupplierID(Long SupplierID) {
+        this.SupplierID = SupplierID;
     }
 
     
@@ -127,13 +126,15 @@ extends KBusinessObjectClass
         this.Tanggal = Tanggal;
     }
 
-    public String getPemberiName() {
-        return PemberiName;
+    
+    public String getSupplierName() {
+        return SupplierName;
     }
 
-    public void setPemberiName(String PemberiName) {
-        this.PemberiName = PemberiName;
+    public void setSupplierName(String SupplierName) {
+        this.SupplierName = SupplierName;
     }
+
 
     public String getNoBC() {
         return NoBC;
@@ -151,36 +152,44 @@ extends KBusinessObjectClass
         this.TglBC = TglBC;
     }
 
-    public String getCreatedBy() {
-        return CreatedBy;
+    public Date getAuditDate() {
+        return AuditDate;
     }
 
-    public void setCreatedBy(String CreatedBy) {
-        this.CreatedBy = CreatedBy;
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
     }
 
-    public Date getDateCreated() {
-        return DateCreated;
+    public String getAuditUser() {
+        return AuditUser;
     }
 
-    public void setDateCreated(Date DateCreated) {
-        this.DateCreated = DateCreated;
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
     }
 
-    public String getModifiedBy() {
-        return ModifiedBy;
+    public long getBTBID() {
+        return BTBID;
     }
 
-    public void setModifiedBy(String ModifiedBy) {
-        this.ModifiedBy = ModifiedBy;
+    public void setBTBID(long BTBID) {
+        this.BTBID = BTBID;
     }
 
-    public Date getDateModified() {
-        return DateModified;
+    public long getJenisDokID() {
+        return JenisDokID;
     }
 
-    public void setDateModified(Date DateModified) {
-        this.DateModified = DateModified;
+    public void setJenisDokID(long JenisDokID) {
+        this.JenisDokID = JenisDokID;
+    }
+
+    public long getKawasanID() {
+        return KawasanID;
+    }
+
+    public void setKawasanID(long KawasanID) {
+        this.KawasanID = KawasanID;
     }
    
     

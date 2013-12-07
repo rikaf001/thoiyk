@@ -64,21 +64,16 @@ extends KBusinessObjectClass
     
     @Column(name = "actualunitid")
     private long ActualUnitID;
-    
-    @Column(name = "createdby")
-    private String CreatedBy;
-    
-    @Column(name = "datecreated")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateCreated;
 
-    @Column(name = "modifiedby")
-    private String ModifiedBy;
-    
-    @Column(name = "datemodified")
+    @Column(name = "keterangan")
+    private String Keterangan;
+
+    @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateModified;
-    
+    private Date AuditDate;
+
+    @Column(name = "audituser")
+    private String AuditUser;
     
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
@@ -146,36 +141,28 @@ extends KBusinessObjectClass
         this.ActualUnitID = ActualUnitID;
     }
 
-    public String getCreatedBy() {
-        return CreatedBy;
+    public String getKeterangan() {
+        return Keterangan;
     }
 
-    public void setCreatedBy(String CreatedBy) {
-        this.CreatedBy = CreatedBy;
+    public void setKeterangan(String Keterangan) {
+        this.Keterangan = Keterangan;
     }
 
-    public Date getDateCreated() {
-        return DateCreated;
+    public Date getAuditDate() {
+        return AuditDate;
     }
 
-    public void setDateCreated(Date DateCreated) {
-        this.DateCreated = DateCreated;
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
     }
 
-    public String getModifiedBy() {
-        return ModifiedBy;
+    public String getAuditUser() {
+        return AuditUser;
     }
 
-    public void setModifiedBy(String ModifiedBy) {
-        this.ModifiedBy = ModifiedBy;
-    }
-
-    public Date getDateModified() {
-        return DateModified;
-    }
-
-    public void setDateModified(Date DateModified) {
-        this.DateModified = DateModified;
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
     }
 
     public long getVersion() {
@@ -185,7 +172,6 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
-    
     
     
     @Override

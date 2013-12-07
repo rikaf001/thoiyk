@@ -49,29 +49,48 @@ extends KBusinessObjectClass{
     @Column(name = "id")
     private long ID;
 
-    @Column(name = "nomor")
-    private String Nomor;
-    
-    @Column(name = "tanggal")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date Tanggal;
-    
-    @Column(name = "suppliername")
-    private String SupplierName;
+    @Column(name = "kawasanid")
+    private long KawasanID;
 
-    @Column(name = "nosj")
-    private String NoSJ;
-   
-    @Column(name = "tglsj")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date TglSJ;
+    @Column(name = "Kawasan")
+    private String Kawasan;
+
+    @Column(name = "dokbc")
+    private String DokBC;
 
     @Column(name = "nobc")
     private String NoBC;
-   
-    @Column(name = "tglbc")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date TglBC;
+
+    
+    @Column(name = "tglbc") 
+    private String TglBC;
+    
+    @Column(name = "notrima")
+    private String NoTrima;
+
+    @Column(name = "tgltrima")
+    private String TglTrima;
+
+    @Column(name = "pengirim")
+    private String Pengirim;
+
+    @Column(name = "kodebrng")
+    private String KodeBrng;
+
+    @Column(name = "nama")
+    private String Nama;
+
+    @Column(name = "unit")
+    private String Unit;
+
+    @Column(name = "jumlah")
+    private long Jumlah;
+
+    @Column(name = "currency")
+    private String Currency;
+
+    @Column(name = "nilai")
+    private double Nilai;
 
     public v_BC_PemasukanBakuClass() throws KExceptionClass {
     }
@@ -85,44 +104,12 @@ extends KBusinessObjectClass{
         this.ID = ID;
     }
 
-    public String getNomor() {
-        return Nomor;
+    public String getDokBC() {
+        return DokBC;
     }
 
-    public void setNomor(String Nomor) {
-        this.Nomor = Nomor;
-    }
-
-    public Date getTanggal() {
-        return Tanggal;
-    }
-
-    public void setTanggal(Date Tanggal) {
-        this.Tanggal = Tanggal;
-    }
-
-    public String getSupplierName() {
-        return SupplierName;
-    }
-
-    public void setSupplierName(String SupplierName) {
-        this.SupplierName = SupplierName;
-    }
-
-    public String getNoSJ() {
-        return NoSJ;
-    }
-
-    public void setNoSJ(String NoSJ) {
-        this.NoSJ = NoSJ;
-    }
-
-    public Date getTglSJ() {
-        return TglSJ;
-    }
-
-    public void setTglSJ(Date TglSJ) {
-        this.TglSJ = TglSJ;
+    public void setDokBC(String DokBC) {
+        this.DokBC = DokBC;
     }
 
     public String getNoBC() {
@@ -133,14 +120,86 @@ extends KBusinessObjectClass{
         this.NoBC = NoBC;
     }
 
-    public Date getTglBC() {
+    public String getTglBC() {
         return TglBC;
     }
 
-    public void setTglBC(Date TglBC) {
+    public void setTglBC(String TglBC) {
         this.TglBC = TglBC;
     }
 
+    public String getNoTrima() {
+        return NoTrima;
+    }
+
+    public void setNoTrima(String NoTrima) {
+        this.NoTrima = NoTrima;
+    }
+
+    public String getTglTrima() {
+        return TglTrima;
+    }
+
+    public void setTglTrima(String TglTrima) {
+        this.TglTrima = TglTrima;
+    }
+
+    public String getPengirim() {
+        return Pengirim;
+    }
+
+    public void setPengirim(String Pengirim) {
+        this.Pengirim = Pengirim;
+    }
+
+    public String getKodeBrng() {
+        return KodeBrng;
+    }
+
+    public void setKodeBrng(String KodeBrng) {
+        this.KodeBrng = KodeBrng;
+    }
+
+    public String getNama() {
+        return Nama;
+    }
+
+    public void setNama(String Nama) {
+        this.Nama = Nama;
+    }
+
+    public String getUnit() {
+        return Unit;
+    }
+
+    public void setUnit(String Unit) {
+        this.Unit = Unit;
+    }
+
+    public long getJumlah() {
+        return Jumlah;
+    }
+
+    public void setJumlah(long Jumlah) {
+        this.Jumlah = Jumlah;
+    }
+
+    public String getCurrency() {
+        return Currency;
+    }
+
+    public void setCurrency(String Currency) {
+        this.Currency = Currency;
+    }
+
+    public double getNilai() {
+        return Nilai;
+    }
+
+    public void setNilai(double Nilai) {
+        this.Nilai = Nilai;
+    }
+    
     
     
     //=================================================================

@@ -62,7 +62,7 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " pr.ID, pr.nomor, pr.tanggal, pr.suppliername,pr.nosj,pr.tglsj, pr.nobc, pr.tglbc ",
+                " pr.ID,pr.kawasanid,pr.kawasan, pr.dokbc,pr.nobc,pr.tglbc,pr.notrima,pr.tgltrima,pr.pengirim,pr.kodebrng,pr.nama,pr.unit,pr.jumlah,pr.currency,pr.nilai,pr.auditdate,pr.audituser ",
                 
                 // 2 tablas and joins                                             
                 " v_bc_pemasukan_baku pr "  
@@ -74,7 +74,7 @@ extends KDataBrowserBaseClass {
                     );   
 
      
-            setColumnNames( "pr", "ID", "ID" );
+/*            setColumnNames( "pr", "ID", "ID" );
             setColumnNames( "pr", "NOMOR", "Nomor" );
             setColumnNames( "pr", "TANGGAL", "Tanggal" );
             setColumnNames( "sup", "SUPPLIERNAME", "SupplierName" );
@@ -82,7 +82,7 @@ extends KDataBrowserBaseClass {
             setColumnNames( "pr", "TGLSJ", "TglSJ" );
             setColumnNames( "pr", "NOBC", "NoBC" );
             setColumnNames( "pr", "TGLBC", "TglBC" );
-       
+  */     
             setDefaultOrder( "ID" );
             // load data
             super.initializeTable();   

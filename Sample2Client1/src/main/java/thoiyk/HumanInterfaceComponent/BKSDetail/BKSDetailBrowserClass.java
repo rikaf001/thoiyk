@@ -101,11 +101,11 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "bks.id,poi.category,poi.itemname,bks.itemqty,uta.nama itemunit ",    
+                        "bks.id,poi.nama,bks.itemqty,uta.nama itemunit ",    
 
                         // 2 tables and joins                                                
                         " bks_dtl bks " +
-                        "left join v_po_item poi on bks.itemid=poi.id " +
+                        "left join v_pr_item poi on bks.itemid=poi.id " +
                         "left join unittype uta on bks.itemunitid=uta.id " +
                         "left join unittype utb on bks.actualunitid=utb.id " ,
 
@@ -144,11 +144,11 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "bks.id,poi.category,poi.itemname,bks.itemqty,uta.nama itemunit ",    
+                        "bks.id,poi.nama,bks.itemqty,uta.nama itemunit ",    
 
                         // 2 tables and joins                                                
                         " bks_dtl bks " +
-                        "left join v_po_item poi on bks.itemid=poi.id " +
+                        "left join v_pr_item poi on bks.itemid=poi.id " +
                         "left join unittype uta on bks.itemunitid=uta.id " +
                         "left join unittype utb on bks.actualunitid=utb.id " ,
 

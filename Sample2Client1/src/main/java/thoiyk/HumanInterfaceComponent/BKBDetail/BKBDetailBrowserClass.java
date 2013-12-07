@@ -101,7 +101,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "bkb.id,pri.category,pri.nama itemname,bkb.itemqty, uta.nama itemunit ",    
+                        "bkb.id,pri.nama name,bkb.itemqty, uta.nama itemunit, RETRIEVE_BTB_NO(itemid) no_btb,RETRIEVE_BTB_TGL(itemid) tanggal,RETRIEVE_BTB_NOBC(itemid) no_bc ",    
 
                         // 2 tables and joins                                                
                         " bkb_dtl bkb " +
@@ -144,7 +144,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                            // 1 fields                    
-                        "bkb.id,pri.category,pri.nama itemname,bkb.itemqty, uta.nama itemunit",    
+                        "bkb.id,pri.nama name,bkb.itemqty, uta.nama itemunit, RETRIEVE_BTB_NO(itemid) no_btb,RETRIEVE_BTB_TGL(itemid) tanggal,RETRIEVE_BTB_NOBC(itemid) no_bc",    
 
                         // 2 tables and joins                                                
                         " bkb_dtl bkb " +

@@ -46,11 +46,12 @@ extends KBusinessObjectClass
     @GeneratedValue( strategy = javax.persistence.GenerationType.TABLE, generator="KIDGenerator" )    
     @Column(name = "id")
     private long ID;
-    
-
 
     @Column(name = "prid")
     private long PRID;
+
+    @Column(name = "kawasanid")
+    private long KawasanID;
 
     @Column(name = "nomor")
     private String Nomor;
@@ -66,9 +67,6 @@ extends KBusinessObjectClass
     @Column(name = "penerimaid")
     private long PenerimaID;
     
-    /*@Column(name = "penerimaname")
-    private String PenerimaName;
-    */
     @Column(name = "nobc")
     private String NoBC;
     
@@ -76,20 +74,12 @@ extends KBusinessObjectClass
     @Temporal(TemporalType.TIMESTAMP)   
     private Date TglBC;
     
-    @Column(name = "createdby")
-    private String CreatedBy;
-    
-    @Column(name = "datecreated")
+    @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateCreated;
+    private Date AuditDate;
 
-    @Column(name = "modifiedby")
-    private String ModifiedBy;
-    
-    @Column(name = "datemodified")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateModified;
-    
+    @Column(name = "audituser")
+    private String AuditUser;
     
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
@@ -140,16 +130,6 @@ extends KBusinessObjectClass
     public void setPenerimaID(long PenerimaID) {
         this.PenerimaID = PenerimaID;
     }
-//
-//    public String getPenerimaName() {
-//        return PenerimaName;
-//    }
-//
-//    public void setPenerimaName(String PenerimaName) {
-//        this.PenerimaName = PenerimaName;
-//    }
-//    
-    
 
     public long getPRID() {
         return PRID;
@@ -175,37 +155,30 @@ extends KBusinessObjectClass
         this.TglBC = TglBC;
     }
 
-    public String getCreatedBy() {
-        return CreatedBy;
+    public long getKawasanID() {
+        return KawasanID;
     }
 
-    public void setCreatedBy(String CreatedBy) {
-        this.CreatedBy = CreatedBy;
+    public void setKawasanID(long KawasanID) {
+        this.KawasanID = KawasanID;
     }
 
-    public Date getDateCreated() {
-        return DateCreated;
+    public Date getAuditDate() {
+        return AuditDate;
     }
 
-    public void setDateCreated(Date DateCreated) {
-        this.DateCreated = DateCreated;
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
     }
 
-    public String getModifiedBy() {
-        return ModifiedBy;
+    public String getAuditUser() {
+        return AuditUser;
     }
 
-    public void setModifiedBy(String ModifiedBy) {
-        this.ModifiedBy = ModifiedBy;
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
     }
 
-    public Date getDateModified() {
-        return DateModified;
-    }
-
-    public void setDateModified(Date DateModified) {
-        this.DateModified = DateModified;
-    }
 
     public long getVersion() {
         return version;

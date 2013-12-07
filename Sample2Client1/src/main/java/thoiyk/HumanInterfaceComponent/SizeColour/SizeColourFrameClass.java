@@ -1,27 +1,23 @@
 /*
-This source code is part of the KFRAMEWORK  (http://k-framework.sourceforge.net/)
-Copyright (C) 2001  Alejandro Vazquez, Ke Li
-Feedback / Bug Reports vmaxxed@users.sourceforge.net
+This source code is part of the Thoyik
+Copyright (C) 2013  Yoserizal
+Feedback / Bug Reports yoser174@gmail.com
 
-This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 2.1 of the License, or (at your option) any later version.
 
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-Lesser General Public License for more details.
-
-You should have received a copy of the GNU Lesser General Public
-License along with this library; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+This project used:
+KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.BRBHeader;
+package thoiyk.HumanInterfaceComponent.SizeColour;
+
+/**
+ *
+ * @author yoserizy
+ */
 
 
+import thoiyk.HumanInterfaceComponent.SizeColour.*;
 import Sample1.desktopToolbarListenerInterface;
 import Sample1.desktopAccessInterface;
 import KFramework30.Base.*;
@@ -30,20 +26,22 @@ import java.awt.event.ActionListener;
 import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 
-
-public class BRBHeaderFrameClass 
-extends javax.swing.JInternalFrame 
+/**
+ *
+ * @author  Administrator
+ */
+public class SizeColourFrameClass extends javax.swing.JInternalFrame 
 implements desktopToolbarListenerInterface, InternalFrameListener
 {
 
 	// uses
 	private KConfigurationClass              configuration;
 	private KLogClass                        log;
-        private desktopAccessInterface          mainToolbar;
+        private desktopAccessInterface    mainToolbar;
 
 	// has - defaulted
-	private BRBHeaderBrowserClass             browser;
-                
+	private SizeColourBrowserClass                browser;
+        
         public void internalFrameOpened(InternalFrameEvent e) {}
         public void internalFrameClosing(InternalFrameEvent e) {}
         public void internalFrameClosed(InternalFrameEvent e) {}
@@ -73,10 +71,14 @@ implements desktopToolbarListenerInterface, InternalFrameListener
 
         public ActionListener getDesktopToolbarActionListener() {
             return( browser );
-        }
-                        
-
-    public BRBHeaderFrameClass(KConfigurationClass configurationParam,KLogClass logParam,desktopAccessInterface systemDesktopParam ) throws KExceptionClass
+        }        
+        
+        
+    /** Creates new form justificacionFrameClass */
+    public SizeColourFrameClass( 
+            KConfigurationClass configurationParam,KLogClass logParam,
+            desktopAccessInterface systemDesktopParam ) 
+            throws KExceptionClass
     {        
         initComponents ();
         
@@ -86,12 +88,14 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         mainToolbar = systemDesktopParam;
         
 	// has defaulted
-	browser =  new BRBHeaderBrowserClass( configuration, log, justificationTable, mainToolbar.getDesktopsWindow()  );                           
-        browser.initializeTable();        
+	browser =  new SizeColourBrowserClass( configuration, log, 
+                clientsJTable, mainToolbar.getDesktopsWindow()  );       
         
-        // init
+        browser.initializeTable();   
+        
         addInternalFrameListener( this );            
                
+        log.log( this, "Size frame constructed successfully." );     
     }            
 
 
@@ -100,7 +104,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        justificationTable = new javax.swing.JTable();
+        clientsJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -111,10 +115,10 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         jScrollPane1.setName("jScrollPane1"); // NOI18N
         jScrollPane1.setPreferredSize(new java.awt.Dimension(0, 0));
 
-        justificationTable.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        justificationTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        justificationTable.setName("justificationTable"); // NOI18N
-        jScrollPane1.setViewportView(justificationTable);
+        clientsJTable.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        clientsJTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        clientsJTable.setName("clientsJTable"); // NOI18N
+        jScrollPane1.setViewportView(clientsJTable);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/topBar.jpg"))); // NOI18N
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -134,17 +138,17 @@ implements desktopToolbarListenerInterface, InternalFrameListener
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable clientsJTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable justificationTable;
     // End of variables declaration//GEN-END:variables
 
 }

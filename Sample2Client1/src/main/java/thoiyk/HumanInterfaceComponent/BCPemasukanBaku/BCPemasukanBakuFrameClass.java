@@ -42,7 +42,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         public void internalFrameActivated(InternalFrameEvent e) {
                 mainToolbar.enableDelete( false );
                 mainToolbar.enableNew( false );
-                mainToolbar.enableEdit( true );                
+                mainToolbar.enableEdit( false );                
                 mainToolbar.enableSort( true );
                 mainToolbar.enableFilter( true ); 
                 mainToolbar.enableRefresh( true );
@@ -80,7 +80,7 @@ implements desktopToolbarListenerInterface, InternalFrameListener
         browser.initializeTable();        
         
         // init
-        addInternalFrameListener( this );            
+       // addInternalFrameListener( this );            
                
     }            
 

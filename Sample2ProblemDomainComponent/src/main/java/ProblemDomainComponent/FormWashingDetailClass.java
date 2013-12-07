@@ -46,12 +46,21 @@ extends KBusinessObjectClass
     @GeneratedValue( strategy = javax.persistence.GenerationType.TABLE, generator="KIDGenerator" )    
     @Column(name = "id")
     private long ID;
-    
+
     @Column(name = "hdrid")
     private long HdrID;
 
     @Column(name = "itemid")
     private long ItemID;
+
+    @Column(name = "lineid")
+    private long LineID;
+
+    @Column(name = "namabahan")
+    private String NamaBahan;
+
+    @Column(name = "warna")
+    private String Warna;
 
     @Column(name = "ok")
     private long OK;
@@ -61,19 +70,16 @@ extends KBusinessObjectClass
     
     @Column(name = "total")
     private long Total;
-
-    @Column(name = "bahansewing")
-    private String BahanSewing;
     
-    @Column(name = "qtybahan")
-    private long QtyBahan;
-
     @Column(name = "xs")
     private long XS;
         
-    @Column(name = "sm")
-    private long SM;
+    @Column(name = "s")
+    private long S;
         
+    @Column(name = "m")
+    private long M;
+
     @Column(name = "l")
     private long L;
         
@@ -92,13 +98,14 @@ extends KBusinessObjectClass
     @Column(name = "keteranganreject")
     private String KeteranganReject;
     
-    @Column(name = "createdby")
-    private String CreatedBy;
-    
-    @Column(name = "datecreated")
+    @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateCreated;
+    private Date AuditDate;
 
+    @Column(name = "audituser")
+    private String AuditUser;
+    
+    
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
     private long version;
@@ -133,6 +140,30 @@ extends KBusinessObjectClass
         this.ItemID = ItemID;
     }
 
+    public long getLineID() {
+        return LineID;
+    }
+
+    public void setLineID(long LineID) {
+        this.LineID = LineID;
+    }
+
+    public String getNamaBahan() {
+        return NamaBahan;
+    }
+
+    public void setNamaBahan(String NamaBahan) {
+        this.NamaBahan = NamaBahan;
+    }
+
+    public String getWarna() {
+        return Warna;
+    }
+
+    public void setWarna(String Warna) {
+        this.Warna = Warna;
+    }
+
     public long getOK() {
         return OK;
     }
@@ -157,22 +188,6 @@ extends KBusinessObjectClass
         this.Total = Total;
     }
 
-    public String getBahanSewing() {
-        return BahanSewing;
-    }
-
-    public void setBahanSewing(String BahanSewing) {
-        this.BahanSewing = BahanSewing;
-    }
-
-    public long getQtyBahan() {
-        return QtyBahan;
-    }
-
-    public void setQtyBahan(long QtyBahan) {
-        this.QtyBahan = QtyBahan;
-    }
-
     public long getXS() {
         return XS;
     }
@@ -181,12 +196,20 @@ extends KBusinessObjectClass
         this.XS = XS;
     }
 
-    public long getSM() {
-        return SM;
+    public long getS() {
+        return S;
     }
 
-    public void setSM(long SM) {
-        this.SM = SM;
+    public void setS(long S) {
+        this.S = S;
+    }
+
+    public long getM() {
+        return M;
+    }
+
+    public void setM(long M) {
+        this.M = M;
     }
 
     public long getL() {
@@ -237,20 +260,20 @@ extends KBusinessObjectClass
         this.KeteranganReject = KeteranganReject;
     }
 
-    public String getCreatedBy() {
-        return CreatedBy;
+    public Date getAuditDate() {
+        return AuditDate;
     }
 
-    public void setCreatedBy(String CreatedBy) {
-        this.CreatedBy = CreatedBy;
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
     }
 
-    public Date getDateCreated() {
-        return DateCreated;
+    public String getAuditUser() {
+        return AuditUser;
     }
 
-    public void setDateCreated(Date DateCreated) {
-        this.DateCreated = DateCreated;
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
     }
 
     public long getVersion() {
@@ -260,7 +283,6 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
-    
     
     
     @Override

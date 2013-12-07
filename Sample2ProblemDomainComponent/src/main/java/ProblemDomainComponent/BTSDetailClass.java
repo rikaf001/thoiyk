@@ -65,20 +65,12 @@ extends KBusinessObjectClass
     @Column(name = "actualunitid")
     private long ActualUnitID;
     
-    @Column(name = "createdby")
-    private String CreatedBy;
-    
-    @Column(name = "datecreated")
+    @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateCreated;
+    private Date AuditDate;
 
-    @Column(name = "modifiedby")
-    private String ModifiedBy;
-    
-    @Column(name = "datemodified")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateModified;
-    
+    @Column(name = "audituser")
+    private String AuditUser;
     
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
@@ -146,37 +138,22 @@ extends KBusinessObjectClass
         this.ActualUnitID = ActualUnitID;
     }
 
-    public String getCreatedBy() {
-        return CreatedBy;
+    public Date getAuditDate() {
+        return AuditDate;
     }
 
-    public void setCreatedBy(String CreatedBy) {
-        this.CreatedBy = CreatedBy;
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
     }
 
-    public Date getDateCreated() {
-        return DateCreated;
+    public String getAuditUser() {
+        return AuditUser;
     }
 
-    public void setDateCreated(Date DateCreated) {
-        this.DateCreated = DateCreated;
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
     }
 
-    public String getModifiedBy() {
-        return ModifiedBy;
-    }
-
-    public void setModifiedBy(String ModifiedBy) {
-        this.ModifiedBy = ModifiedBy;
-    }
-
-    public Date getDateModified() {
-        return DateModified;
-    }
-
-    public void setDateModified(Date DateModified) {
-        this.DateModified = DateModified;
-    }
 
     public long getVersion() {
         return version;

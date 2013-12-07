@@ -101,7 +101,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " dtl.id, dtl.nama, dtl.warna, dtl.qtyorder, dtl.qtyallowance, dtl.cut,dtl.given, dtl.actual, dtl.datang, dtl.butuh, dtl.plusmin, dtl.persen, dtl.keterangan ",    
+                        " dtl.id, dtl.namabahan, dtl.warna, dtl.ok, dtl.reject, dtl.total ",    
 
                         // 2 tables and joins                                                
                         " formsewing_dtl dtl " ,
@@ -140,13 +140,11 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
-                          "bts.id,poi.category,poi.itemname,bts.itemqty,uta.nama itemunit,bts.actualqty,utb.nama actualunit ",    
+                        // 1 fields                    
+                        " dtl.id, dtl.namabahan, dtl.warna, dtl.ok, dtl.reject, dtl.total ",    
 
                         // 2 tables and joins                                                
-                        " bts_dtl bts " +
-                        "left join v_po_item poi on bts.itemid=poi.id " +
-                        "left join unittype uta on bts.itemunitid=uta.id " +
-                        "left join unittype utb on bts.actualunitid=utb.id " ,
+                        " formsewing_dtl dtl " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              

@@ -53,48 +53,59 @@ extends KBusinessObjectClass
     @Column(name = "itemid")
     private long ItemID;
 
-    @Column(name = "nama")
-    private String Nama;
+    @Column(name = "lineid")
+    private long LineID;
+
+    @Column(name = "namabahan")
+    private String NamaBahan;
 
     @Column(name = "warna")
     private String Warna;
 
-    @Column(name = "qtyorder")
-    private long QtyOrder;
+    @Column(name = "ok")
+    private long OK;
 
-    @Column(name = "qtyallowance")
-    private long QtyAllowance;
+    @Column(name = "reject")
+    private long Reject;
     
-    @Column(name = "cut")
-    private long Cut;
+    @Column(name = "total")
+    private long Total;
     
-    @Column(name = "given")
-    private long Given;
+    @Column(name = "xs")
+    private long XS;
         
-    @Column(name = "actual")
-    private long Actual;
+    @Column(name = "s")
+    private long S;
         
-    @Column(name = "datang")
-    private long Datang;
+    @Column(name = "m")
+    private long M;
+
+    @Column(name = "l")
+    private long L;
         
-    @Column(name = "butuh")
-    private long Butuh;
+    @Column(name = "xl")
+    private long XL;
     
-    @Column(name = "plusmin")
-    private long PlusMin;
+    @Column(name = "xxl")
+    private long XXL;
         
-    @Column(name = "persen")
-    private long Persen;
+    @Column(name = "xxxl")
+    private long XXXL;
         
-    @Column(name = "keterangan")
-    private String Keterangan;
+    @Column(name = "qtytotal")
+    private long QtyTotal;
     
-    @Column(name = "createdby")
-    private String CreatedBy;
+    @Column(name = "keteranganreject")
+    private String KeteranganReject;
     
-    @Column(name = "datecreated")
+    @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateCreated;
+    private Date AuditDate;
+
+    @Column(name = "audituser")
+    private String AuditUser;
+    
+
 
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
@@ -130,12 +141,20 @@ extends KBusinessObjectClass
         this.ItemID = ItemID;
     }
 
-    public String getNama() {
-        return Nama;
+    public long getLineID() {
+        return LineID;
     }
 
-    public void setNama(String Nama) {
-        this.Nama = Nama;
+    public void setLineID(long LineID) {
+        this.LineID = LineID;
+    }
+
+    public String getNamaBahan() {
+        return NamaBahan;
+    }
+
+    public void setNamaBahan(String NamaBahan) {
+        this.NamaBahan = NamaBahan;
     }
 
     public String getWarna() {
@@ -146,100 +165,116 @@ extends KBusinessObjectClass
         this.Warna = Warna;
     }
 
-    public long getQtyOrder() {
-        return QtyOrder;
+    public long getOK() {
+        return OK;
     }
 
-    public void setQtyOrder(long QtyOrder) {
-        this.QtyOrder = QtyOrder;
+    public void setOK(long OK) {
+        this.OK = OK;
     }
 
-    public long getQtyAllowance() {
-        return QtyAllowance;
+    public long getReject() {
+        return Reject;
     }
 
-    public void setQtyAllowance(long QtyAllowance) {
-        this.QtyAllowance = QtyAllowance;
+    public void setReject(long Reject) {
+        this.Reject = Reject;
     }
 
-    public long getCut() {
-        return Cut;
+    public long getTotal() {
+        return Total;
     }
 
-    public void setCut(long Cut) {
-        this.Cut = Cut;
+    public void setTotal(long Total) {
+        this.Total = Total;
     }
 
-    public long getGiven() {
-        return Given;
+    public long getXS() {
+        return XS;
     }
 
-    public void setGiven(long Given) {
-        this.Given = Given;
+    public void setXS(long XS) {
+        this.XS = XS;
     }
 
-    public long getActual() {
-        return Actual;
+    public long getS() {
+        return S;
     }
 
-    public void setActual(long Actual) {
-        this.Actual = Actual;
+    public void setS(long S) {
+        this.S = S;
     }
 
-    public long getDatang() {
-        return Datang;
+    public long getM() {
+        return M;
     }
 
-    public void setDatang(long Datang) {
-        this.Datang = Datang;
+    public void setM(long M) {
+        this.M = M;
     }
 
-    public long getButuh() {
-        return Butuh;
+    public long getL() {
+        return L;
     }
 
-    public void setButuh(long Butuh) {
-        this.Butuh = Butuh;
+    public void setL(long L) {
+        this.L = L;
     }
 
-    public long getPlusMin() {
-        return PlusMin;
+    public long getXL() {
+        return XL;
     }
 
-    public void setPlusMin(long PlusMin) {
-        this.PlusMin = PlusMin;
+    public void setXL(long XL) {
+        this.XL = XL;
     }
 
-    public long getPersen() {
-        return Persen;
+    public long getXXL() {
+        return XXL;
     }
 
-    public void setPersen(long Persen) {
-        this.Persen = Persen;
+    public void setXXL(long XXL) {
+        this.XXL = XXL;
     }
 
-    public String getKeterangan() {
-        return Keterangan;
+    public long getXXXL() {
+        return XXXL;
     }
 
-    public void setKeterangan(String Keterangan) {
-        this.Keterangan = Keterangan;
+    public void setXXXL(long XXXL) {
+        this.XXXL = XXXL;
     }
 
-    public String getCreatedBy() {
-        return CreatedBy;
+    public long getQtyTotal() {
+        return QtyTotal;
     }
 
-    public void setCreatedBy(String CreatedBy) {
-        this.CreatedBy = CreatedBy;
+    public void setQtyTotal(long QtyTotal) {
+        this.QtyTotal = QtyTotal;
     }
 
-    public Date getDateCreated() {
-        return DateCreated;
+    public String getKeteranganReject() {
+        return KeteranganReject;
     }
 
-    public void setDateCreated(Date DateCreated) {
-        this.DateCreated = DateCreated;
+    public void setKeteranganReject(String KeteranganReject) {
+        this.KeteranganReject = KeteranganReject;
+    }
+
+    public Date getAuditDate() {
+        return AuditDate;
+    }
+
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
+    }
+
+    public String getAuditUser() {
+        return AuditUser;
+    }
+
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
     }
 
     public long getVersion() {
@@ -249,6 +284,7 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
+
     
     
     @Override

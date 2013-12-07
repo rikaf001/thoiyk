@@ -101,12 +101,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "brs.id,pri.category,pri.nama itemname,brs.itemqty,uta.nama itemunit,brs.actualqty,utb.nama actualunit ",    
+                        "brs.id,pri.itemname itemname,brs.itemqty,uta.nama itemunit,poi.prno,brs.keterangan ",    
 
                         // 2 tables and joins                                                
                         " brs_dtl brs " +
-                        "left join v_pr_item pri on brs.itemid=pri.id " +
+                        "left join v_po_item pri on brs.itemid=pri.id " +
                         "left join unittype uta on brs.itemunitid=uta.id " +
+                        "left join purchaseorderitem poi on brs.itemid=poi.itemid " +
                         "left join unittype utb on brs.actualunitid=utb.id " ,
 
                         // 3 key of primary PDC object
@@ -131,7 +132,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
   */                
                 // replace criteria
-                setDefaultCriteria( " hdrid = ? " );               
+                setDefaultCriteria( " brs.hdrid = ? " );               
                 bindDefaultParameter1( ":hdrid",  parentID  );     
                 
             }else{  // mode = ALL_INVOICES
@@ -144,12 +145,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "brs.id,pri.category,pri.nama itemname,brs.itemqty,uta.nama itemunit,brs.actualqty,utb.nama actualunit ",    
+                        "brs.id,pri.itemname itemname,brs.itemqty,uta.nama itemunit,poi.prno,brs.keterangan ",    
 
                         // 2 tables and joins                                                
                         " brs_dtl brs " +
-                        "left join v_pr_item pri on brs.itemid=pri.id " +
+                        "left join v_po_item pri on brs.itemid=pri.id " +
                         "left join unittype uta on brs.itemunitid=uta.id " +
+                        "left join purchaseorderitem poi on brs.itemid=poi.itemid " +
                         "left join unittype utb on brs.actualunitid=utb.id " ,
 
                         // 3 key of primary PDC object
@@ -177,7 +179,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
   */              
             }
 
-            setDefaultOrder( "itemid" );
+            setDefaultOrder( "brs.itemid" );
                                 
             
             super.initializeTable();             

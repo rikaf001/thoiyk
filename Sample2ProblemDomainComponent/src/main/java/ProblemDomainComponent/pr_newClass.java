@@ -18,16 +18,12 @@ package ProblemDomainComponent;
 import KFramework30.Base.KBusinessObjectClass;
 import KFramework30.Base.KExceptionClass;
 import java.awt.Component;
-import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
@@ -85,8 +81,12 @@ extends KBusinessObjectClass
     @Column(name = "image")
     private byte[] image;  
     
-    @Column(name = "issuedby")
-    private String issuedby;
+    @Column(name = "auditdate")
+    @Temporal(TemporalType.TIMESTAMP)   
+    private Date AuditDate;
+    
+    @Column(name = "audituser")
+    private String AuditUser;
   
       
     @KBusinessObjectClass.KObjectVersion
@@ -186,13 +186,22 @@ extends KBusinessObjectClass
         this.image = image;
     }
 
-    public String getIssuedby() {
-        return issuedby;
+    public Date getAuditDate() {
+        return AuditDate;
     }
 
-    public void setIssuedby(String issuedby) {
-        this.issuedby = issuedby;
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
     }
+
+    public String getAuditUser() {
+        return AuditUser;
+    }
+
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
+    }
+
 
     public long getVersion() {
         return version;

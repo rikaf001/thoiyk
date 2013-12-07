@@ -32,19 +32,18 @@ import ProblemDomainComponent.sample_facturaClass;
 
 // system
 //import ProblemDomainComponent.pr_newitemClass;
-import ProblemDomainComponent.productionrecorditemClass;
-//import thoiyk.HumanInterfaceComponent.ProdutionRecord.PRBrowserClass;
-import static thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemBrowserClass.ALL_SAMPLERECORD;
-import static thoiyk.HumanInterfaceComponent.ProdutionRecordItem.PRitemBrowserClass.SRITEM_BY_SR;
+import ProblemDomainComponent.ProdRecItemClass;
+import static thoiyk.HumanInterfaceComponent.ProdutionRecordItem.ProdRecItemBrowserClass.ALL_SAMPLERECORD;
+import static thoiyk.HumanInterfaceComponent.ProdutionRecordItem.ProdRecItemBrowserClass.SRITEM_BY_SR;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Properties;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.PRBrowserClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserClass;
 import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderEditDialogClass;
 
 
 
-public class PRitemBrowserClass 
+public class ProdRecItemBrowserClass 
 extends KDataBrowserBaseClass 
 implements 
 cellRenderingHookInterface,  // to customize the data at runtime OPTIONAL
@@ -65,7 +64,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
         
     
     /** Creates new viajeBrowserClass */
-    public PRitemBrowserClass(
+    public ProdRecItemBrowserClass(
             KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,            
@@ -77,8 +76,8 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    productionrecorditemClass.class,
-                    PRitemEditDialogClass.class
+                    ProdRecItemClass.class,
+                    ProdRecItemEditDialogClass.class
             );  
             
             // uses   
@@ -374,7 +373,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                         if( mode == ALL_SAMPLERECORD ){
 
                             // build a client browser
-                               PRBrowserClass pr_new = new PRBrowserClass(
+                               ProdRecBrowserClass pr_new = new ProdRecBrowserClass(
                                         configuration, log, new javax.swing.JTable(), getParentWindow() );
 
                                pr_new.initializeTable();   

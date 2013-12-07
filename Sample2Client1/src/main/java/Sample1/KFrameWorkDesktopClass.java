@@ -37,7 +37,7 @@ import javax.swing.*;
 import thoiyk.HumanInterfaceComponent.BCPemasukanBaku.BCPemasukanBakuFrameClass;
 import thoiyk.HumanInterfaceComponent.BKBHeader.BKBHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BKSHeader.BKSHeaderFrameClass;
-import thoiyk.HumanInterfaceComponent.BRBHeader.BRBHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.BRPHeader.BRPHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BRSHeader.BRSHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BTBHeader.BTBHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.BTSHeader.BTSHeaderFrameClass;
@@ -52,6 +52,7 @@ import thoiyk.HumanInterfaceComponent.FormFinishingHeader.FormFinishingHeaderFra
 import thoiyk.HumanInterfaceComponent.FormKainHeader.FormKainHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormPackingHeader.FormPackingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormSewingHeader.FormSewingHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.FormShippingHeader.FormShippingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormWashingHeader.FormWashingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.JenisDokPabean.JenisDokPabeanFrameClass;
 import thoiyk.HumanInterfaceComponent.KodeKawasan.KodeKawasanFrameClass;
@@ -70,9 +71,10 @@ import thoiyk.HumanInterfaceComponent.mesin.mesinFrameClass;
 import thoiyk.HumanInterfaceComponent.mesintype.mesintypeFrameClass;
 import thoiyk.HumanInterfaceComponent.negara.negaraFrameClass;
 import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderFrameClass;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.PRFrameClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecFrameClass;
 import thoiyk.HumanInterfaceComponent.Service.ServiceFrameClass;
 import thoiyk.HumanInterfaceComponent.ServiceType.ServiceTypeFrameClass;
+import thoiyk.HumanInterfaceComponent.SizeColour.SizeColourFrameClass;
 import thoiyk.HumanInterfaceComponent.inv_PemasukanSisa.inv_PemasukanSisaFrameClass;
 import thoiyk.HumanInterfaceComponent.inv_PengeluaranBaku.inv_PengeluaranBakuFrameClass;
 import thoiyk.HumanInterfaceComponent.inv_PengeluaranSisa.inv_PengeluaranSisaFrameClass;
@@ -139,6 +141,7 @@ implements desktopAccessInterface, ActionListener
         stocktypeItem = new javax.swing.JMenuItem();
         supplierItem = new javax.swing.JMenuItem();
         SampleRecord = new javax.swing.JMenuItem();
+        SizeItem = new javax.swing.JMenuItem();
         outstandingorderItem = new javax.swing.JMenuItem();
         PRItem = new javax.swing.JMenuItem();
         POItem = new javax.swing.JMenuItem();
@@ -156,6 +159,7 @@ implements desktopAccessInterface, ActionListener
         FormWashing = new javax.swing.JMenuItem();
         FormFinishing = new javax.swing.JMenuItem();
         FormPacking = new javax.swing.JMenuItem();
+        FormShipping = new javax.swing.JMenuItem();
         LaporanProduksi = new javax.swing.JMenuItem();
         LaporanBC = new javax.swing.JMenu();
         PemasukanBaku = new javax.swing.JMenuItem();
@@ -581,6 +585,15 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(SampleRecord);
 
+        SizeItem.setText("Size");
+        SizeItem.setName("SizeItem"); // NOI18N
+        SizeItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SizeItemActionPerformed(evt);
+            }
+        });
+        masterData.add(SizeItem);
+
         MainMenu.add(masterData);
 
         outstandingorderItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -742,6 +755,15 @@ implements desktopAccessInterface, ActionListener
             }
         });
         Produksi.add(FormPacking);
+
+        FormShipping.setText("Form Shipping");
+        FormShipping.setName("FormShipping"); // NOI18N
+        FormShipping.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FormShippingActionPerformed(evt);
+            }
+        });
+        Produksi.add(FormShipping);
 
         LaporanProduksi.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         LaporanProduksi.setText("Laporan Produksi");
@@ -1242,7 +1264,7 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }//GEN-LAST:event_POItemActionPerformed
 
     private void PRItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRItemActionPerformed
-      openInternalFrame( PRFrameClass.class, "Prodocution Record" );
+      openInternalFrame( ProdRecFrameClass.class, "Prodocution Record" );
     }//GEN-LAST:event_PRItemActionPerformed
 
     private void serviceItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceItemActionPerformed
@@ -1270,7 +1292,7 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }//GEN-LAST:event_BKSItemActionPerformed
 
     private void BRBItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRBItemActionPerformed
-      openInternalFrame( BRBHeaderFrameClass.class, "BRP (Bukti Return Pabrik)" );
+      openInternalFrame( BRPHeaderFrameClass.class, "BRP (Bukti Return Pabrik)" );
     }//GEN-LAST:event_BRBItemActionPerformed
 
     private void BRSItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BRSItemActionPerformed
@@ -1373,6 +1395,14 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
          openInternalFrame( MutasiMesinFrameClass.class, "Mutasi Mesin" );
     }//GEN-LAST:event_MutasiMesinActionPerformed
 
+    private void FormShippingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormShippingActionPerformed
+        openInternalFrame( FormShippingHeaderFrameClass.class, "Form Shipping" );
+    }//GEN-LAST:event_FormShippingActionPerformed
+
+    private void SizeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SizeItemActionPerformed
+        openInternalFrame( SizeColourFrameClass.class, "Size" );
+    }//GEN-LAST:event_SizeItemActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1395,6 +1425,7 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JMenuItem FormKain;
     private javax.swing.JMenuItem FormPacking;
     private javax.swing.JMenuItem FormSewing;
+    private javax.swing.JMenuItem FormShipping;
     private javax.swing.JMenuItem FormWashing;
     private javax.swing.JMenu Gudang;
     private javax.swing.JMenuItem JenisDokPabean;
@@ -1419,6 +1450,7 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JMenuItem PengeluaranSisa;
     private javax.swing.JMenu Produksi;
     private javax.swing.JMenuItem SampleRecord;
+    private javax.swing.JMenuItem SizeItem;
     private javax.swing.JPanel StatusBar;
     private javax.swing.JMenuItem Usuarios;
     private javax.swing.JMenuItem accessoriesItem;

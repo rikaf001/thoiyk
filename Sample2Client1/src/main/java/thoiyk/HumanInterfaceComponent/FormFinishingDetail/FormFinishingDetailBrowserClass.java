@@ -101,7 +101,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " dtl.id, dtl.buyerid, dtl.style, dtl.warna, dtl.total, dtl.xs, dtl.sm, dtl.l, dtl.xl, dtl.xxl, dtl.xxxl, dtl.qtytotal, dtl.keteranganreject ",    
+                        "  dtl.id, dtl.warna, dtl.ok, dtl.reject, dtl.total  ",    
 
                         // 2 tables and joins                                                
                         " formfinishing_dtl dtl " ,
@@ -140,16 +140,16 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
-                          "bts.id,poi.category,poi.itemname,bts.itemqty,uta.nama itemunit,bts.actualqty,utb.nama actualunit ",    
+
+                        // 1 fields                    
+                        "  dtl.id, dtl.warna, dtl.ok, dtl.reject, dtl.total  ",    
 
                         // 2 tables and joins                                                
-                        " bts_dtl bts " +
-                        "left join v_po_item poi on bts.itemid=poi.id " +
-                        "left join unittype uta on bts.itemunitid=uta.id " +
-                        "left join unittype utb on bts.actualunitid=utb.id " ,
+                        " formfinishing_dtl dtl " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
+
                             );    
                     
                 }else{
@@ -173,7 +173,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
     */            
             }
 
-            setDefaultOrder( "itemid" );
+            setDefaultOrder( " id " );
                                 
             
             super.initializeTable();             

@@ -101,7 +101,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "bts.id,poi.category,poi.itemname,bts.itemqty,uta.nama itemunit,bts.actualqty,utb.nama actualunit ",    
+                        "bts.id,poi.category,poi.itemname,bts.itemqty,uta.nama itemunit, RETRIEVE_BKS_PRNO(bts.itemid) pr_no, RETRIEVE_BKS_STYLE(bts.itemid) style, RETRIEVE_BKS_NO(bts.itemid) no_bks,RETRIEVE_BKS_TGL(bts.itemid) tgl_bks ",    
 
                         // 2 tables and joins                                                
                         " bts_dtl bts " +
@@ -143,7 +143,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
-                          "bts.id,poi.category,poi.itemname,bts.itemqty,uta.nama itemunit,bts.actualqty,utb.nama actualunit ",    
+                          "bts.id,poi.category,poi.itemname,bts.itemqty,uta.nama itemunit, RETRIEVE_BKS_PRNO(bts.itemid) pr_no, RETRIEVE_BKS_STYLE(bts.itemid) style, RETRIEVE_BKS_NO(bts.itemid) no_bks,RETRIEVE_BKS_TGL(bts.itemid) tgl_bks  ",    
 
                         // 2 tables and joins                                                
                         " bts_dtl bts " +

@@ -64,7 +64,7 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " pr.ID, pr.nomor, pr.tanggal, pemberiname,pr.nosj,pr.tglsj, pr.nobc, pr.tglbc ",
+                " pr.ID, pr.nomor, pr.tanggal, pr.suppliername, pr.nobc, pr.tglbc ",
                 
                 // 2 tablas and joins                                             
                 " brs_hdr pr   " 
@@ -76,16 +76,7 @@ extends KDataBrowserBaseClass {
                     );   
 
      
-            setColumnNames( "pr", "ID", "ID" );
-            //setColumnNames( "pt", "TYPE", "Type" );
-            setColumnNames( "pr", "NOMOR", "Nomor" );
-            setColumnNames( "pr", "TANGGAL", "Tanggal" );
-            setColumnNames( "sup", "PEMBERINAME", "PemberiName" );
-            setColumnNames( "pr", "NOSJ", "NoSJ" );
-            setColumnNames( "pr", "TGLSJ", "TglSJ" );
-            setColumnNames( "pr", "NOBC", "NoBC" );
-            setColumnNames( "pr", "TGLBC", "TglBC" );
-       
+            
 
             // load data
             super.initializeTable();   

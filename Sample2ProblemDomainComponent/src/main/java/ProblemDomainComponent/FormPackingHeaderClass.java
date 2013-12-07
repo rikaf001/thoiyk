@@ -74,14 +74,13 @@ extends KBusinessObjectClass
     @Column(name = "buyername")
     private String BuyerName;
 
-    @Column(name = "createdby")
-    private String CreatedBy;
-    
-    @Column(name = "datecreated")
+    @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
-    private Date DateCreated;
+    private Date AuditDate;
 
-
+    @Column(name = "audituser")
+    private String AuditUser;
+    
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
     private long version;
@@ -147,22 +146,24 @@ extends KBusinessObjectClass
         this.BuyerName = BuyerName;
     }
 
-    public String getCreatedBy() {
-        return CreatedBy;
+
+    public Date getAuditDate() {
+        return AuditDate;
     }
 
-    public void setCreatedBy(String CreatedBy) {
-        this.CreatedBy = CreatedBy;
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
     }
 
-    public Date getDateCreated() {
-        return DateCreated;
+    public String getAuditUser() {
+        return AuditUser;
     }
 
-    public void setDateCreated(Date DateCreated) {
-        this.DateCreated = DateCreated;
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
     }
 
+    
     public long getVersion() {
         return version;
     }

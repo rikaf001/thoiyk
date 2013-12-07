@@ -9,7 +9,7 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.BRBHeader;
+package thoiyk.HumanInterfaceComponent.BRPHeader;
 
 /**
  *
@@ -21,14 +21,13 @@ import javax.swing.*;
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
-import ProblemDomainComponent.BRBHeaderClass;
-import ProblemDomainComponent.ProductOutHeaderClass;
+import ProblemDomainComponent.BRPHeaderClass;
 
 // system
 //import ProblemDomainComponent.pr_newClass;
 
 
-public class BRBHeaderBrowserClass 
+public class BRPHeaderBrowserClass 
 extends KDataBrowserBaseClass {   
         
     // uses                       	
@@ -36,7 +35,7 @@ extends KDataBrowserBaseClass {
     // has
 
     /** Creates new viajeBrowserClass */
-    public BRBHeaderBrowserClass(
+    public BRPHeaderBrowserClass(
             KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,
@@ -48,8 +47,8 @@ extends KDataBrowserBaseClass {
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    BRBHeaderClass.class,
-                    BRBHeaderEditDialogClass.class
+                    BRPHeaderClass.class,
+                    BRPHeaderEditDialogClass.class
             );  
             
             // uses                   
@@ -64,11 +63,12 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " pr.ID, pr.nomor, pr.tanggal, pemberiname, pr.nobc, pr.tglbc ",
+                " pr.ID,pr.tanggal, bkb.nomor no_bkb,pr.nomor ",
                 
                 // 2 tablas and joins                                             
-                " brb_hdr pr   " 
-                 ,
+                "  brp_hdr pr "+
+                    "left join v_penerima vp on pr.penerimaid=vp.id "+
+                    "left join bkb_hdr bkb on pr.bkbid=bkb.id",
                                                                 
                 // 3 llave principal (mayusculas!)
                 "ID" 
@@ -76,15 +76,15 @@ extends KDataBrowserBaseClass {
                     );   
 
      
-            setColumnNames( "pr", "ID", "ID" );
+        //    setColumnNames( "pr", "ID", "ID" );
             //setColumnNames( "pt", "TYPE", "Type" );
-            setColumnNames( "pr", "NOMOR", "Nomor" );
-            setColumnNames( "pr", "TANGGAL", "Tanggal" );
-            setColumnNames( "sup", "PEMBERINAME", "PemberiName" );
+          //  setColumnNames( "pr", "NOMOR", "Nomor" );
+            //setColumnNames( "pr", "TANGGAL", "Tanggal" );
+           // setColumnNames( "sup", "PEMBERINAME", "PemberiName" );
 //            setColumnNames( "pr", "NOSJ", "NoSJ" );
 //            setColumnNames( "pr", "TGLSJ", "TglSJ" );
-            setColumnNames( "pr", "NOBC", "NoBC" );
-            setColumnNames( "pr", "TGLBC", "TglBC" );
+           // setColumnNames( "pr", "NOBC", "NoBC" );
+            //setColumnNames( "pr", "TGLBC", "TglBC" );
        
 
             // load data

@@ -62,7 +62,7 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " fk.ID, fk.prno, fk.tanggal, fk.stylename, fk.buyerid, fk.buyername, fk.createdby,fk.datecreated ",
+                " fk.ID, fk.prno, fk.tanggal, fk.stylename, fk.buyerid, fk.buyername ",
                 
                 // 2 tablas and joins                                             
                 " formwashing_hdr fk   " ,
@@ -79,8 +79,6 @@ extends KDataBrowserBaseClass {
             setColumnNames( "fk", "STYLENAME", "StyleName" );
             setColumnNames( "fk", "BUYERID", "BuyerID" );
             setColumnNames( "fk", "BUYERNAME", "BuyerName" );
-            setColumnNames( "fk", "CREATEDBY", "CreatedBy" );
-            setColumnNames( "fk", "DATECREATED", "DateCreated" );
        
 
             // load data

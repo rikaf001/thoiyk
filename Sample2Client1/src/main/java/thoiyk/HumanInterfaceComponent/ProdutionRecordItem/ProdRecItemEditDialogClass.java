@@ -24,7 +24,7 @@ import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.pr_newClass;
 //import ProblemDomainComponent.pr_newitemClass;
-import ProblemDomainComponent.productionrecorditemClass;
+import ProblemDomainComponent.ProdRecItemClass;
 import ProblemDomainComponent.systemMailClass;
 
 // rtl
@@ -38,7 +38,7 @@ import thoiyk.HumanInterfaceComponent.v_pr_item.v_pr_itemBrowserClass;
 import thoiyk.HumanInterfaceComponent.v_sr_item.v_sr_itemBrowserClass;
 
 
-public class PRitemEditDialogClass 
+public class ProdRecItemEditDialogClass 
 extends javax.swing.JDialog
 implements KDialogInterface
 {
@@ -55,7 +55,7 @@ implements KDialogInterface
     //end of object persistent functions------------------------------------------------------
 
     /** Creates new form facturaEditDialogClass */
-    public PRitemEditDialogClass( 
+    public ProdRecItemEditDialogClass( 
         KConfigurationClass configurationParam, KLogClass logParam, java.awt.Window parentWindow )
         throws KExceptionClass
     {
@@ -73,7 +73,7 @@ implements KDialogInterface
         // has - defaulted     
         KDialogController = new KDialogControllerClass(                 
                 configuration, log, 
-                productionrecorditemClass.class, this, getContentPane() );        
+                ProdRecItemClass.class, this, getContentPane() );        
                             
     }
     

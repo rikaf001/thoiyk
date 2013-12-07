@@ -9,7 +9,7 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
  */
 
 
-package thoiyk.HumanInterfaceComponent.BRBDetail;
+package thoiyk.HumanInterfaceComponent.FormShippingDetail;
 
 /**
  *
@@ -26,7 +26,7 @@ import KFramework30.Widgets.DataBrowser.cellRenderingHookInterface;
 import KFramework30.Widgets.DataBrowser.recordClass;
 
 // system
-import ProblemDomainComponent.BRBDetailClass;
+import ProblemDomainComponent.FormShippingDetailClass;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.HashMap;
@@ -34,7 +34,7 @@ import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderBrowserClass;
 
 
 
-public class BRBDetailBrowserClass 
+public class FormShippingDetailBrowserClass 
 extends KDataBrowserBaseClass 
 implements 
 cellRenderingHookInterface,  // to customize the data at runtime OPTIONAL
@@ -55,7 +55,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
         
     
     /** Creates new viajeBrowserClass */
-    public BRBDetailBrowserClass(
+    public FormShippingDetailBrowserClass(
             KConfigurationClass configurationParam,
             KLogClass logParam,
             JTable tableParam,            
@@ -67,8 +67,8 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    BRBDetailClass.class,
-                    BRBDetailEditDialogClass.class
+                    FormShippingDetailClass.class,
+                    FormShippingDetailEditDialogClass.class
             );  
             
             // uses   
@@ -101,15 +101,10 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "brb.id, pr.prno,pri.category,pri.nama itemname,brb.itemqty qty,ut.nama unit ",    
+                        " dtl.id, dtl.warna, dtl.qty,dtl.price, (dtl.qty*dtl.price) total",    
 
                         // 2 tables and joins                                                
-                        " brb_dtl brb " +
-                        "left join v_pr_item pri on brb.itemid=pri.id " +
-                        "left join brb_hdr hdr on brb.hdrid=hdr.id " +
-                        "left join bkb_hdr bkb on hdr.bkbid=bkb.id " +
-                        "left join productionrecord pr on bkb.prid=pr.id " +
-                        "left join unittype ut on brb.itemunitid=ut.id " ,
+                        " formshipping_dtl dtl " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -144,17 +139,11 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
               if( configuration.getField("databaseType").equals( "oracle" )  ){
                     
                     super.initializeSQLQuery(     
-
                         // 1 fields                    
-                        "brb.id, pr.prno,pri.category,pri.nama itemname,brb.itemqty qty,ut.nama unit ",    
+                        " dtl.id, dtl.warna, dtl.qty,dtl.price, (dtl.qty*dtl.price) total",    
 
                         // 2 tables and joins                                                
-                        " brb_dtl brb " +
-                        "left join v_pr_item pri on brb.itemid=pri.id " +
-                        "left join brb_hdr hdr on brb.hdrid=hdr.id " +
-                        "left join bkb_hdr bkb on hdr.bkbid=bkb.id " +
-                        "left join productionrecord pr on bkb.prid=pr.id " +
-                        "left join unittype ut on brb.itemunitid=ut.id " ,
+                        " formshipping_dtl dtl " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -181,7 +170,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
     */            
             }
 
-            setDefaultOrder( "itemid" );
+            setDefaultOrder( " ID " );
                                 
             
             super.initializeTable();             

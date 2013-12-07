@@ -101,7 +101,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " dtl.id, dtl.linecutting, dtl.namabahan, dtl.ok, dtl.total, dtl.xs, dtl.sm, dtl.l, dtl.xl, dtl.xxl, dtl.xxxl, dtl.qtytotal, dtl.keteranganreject ",    
+                        " dtl.id, dtl.namabahan,dtl.warna, dtl.ok, dtl.total, dtl.xs, dtl.s,dtl.m, dtl.l, dtl.xl, dtl.xxl, dtl.xxxl, dtl.qtytotal, dtl.keteranganreject ",    
 
                         // 2 tables and joins                                                
                         " formcutting_dtl dtl " ,
@@ -139,14 +139,11 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
               if( configuration.getField("databaseType").equals( "oracle" )  ){
                     
                     super.initializeSQLQuery(     
-
-                          "bts.id,poi.category,poi.itemname,bts.itemqty,uta.nama itemunit,bts.actualqty,utb.nama actualunit ",    
+                        // 1 fields                    
+                        " dtl.id,  dtl.namabahan,dtl.warna, dtl.ok, dtl.total, dtl.xs, dtl.s,dtl.m, dtl.l, dtl.xl, dtl.xxl, dtl.xxxl, dtl.qtytotal, dtl.keteranganreject ",    
 
                         // 2 tables and joins                                                
-                        " bts_dtl bts " +
-                        "left join v_po_item poi on bts.itemid=poi.id " +
-                        "left join unittype uta on bts.itemunitid=uta.id " +
-                        "left join unittype utb on bts.actualunitid=utb.id " ,
+                        " formcutting_dtl dtl " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              

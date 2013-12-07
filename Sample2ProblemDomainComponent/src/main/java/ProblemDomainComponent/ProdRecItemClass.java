@@ -35,7 +35,7 @@ import javax.persistence.TableGenerator;
     pkColumnValue="SEQ_GEN_TABLE", 
     allocationSize=1) 
 @Table(name = "PRODUCTIONRECORDITEM")
-public class productionrecorditemClass 
+public class ProdRecItemClass 
 extends KBusinessObjectClass
 {
     
@@ -72,7 +72,7 @@ extends KBusinessObjectClass
     private long version;
  
 
-    public productionrecorditemClass() throws KExceptionClass {
+    public ProdRecItemClass() throws KExceptionClass {
            fieldTypes.put( "clientId", NUMERIC_NOFORMAT );
     }
 
