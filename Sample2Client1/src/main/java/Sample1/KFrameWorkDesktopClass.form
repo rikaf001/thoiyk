@@ -266,6 +266,15 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SizeItemActionPerformed"/>
                   </Events>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="MarkerItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Marker"/>
+                    <Property name="name" type="java.lang.String" value="MarkerItem" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MarkerItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
               </SubComponents>
             </Menu>
             <MenuItem class="javax.swing.JMenuItem" name="outstandingorderItem">
@@ -396,6 +405,38 @@
                 <Property name="name" type="java.lang.String" value="Produksi" noResource="true"/>
               </Properties>
               <SubComponents>
+                <Menu class="javax.swing.JMenu" name="Cutting">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cutting"/>
+                    <Property name="name" type="java.lang.String" value="Cutting" noResource="true"/>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="FabricReqItem">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Fabric Request"/>
+                        <Property name="name" type="java.lang.String" value="FabricReqItem" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FabricReqItemActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="CuttingDailyItem">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Cutting Daily Request"/>
+                        <Property name="name" type="java.lang.String" value="CuttingDailyItem" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CuttingDailyItemActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="SumaryCuttingItem">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Summary Report Cutting"/>
+                        <Property name="name" type="java.lang.String" value="SumaryCuttingItem" noResource="true"/>
+                      </Properties>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
                 <MenuItem class="javax.swing.JMenuItem" name="FormKain">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

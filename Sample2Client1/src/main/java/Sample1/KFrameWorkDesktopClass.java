@@ -47,6 +47,8 @@ import thoiyk.HumanInterfaceComponent.BarangKeluarJadi.BarangKeluarJadiFrameClas
 import thoiyk.HumanInterfaceComponent.BarangKeluarSisa.BarangKeluarSisaFrameClass;
 import thoiyk.HumanInterfaceComponent.BarangMasukJadi.BarangMasukJadiFrameClass;
 import thoiyk.HumanInterfaceComponent.BarangMasukSisa.BarangMasukSisaFrameClass;
+import thoiyk.HumanInterfaceComponent.CuttingDailyRepHdr.CuttingDailyRepHdrFrameClass;
+import thoiyk.HumanInterfaceComponent.FabricRequestHdr.FabricRequestHdrFrameClass;
 import thoiyk.HumanInterfaceComponent.FormCuttingHeader.FormCuttingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormFinishingHeader.FormFinishingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormKainHeader.FormKainHeaderFrameClass;
@@ -57,6 +59,7 @@ import thoiyk.HumanInterfaceComponent.FormWashingHeader.FormWashingHeaderFrameCl
 import thoiyk.HumanInterfaceComponent.JenisDokPabean.JenisDokPabeanFrameClass;
 import thoiyk.HumanInterfaceComponent.KodeKawasan.KodeKawasanFrameClass;
 import thoiyk.HumanInterfaceComponent.LaporanProduksiHeader.LaporanProduksiHeaderFrameClass;
+import thoiyk.HumanInterfaceComponent.Marker.MarkerFrameClass;
 import thoiyk.HumanInterfaceComponent.MutasiBaku.MutasiBakuFrameClass;
 import thoiyk.HumanInterfaceComponent.MutasiJadi.MutasiJadiFrameClass;
 import thoiyk.HumanInterfaceComponent.MutasiMesin.MutasiMesinFrameClass;
@@ -142,6 +145,7 @@ implements desktopAccessInterface, ActionListener
         supplierItem = new javax.swing.JMenuItem();
         SampleRecord = new javax.swing.JMenuItem();
         SizeItem = new javax.swing.JMenuItem();
+        MarkerItem = new javax.swing.JMenuItem();
         outstandingorderItem = new javax.swing.JMenuItem();
         PRItem = new javax.swing.JMenuItem();
         POItem = new javax.swing.JMenuItem();
@@ -153,6 +157,10 @@ implements desktopAccessInterface, ActionListener
         BRBItem = new javax.swing.JMenuItem();
         BRSItem = new javax.swing.JMenuItem();
         Produksi = new javax.swing.JMenu();
+        Cutting = new javax.swing.JMenu();
+        FabricReqItem = new javax.swing.JMenuItem();
+        CuttingDailyItem = new javax.swing.JMenuItem();
+        SumaryCuttingItem = new javax.swing.JMenuItem();
         FormKain = new javax.swing.JMenuItem();
         FormCutting = new javax.swing.JMenuItem();
         FormSewing = new javax.swing.JMenuItem();
@@ -594,6 +602,15 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(SizeItem);
 
+        MarkerItem.setText("Marker");
+        MarkerItem.setName("MarkerItem"); // NOI18N
+        MarkerItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MarkerItemActionPerformed(evt);
+            }
+        });
+        masterData.add(MarkerItem);
+
         MainMenu.add(masterData);
 
         outstandingorderItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -695,6 +712,33 @@ implements desktopAccessInterface, ActionListener
         Produksi.setText("Produksi");
         Produksi.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         Produksi.setName("Produksi"); // NOI18N
+
+        Cutting.setText("Cutting");
+        Cutting.setName("Cutting"); // NOI18N
+
+        FabricReqItem.setText("Fabric Request");
+        FabricReqItem.setName("FabricReqItem"); // NOI18N
+        FabricReqItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FabricReqItemActionPerformed(evt);
+            }
+        });
+        Cutting.add(FabricReqItem);
+
+        CuttingDailyItem.setText("Cutting Daily Request");
+        CuttingDailyItem.setName("CuttingDailyItem"); // NOI18N
+        CuttingDailyItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CuttingDailyItemActionPerformed(evt);
+            }
+        });
+        Cutting.add(CuttingDailyItem);
+
+        SumaryCuttingItem.setText("Summary Report Cutting");
+        SumaryCuttingItem.setName("SumaryCuttingItem"); // NOI18N
+        Cutting.add(SumaryCuttingItem);
+
+        Produksi.add(Cutting);
 
         FormKain.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         FormKain.setText("FormKain");
@@ -1403,6 +1447,18 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         openInternalFrame( SizeColourFrameClass.class, "Size" );
     }//GEN-LAST:event_SizeItemActionPerformed
 
+    private void FabricReqItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FabricReqItemActionPerformed
+        openInternalFrame( FabricRequestHdrFrameClass.class, "Fabric Request" );
+    }//GEN-LAST:event_FabricReqItemActionPerformed
+
+    private void CuttingDailyItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuttingDailyItemActionPerformed
+        openInternalFrame( CuttingDailyRepHdrFrameClass.class, "Cutting Daily Report" );
+    }//GEN-LAST:event_CuttingDailyItemActionPerformed
+
+    private void MarkerItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MarkerItemActionPerformed
+        openInternalFrame( MarkerFrameClass.class, "Marker" );
+    }//GEN-LAST:event_MarkerItemActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1418,8 +1474,11 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JMenuItem BrngKelSisa;
     private javax.swing.JMenuItem BrngMskJadi;
     private javax.swing.JMenuItem BrngMskSisa;
+    private javax.swing.JMenu Cutting;
+    private javax.swing.JMenuItem CuttingDailyItem;
     private javax.swing.JToolBar DesktopToolbar;
     private javax.swing.JMenuItem Exit;
+    private javax.swing.JMenuItem FabricReqItem;
     private javax.swing.JMenuItem FormCutting;
     private javax.swing.JMenuItem FormFinishing;
     private javax.swing.JMenuItem FormKain;
@@ -1434,6 +1493,7 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JMenu LaporanInventory;
     private javax.swing.JMenuItem LaporanProduksi;
     private javax.swing.JMenu MainMenu;
+    private javax.swing.JMenuItem MarkerItem;
     private javax.swing.JMenu MenuConf;
     private javax.swing.JMenu MenuEdit;
     private javax.swing.JMenu MenuHelp;
@@ -1452,6 +1512,7 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JMenuItem SampleRecord;
     private javax.swing.JMenuItem SizeItem;
     private javax.swing.JPanel StatusBar;
+    private javax.swing.JMenuItem SumaryCuttingItem;
     private javax.swing.JMenuItem Usuarios;
     private javax.swing.JMenuItem accessoriesItem;
     private javax.swing.JMenuItem accessoriestypeItem;

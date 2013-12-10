@@ -32,7 +32,7 @@ import javax.persistence.TableGenerator;
     table="SEQUENCE", 
     pkColumnName="SEQ_NAME", 
     valueColumnName="SEQ_COUNT", 
-    pkColumnValue="SEQ_GEN_TABLE", 
+    pkColumnValue="SEQ_PR_DTL", 
     allocationSize=1) 
 @Table(name = "PRODUCTIONRECORDITEM")
 public class ProdRecItemClass 
