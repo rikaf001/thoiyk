@@ -434,6 +434,26 @@
                         <Property name="text" type="java.lang.String" value="Summary Report Cutting"/>
                         <Property name="name" type="java.lang.String" value="SumaryCuttingItem" noResource="true"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SumaryCuttingItemActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
+                <Menu class="javax.swing.JMenu" name="Sewing">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sewing"/>
+                    <Property name="name" type="java.lang.String" value="Sewing" noResource="true"/>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="DailySewing">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Daily Sewing"/>
+                        <Property name="name" type="java.lang.String" value="DailySewing" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DailySewingActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>

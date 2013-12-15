@@ -48,6 +48,7 @@ import thoiyk.HumanInterfaceComponent.BarangKeluarSisa.BarangKeluarSisaFrameClas
 import thoiyk.HumanInterfaceComponent.BarangMasukJadi.BarangMasukJadiFrameClass;
 import thoiyk.HumanInterfaceComponent.BarangMasukSisa.BarangMasukSisaFrameClass;
 import thoiyk.HumanInterfaceComponent.CuttingDailyRepHdr.CuttingDailyRepHdrFrameClass;
+import thoiyk.HumanInterfaceComponent.DailySewingHdr.DailySewingHdrFrameClass;
 import thoiyk.HumanInterfaceComponent.FabricRequestHdr.FabricRequestHdrFrameClass;
 import thoiyk.HumanInterfaceComponent.FormCuttingHeader.FormCuttingHeaderFrameClass;
 import thoiyk.HumanInterfaceComponent.FormFinishingHeader.FormFinishingHeaderFrameClass;
@@ -78,6 +79,7 @@ import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecFrameClass;
 import thoiyk.HumanInterfaceComponent.Service.ServiceFrameClass;
 import thoiyk.HumanInterfaceComponent.ServiceType.ServiceTypeFrameClass;
 import thoiyk.HumanInterfaceComponent.SizeColour.SizeColourFrameClass;
+import thoiyk.HumanInterfaceComponent.SummaryRepCuttingHdr.SummaryRepCuttingHdrFrameClass;
 import thoiyk.HumanInterfaceComponent.inv_PemasukanSisa.inv_PemasukanSisaFrameClass;
 import thoiyk.HumanInterfaceComponent.inv_PengeluaranBaku.inv_PengeluaranBakuFrameClass;
 import thoiyk.HumanInterfaceComponent.inv_PengeluaranSisa.inv_PengeluaranSisaFrameClass;
@@ -161,6 +163,8 @@ implements desktopAccessInterface, ActionListener
         FabricReqItem = new javax.swing.JMenuItem();
         CuttingDailyItem = new javax.swing.JMenuItem();
         SumaryCuttingItem = new javax.swing.JMenuItem();
+        Sewing = new javax.swing.JMenu();
+        DailySewing = new javax.swing.JMenuItem();
         FormKain = new javax.swing.JMenuItem();
         FormCutting = new javax.swing.JMenuItem();
         FormSewing = new javax.swing.JMenuItem();
@@ -736,9 +740,28 @@ implements desktopAccessInterface, ActionListener
 
         SumaryCuttingItem.setText("Summary Report Cutting");
         SumaryCuttingItem.setName("SumaryCuttingItem"); // NOI18N
+        SumaryCuttingItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SumaryCuttingItemActionPerformed(evt);
+            }
+        });
         Cutting.add(SumaryCuttingItem);
 
         Produksi.add(Cutting);
+
+        Sewing.setText("Sewing");
+        Sewing.setName("Sewing"); // NOI18N
+
+        DailySewing.setText("Daily Sewing");
+        DailySewing.setName("DailySewing"); // NOI18N
+        DailySewing.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DailySewingActionPerformed(evt);
+            }
+        });
+        Sewing.add(DailySewing);
+
+        Produksi.add(Sewing);
 
         FormKain.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         FormKain.setText("FormKain");
@@ -1459,6 +1482,14 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         openInternalFrame( MarkerFrameClass.class, "Marker" );
     }//GEN-LAST:event_MarkerItemActionPerformed
 
+    private void SumaryCuttingItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SumaryCuttingItemActionPerformed
+        openInternalFrame( SummaryRepCuttingHdrFrameClass.class, "Summary Report Cutting" );
+    }//GEN-LAST:event_SumaryCuttingItemActionPerformed
+
+    private void DailySewingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DailySewingActionPerformed
+        openInternalFrame( DailySewingHdrFrameClass.class, "Daily Sewing" );
+    }//GEN-LAST:event_DailySewingActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1476,6 +1507,7 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JMenuItem BrngMskSisa;
     private javax.swing.JMenu Cutting;
     private javax.swing.JMenuItem CuttingDailyItem;
+    private javax.swing.JMenuItem DailySewing;
     private javax.swing.JToolBar DesktopToolbar;
     private javax.swing.JMenuItem Exit;
     private javax.swing.JMenuItem FabricReqItem;
@@ -1510,6 +1542,7 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JMenuItem PengeluaranSisa;
     private javax.swing.JMenu Produksi;
     private javax.swing.JMenuItem SampleRecord;
+    private javax.swing.JMenu Sewing;
     private javax.swing.JMenuItem SizeItem;
     private javax.swing.JPanel StatusBar;
     private javax.swing.JMenuItem SumaryCuttingItem;
