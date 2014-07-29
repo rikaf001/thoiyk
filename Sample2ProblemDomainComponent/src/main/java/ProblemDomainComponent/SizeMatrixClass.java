@@ -11,10 +11,6 @@ KFRAMEWORK  (http://k-framework.sourceforge.net/)
 
 package ProblemDomainComponent;
 
-/**
- *
- * @author yoserizy
- */
 import KFramework30.Base.KBusinessObjectClass;
 import KFramework30.Base.KExceptionClass;
 import java.awt.Component;
@@ -23,68 +19,41 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
+/**
+ *
+ * @author yoserizy
+ */
 @Entity
-@TableGenerator( // SCOPE is Global to PU
+@TableGenerator( 
     name="KIDGenerator", 
     table="SEQUENCE", 
     pkColumnName="SEQ_NAME", 
     valueColumnName="SEQ_COUNT", 
-    pkColumnValue="GEN_SR_ID", 
+    pkColumnValue="SEQ_GEN_SIZEMATRIX", 
     allocationSize=1) 
-@Table(name = "PRODUCTIONRECORD")
-public class ProdRecClass 
-extends KBusinessObjectClass
-{
-    
-    @KBusinessObjectClass.KID
+@Table(name = "SIZEMATRIX")
+public class SizeMatrixClass 
+extends KBusinessObjectClass {
+@KBusinessObjectClass.KID
     @Id   
     @GeneratedValue( strategy = javax.persistence.GenerationType.TABLE, generator="KIDGenerator" )    
     @Column(name = "id")
-    private long id;
+    private long ID;
     
-    @Column(name = "selectid")
-    private long selectid;
-
-    @Column(name = "samplerecordstatusid")
-    private long samplerecordstatusid;
-
-    @Column(name = "samplerecordtypeid")
-    private long samplerecordtypeid;
-    
-    @Column(name = "buyerid")
-    private long  buyerid;
-        
-    @Column(name = "buyername")
-    private String buyername;
-
-    @Column(name = "prno")
-    private String prno;
-    
-    @Column(name = "description")
-    private String description;
-    
-    @Column(name = "style")
-    private String style;
-    
-    @Column(name = "qty")
-    private long qty;
-
-    @Column(name = "sizematrixid")
-    private long SizeMatrixID;
+    @Column(name = "sizetypeid")
+    private long SizeTypeID;
     
     @Column(name = "s1")
     private String S1;
-
+    
     @Column(name = "s2")
     private String S2;
-            
+
     @Column(name = "s3")
     private String S3;
 
@@ -124,10 +93,6 @@ extends KBusinessObjectClass
     @Column(name = "s15")
     private String S15;
 
-    @Lob
-    @Column(name = "image")
-    private byte[] image;  
-    
     @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
     private Date AuditDate;
@@ -135,102 +100,28 @@ extends KBusinessObjectClass
     @Column(name = "audituser")
     private String AuditUser;
   
-      
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
     private long version;
- 
 
-    public ProdRecClass() throws KExceptionClass {
+    public SizeMatrixClass() throws KExceptionClass {
     }
 
     //=================================================================    
-    public long getId() {
-        return id;
+    public long getID() {
+        return ID;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setID(long ID) {
+        this.ID = ID;
     }
 
-    public long getSelectid() {
-        return selectid;
+    public long getSizeTypeID() {
+        return SizeTypeID;
     }
 
-    public void setSelectid(long selectid) {
-        this.selectid = selectid;
-    }
-
-    public long getSamplerecordstatusid() {
-        return samplerecordstatusid;
-    }
-
-    public void setSamplerecordstatusid(long samplerecordstatusid) {
-        this.samplerecordstatusid = samplerecordstatusid;
-    }
-
-    public long getSamplerecordtypeid() {
-        return samplerecordtypeid;
-    }
-
-    public void setSamplerecordtypeid(long samplerecordtypeid) {
-        this.samplerecordtypeid = samplerecordtypeid;
-    }
-
-    public long getBuyerid() {
-        return buyerid;
-    }
-
-    public void setBuyerid(long buyerid) {
-        this.buyerid = buyerid;
-    }
-
-    public String getBuyername() {
-        return buyername;
-    }
-
-    public void setBuyername(String buyername) {
-        this.buyername = buyername;
-    }
-
-    public String getPrno() {
-        return prno;
-    }
-
-    public void setPrno(String prno) {
-        this.prno = prno;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getStyle() {
-        return style;
-    }
-
-    public void setStyle(String style) {
-        this.style = style;
-    }
-
-    public long getQty() {
-        return qty;
-    }
-
-    public void setQty(long qty) {
-        this.qty = qty;
-    }
-
-    public long getSizeMatrixID() {
-        return SizeMatrixID;
-    }
-
-    public void setSizeMatrixID(long SizeMatrixID) {
-        this.SizeMatrixID = SizeMatrixID;
+    public void setSizeTypeID(long SizeTypeID) {
+        this.SizeTypeID = SizeTypeID;
     }
 
     public String getS1() {
@@ -353,16 +244,6 @@ extends KBusinessObjectClass
         this.S15 = S15;
     }
 
-    
-   
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
-
     public Date getAuditDate() {
         return AuditDate;
     }
@@ -379,7 +260,6 @@ extends KBusinessObjectClass
         this.AuditUser = AuditUser;
     }
 
-
     public long getVersion() {
         return version;
     }
@@ -387,11 +267,11 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
-    
- 
+  
+   
+     
     @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {
     }
-    
 
 }

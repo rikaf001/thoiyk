@@ -62,17 +62,20 @@ extends KBusinessObjectClass
     @Column(name = "buyerid")
     private long BuyerID;
 
-    @Column(name = "ok")
-    private long OK;
+    @Column(name = "negara")
+    private String Negara;
 
-    @Column(name = "reject")
-    private long Reject;
+    @Column(name = "Description")
+    private String Description;
 
-    @Column(name = "total")
-    private long Total;
+    @Column(name = "atn")
+    private String Atn;
 
     @Column(name = "buyername")
     private String BuyerName;
+
+    @Column(name = "PO")
+    private String PO;
 
     @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
@@ -121,7 +124,6 @@ extends KBusinessObjectClass
         this.Tanggal = Tanggal;
     }
 
-
     public String getStyleName() {
         return StyleName;
     }
@@ -138,6 +140,30 @@ extends KBusinessObjectClass
         this.BuyerID = BuyerID;
     }
 
+    public String getNegara() {
+        return Negara;
+    }
+
+    public void setNegara(String Negara) {
+        this.Negara = Negara;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+    public String getAtn() {
+        return Atn;
+    }
+
+    public void setAtn(String Atn) {
+        this.Atn = Atn;
+    }
+
     public String getBuyerName() {
         return BuyerName;
     }
@@ -146,6 +172,13 @@ extends KBusinessObjectClass
         this.BuyerName = BuyerName;
     }
 
+    public String getPO() {
+        return PO;
+    }
+
+    public void setPO(String PO) {
+        this.PO = PO;
+    }
 
     public Date getAuditDate() {
         return AuditDate;
@@ -163,36 +196,10 @@ extends KBusinessObjectClass
         this.AuditUser = AuditUser;
     }
 
-    
     public long getVersion() {
         return version;
     }
 
-    public long getOK() {
-        return OK;
-    }
-
-    public void setOK(long OK) {
-        this.OK = OK;
-    }
-
-    public long getReject() {
-        return Reject;
-    }
-
-    public void setReject(long Reject) {
-        this.Reject = Reject;
-    }
-
-    public long getTotal() {
-        return Total;
-    }
-
-    public void setTotal(long Total) {
-        this.Total = Total;
-    }
-
-    
     public void setVersion(long version) {
         this.version = version;
     }

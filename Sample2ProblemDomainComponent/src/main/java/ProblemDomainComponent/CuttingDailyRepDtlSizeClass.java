@@ -34,46 +34,47 @@ import javax.persistence.TemporalType;
     table="SEQUENCE", 
     pkColumnName="SEQ_NAME", 
     valueColumnName="SEQ_COUNT", 
-    pkColumnValue="GEN_PRD_OUT_DTL", 
+    pkColumnValue="SEQ_CDRSIZE_DTL", 
     allocationSize=1)    
-@Table(name = "BKS_DTL")
-public class BKSDetailClass 
+@Table(name = "CUTTINGDAILYREP_DTLSIZE")
+public class CuttingDailyRepDtlSizeClass 
 extends KBusinessObjectClass
 {
-
-    @KBusinessObjectClass.KID
+    @KID
     @Id   
     @GeneratedValue( strategy = javax.persistence.GenerationType.TABLE, generator="KIDGenerator" )    
     @Column(name = "id")
     private long ID;
-    
+
     @Column(name = "hdrid")
     private long HdrID;
 
-    @Column(name = "itemid")
-    private long ItemID;
-    
-    @Column(name = "itemqty")
-    private long ItemQty;
-    
-    
-    @Column(name = "itemunitid")
-    private long ItemUnitID;
- 
+
+    @Column(name = "sizeno")
+    private long SizeNo;
+
+    @Column(name = "layer")
+    private long Layer;
+
+    @Column(name = "sizeratio")
+    private long SizeRatio;
+
+    @Column(name = "breakdownsize")
+    private long BreakDownSize;
+
     @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
     private Date AuditDate;
 
     @Column(name = "audituser")
-    private String AuditUser;    
+    private String AuditUser;
     
+
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
     private long version;
 
-    
-    
-    public BKSDetailClass() throws KExceptionClass {
+   public CuttingDailyRepDtlSizeClass() throws KExceptionClass {
     }
 
     //=================================================================
@@ -93,28 +94,36 @@ extends KBusinessObjectClass
         this.HdrID = HdrID;
     }
 
-    public long getItemID() {
-        return ItemID;
+    public long getSizeNo() {
+        return SizeNo;
     }
 
-    public void setItemID(long ItemID) {
-        this.ItemID = ItemID;
+    public void setSizeNo(long SizeNo) {
+        this.SizeNo = SizeNo;
     }
 
-    public long getItemQty() {
-        return ItemQty;
+    public long getLayer() {
+        return Layer;
     }
 
-    public void setItemQty(long ItemQty) {
-        this.ItemQty = ItemQty;
+    public void setLayer(long Layer) {
+        this.Layer = Layer;
     }
 
-    public long getItemUnitID() {
-        return ItemUnitID;
+    public long getSizeRatio() {
+        return SizeRatio;
     }
 
-    public void setItemUnitID(long ItemUnitID) {
-        this.ItemUnitID = ItemUnitID;
+    public void setSizeRatio(long SizeRatio) {
+        this.SizeRatio = SizeRatio;
+    }
+
+    public long getBreakDownSize() {
+        return BreakDownSize;
+    }
+
+    public void setBreakDownSize(long BreakDownSize) {
+        this.BreakDownSize = BreakDownSize;
     }
 
     public Date getAuditDate() {
@@ -140,11 +149,10 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
-  
-    
-    @Override
+   
+       
+   @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {
     }
-
 
 }

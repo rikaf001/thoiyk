@@ -59,6 +59,9 @@ extends KBusinessObjectClass
     @Column(name = "itemunitid")
     private long ItemUnitID;
     
+    @Column(name = "konversi")
+    private double Konversi;
+    
     @Column(name = "actualqty")
     private long ActualQty;
     
@@ -122,6 +125,14 @@ extends KBusinessObjectClass
         this.ItemUnitID = ItemUnitID;
     }
 
+    public double getKonversi() {
+        return Konversi;
+    }
+
+    public void setKonversi(double Konversi) {
+        this.Konversi = Konversi;
+    }
+
     public long getActualQty() {
         return ActualQty;
     }
@@ -154,7 +165,6 @@ extends KBusinessObjectClass
         this.AuditUser = AuditUser;
     }
 
-
     public long getVersion() {
         return version;
     }
@@ -162,7 +172,6 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
-    
     
     
     @Override

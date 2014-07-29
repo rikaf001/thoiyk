@@ -14,73 +14,64 @@ package ProblemDomainComponent;
 import KFramework30.Base.KBusinessObjectClass;
 import KFramework30.Base.KExceptionClass;
 import java.awt.Component;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
  * @author yoserizy
  */
 @Entity
-@TableGenerator( // SCOPE is Global to PU
+@TableGenerator( 
     name="KIDGenerator", 
     table="SEQUENCE", 
     pkColumnName="SEQ_NAME", 
     valueColumnName="SEQ_COUNT", 
-    pkColumnValue="GEN_CUTTINGDAILYREP_HDR", 
-    allocationSize=1)    
-@Table(name = "CUTTINGDAILYREP_HDR")
-public class CuttingDailyRepHdrClass 
-extends KBusinessObjectClass
-{
-    @KID
+    pkColumnValue="SEQ_GEN_SIZEMATRIX", 
+    allocationSize=1) 
+@Table(name = "V_SELECT_FINISHING")
+public class v_Select_FinishingClass 
+extends KBusinessObjectClass {
+
+    @KBusinessObjectClass.KID
     @Id   
     @GeneratedValue( strategy = javax.persistence.GenerationType.TABLE, generator="KIDGenerator" )    
     @Column(name = "id")
     private long ID;
-
+    
     @Column(name = "prid")
     private long PRID;
-    
+
     @Column(name = "prno")
     private String PRNo;
-
-    @Column(name = "type")
-    private String Type;
-
-    @Column(name = "tanggal")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date Tanggal;
-
-    @Column(name = "stylename")
-    private String StyleName;
-
+    
     @Column(name = "buyerid")
     private long BuyerID;
 
     @Column(name = "buyername")
     private String BuyerName;
 
-    @Column(name = "auditdate")
-    @Temporal(TemporalType.TIMESTAMP)   
-    private Date AuditDate;
+    @Column(name = "style")
+    private String Style;
 
-    @Column(name = "audituser")
-    private String AuditUser;
+    @Column(name = "qty")
+    private long Qty;
+
+    @Column(name = "cutting")
+    private long Cutting;
+
+    @Column(name = "sewing")
+    private long Sewing;
     
-
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
     private long version;
-    
-    public CuttingDailyRepHdrClass() throws KExceptionClass{
+
+    public v_Select_FinishingClass() throws KExceptionClass {
     }
 
     //=================================================================
@@ -108,23 +99,6 @@ extends KBusinessObjectClass
         this.PRNo = PRNo;
     }
 
-    public Date getTanggal() {
-        return Tanggal;
-    }
-
-    public void setTanggal(Date Tanggal) {
-        this.Tanggal = Tanggal;
-    }
-
-
-    public String getStyleName() {
-        return StyleName;
-    }
-
-    public void setStyleName(String StyleName) {
-        this.StyleName = StyleName;
-    }
-
     public long getBuyerID() {
         return BuyerID;
     }
@@ -141,23 +115,38 @@ extends KBusinessObjectClass
         this.BuyerName = BuyerName;
     }
 
+    public String getStyle() {
+        return Style;
+    }
+
+    public void setStyle(String Style) {
+        this.Style = Style;
+    }
+
+    public long getQty() {
+        return Qty;
+    }
+
+    public void setQty(long Qty) {
+        this.Qty = Qty;
+    }
+
     
-    public Date getAuditDate() {
-        return AuditDate;
+    public long getCutting() {
+        return Cutting;
     }
 
-    public void setAuditDate(Date AuditDate) {
-        this.AuditDate = AuditDate;
+    public void setCutting(long Cutting) {
+        this.Cutting = Cutting;
     }
 
-    public String getAuditUser() {
-        return AuditUser;
+    public long getSewing() {
+        return Sewing;
     }
 
-    public void setAuditUser(String AuditUser) {
-        this.AuditUser = AuditUser;
+    public void setSewing(long Sewing) {
+        this.Sewing = Sewing;
     }
-
 
     public long getVersion() {
         return version;
@@ -167,17 +156,13 @@ extends KBusinessObjectClass
         this.version = version;
     }
 
-    public String getType() {
-        return Type;
-    }
-
-    public void setType(String Type) {
-        this.Type = Type;
-    }
     
     
     
+    @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {
     }
-    
+
+
+
 }

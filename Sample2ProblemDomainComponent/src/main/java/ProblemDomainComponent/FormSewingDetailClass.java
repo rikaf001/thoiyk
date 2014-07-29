@@ -53,50 +53,56 @@ extends KBusinessObjectClass
     @Column(name = "itemid")
     private long ItemID;
 
-    @Column(name = "lineid")
-    private long LineID;
-
-    @Column(name = "namabahan")
-    private String NamaBahan;
-
     @Column(name = "warna")
     private String Warna;
 
-    @Column(name = "ok")
-    private long OK;
+    @Column(name = "nocartoon")
+    private String NoCartoon;
 
-    @Column(name = "reject")
-    private long Reject;
-    
-    @Column(name = "total")
-    private long Total;
-    
-    @Column(name = "xs")
-    private long XS;
-        
-    @Column(name = "s")
-    private long S;
-        
-    @Column(name = "m")
-    private long M;
+    @Column(name = "codepp")
+    private String CodePP;
 
-    @Column(name = "l")
-    private long L;
-        
-    @Column(name = "xl")
-    private long XL;
+    @Column(name = "inslot")
+    private String InsLot;
+
+    @Column(name = "nw")
+    private long NW;
     
-    @Column(name = "xxl")
-    private long XXL;
-        
-    @Column(name = "xxxl")
-    private long XXXL;
-        
-    @Column(name = "qtytotal")
-    private long QtyTotal;
+    @Column(name = "gw")
+    private long GW;
     
-    @Column(name = "keteranganreject")
-    private String KeteranganReject;
+    @Column(name = "q1")
+    private long Q1;
+        
+    @Column(name = "q2")
+    private long Q2;
+        
+    @Column(name = "q3")
+    private long Q3;
+
+    @Column(name = "q4")
+    private long Q4;
+        
+    @Column(name = "q5")
+    private long Q5;
+    
+    @Column(name = "q6")
+    private long Q6;
+        
+    @Column(name = "q7")
+    private long Q7;
+        
+    @Column(name = "q8")
+    private long Q8;
+    
+    @Column(name = "q9")
+    private long Q9;
+
+    @Column(name = "q10")
+    private long Q10;
+
+    @Column(name = "qtotal")
+    private long QTotal;
     
     @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
@@ -141,22 +147,6 @@ extends KBusinessObjectClass
         this.ItemID = ItemID;
     }
 
-    public long getLineID() {
-        return LineID;
-    }
-
-    public void setLineID(long LineID) {
-        this.LineID = LineID;
-    }
-
-    public String getNamaBahan() {
-        return NamaBahan;
-    }
-
-    public void setNamaBahan(String NamaBahan) {
-        this.NamaBahan = NamaBahan;
-    }
-
     public String getWarna() {
         return Warna;
     }
@@ -165,100 +155,132 @@ extends KBusinessObjectClass
         this.Warna = Warna;
     }
 
-    public long getOK() {
-        return OK;
+    public String getNoCartoon() {
+        return NoCartoon;
     }
 
-    public void setOK(long OK) {
-        this.OK = OK;
+    public void setNoCartoon(String NoCartoon) {
+        this.NoCartoon = NoCartoon;
     }
 
-    public long getReject() {
-        return Reject;
+    public String getCodePP() {
+        return CodePP;
     }
 
-    public void setReject(long Reject) {
-        this.Reject = Reject;
+    public void setCodePP(String CodePP) {
+        this.CodePP = CodePP;
     }
 
-    public long getTotal() {
-        return Total;
+    public String getInsLot() {
+        return InsLot;
     }
 
-    public void setTotal(long Total) {
-        this.Total = Total;
+    public void setInsLot(String InsLot) {
+        this.InsLot = InsLot;
     }
 
-    public long getXS() {
-        return XS;
+    public long getNW() {
+        return NW;
     }
 
-    public void setXS(long XS) {
-        this.XS = XS;
+    public void setNW(long NW) {
+        this.NW = NW;
     }
 
-    public long getS() {
-        return S;
+    public long getGW() {
+        return GW;
     }
 
-    public void setS(long S) {
-        this.S = S;
+    public void setGW(long GW) {
+        this.GW = GW;
     }
 
-    public long getM() {
-        return M;
+    public long getQ1() {
+        return Q1;
     }
 
-    public void setM(long M) {
-        this.M = M;
+    public void setQ1(long Q1) {
+        this.Q1 = Q1;
     }
 
-    public long getL() {
-        return L;
+    public long getQ2() {
+        return Q2;
     }
 
-    public void setL(long L) {
-        this.L = L;
+    public void setQ2(long Q2) {
+        this.Q2 = Q2;
     }
 
-    public long getXL() {
-        return XL;
+    public long getQ3() {
+        return Q3;
     }
 
-    public void setXL(long XL) {
-        this.XL = XL;
+    public void setQ3(long Q3) {
+        this.Q3 = Q3;
     }
 
-    public long getXXL() {
-        return XXL;
+    public long getQ4() {
+        return Q4;
     }
 
-    public void setXXL(long XXL) {
-        this.XXL = XXL;
+    public void setQ4(long Q4) {
+        this.Q4 = Q4;
     }
 
-    public long getXXXL() {
-        return XXXL;
+    public long getQ5() {
+        return Q5;
     }
 
-    public void setXXXL(long XXXL) {
-        this.XXXL = XXXL;
+    public void setQ5(long Q5) {
+        this.Q5 = Q5;
     }
 
-    public long getQtyTotal() {
-        return QtyTotal;
+    public long getQ6() {
+        return Q6;
     }
 
-    public void setQtyTotal(long QtyTotal) {
-        this.QtyTotal = QtyTotal;
+    public void setQ6(long Q6) {
+        this.Q6 = Q6;
     }
 
-    public String getKeteranganReject() {
-        return KeteranganReject;
+    public long getQ7() {
+        return Q7;
     }
 
-    public void setKeteranganReject(String KeteranganReject) {
-        this.KeteranganReject = KeteranganReject;
+    public void setQ7(long Q7) {
+        this.Q7 = Q7;
+    }
+
+    public long getQ8() {
+        return Q8;
+    }
+
+    public void setQ8(long Q8) {
+        this.Q8 = Q8;
+    }
+
+    public long getQ9() {
+        return Q9;
+    }
+
+    public void setQ9(long Q9) {
+        this.Q9 = Q9;
+    }
+
+    public long getQ10() {
+        return Q10;
+    }
+
+    public void setQ10(long Q10) {
+        this.Q10 = Q10;
+    }
+
+    public long getQTotal() {
+        return QTotal;
+    }
+
+    public void setQTotal(long QTotal) {
+        this.QTotal = QTotal;
     }
 
     public Date getAuditDate() {

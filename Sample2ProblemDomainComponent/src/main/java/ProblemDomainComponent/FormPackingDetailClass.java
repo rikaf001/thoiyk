@@ -51,45 +51,63 @@ extends KBusinessObjectClass
     @Column(name = "hdrid")
     private long HdrID;
 
+    @Column(name = "itemid")
+    private long ItemID;
+
     @Column(name = "warna")
     private String Warna;
 
-    @Column(name = "ok")
-    private long Ok;
+    @Column(name = "nocartoon")
+    private String NoCartoon;
 
-    @Column(name = "reject")
-    private long Reject;
+    @Column(name = "kodepp")
+    private String KodePP;
 
-    @Column(name = "total")
-    private long Total;
-    
-    @Column(name = "xs")
-    private long XS;
-        
-    @Column(name = "s")
-    private long S;
-        
-    @Column(name = "m")
-    private long M;
+    @Column(name = "inslot")
+    private String InsLot;
 
-    @Column(name = "l")
-    private long L;
-        
-    @Column(name = "xl")
-    private long XL;
-    
-    @Column(name = "xxl")
-    private long XXL;
-        
-    @Column(name = "xxxl")
-    private long XXXL;
-        
-    @Column(name = "qtytotal")
-    private long QtyTotal;
-    
-    @Column(name = "keteranganreject")
-    private String KeteranganReject;
-    
+    @Column(name = "totalctn")
+    private String TotalCTN;
+
+    @Column(name = "nw")
+    private double NW;
+
+    @Column(name = "gw")
+    private double GW;
+
+    @Column(name = "q1")
+    private long Q1;
+
+    @Column(name = "q2")
+    private long Q2;
+
+    @Column(name = "q3")
+    private long Q3;
+
+    @Column(name = "q4")
+    private long Q4;
+
+    @Column(name = "q5")
+    private long Q5;
+
+    @Column(name = "q6")
+    private long Q6;
+
+    @Column(name = "q7")
+    private long Q7;
+
+    @Column(name = "q8")
+    private long Q8;
+
+    @Column(name = "q9")
+    private long Q9;
+
+    @Column(name = "q10")
+    private long Q10;
+
+    @Column(name = "qtotal")
+    private long QTotal;
+
     @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
     private Date AuditDate;
@@ -108,7 +126,7 @@ extends KBusinessObjectClass
     }
 
     //=================================================================
-        public long getID() {
+    public long getID() {
         return ID;
     }
 
@@ -124,6 +142,14 @@ extends KBusinessObjectClass
         this.HdrID = HdrID;
     }
 
+    public long getItemID() {
+        return ItemID;
+    }
+
+    public void setItemID(long ItemID) {
+        this.ItemID = ItemID;
+    }
+
     public String getWarna() {
         return Warna;
     }
@@ -132,100 +158,145 @@ extends KBusinessObjectClass
         this.Warna = Warna;
     }
 
-    public long getOk() {
-        return Ok;
+    public String getNoCartoon() {
+        return NoCartoon;
     }
 
-    public void setOk(long Ok) {
-        this.Ok = Ok;
+    public void setNoCartoon(String NoCartoon) {
+        this.NoCartoon = NoCartoon;
     }
 
-    public long getReject() {
-        return Reject;
+    public String getKodePP() {
+        return KodePP;
     }
 
-    public void setReject(long Reject) {
-        this.Reject = Reject;
+    public void setKodePP(String KodePP) {
+        this.KodePP = KodePP;
     }
 
-    public long getTotal() {
-        return Total;
+    public String getInsLot() {
+        return InsLot;
     }
 
-    public void setTotal(long Total) {
-        this.Total = Total;
+    public void setInsLot(String InsLot) {
+        this.InsLot = InsLot;
     }
 
-    public long getXS() {
-        return XS;
+    public String getTotalCTN() {
+        return TotalCTN;
     }
 
-    public void setXS(long XS) {
-        this.XS = XS;
+    public void setTotalCTN(String TotalCTN) {
+        this.TotalCTN = TotalCTN;
     }
 
-    public long getS() {
-        return S;
+    public double getNW() {
+        return NW;
     }
 
-    public void setS(long S) {
-        this.S = S;
+    public void setNW(double NW) {
+        this.NW = NW;
     }
 
-    public long getM() {
-        return M;
+    public double getGW() {
+        return GW;
     }
 
-    public void setM(long M) {
-        this.M = M;
+    public void setGW(double GW) {
+        this.GW = GW;
     }
 
-    public long getL() {
-        return L;
+  
+    public void setGW(long GW) {
+        this.GW = GW;
     }
 
-    public void setL(long L) {
-        this.L = L;
+    public long getQ1() {
+        return Q1;
     }
 
-    public long getXL() {
-        return XL;
+    public void setQ1(long Q1) {
+        this.Q1 = Q1;
     }
 
-    public void setXL(long XL) {
-        this.XL = XL;
+    public long getQ2() {
+        return Q2;
     }
 
-    public long getXXL() {
-        return XXL;
+    public void setQ2(long Q2) {
+        this.Q2 = Q2;
     }
 
-    public void setXXL(long XXL) {
-        this.XXL = XXL;
+    public long getQ3() {
+        return Q3;
     }
 
-    public long getXXXL() {
-        return XXXL;
+    public void setQ3(long Q3) {
+        this.Q3 = Q3;
     }
 
-    public void setXXXL(long XXXL) {
-        this.XXXL = XXXL;
+    public long getQ4() {
+        return Q4;
     }
 
-    public long getQtyTotal() {
-        return QtyTotal;
+    public void setQ4(long Q4) {
+        this.Q4 = Q4;
     }
 
-    public void setQtyTotal(long QtyTotal) {
-        this.QtyTotal = QtyTotal;
+    public long getQ5() {
+        return Q5;
     }
 
-    public String getKeteranganReject() {
-        return KeteranganReject;
+    public void setQ5(long Q5) {
+        this.Q5 = Q5;
     }
 
-    public void setKeteranganReject(String KeteranganReject) {
-        this.KeteranganReject = KeteranganReject;
+    public long getQ6() {
+        return Q6;
+    }
+
+    public void setQ6(long Q6) {
+        this.Q6 = Q6;
+    }
+
+    public long getQ7() {
+        return Q7;
+    }
+
+    public void setQ7(long Q7) {
+        this.Q7 = Q7;
+    }
+
+    public long getQ8() {
+        return Q8;
+    }
+
+    public void setQ8(long Q8) {
+        this.Q8 = Q8;
+    }
+
+    public long getQ9() {
+        return Q9;
+    }
+
+    public void setQ9(long Q9) {
+        this.Q9 = Q9;
+    }
+
+    public long getQ10() {
+        return Q10;
+    }
+
+    public void setQ10(long Q10) {
+        this.Q10 = Q10;
+    }
+
+    public long getQTotal() {
+        return QTotal;
+    }
+
+    public void setQTotal(long QTotal) {
+        this.QTotal = QTotal;
     }
 
     public Date getAuditDate() {
@@ -251,6 +322,8 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
+    
+    
     
     @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {

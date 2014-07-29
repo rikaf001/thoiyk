@@ -104,6 +104,23 @@ extends KBusinessObjectClass{
         this.ID = ID;
     }
 
+    public long getKawasanID() {
+        return KawasanID;
+    }
+
+    public void setKawasanID(long KawasanID) {
+        this.KawasanID = KawasanID;
+    }
+
+    public String getKawasan() {
+        return Kawasan;
+    }
+
+    public void setKawasan(String Kawasan) {
+        this.Kawasan = Kawasan;
+    }
+
+    
     public String getDokBC() {
         return DokBC;
     }

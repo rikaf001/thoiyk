@@ -18,14 +18,10 @@ package ProblemDomainComponent;
 import KFramework30.Base.KBusinessObjectClass;
 import KFramework30.Base.KExceptionClass;
 import java.awt.Component;
-import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
@@ -64,6 +60,9 @@ extends KBusinessObjectClass
     @Column(name = "contactperson")
     private String contactperson;
     
+    @Column(name = "negara")
+    private String Negara;
+
     @KObjectVersion
     @Column(name = "version")
     private long version;
@@ -138,6 +137,15 @@ extends KBusinessObjectClass
         this.contactperson = contactperson;
     }
 
+    public String getNegara() {
+        return Negara;
+    }
+
+    public void setNegara(String Negara) {
+        this.Negara = Negara;
+    }
+
+    
     public long getVersion() {
         return version;
     }

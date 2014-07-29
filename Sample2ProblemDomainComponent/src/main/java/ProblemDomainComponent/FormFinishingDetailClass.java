@@ -50,45 +50,67 @@ extends KBusinessObjectClass
     @Column(name = "hdrid")
     private long HdrID;
 
-    @Column(name = "warna")
-    private String Warna;
+    @Column(name = "prid")
+    private long PRID;
 
-    @Column(name = "ok")
-    private long Ok;
+    @Column(name = "prno")
+    private String PRNo;
+        
+    @Column(name = "buyerid")
+    private long BuyerID;
+    
+    @Column(name = "buyername")
+    private String BuyerName;
 
-    @Column(name = "reject")
-    private long Reject;
+    @Column(name = "style")
+    private String Style;
 
-    @Column(name = "total")
-    private long Total;
-    
-    @Column(name = "xs")
-    private long XS;
-        
-    @Column(name = "s")
-    private long S;
-        
-    @Column(name = "m")
-    private long M;
 
-    @Column(name = "l")
-    private long L;
-        
-    @Column(name = "xl")
-    private long XL;
+    @Column(name = "qtyexport")
+    private long QtyExport;
+
+    @Column(name = "qtyorder")
+    private long QtyOrder;
+
+    @Column(name = "qtycutting")
+    private long QtyCutting;
+
+    @Column(name = "qtysewing")
+    private long QtySewing;
+
+    @Column(name = "qtysendwash")
+    private long QtySendWash;
+
+    @Column(name = "lbr")
+    private long LBR;
+
+    @Column(name = "qtyreceivewash")
+    private long QtyReceiveWash;
+
+    @Column(name = "qtybutton")
+    private long QtyButton;
     
-    @Column(name = "xxl")
-    private long XXL;
-        
-    @Column(name = "xxxl")
-    private long XXXL;
-        
-    @Column(name = "qtytotal")
-    private long QtyTotal;
-    
-    @Column(name = "keteranganreject")
-    private String KeteranganReject;
-    
+    @Column(name = "qtytrim")
+    private long QtyTrim;
+
+    @Column(name = "qtyiron")
+    private long QtyIron;
+
+    @Column(name = "qtyqc")
+    private long QtyQC;
+
+    @Column(name = "qtypack")
+    private long QtyPack;
+
+    @Column(name = "qtyreject")
+    private long QtyReject;
+
+    @Column(name = "balance")
+    private long Balance;
+
+    @Column(name = "remark")
+    private String Remark;
+
     @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
     private Date AuditDate;
@@ -106,7 +128,7 @@ extends KBusinessObjectClass
     }
 
     //=================================================================
-          public long getID() {
+    public long getID() {
         return ID;
     }
 
@@ -122,108 +144,164 @@ extends KBusinessObjectClass
         this.HdrID = HdrID;
     }
 
-    public String getWarna() {
-        return Warna;
+    public long getPRID() {
+        return PRID;
     }
 
-    public void setWarna(String Warna) {
-        this.Warna = Warna;
+    public void setPRID(long PRID) {
+        this.PRID = PRID;
     }
 
-    public long getOk() {
-        return Ok;
+    public String getPRNo() {
+        return PRNo;
     }
 
-    public void setOk(long Ok) {
-        this.Ok = Ok;
+    public void setPRNo(String PRNo) {
+        this.PRNo = PRNo;
     }
 
-    public long getReject() {
-        return Reject;
+    public long getBuyerID() {
+        return BuyerID;
     }
 
-    public void setReject(long Reject) {
-        this.Reject = Reject;
+    public void setBuyerID(long BuyerID) {
+        this.BuyerID = BuyerID;
     }
 
-    public long getTotal() {
-        return Total;
+    public String getBuyerName() {
+        return BuyerName;
     }
 
-    public void setTotal(long Total) {
-        this.Total = Total;
+    public void setBuyerName(String BuyerName) {
+        this.BuyerName = BuyerName;
     }
 
-    public long getXS() {
-        return XS;
+    public String getStyle() {
+        return Style;
     }
 
-    public void setXS(long XS) {
-        this.XS = XS;
+    public void setStyle(String Style) {
+        this.Style = Style;
     }
 
-    public long getS() {
-        return S;
+    public long getQtyExport() {
+        return QtyExport;
     }
 
-    public void setS(long S) {
-        this.S = S;
+    public void setQtyExport(long QtyExport) {
+        this.QtyExport = QtyExport;
     }
 
-    public long getM() {
-        return M;
+    public long getQtyOrder() {
+        return QtyOrder;
     }
 
-    public void setM(long M) {
-        this.M = M;
+    public void setQtyOrder(long QtyOrder) {
+        this.QtyOrder = QtyOrder;
     }
 
-    public long getL() {
-        return L;
+    public long getQtyCutting() {
+        return QtyCutting;
     }
 
-    public void setL(long L) {
-        this.L = L;
+    public void setQtyCutting(long QtyCutting) {
+        this.QtyCutting = QtyCutting;
     }
 
-    public long getXL() {
-        return XL;
+    public long getQtySewing() {
+        return QtySewing;
     }
 
-    public void setXL(long XL) {
-        this.XL = XL;
+    public void setQtySewing(long QtySewing) {
+        this.QtySewing = QtySewing;
     }
 
-    public long getXXL() {
-        return XXL;
+    public long getQtySendWash() {
+        return QtySendWash;
     }
 
-    public void setXXL(long XXL) {
-        this.XXL = XXL;
+    public void setQtySendWash(long QtySendWash) {
+        this.QtySendWash = QtySendWash;
     }
 
-    public long getXXXL() {
-        return XXXL;
+    public long getLBR() {
+        return LBR;
     }
 
-    public void setXXXL(long XXXL) {
-        this.XXXL = XXXL;
+    public void setLBR(long LBR) {
+        this.LBR = LBR;
     }
 
-    public long getQtyTotal() {
-        return QtyTotal;
+    public long getQtyReceiveWash() {
+        return QtyReceiveWash;
     }
 
-    public void setQtyTotal(long QtyTotal) {
-        this.QtyTotal = QtyTotal;
+    public void setQtyReceiveWash(long QtyReceiveWash) {
+        this.QtyReceiveWash = QtyReceiveWash;
     }
 
-    public String getKeteranganReject() {
-        return KeteranganReject;
+    public long getQtyButton() {
+        return QtyButton;
     }
 
-    public void setKeteranganReject(String KeteranganReject) {
-        this.KeteranganReject = KeteranganReject;
+    public void setQtyButton(long QtyButton) {
+        this.QtyButton = QtyButton;
+    }
+
+    public long getQtyTrim() {
+        return QtyTrim;
+    }
+
+    public void setQtyTrim(long QtyTrim) {
+        this.QtyTrim = QtyTrim;
+    }
+
+    public long getQtyIron() {
+        return QtyIron;
+    }
+
+    public void setQtyIron(long QtyIron) {
+        this.QtyIron = QtyIron;
+    }
+
+    public long getQtyQC() {
+        return QtyQC;
+    }
+
+    public void setQtyQC(long QtyQC) {
+        this.QtyQC = QtyQC;
+    }
+
+    public long getQtyPack() {
+        return QtyPack;
+    }
+
+    public void setQtyPack(long QtyPack) {
+        this.QtyPack = QtyPack;
+    }
+
+    public long getQtyReject() {
+        return QtyReject;
+    }
+
+    public void setQtyReject(long QtyReject) {
+        this.QtyReject = QtyReject;
+    }
+
+    public long getBalance() {
+        return Balance;
+    }
+
+    public void setBalance(long Balance) {
+        this.Balance = Balance;
+    }
+
+    public String getRemark() {
+        return Remark;
+    }
+
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
     }
 
     public Date getAuditDate() {
@@ -249,6 +327,7 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
+     
       
     @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {

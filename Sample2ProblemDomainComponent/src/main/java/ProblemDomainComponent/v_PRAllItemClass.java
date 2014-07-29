@@ -40,9 +40,9 @@ import javax.persistence.TableGenerator;
 public class v_PRAllItemClass 
 extends KBusinessObjectClass
 {
-    @Id
-    @KBusinessObjectClass.KID    
-    @Basic(optional = false)
+    
+    @KBusinessObjectClass.KID
+    @Id   
     @GeneratedValue( strategy = javax.persistence.GenerationType.TABLE, generator="KIDGenerator" )    
     @Column(name = "id")
     private long ID;
@@ -60,7 +60,7 @@ extends KBusinessObjectClass
     private long Nama;
 
     @Column(name = "warna")
-    private long Warna;
+    private String Warna;
 
     @Column(name = "qty")
     private long Qty;
@@ -112,14 +112,15 @@ extends KBusinessObjectClass
         this.Nama = Nama;
     }
 
-    public long getWarna() {
+    public String getWarna() {
         return Warna;
     }
 
-    public void setWarna(long Warna) {
+    public void setWarna(String Warna) {
         this.Warna = Warna;
     }
 
+    
     public long getQty() {
         return Qty;
     }

@@ -54,6 +54,8 @@ extends KBusinessObjectClass
     private long accessoriestypeid;
     @Column(name = "supplierid")
     private long supplierid;
+    @Column(name = "suppliername")
+    private String SupplierName;
     @Column(name = "unit")
     private String unit;
     @Column(name = "kode")
@@ -145,6 +147,15 @@ extends KBusinessObjectClass
     public void setImage(byte[] image) {
         this.image = image;
     }
+
+    public String getSupplierName() {
+        return SupplierName;
+    }
+
+    public void setSupplierName(String SupplierName) {
+        this.SupplierName = SupplierName;
+    }
+    
 
 
     @Override

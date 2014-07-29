@@ -56,6 +56,9 @@ extends KBusinessObjectClass
     @Column(name = "prno")
     private String PRNo;
         
+    @Column(name = "prqty")
+    private String PRQty;
+
     @Column(name = "style")
     private String Style;
 
@@ -183,6 +186,15 @@ extends KBusinessObjectClass
         this.PRNo = PRNo;
     }
 
+    public String getPRQty() {
+        return PRQty;
+    }
+
+    public void setPRQty(String PRQty) {
+        this.PRQty = PRQty;
+    }
+
+    
     public String getStyle() {
         return Style;
     }

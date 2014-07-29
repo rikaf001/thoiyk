@@ -34,8 +34,8 @@ import javax.persistence.TableGenerator;
     valueColumnName="SEQ_COUNT", 
     pkColumnValue="SEQ_GEN_TABLE", 
     allocationSize=1) 
-@Table(name = "SAMPLERECORDITEM")
-public class samplerecorditemClass 
+@Table(name = "RECEIVEDORDERITEM")
+public class ReceivedOrderItemClass 
 extends KBusinessObjectClass
 {
     
@@ -54,9 +54,6 @@ extends KBusinessObjectClass
     @Column(name = "qty")
     private double qty;
 
-    @Column(name = "unittypeid")
-    private long unittypeid;
-    
     @Column(name = "comp")
     private double comp;
 
@@ -66,13 +63,15 @@ extends KBusinessObjectClass
     @Column(name = "qtyneed")
     private double qtyneed;
 
-     
+    @Column(name = "unittypeid")
+    private long UnitTypeID;
+      
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
     private long version;
  
 
-    public samplerecorditemClass() throws KExceptionClass {
+    public ReceivedOrderItemClass() throws KExceptionClass {
            fieldTypes.put( "clientId", NUMERIC_NOFORMAT );
     }
 
@@ -104,19 +103,10 @@ extends KBusinessObjectClass
     public double getQty() {
         return qty;
     }
-    
+
     public void setQty(double qty) {
         this.qty = qty;
     }
-
-    public long getUnittypeid() {
-        return unittypeid;
-    }
-
-    public void setUnittypeid(long unittypeid) {
-        this.unittypeid = unittypeid;
-    }
-    
 
     public double getComp() {
         return comp;
@@ -139,7 +129,7 @@ extends KBusinessObjectClass
     }
 
     public void setQtyneed(double qtyneed) {
-        this.qtyneed = qtyneed;
+        this.qtyneed = comp*tolerance*qty;
     }
 
     public long getVersion() {
@@ -149,7 +139,16 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
+
+    public long getUnitTypeID() {
+        return UnitTypeID;
+    }
+
+    public void setUnitTypeID(long UnitTypeID) {
+        this.UnitTypeID = UnitTypeID;
+    }
  
+    
     @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {
     }

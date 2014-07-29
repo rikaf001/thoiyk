@@ -14,7 +14,6 @@ package ProblemDomainComponent;
 import KFramework30.Base.KBusinessObjectClass;
 import KFramework30.Base.KExceptionClass;
 import java.awt.Component;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,42 +26,41 @@ import javax.persistence.TableGenerator;
  * @author yoserizy
  */
 @Entity
-@TableGenerator( // SCOPE is Global to PU
+@TableGenerator( 
     name="KIDGenerator", 
     table="SEQUENCE", 
     pkColumnName="SEQ_NAME", 
     valueColumnName="SEQ_COUNT", 
-    pkColumnValue="SEQ_MATERIAL", 
-    allocationSize=1)    
-@Table(name = "SERVICE")
-public class ServiceClass 
+    pkColumnValue="SEQ_GEN_SIZEMATRIX", 
+    allocationSize=1) 
+@Table(name = "V_PRITEM")
+public class v_PRItemClass 
 extends KBusinessObjectClass{
-    
-    @Id
-    @KBusinessObjectClass.KID    
-    @Basic(optional = false)
+
+    @KBusinessObjectClass.KID
+    @Id   
     @GeneratedValue( strategy = javax.persistence.GenerationType.TABLE, generator="KIDGenerator" )    
     @Column(name = "id")
     private long ID;
     
-    @Column(name = "servicetypeid")
-    private long ServiceTypeID;
+      
+    @Column(name = "warna")
+    private String Warna;
     
-    @Column(name = "name")
-    private String Name;
+    @Column(name = "tipe")
+    private String Tipe;
 
-    @Column(name = "description")
-    private String Description;
-
+    @Column(name = "nama")
+    private String Nama;
+        
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
     private long version;
 
-           
-    public ServiceClass() throws KExceptionClass {
+    public v_PRItemClass() throws KExceptionClass {
     }
 
-    //=================================================================
+    //=================================================================    
     public long getID() {
         return ID;
     }
@@ -71,28 +69,12 @@ extends KBusinessObjectClass{
         this.ID = ID;
     }
 
-    public long getServiceTypeID() {
-        return ServiceTypeID;
+    public String getWarna() {
+        return Warna;
     }
 
-    public void setServiceTypeID(long ServiceTypeID) {
-        this.ServiceTypeID = ServiceTypeID;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String Name) {
-        this.Name = Name;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String Description) {
-        this.Description = Description;
+    public void setWarna(String Warna) {
+        this.Warna = Warna;
     }
 
     public long getVersion() {
@@ -103,8 +85,24 @@ extends KBusinessObjectClass{
         this.version = version;
     }
 
- 
+    public String getTipe() {
+        return Tipe;
+    }
+
+    public void setTipe(String Tipe) {
+        this.Tipe = Tipe;
+    }
+
+    public String getNama() {
+        return Nama;
+    }
+
+    public void setNama(String Nama) {
+        this.Nama = Nama;
+    }
+
     
+ 
     @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {
     }

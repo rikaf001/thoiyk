@@ -29,54 +29,40 @@ import javax.persistence.TemporalType;
  * @author yoserizy
  */
 @Entity
-@TableGenerator( // SCOPE is Global to PU
+@TableGenerator( 
     name="KIDGenerator", 
     table="SEQUENCE", 
     pkColumnName="SEQ_NAME", 
     valueColumnName="SEQ_COUNT", 
-    pkColumnValue="GEN_PRD_OUT_DTL", 
-    allocationSize=1)    
-@Table(name = "BKS_DTL")
-public class BKSDetailClass 
-extends KBusinessObjectClass
-{
-
-    @KBusinessObjectClass.KID
+    pkColumnValue="SEQ_GEN_OBDTYPE", 
+    allocationSize=1) 
+@Table(name = "OBDTYPE")
+public class OBDTypeClass 
+extends KBusinessObjectClass {
+@KBusinessObjectClass.KID
     @Id   
     @GeneratedValue( strategy = javax.persistence.GenerationType.TABLE, generator="KIDGenerator" )    
     @Column(name = "id")
     private long ID;
     
-    @Column(name = "hdrid")
-    private long HdrID;
-
-    @Column(name = "itemid")
-    private long ItemID;
+    @Column(name = "nama")
+    private String Nama;
     
-    @Column(name = "itemqty")
-    private long ItemQty;
-    
-    
-    @Column(name = "itemunitid")
-    private long ItemUnitID;
- 
     @Column(name = "auditdate")
     @Temporal(TemporalType.TIMESTAMP)   
     private Date AuditDate;
-
-    @Column(name = "audituser")
-    private String AuditUser;    
     
+    @Column(name = "audituser")
+    private String AuditUser;
+  
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
     private long version;
 
-    
-    
-    public BKSDetailClass() throws KExceptionClass {
+    public OBDTypeClass() throws KExceptionClass {
     }
 
-    //=================================================================
+    //=================================================================    
     public long getID() {
         return ID;
     }
@@ -85,36 +71,12 @@ extends KBusinessObjectClass
         this.ID = ID;
     }
 
-    public long getHdrID() {
-        return HdrID;
+    public String getNama() {
+        return Nama;
     }
 
-    public void setHdrID(long HdrID) {
-        this.HdrID = HdrID;
-    }
-
-    public long getItemID() {
-        return ItemID;
-    }
-
-    public void setItemID(long ItemID) {
-        this.ItemID = ItemID;
-    }
-
-    public long getItemQty() {
-        return ItemQty;
-    }
-
-    public void setItemQty(long ItemQty) {
-        this.ItemQty = ItemQty;
-    }
-
-    public long getItemUnitID() {
-        return ItemUnitID;
-    }
-
-    public void setItemUnitID(long ItemUnitID) {
-        this.ItemUnitID = ItemUnitID;
+    public void setNama(String Nama) {
+        this.Nama = Nama;
     }
 
     public Date getAuditDate() {
@@ -140,11 +102,10 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
-  
-    
+   
+     
     @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {
     }
-
 
 }

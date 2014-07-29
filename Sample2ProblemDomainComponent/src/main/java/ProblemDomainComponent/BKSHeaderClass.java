@@ -71,9 +71,18 @@ extends KBusinessObjectClass
     @Temporal(TemporalType.TIMESTAMP)   
     private Date TanggalSelesai;
 
-    @Column(name = "penerimaid")
-    private long PenerimaID;
+    @Column(name = "penerima")
+    private String Penerima;
     
+    @Column(name = "supplierid")
+    private long SupplierID;
+ 
+    @Column(name = "suppliername")
+    private String SupplierName;
+    
+    @Column(name = "pono")
+    private String PONo;
+            
     @Column(name = "nobc")
     private String NoBC;
     
@@ -105,65 +114,12 @@ extends KBusinessObjectClass
         this.ID = ID;
     }
 
-
-    
-
-    
-    public String getNomor() {
-        return Nomor;
-    }
-
-    public void setNomor(String Nomor) {
-        this.Nomor = Nomor;
-    }
-
-    public Date getTanggal() {
-        return Tanggal;
-    }
-
-    public void setTanggal(Date Tanggal) {
-        this.Tanggal = Tanggal;
-    }
-
-    public Date getTanggalSelesai() {
-        return TanggalSelesai;
-    }
-
-    public void setTanggalSelesai(Date TanggalSelesai) {
-        this.TanggalSelesai = TanggalSelesai;
-    }
-    
-    public long getPenerimaID() {
-        return PenerimaID;
-    }
-
-    public void setPenerimaID(long PenerimaID) {
-        this.PenerimaID = PenerimaID;
-    }
-
-
     public long getPRID() {
         return PRID;
     }
 
     public void setPRID(long PRID) {
         this.PRID = PRID;
-    }
-
-    public String getNoBC() {
-        return NoBC;
-    }
-
-    public void setNoBC(String NoBC) {
-        this.NoBC = NoBC;
-    }
-
-    public Date getTglBC() {
-        return TglBC;
-    }
-
-    public void setTglBC(Date TglBC) {
-        this.TglBC = TglBC;
     }
 
     public long getKawasanID() {
@@ -190,6 +146,80 @@ extends KBusinessObjectClass
         this.JenisDokID = JenisDokID;
     }
 
+    public String getNomor() {
+        return Nomor;
+    }
+
+    public void setNomor(String Nomor) {
+        this.Nomor = Nomor;
+    }
+
+    public Date getTanggal() {
+        return Tanggal;
+    }
+
+    public void setTanggal(Date Tanggal) {
+        this.Tanggal = Tanggal;
+    }
+
+    public Date getTanggalSelesai() {
+        return TanggalSelesai;
+    }
+
+    public void setTanggalSelesai(Date TanggalSelesai) {
+        this.TanggalSelesai = TanggalSelesai;
+    }
+
+    public String getPenerima() {
+        return Penerima;
+    }
+
+    public void setPenerima(String Penerima) {
+        this.Penerima = Penerima;
+    }
+
+   
+
+    public long getSupplierID() {
+        return SupplierID;
+    }
+
+    public void setSupplierID(long SupplierID) {
+        this.SupplierID = SupplierID;
+    }
+
+    public String getSupplierName() {
+        return SupplierName;
+    }
+
+    public void setSupplierName(String SupplierName) {
+        this.SupplierName = SupplierName;
+    }
+
+    public String getPONo() {
+        return PONo;
+    }
+
+    public void setPONo(String PONo) {
+        this.PONo = PONo;
+    }
+
+    public String getNoBC() {
+        return NoBC;
+    }
+
+    public void setNoBC(String NoBC) {
+        this.NoBC = NoBC;
+    }
+
+    public Date getTglBC() {
+        return TglBC;
+    }
+
+    public void setTglBC(Date TglBC) {
+        this.TglBC = TglBC;
+    }
+
     public Date getAuditDate() {
         return AuditDate;
     }
@@ -206,7 +236,6 @@ extends KBusinessObjectClass
         this.AuditUser = AuditUser;
     }
 
-
     public long getVersion() {
         return version;
     }
@@ -214,7 +243,7 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
-    
+  
     
     
     

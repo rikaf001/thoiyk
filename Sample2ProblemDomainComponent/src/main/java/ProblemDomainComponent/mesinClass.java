@@ -56,6 +56,9 @@ extends KBusinessObjectClass
     private String kode;
     @Column(name = "supplierid")
     private String supplierid;
+    @Column(name = "suppliername")
+    private String SupplierName;
+    
     @Column(name = "description")
     private String description;
     
@@ -123,6 +126,14 @@ extends KBusinessObjectClass
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public String getSupplierName() {
+        return SupplierName;
+    }
+
+    public void setSupplierName(String SupplierName) {
+        this.SupplierName = SupplierName;
     }
     
  

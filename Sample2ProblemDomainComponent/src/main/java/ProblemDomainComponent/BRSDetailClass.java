@@ -59,12 +59,6 @@ extends KBusinessObjectClass
     @Column(name = "itemunitid")
     private long ItemUnitID;
     
-    @Column(name = "actualqty")
-    private long ActualQty;
-    
-    @Column(name = "actualunitid")
-    private long ActualUnitID;
-
     @Column(name = "keterangan")
     private String Keterangan;
 
@@ -125,21 +119,7 @@ extends KBusinessObjectClass
         this.ItemUnitID = ItemUnitID;
     }
 
-    public long getActualQty() {
-        return ActualQty;
-    }
 
-    public void setActualQty(long ActualQty) {
-        this.ActualQty = ActualQty;
-    }
-
-    public long getActualUnitID() {
-        return ActualUnitID;
-    }
-
-    public void setActualUnitID(long ActualUnitID) {
-        this.ActualUnitID = ActualUnitID;
-    }
 
     public String getKeterangan() {
         return Keterangan;

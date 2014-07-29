@@ -169,6 +169,580 @@ vmaxxed
 
 8359
 
+BKBDetailClass.java
+file
+0
+
+
+add
+
+BKBHeaderClass.java
+file
+0
+
+
+add
+
+BKSDetailClass.java
+file
+0
+
+
+add
+
+BKSHeaderClass.java
+file
+0
+
+
+add
+
+BRPDetailClass.java
+file
+0
+
+
+add
+
+BRPHeaderClass.java
+file
+0
+
+
+add
+
+BRSDetailClass.java
+file
+0
+
+
+add
+
+BRSHeaderClass.java
+file
+0
+
+
+add
+
+BTBDetailClass.java
+file
+0
+
+
+add
+
+BTBHeaderClass.java
+file
+0
+
+
+add
+
+BTSDetailClass.java
+file
+0
+
+
+add
+
+BTSHeaderClass.java
+file
+0
+
+
+add
+
+BarangKeluarBakuClass.java
+file
+0
+
+
+add
+
+BarangKeluarBakuDetailClass.java
+file
+0
+
+
+add
+
+BarangKeluarJadiClass.java
+file
+0
+
+
+add
+
+BarangKeluarJadiDetailClass.java
+file
+0
+
+
+add
+
+BarangKeluarSisaClass.java
+file
+0
+
+
+add
+
+BarangKeluarSisaDetailClass.java
+file
+0
+
+
+add
+
+BarangMasukSisaClass.java
+file
+0
+
+
+add
+
+BarangMasukSisaDetailClass.java
+file
+0
+
+
+add
+
+CuttingDailyRepDtlClass.java
+file
+0
+
+
+add
+
+CuttingDailyRepDtlSizeClass.java
+file
+0
+
+
+add
+
+CuttingDailyRepHdrClass.java
+file
+0
+
+
+add
+
+DailySewingDtlClass.java
+file
+0
+
+
+add
+
+DailySewingHdrClass.java
+file
+0
+
+
+add
+
+FabricRequestDtlClass.java
+file
+0
+
+
+add
+
+FabricRequestHdrClass.java
+file
+0
+
+
+add
+
+FormCuttingDetailClass.java
+file
+0
+
+
+add
+
+FormCuttingHeaderClass.java
+file
+0
+
+
+add
+
+FormFinishingDetailClass.java
+file
+0
+
+
+add
+
+FormFinishingHeaderClass.java
+file
+0
+
+
+add
+
+FormKainDetailClass.java
+file
+0
+
+
+add
+
+FormKainHeaderClass.java
+file
+0
+
+
+add
+
+FormPackingDetailClass.java
+file
+0
+
+
+add
+
+FormPackingHeaderClass.java
+file
+0
+
+
+add
+
+FormSewingDetailClass.java
+file
+0
+
+
+add
+
+FormSewingHeaderClass.java
+file
+0
+
+
+add
+
+FormShippingDetailClass.java
+file
+0
+
+
+add
+
+FormShippingHeaderClass.java
+file
+0
+
+
+add
+
+FormWashingDetailClass.java
+file
+0
+
+
+add
+
+FormWashingHeaderClass.java
+file
+0
+
+
+add
+
+JenisDokPabeanClass.java
+file
+0
+
+
+add
+
+KodeKawasanClass.java
+file
+0
+
+
+add
+
+LaporanProduksiDetailClass.java
+file
+0
+
+
+add
+
+LaporanProduksiHeaderClass.java
+file
+0
+
+
+add
+
+MarkerClass.java
+file
+0
+
+
+add
+
+MutasiBakuClass.java
+file
+0
+
+
+add
+
+MutasiJadiClass.java
+file
+0
+
+
+add
+
+MutasiMesinClass.java
+file
+0
+
+
+add
+
+MutasiSisaClass.java
+file
+0
+
+
+add
+
+OBDClass.java
+file
+0
+
+
+add
+
+OBDTypeClass.java
+file
+0
+
+
+add
+
+ProdRecClass.java
+file
+0
+
+
+add
+
+ProdRecItemClass.java
+file
+0
+
+
+add
+
+ProdRecSizeClass.java
+file
+0
+
+
+add
+
+ProductInDetailClass.java
+file
+0
+
+
+add
+
+ProductInHeaderClass.java
+file
+0
+
+
+add
+
+ProductInTypeClass.java
+file
+0
+
+
+add
+
+ProductOutDetailClass.java
+file
+0
+
+
+add
+
+ProductOutHeaderClass.java
+file
+0
+
+
+add
+
+ProductOutTypeClass.java
+file
+0
+
+
+add
+
+PurchaseOrderClass.java
+file
+0
+
+
+add
+
+PurchaseOrderItemClass.java
+file
+0
+
+
+add
+
+PurchaseOrderTermClass.java
+file
+0
+
+
+add
+
+ReceivedOrderClass.java
+file
+0
+
+
+add
+
+ReceivedOrderItemClass.java
+file
+0
+
+
+add
+
+ReturnDetailClass.java
+file
+0
+
+
+add
+
+ReturnHeaderClass.java
+file
+0
+
+
+add
+
+ServiceClass.java
+file
+0
+
+
+add
+
+ServiceTypeClass.java
+file
+0
+
+
+add
+
+SewingOpBreakDownClass.java
+file
+0
+
+
+add
+
+SewingOpBreakDownDtlClass.java
+file
+0
+
+
+add
+
+SewingThreadCountClass.java
+file
+0
+
+
+add
+
+SewingThreadCountDtlClass.java
+file
+0
+
+
+add
+
+SizeColourClass.java
+file
+0
+
+
+add
+
+SizeMatrixClass.java
+file
+0
+
+
+add
+
+SizeTypeClass.java
+file
+0
+
+
+add
+
+SummaryRepCuttingDtlClass.java
+file
+0
+
+
+add
+
+SummaryRepCuttingHdrClass.java
+file
+0
+
+
+add
+
+SummaryRepSewingHdrClass.java
+file
+0
+
+
+add
+
+ThreadClass.java
+file
+0
+
+
+add
+
+UnitTypeClass.java
+file
+0
+
+
+add
+
 accessoriesClass.java
 file
 0
@@ -233,6 +807,41 @@ file
 add
 
 negaraClass.java
+file
+0
+
+
+add
+
+outstandingorderClass.java
+file
+0
+
+
+add
+
+pr_from_srClass.java
+file
+0
+
+
+add
+
+pr_from_sritemClass.java
+file
+0
+
+
+add
+
+pr_newClass.java
+file
+0
+
+
+add
+
+reservedorderitemClass.java
 file
 0
 
@@ -430,6 +1039,20 @@ file
 
 add
 
+samplerecordstatusClass.java
+file
+0
+
+
+add
+
+samplerecordstyleClass.java
+file
+0
+
+
+add
+
 sparepartClass.java
 file
 0
@@ -466,6 +1089,181 @@ file
 add
 
 supplierClass.java
+file
+0
+
+
+add
+
+v_BC_PemasukanBakuClass.java
+file
+0
+
+
+add
+
+v_BC_PemasukanBakuDetailClass.java
+file
+0
+
+
+add
+
+v_BarangDalamProsesClass.java
+file
+0
+
+
+add
+
+v_BarangMasukJadiClass.java
+file
+0
+
+
+add
+
+v_Laprod_SelectClass.java
+file
+0
+
+
+add
+
+v_PO_ItemClass.java
+file
+0
+
+
+add
+
+v_PRAllItemClass.java
+file
+0
+
+
+add
+
+v_PRHeadItemClass.java
+file
+0
+
+
+add
+
+v_PRItemClass.java
+file
+0
+
+
+add
+
+v_PRSizeItemClass.java
+file
+0
+
+
+add
+
+v_PR_FinishClass.java
+file
+0
+
+
+add
+
+v_PenerimaClass.java
+file
+0
+
+
+add
+
+v_SR_ItemClass.java
+file
+0
+
+
+add
+
+v_Select_BrngKelBakuDtlClass.java
+file
+0
+
+
+add
+
+v_Select_BrngKelJadiDtlClass.java
+file
+0
+
+
+add
+
+v_Select_BrngKelSisaDtlClass.java
+file
+0
+
+
+add
+
+v_Select_BrngMskSisaDtlClass.java
+file
+0
+
+
+add
+
+v_Select_FinishingClass.java
+file
+0
+
+
+add
+
+v_Select_MutasiBakuClass.java
+file
+0
+
+
+add
+
+v_Select_MutasiJadiClass.java
+file
+0
+
+
+add
+
+v_Select_MutasiMesinClass.java
+file
+0
+
+
+add
+
+v_Select_MutasiSisaClass.java
+file
+0
+
+
+add
+
+v_inv_PemasukanSisaClass.java
+file
+0
+
+
+add
+
+v_inv_PengeluaranBakuClass.java
+file
+0
+
+
+add
+
+v_inv_PengeluaranSisaClass.java
 file
 0
 
