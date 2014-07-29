@@ -271,6 +271,52 @@ vmaxxed
 
 4566
 
+jasperPrinting.form
+file
+
+
+
+add
+
+4ad2df55e80135b369c00993c38ce38c
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://svn.code.sf.net/p/k-framework/code/trunk/KFramework3Client/src/main/java/KFramework30/Printing/printSettingDialogClass.form
+933
+
+jasperPrinting.java
+file
+
+
+
+add
+
+d70b4b1296121d622324585869d82812
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://svn.code.sf.net/p/k-framework/code/trunk/KFramework3Client/src/main/java/KFramework30/Printing/printSettingDialogClass.java
+933
+
 printSettingDialogClass.form
 file
 
