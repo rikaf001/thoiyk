@@ -51,7 +51,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Properties;
 import java.util.Vector;
-import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderEditDialogClass;
+import thoiyk.HumanInterfaceComponent.ReceivedOrder.outstandingorderEditDialogClass;
 
 
 

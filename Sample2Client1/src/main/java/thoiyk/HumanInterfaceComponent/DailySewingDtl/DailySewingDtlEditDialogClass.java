@@ -24,7 +24,7 @@ import ProblemDomainComponent.DailySewingDtlClass;
 import ProblemDomainComponent.ProdRecClass;
 //import ProblemDomainComponent.productionrecordClass;
 import java.util.Map;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
 //import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderBrowserClass;
 
 // rtl
@@ -187,6 +187,8 @@ implements KDialogInterface
         LblStyle = new javax.swing.JLabel();
         lblTelp38 = new javax.swing.JLabel();
         qtyLabel25 = new javax.swing.JTextField();
+        lblTelp2 = new javax.swing.JLabel();
+        LblPRQty = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -476,6 +478,13 @@ implements KDialogInterface
             }
         });
 
+        lblTelp2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        lblTelp2.setText("Qty");
+
+        LblPRQty.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        LblPRQty.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        LblPRQty.setName("PRQty"); // NOI18N
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -536,24 +545,31 @@ implements KDialogInterface
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(43, 43, 43)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, lblID)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, lblID1)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, lblNama)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp1)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                .add(jPanel1Layout.createSequentialGroup()
-                                    .add(LblPRID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                    .add(LblPRNo, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                    .add(jButton2))
-                                .add(system_user_id1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .add(ID, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .add(penerimaCb, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 276, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(LblStyle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblID)
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblID1)
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblNama)
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp1)
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                        .add(jPanel1Layout.createSequentialGroup()
+                                            .add(LblPRID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                            .add(LblPRNo, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                            .add(jButton2))
+                                        .add(system_user_id1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .add(ID, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .add(penerimaCb, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 276, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(LblStyle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(34, 34, 34)
+                                .add(lblTelp2)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(LblPRQty, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(102, 102, 102)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -628,6 +644,10 @@ implements KDialogInterface
                     .add(lblTelp1)
                     .add(LblStyle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(lblTelp2)
+                    .add(LblPRQty, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(14, 14, 14)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(penerimaCb, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(lblTelp))
@@ -832,7 +852,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try
         {
-            ProdRecBrowserClass PRBrowser = new ProdRecBrowserClass(
+            ProdRecBrowserSimpleClass PRBrowser = new ProdRecBrowserSimpleClass(
                 configuration, log, new javax.swing.JTable(), this );
 
             PRBrowser.initializeTable();
@@ -865,6 +885,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 LblPRID.setText(Long.toString(pr.getId()));
                 LblPRNo.setText(pr.getPrno());
                 LblStyle.setText(pr.getStyle());
+                LblPRQty.setText(Long.toString(pr.getQty()));
 
             }
 
@@ -895,6 +916,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JLabel LblAuditUser;
     private javax.swing.JLabel LblPRID;
     private javax.swing.JLabel LblPRNo;
+    private javax.swing.JLabel LblPRQty;
     private javax.swing.JLabel LblStyle;
     private javax.swing.JButton applyButton;
     private javax.swing.ButtonGroup clientDiscountGroup;
@@ -916,6 +938,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JLabel lblTelp17;
     private javax.swing.JLabel lblTelp18;
     private javax.swing.JLabel lblTelp19;
+    private javax.swing.JLabel lblTelp2;
     private javax.swing.JLabel lblTelp20;
     private javax.swing.JLabel lblTelp21;
     private javax.swing.JLabel lblTelp22;

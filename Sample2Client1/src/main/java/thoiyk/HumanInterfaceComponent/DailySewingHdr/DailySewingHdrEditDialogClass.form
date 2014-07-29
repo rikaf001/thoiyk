@@ -135,7 +135,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                                      <Component id="lblID" min="-2" pref="127" max="-2" attributes="0"/>
+                                      <Component id="LblHdrID" min="-2" pref="127" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace pref="28" max="32767" attributes="0"/>
@@ -177,7 +177,7 @@
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="2" attributes="0">
                                   <Component id="idLbl" alignment="2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblID" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="LblHdrID" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -248,7 +248,7 @@
                 <Property name="name" type="java.lang.String" value="AuditDate" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblID">
+            <Component class="javax.swing.JLabel" name="LblHdrID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="0"/>

@@ -35,12 +35,12 @@ import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.BarangKeluarJadiClass;
 import ProblemDomainComponent.buyerClass;
-import ProblemDomainComponent.outstandingorderClass;
+import ProblemDomainComponent.ReceivedOrderClass;
 import java.awt.Font;
 import java.awt.print.PageFormat;
 import thoiyk.HumanInterfaceComponent.BarangKeluarJadiDetail.BarangKeluarJadiDetailBrowserClass;
 import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;
-import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderBrowserClass;
+import thoiyk.HumanInterfaceComponent.ReceivedOrder.outstandingorderBrowserClass;
 
 
 public class BarangKeluarJadiEditDialogClass 
@@ -1113,8 +1113,8 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                // ---------------------------------------------------------------------
                 // display the supplier name                
                 persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
-                outstandingorderClass buyer = new outstandingorderClass();
-                buyer = ( outstandingorderClass ) POM.copy4( parentID, outstandingorderClass.class );
+                ReceivedOrderClass buyer = new ReceivedOrderClass();
+                buyer = ( ReceivedOrderClass ) POM.copy4( parentID, ReceivedOrderClass.class );
 
                 buyerClass buyer1 = ( buyerClass ) POM.copy4( buyer.getBuyerid(), buyerClass.class );
                 

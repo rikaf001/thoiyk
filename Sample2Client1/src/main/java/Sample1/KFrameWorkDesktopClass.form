@@ -245,27 +245,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supplierItemActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="SampleRecord">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Verdana" size="10" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Sample Record"/>
-                    <Property name="name" type="java.lang.String" value="SampleRecord" noResource="true"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SampleRecordActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="SizeItem">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Size"/>
-                    <Property name="name" type="java.lang.String" value="SizeItem" noResource="true"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SizeItemActionPerformed"/>
-                  </Events>
-                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="MarkerItem">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Marker"/>
@@ -275,8 +254,74 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MarkerItemActionPerformed"/>
                   </Events>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="SizeType">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Size Type"/>
+                    <Property name="name" type="java.lang.String" value="SizeType" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SizeTypeActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="SizeMatrix">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sze Matrix"/>
+                    <Property name="name" type="java.lang.String" value="SizeMatrix" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SizeMatrixActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="Thread">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Thread"/>
+                    <Property name="name" type="java.lang.String" value="Thread" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ThreadActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="OBDType">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="OBD Type"/>
+                    <Property name="name" type="java.lang.String" value="OBDType" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OBDTypeActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="OBD">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="OBD"/>
+                    <Property name="name" type="java.lang.String" value="OBD" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OBDActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="UnitType">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Unit Type"/>
+                    <Property name="name" type="java.lang.String" value="UnitType" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UnitTypeActionPerformed"/>
+                  </Events>
+                </MenuItem>
               </SubComponents>
             </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="SampleRecord">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Sample Record"/>
+                <Property name="name" type="java.lang.String" value="SampleRecord" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SampleRecordActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="outstandingorderItem">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -396,115 +441,121 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
-            <Menu class="javax.swing.JMenu" name="Produksi">
+            <Menu class="javax.swing.JMenu" name="CuttingMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Produksi"/>
+                <Property name="text" type="java.lang.String" value="Cutting"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="11" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="mnCutting" noResource="true"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="FabricReqItem">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Verdana" size="11" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fabric Request"/>
+                    <Property name="name" type="java.lang.String" value="FabricReqItem" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FabricReqItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="CuttingDailyItem">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Verdana" size="11" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Cutting Daily Request"/>
+                    <Property name="name" type="java.lang.String" value="CuttingDailyItem" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CuttingDailyItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="SumaryCuttingItem">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Verdana" size="11" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Summary Report Cutting"/>
+                    <Property name="name" type="java.lang.String" value="SumaryCuttingItem" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SumaryCuttingItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="Production">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Production"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="10" style="0"/>
                 </Property>
-                <Property name="name" type="java.lang.String" value="Produksi" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="Production" noResource="true"/>
               </Properties>
               <SubComponents>
-                <Menu class="javax.swing.JMenu" name="Cutting">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cutting"/>
-                    <Property name="name" type="java.lang.String" value="Cutting" noResource="true"/>
-                  </Properties>
-                  <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="FabricReqItem">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Fabric Request"/>
-                        <Property name="name" type="java.lang.String" value="FabricReqItem" noResource="true"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FabricReqItemActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="CuttingDailyItem">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Cutting Daily Request"/>
-                        <Property name="name" type="java.lang.String" value="CuttingDailyItem" noResource="true"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CuttingDailyItemActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="SumaryCuttingItem">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Summary Report Cutting"/>
-                        <Property name="name" type="java.lang.String" value="SumaryCuttingItem" noResource="true"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SumaryCuttingItemActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                  </SubComponents>
-                </Menu>
-                <Menu class="javax.swing.JMenu" name="Sewing">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Sewing"/>
-                    <Property name="name" type="java.lang.String" value="Sewing" noResource="true"/>
-                  </Properties>
-                  <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="DailySewing">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Daily Sewing"/>
-                        <Property name="name" type="java.lang.String" value="DailySewing" noResource="true"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DailySewingActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                  </SubComponents>
-                </Menu>
-                <MenuItem class="javax.swing.JMenuItem" name="FormKain">
+                <MenuItem class="javax.swing.JMenuItem" name="DailySewing">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Verdana" size="10" style="0"/>
+                      <Font name="Verdana" size="11" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="FormKain"/>
-                    <Property name="name" type="java.lang.String" value="FormKain" noResource="true"/>
+                    <Property name="text" type="java.lang.String" value="Daily Sewing"/>
+                    <Property name="name" type="java.lang.String" value="DailySewing" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormKainActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DailySewingActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="FormCutting">
+                <MenuItem class="javax.swing.JMenuItem" name="SummaryRepSewing">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Verdana" size="10" style="0"/>
+                      <Font name="Verdana" size="11" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="FormCutting"/>
-                    <Property name="name" type="java.lang.String" value="FormCutting" noResource="true"/>
+                    <Property name="text" type="java.lang.String" value="Summary Report Sewing"/>
+                    <Property name="name" type="java.lang.String" value="SummaryRepSewing" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormCuttingActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SummaryRepSewingActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="FormSewing">
+                <MenuItem class="javax.swing.JMenuItem" name="SewingOpBreakDown">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Verdana" size="10" style="0"/>
+                      <Font name="Verdana" size="11" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="FormSewing"/>
-                    <Property name="name" type="java.lang.String" value="FormSewing" noResource="true"/>
+                    <Property name="text" type="java.lang.String" value="Sewing Operation BreakDown"/>
+                    <Property name="name" type="java.lang.String" value="SewingOpBreakDown" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormSewingActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SewingOpBreakDownActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="FormWashing">
+                <MenuItem class="javax.swing.JMenuItem" name="SewingThreadCount">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Verdana" size="10" style="0"/>
+                      <Font name="Verdana" size="11" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="FormWashing"/>
-                    <Property name="name" type="java.lang.String" value="FormWashing" noResource="true"/>
+                    <Property name="text" type="java.lang.String" value="Sewing Thread Count"/>
+                    <Property name="name" type="java.lang.String" value="SewingThreadCount" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormWashingActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SewingThreadCountActionPerformed"/>
                   </Events>
                 </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="FinishingPacking">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fiishing / Packing"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="11" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="FinishingPacking" noResource="true"/>
+              </Properties>
+              <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="FormFinishing">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -519,16 +570,24 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="FormPacking">
                   <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Verdana" size="10" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="FormPacking"/>
+                    <Property name="text" type="java.lang.String" value="Packing List Actual"/>
                     <Property name="name" type="java.lang.String" value="FormPacking" noResource="true"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormPackingActionPerformed"/>
                   </Events>
                 </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="Shipping">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Packing"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="11" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Shipping" noResource="true"/>
+              </Properties>
+              <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="FormShipping">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Form Shipping"/>
@@ -536,18 +595,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FormShippingActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="LaporanProduksi">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Verdana" size="10" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Laporan Produksi"/>
-                    <Property name="name" type="java.lang.String" value="LaporanProduksi" noResource="true"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LaporanProduksiActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>
@@ -1133,7 +1180,7 @@
         <Component class="javax.swing.JLabel" name="desktopStatusLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Shruti" size="10" style="0"/>
+              <Font name="Verdana" size="10" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Starting..."/>
             <Property name="name" type="java.lang.String" value="desktopStatusLabel" noResource="true"/>
@@ -1165,7 +1212,7 @@
         <Component class="javax.swing.JButton" name="newButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Shruti" size="10" style="0"/>
+              <Font name="Verdana" size="10" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" noResource="true" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/new1.jpg"/>
@@ -1197,7 +1244,7 @@
         <Component class="javax.swing.JButton" name="editButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Shruti" size="10" style="0"/>
+              <Font name="Verdana" size="10" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" noResource="true" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/edit1.jpg"/>
@@ -1228,7 +1275,7 @@
         <Component class="javax.swing.JButton" name="deleteButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Shruti" size="10" style="0"/>
+              <Font name="Verdana" size="10" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" noResource="true" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/delete1.jpg"/>
@@ -1270,7 +1317,7 @@
         <Component class="javax.swing.JButton" name="sortButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Shruti" size="10" style="0"/>
+              <Font name="Verdana" size="10" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" noResource="true" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/sort1.jpg"/>
@@ -1301,7 +1348,7 @@
         <Component class="javax.swing.JButton" name="filterButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Shruti" size="10" style="0"/>
+              <Font name="Verdana" size="10" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" noResource="true" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/filter1.jpg"/>
@@ -1343,7 +1390,7 @@
         <Component class="javax.swing.JButton" name="printButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Shruti" size="10" style="0"/>
+              <Font name="Verdana" size="10" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" noResource="true" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/print1.jpg"/>
@@ -1374,7 +1421,7 @@
         <Component class="javax.swing.JButton" name="exportButton1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Shruti" size="10" style="0"/>
+              <Font name="Verdana" size="10" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/export1.jpg"/>
@@ -1416,7 +1463,7 @@
         <Component class="javax.swing.JButton" name="refreshButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Shruti" size="10" style="0"/>
+              <Font name="Verdana" size="10" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" noResource="true" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/refresh1.jpg"/>

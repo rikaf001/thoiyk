@@ -35,12 +35,15 @@ import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.FormCuttingHeaderClass;
 import ProblemDomainComponent.buyerClass;
 import ProblemDomainComponent.ProdRecClass;
+import ProblemDomainComponent.samplerecordClass;
+import ProblemDomainComponent.stocktypeClass;
 //import ProblemDomainComponent.FormCuttingTypeClass;
 import java.awt.Font;
 import java.awt.print.PageFormat;
 import thoiyk.HumanInterfaceComponent.FormCuttingDetail.FormCuttingDetailBrowserClass;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
 import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;
+import thoiyk.HumanInterfaceComponent.samplerecord.samplerecordBrowserClass;
 
 
 public class FormCuttingHeaderEditDialogClass 
@@ -426,7 +429,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                             .add(LblAuditUser, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(jDateChooser1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(issuedbyLbl, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 41, Short.MAX_VALUE)
                         .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(LblBuyerID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -972,7 +975,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try
         {
-            ProdRecBrowserClass PRBrowser = new ProdRecBrowserClass(
+            ProdRecBrowserSimpleClass PRBrowser = new ProdRecBrowserSimpleClass(
                 configuration, log, new javax.swing.JTable(), this );
 
             PRBrowser.initializeTable();
@@ -1007,6 +1010,9 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 LblBuyerID.setText(Long.toString(pr.getBuyerid()));
                 LblBuyerName.setText(pr.getBuyername());
                 stylenameLbl.setText(pr.getStyle());
+                
+  
+
 
             }   
 
@@ -1098,6 +1104,9 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JButton printButton;
     private javax.swing.JButton printGraphButton1;
     private javax.swing.JLabel prnoLbl;
+    private javax.swing.JTextField qtyLabel14;
+    private javax.swing.JTextField qtyLabel15;
+    private javax.swing.JTextField qtyLabel16;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton sortButton;
     private javax.swing.JLabel stylenameLbl;

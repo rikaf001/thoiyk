@@ -101,7 +101,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " pai.id, pai.itemid,pai.kode,pai.nama,pai.warna,pai.qty,pai.unit",    
+                        " pai.id, pai.itemid,pai.tipe,pai.kode,pai.nama,pai.warna,pai.qty,pai.unit",    
 
                         // 2 tables and joins                                                
                         " v_prallitem pai ",

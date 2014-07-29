@@ -102,7 +102,7 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Form Packing Detail">
+            <TitledBorder title="Packing List Detail">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                 <EtchetBorder/>
               </Border>
@@ -119,61 +119,111 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblTelp10" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNama1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="vl" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelp6" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelp2" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelp17" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="lblID1" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="lblID" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="createdbyLbl" alignment="0" max="32767" attributes="0"/>
-                              <Component id="qtyLabel14" alignment="0" max="32767" attributes="0"/>
-                              <Component id="system_user_id1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="ID" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jScrollPane1" alignment="0" pref="276" max="32767" attributes="0"/>
-                              <Component id="LblAuditUser" alignment="1" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ID" max="32767" attributes="0"/>
+                              <Component id="LblHdrID" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblTelp3" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelp11" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelp4" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelp5" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelp16" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelp7" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelp8" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblNama1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="vl" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="lblID2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="LblItemID" min="-2" pref="59" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jButton1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="LblItemName" min="-2" pref="202" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="createdbyLbl" pref="285" max="32767" attributes="0"/>
+                                      <Component id="LblAuditUser" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblID3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="LblWarna" min="-2" pref="202" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="lblTelp18" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTelp19" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="qtyLabel12" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jComboBox1" min="-2" pref="166" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblTelp20" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="qtyLabel13" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblTelp21" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="qtyLabel14" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblTelp16" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblTelp12" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="lblTelp13" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelp14" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelp15" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="qtyLabel11" alignment="0" pref="227" max="32767" attributes="0"/>
-                              <Component id="qtyLabel10" alignment="0" max="32767" attributes="0"/>
-                              <Component id="qtyLabel9" alignment="0" max="32767" attributes="0"/>
-                              <Component id="qtyLabel6" alignment="0" max="32767" attributes="0"/>
-                              <Component id="qtyLabel13" alignment="0" max="32767" attributes="0"/>
-                              <Component id="qtyLabel5" alignment="0" max="32767" attributes="0"/>
-                              <Component id="qtyLabel4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="itemidLabel1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="qtyLabel8" alignment="0" max="32767" attributes="0"/>
-                              <Component id="qtyLabel2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="itemidLabel3" alignment="1" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="qtyLabel9" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblTelp17" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="qtyLabel15" pref="135" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="itemidLabel4" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -186,82 +236,64 @@
                       <Component id="ID" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="2" attributes="0">
-                      <Component id="lblID1" alignment="2" min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="system_user_id1" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="2" attributes="0">
-                      <Component id="lblTelp17" alignment="2" min="-2" max="-2" attributes="0"/>
-                      <Component id="qtyLabel14" alignment="2" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblTelp2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblTelp3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="qtyLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblTelp11" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="qtyLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblTelp4" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="itemidLabel1" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="lblID1" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="LblHdrID" min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="2" attributes="0">
+                      <Component id="lblID2" alignment="2" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="LblItemID" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="jButton1" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="LblItemName" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblTelp6" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="LblWarna" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="lblID3" min="-2" pref="10" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTelp5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="qtyLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTelp18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="qtyLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTelp7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="qtyLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTelp19" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTelp16" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTelp20" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="qtyLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTelp8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="qtyLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTelp21" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="qtyLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="lblTelp16" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblTelp12" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="qtyLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTelp13" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="qtyLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblTelp13" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblTelp17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="qtyLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="itemidLabel4" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTelp14" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="qtyLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblTelp15" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="itemidLabel3" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblTelp10" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jPanel2" min="-2" pref="59" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblNama1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="createdbyLbl" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
@@ -297,7 +329,7 @@
             <Property name="name" type="java.lang.String" value="ID" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="system_user_id1">
+        <Component class="javax.swing.JLabel" name="LblHdrID">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
@@ -361,103 +393,12 @@
             <Property name="name" type="java.lang.String" value="AuditUser" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Quantity"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="OK"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="qtyLabel2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="0"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="Ok" noResource="true"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="qtyLabel2ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp4">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Total"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp5">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="XS"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="qtyLabel4">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="0"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="XS" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp6">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Size"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp7">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="S"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="qtyLabel5">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="0"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="S" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp8">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="L"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="qtyLabel6">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="0"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="L" noResource="true"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="lblTelp12">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="XL"/>
+            <Property name="text" type="java.lang.String" value="NW"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="qtyLabel9">
@@ -465,7 +406,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="XL" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="NW" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTelp13">
@@ -473,71 +414,96 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="XXL"/>
+            <Property name="text" type="java.lang.String" value="GW"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="qtyLabel10">
+        <Component class="javax.swing.JLabel" name="lblID2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="XXL" noResource="true"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+            <Property name="text" type="java.lang.String" value="ItemID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp14">
+        <Component class="javax.swing.JLabel" name="LblItemID">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="3XL"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+            <Property name="name" type="java.lang.String" value="ItemID" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="qtyLabel11">
+        <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="XXXL" noResource="true"/>
+            <Property name="text" type="java.lang.String" value="..."/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp15">
+        <Component class="javax.swing.JLabel" name="LblItemName">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Qty Total"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+            <Property name="name" type="java.lang.String" value="ItemName" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp10">
+        <Component class="javax.swing.JTextField" name="qtyLabel12">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Keterangan Reject"/>
+            <Property name="name" type="java.lang.String" value="NoCartoon" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp11">
+        <Component class="javax.swing.JLabel" name="lblTelp18">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Reject"/>
+            <Property name="text" type="java.lang.String" value="No Cartoon"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="qtyLabel8">
+        <Component class="javax.swing.JComboBox" name="jComboBox1">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Retail"/>
+                <StringItem index="1" value="Whole Sale"/>
+              </StringArray>
+            </Property>
+            <Property name="name" type="java.lang.String" value="KodePP" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTelp19">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="Reject" noResource="true"/>
+            <Property name="text" type="java.lang.String" value="Code PP"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTelp16">
+        <Component class="javax.swing.JLabel" name="lblTelp20">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="M"/>
+            <Property name="text" type="java.lang.String" value="Ins Lot"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="qtyLabel13">
@@ -545,7 +511,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="M" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="InsLot" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="qtyLabel14">
@@ -553,7 +519,31 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="Warna" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="TotalCTN" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTelp21">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="10" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Total CTN"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTelp16">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="10" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Weight"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="qtyLabel15">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="10" style="0"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="MEAST" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTelp17">
@@ -561,10 +551,10 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Warna"/>
+            <Property name="text" type="java.lang.String" value="MEAST (cm)"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="itemidLabel1">
+        <Component class="javax.swing.JLabel" name="itemidLabel4">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
@@ -574,41 +564,192 @@
                 <EtchetBorder/>
               </Border>
             </Property>
-            <Property name="name" type="java.lang.String" value="Total" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="GW" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="itemidLabel3">
+        <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Verdana" size="10" style="0"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
-              </Border>
-            </Property>
-            <Property name="name" type="java.lang.String" value="QtyTotal" noResource="true"/>
           </Properties>
-        </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblTelp15" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="qtyLabel11" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="qtyLabel16" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="qtyLabel17" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="qtyLabel18" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="qtyLabel19" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="qtyLabel20" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="qtyLabel21" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="qtyLabel22" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="qtyLabel23" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="qtyLabel24" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="qtyLabel25" pref="69" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="qtyLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTelp15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="qtyLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="qtyLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="qtyLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="qtyLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="qtyLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="qtyLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="qtyLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="qtyLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="qtyLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="qtyLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea1">
+            <Component class="javax.swing.JTextField" name="qtyLabel11">
               <Properties>
-                <Property name="columns" type="int" value="20"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="10" style="0"/>
                 </Property>
-                <Property name="rows" type="int" value="5"/>
-                <Property name="name" type="java.lang.String" value="KeteranganReject" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="Q1" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblTelp15">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Qty"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="qtyLabel16">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Q2" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="qtyLabel17">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Q3" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="qtyLabel18">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Q4" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="qtyLabel19">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Q5" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="qtyLabel20">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Q6" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="qtyLabel21">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Q7" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="qtyLabel22">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Q8" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="qtyLabel23">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Q9" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="qtyLabel24">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Q10" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="qtyLabel25">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="QTotal" noResource="true"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="LblWarna">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="10" style="0"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+            <Property name="name" type="java.lang.String" value="Warna" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblID3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="10" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+            <Property name="text" type="java.lang.String" value="Warna"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

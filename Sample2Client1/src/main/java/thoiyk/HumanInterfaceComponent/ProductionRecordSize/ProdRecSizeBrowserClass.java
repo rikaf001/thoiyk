@@ -28,11 +28,13 @@ import KFramework30.Communication.persistentObjectManagerClass;
 import KFramework30.Widgets.DataBrowser.KBrowserDataWriterInterface;
 import KFramework30.Widgets.DataBrowser.cellRenderingHookInterface;
 import KFramework30.Widgets.DataBrowser.recordClass;
+import ProblemDomainComponent.ProdRecClass;
 
 // system
 import ProblemDomainComponent.ProdRecSizeClass;
 import java.util.HashMap;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecEditDialogClass;
 
 
 
@@ -103,11 +105,10 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " prs.id, sz.warna, sz.ukuran, prs.qty  ",    
+                        " prs.id, prs.warna, prs.q1,prs.q2,prs.q3,prs.q4,prs.q5,prs.q6,prs.q7,prs.q8,prs.q9,prs.q10,prs.q11,prs.q12,prs.q13,prs.q14,prs.q15   ",    
 
                         // 2 tables and joins                                                
-                        " productionrecordsize prs " +
-                       " left join sizecolour sz on prs.sizeid=sz.id"    ,
+                        " productionrecordsize prs " ,
 
                         // 3 key of primary PDC object
                         "ID"
@@ -120,6 +121,30 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
                                
 
+                persistentObjectManagerClass ROPOM = new persistentObjectManagerClass(configuration, log);
+                ProdRecClass pr = new ProdRecClass();
+                pr = ( ProdRecClass ) ROPOM.copy4( parentID, ProdRecClass.class );
+                
+                
+                // set nama kolum
+                setColumnNames( "prs", "Q1", "q1_"+pr.getS1() );             
+                setColumnNames( "prs", "Q2", "q2_"+pr.getS2() );
+                setColumnNames( "prs", "Q3", "q3_"+pr.getS3() );
+                setColumnNames( "prs", "Q4", "q4_"+pr.getS4() );
+                setColumnNames( "prs", "Q5", "q5_"+pr.getS5() );
+                setColumnNames( "prs", "Q6", "q6_"+pr.getS6() );
+                setColumnNames( "prs", "Q7", "q7_"+pr.getS7() );
+                setColumnNames( "prs", "Q8", "q8_"+pr.getS8() );
+                setColumnNames( "prs", "Q9", "q9_"+pr.getS9() );
+                setColumnNames( "prs", "Q10", "q10_"+pr.getS10() );
+                setColumnNames( "prs", "Q11", "q11_"+pr.getS11() );
+                setColumnNames( "prs", "Q12", "q12_"+pr.getS12() );
+                setColumnNames( "prs", "Q13", "q13_"+pr.getS13() );
+                setColumnNames( "prs", "Q14", "q14_"+pr.getS14() );
+                setColumnNames( "prs", "Q15", "q15_"+pr.getS15() );
+                
+                
+                
                 //setColumnNames( "sri", "ID", "TypeID" );             
  //               setColumnNames( "sri", "ITEMID", "ItemID" );             
                // setColumnNames( "vsri", "CATEGORY", "Category" );             
@@ -145,12 +170,11 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
-                         // 1 fields                    
-                        " prs.id, sz.warna, sz.ukuran, prs.qty  ",    
+                        // 1 fields                    
+                        " prs.id, prs.warna, prs.q1,prs.q2,prs.q3,prs.q4,prs.q5,prs.q6,prs.q7,prs.q8,prs.q9,prs.q10,prs.q11,prs.q12,prs.q13,prs.q14,prs.q15   ",    
 
                         // 2 tables and joins                                                
-                        " productionrecordsize prs " +
-                       " left join sizecolour sz on prs.sizeid=sz.id"    ,
+                        " productionrecordsize prs " ,
 
                         // 3 key of primary PDC object
                         "ID"
@@ -363,7 +387,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                         if( mode == ALL_PRSIZE ){
 
                             // build a client browser
-                               ProdRecBrowserClass pr_new = new ProdRecBrowserClass(
+                               ProdRecBrowserSimpleClass pr_new = new ProdRecBrowserSimpleClass(
                                         configuration, log, new javax.swing.JTable(), getParentWindow() );
 
                                pr_new.initializeTable();   

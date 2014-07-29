@@ -21,6 +21,8 @@ import javax.swing.*;
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_DATE;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
 import ProblemDomainComponent.BTBHeaderClass;
@@ -78,17 +80,29 @@ extends KDataBrowserBaseClass {
             setColumnNames( "pr", "ID", "ID" );
             setColumnNames( "pr", "NOMOR", "Nomor" );
             setColumnNames( "pr", "TANGGAL", "Tanggal" );
-            setColumnNames( "sup", "SUPPLIERNAME", "SupplierName" );
-            setColumnNames( "pr", "NOSJ", "NoSJ" );
-            setColumnNames( "pr", "TGLSJ", "TglSJ" );
-            setColumnNames( "pr", "NOBC", "NoBC" );
-            setColumnNames( "pr", "TGLBC", "TglBC" );
+            setColumnNames( "sup", "SUPPLIERNAME", "Supplier Name" );
+            setColumnNames( "pr", "NOSJ", "No SJ" );
+            setColumnNames( "pr", "TGLSJ", "Tgl SJ" );
+            setColumnNames( "pr", "NOBC", "No BC" );
+            setColumnNames( "pr", "TGLBC", "Tgl BC" );
        
             setDefaultOrder( "ID" );
             // load data
             super.initializeTable();   
             
+                        adjustColumnWidth( "ID", 60 );
+            adjustColumnWidth( "Nomor", 100 );
+            adjustColumnWidth( "Tanggal", 100 );
+            adjustColumnWidth( "Supplier Name", 200 );
+            adjustColumnWidth( "No SJ", 100 );
+            adjustColumnWidth( "Tgl SJ" , 100 );
+            adjustColumnWidth( "No BC",100 );
+            adjustColumnWidth( "Tgl BC", 100 );
             
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
+            adjustColumnType("Tanggal",BROWSER_COLUMN_TYPE_DATE);
+            adjustColumnType("Tgl SJ",BROWSER_COLUMN_TYPE_DATE);
+            adjustColumnType("Tgl BC",BROWSER_COLUMN_TYPE_DATE);
     }        
 
 

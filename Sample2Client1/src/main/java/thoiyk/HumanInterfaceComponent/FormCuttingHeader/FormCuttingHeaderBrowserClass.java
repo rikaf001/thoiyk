@@ -21,6 +21,7 @@ import javax.swing.*;
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
 import ProblemDomainComponent.pr_newClass;
@@ -80,11 +81,18 @@ extends KDataBrowserBaseClass {
             setColumnNames( "fk", "BUYERID", "BuyerID" );
             setColumnNames( "fk", "BUYERNAME", "BuyerName" );
        
-
+            setDefaultOrder( "ID" );
             // load data
             super.initializeTable();   
             
-            
+            adjustColumnWidth( "ID", 40 );
+            adjustColumnWidth( "PRNo", 80 );
+            adjustColumnWidth( "Tanggal", 80 );
+            adjustColumnWidth( "StyleName", 80 );
+            adjustColumnWidth( "BuyerID", 40 );
+            adjustColumnWidth( "BuyerName", 200 );
+       
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );   
     }        
 
 

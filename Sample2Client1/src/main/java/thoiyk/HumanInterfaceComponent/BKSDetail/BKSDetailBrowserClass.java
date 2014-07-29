@@ -24,6 +24,7 @@ import KFramework30.Base.*;
 import KFramework30.Widgets.DataBrowser.KBrowserDataWriterInterface;
 import KFramework30.Widgets.DataBrowser.cellRenderingHookInterface;
 import KFramework30.Widgets.DataBrowser.recordClass;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
 import ProblemDomainComponent.BKSDetailClass;
@@ -101,13 +102,15 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "bks.id,poi.nama,bks.itemqty,uta.nama itemunit ",    
+                        "  distinct bks.id,poi.description nama,bks.itemqty,uta.nama itemunit,RETRIEVE_BKS_BTB_NO(bks.itemid) btbno,RETRIEVE_BKS_BTB_TANGGAL(bks.itemid) btbtgl, pri.prno,RETRIEVE_BKS_BTB_NOBC(bks.itemid) nobc ",    
 
                         // 2 tables and joins                                                
                         " bks_dtl bks " +
-                        "left join v_pr_item poi on bks.itemid=poi.id " +
-                        "left join unittype uta on bks.itemunitid=uta.id " +
-                        "left join unittype utb on bks.actualunitid=utb.id " ,
+                        "left join V_PO_DTL poi on bks.itemid=poi.id  " +
+                            " left join purchaseorderitem pri on poi.id = pri.itemid " +
+                        "left join unittype uta on bks.itemunitid=uta.id  " +
+                        "left join bks_hdr hdr on bks.hdrid=hdr.id "   
+                            ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -118,20 +121,17 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     throw new KExceptionClass( "Data base type not recognized " + configuration.getField("databaseType"), null );
                 }
                 
-                /*setColumnNames( "pi", "ID", "ID" );             
-                setColumnNames( "pi", "HDRID", "HDRID" );
-                setColumnNames( "pi", "ITEMID", "ItemID" );             
-                setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
-                setColumnNames( "pi", "ITEMUNITID", "ItemUnitID" );
-                setColumnNames( "pi", "ACTUALQTY", "ActualQTY" );
-                setColumnNames( "pi", "ACTUALUNITID", "ActualUnitID" );
-                setColumnNames( "pi", "CREATEDBY", "CreatedBy" );
-                setColumnNames( "pi", "DATECREATED", "DateCreated" );
-                setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
-                setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-                  */
+                setColumnNames( "bks", "ID", "ID" );             
+                setColumnNames( "bks", "NAMA", "Nama" );          
+                setColumnNames( "bks", "ITEMQTY", "QTY Item" );
+                setColumnNames( "bks", "ITEMUNIT", "Unit Item" );
+                setColumnNames( "bks", "BTBNO", "BTBNo" );
+                setColumnNames( "bks", "BTBTGL", "BTBTgl" );
+                setColumnNames( "bks", "PRNO", "PRNo" );
+                setColumnNames( "bks", "NOBC", "NOBC" );
+                  
                 // replace criteria
-                setDefaultCriteria( " hdrid = ? " );               
+                setDefaultCriteria( " bks.hdrid = ? " );               
                 bindDefaultParameter1( ":hdrid",  parentID  );     
                 
             }else{  // mode = ALL_INVOICES
@@ -143,14 +143,15 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
-                        // 1 fields                    
-                        "bks.id,poi.nama,bks.itemqty,uta.nama itemunit ",    
+    // 1 fields                    
+                        "  bks.id,poi.description nama,bks.itemqty,uta.nama itemunit,RETRIEVE_BKS_BTB_NO(bks.itemid) btbno,RETRIEVE_BKS_BTB_TANGGAL(bks.itemid) btbtgl, pri.prno,RETRIEVE_BKS_BTB_NOBC(bks.itemid) nobc ",    
 
                         // 2 tables and joins                                                
                         " bks_dtl bks " +
-                        "left join v_pr_item poi on bks.itemid=poi.id " +
-                        "left join unittype uta on bks.itemunitid=uta.id " +
-                        "left join unittype utb on bks.actualunitid=utb.id " ,
+                        "left join V_PO_DTL poi on bks.itemid=poi.id  " +
+                            " left join purchaseorderitem pri on poi.id = pri.itemid" +
+                        "left join unittype uta on bks.itemunitid=uta.id  " +
+                        "left join bks_hdr hdr on bks.hdrid=hdr.id "    ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -163,24 +164,35 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
                 // FOR ALL INVOICES
                 
-/*                setColumnNames( "pi", "ID", "ID" );             
-                setColumnNames( "pi", "HDRID", "HDRID" );
-                setColumnNames( "pi", "ITEMID", "ItemID" );             
-                setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
-                setColumnNames( "pi", "ITEMUNITID", "ItemUnitID" );
-                setColumnNames( "pi", "ACTUALQTY", "ActualQTY" );
-                setColumnNames( "pi", "ACTUALUNITID", "ActualUnitID" );
-                setColumnNames( "pi", "CREATEDBY", "CreatedBy" );
-                setColumnNames( "pi", "DATECREATED", "DateCreated" );
-                setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
-                setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-  */              
+               
+                setColumnNames( "bks", "ID", "ID" );             
+                setColumnNames( "bks", "NAMA", "Nama" );          
+                setColumnNames( "bks", "ITEMQTY", "QTY Item" );
+                setColumnNames( "bks", "ITEMUNIT", "Unit Item" );
+                setColumnNames( "bks", "BTBNO", "BTBNo" );
+                setColumnNames( "bks", "BTBTGL", "BTBTgl" );
+                setColumnNames( "bks", "PRNO", "PRNo" );
+                setColumnNames( "bks", "NOBC", "NOBC" );
+           
             }
 
             setDefaultOrder( "ID" );
                                 
             
-            super.initializeTable();             
+            super.initializeTable();       
+            
+              // some customization
+            adjustColumnWidth( "ID", 40 );
+            adjustColumnWidth( "Nama", 200 );
+            adjustColumnWidth( "QTY Item", 90 );
+            adjustColumnWidth("Unit Item", 90 );
+            adjustColumnWidth( "BTBNo", 100 );
+            adjustColumnWidth( "BTBTgl", 100 );
+            adjustColumnWidth( "PRNo", 100 );
+            adjustColumnWidth( "NOBC", 100 );
+            
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
+            
 
             if( mode == POITEM_BY_PO ){                        
                 

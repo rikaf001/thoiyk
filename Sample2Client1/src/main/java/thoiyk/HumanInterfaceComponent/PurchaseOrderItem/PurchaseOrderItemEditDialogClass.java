@@ -29,7 +29,7 @@ import ProblemDomainComponent.*;
 //RTL
 import java.util.Map;
 import thoiyk.HumanInterfaceComponent.v_MachineAndSparepart.v_MachineAndSparePartBrowserClass;
-import thoiyk.HumanInterfaceComponent.v_po_item.v_po_itemBrowserClass;
+import thoiyk.HumanInterfaceComponent.v_po_item.v_po_itemBrowserSimpleClass;
 
 
 public class PurchaseOrderItemEditDialogClass
@@ -110,7 +110,7 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         client_id2 = new javax.swing.JLabel();
-        client_address1 = new javax.swing.JTextField();
+        LblQtyNeeded = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         itemIDLbl = new javax.swing.JLabel();
@@ -151,8 +151,8 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         client_id2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         client_id2.setName("ID"); // NOI18N
 
-        client_address1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        client_address1.setName("Qty"); // NOI18N
+        LblQtyNeeded.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        LblQtyNeeded.setName("Qty"); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel11.setText("Qty");
@@ -212,7 +212,7 @@ implements  KDialogInterface, KDialogEventCallbackInterface
                     .add(jLabel11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(client_address1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 124, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(LblQtyNeeded, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 124, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(client_address2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 124, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(itemIDLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -248,7 +248,7 @@ implements  KDialogInterface, KDialogEventCallbackInterface
                     .add(jLabel12))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(client_address1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(LblQtyNeeded, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel11))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -362,7 +362,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
         try
         {
-            v_po_itemBrowserClass v_po_itemBrowser = new v_po_itemBrowserClass(
+            v_po_itemBrowserSimpleClass v_po_itemBrowser = new v_po_itemBrowserSimpleClass(
                                         configuration, log, new javax.swing.JTable(), this );
 
                                v_po_itemBrowser.initializeTable();   
@@ -395,7 +395,12 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                                 v_PO_ItemClass v_po_item = new v_PO_ItemClass();
                                 v_po_item = ( v_PO_ItemClass ) POM.copy4( parentID, v_PO_ItemClass.class );
                                 
+                                persistentObjectManagerClass POM2 = new persistentObjectManagerClass(configuration, log);
+                                ProdRecItemClass v_po_item2 = new ProdRecItemClass();
+                                v_po_item2 = ( ProdRecItemClass ) POM.copy4( parentID, ProdRecItemClass.class );
+    
                                 PRNoLbl.setText(v_po_item.getPRNo());
+                                LblQtyNeeded.setText(Double.toString(v_po_item2.getQtyneed()));
                                 // ---------------------------------------------------------------------        
                             }   
 
@@ -497,9 +502,9 @@ public void loadPic(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton;
+    private javax.swing.JTextField LblQtyNeeded;
     private javax.swing.JLabel PRNoLbl;
     private javax.swing.JButton applyButton;
-    private javax.swing.JTextField client_address1;
     private javax.swing.JTextField client_address2;
     private javax.swing.JLabel client_id2;
     private javax.swing.JLabel itemIDLbl;

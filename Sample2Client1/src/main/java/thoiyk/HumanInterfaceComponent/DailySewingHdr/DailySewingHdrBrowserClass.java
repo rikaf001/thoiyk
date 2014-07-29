@@ -23,7 +23,7 @@ import KFramework30.Widgets.*;
 import KFramework30.Base.*;
 
 // system
-import ProblemDomainComponent.pr_newClass;
+import ProblemDomainComponent.DailySewingHdrClass;
 
 
 public class DailySewingHdrBrowserClass 
@@ -46,7 +46,7 @@ extends KDataBrowserBaseClass {
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    pr_newClass.class,
+                    DailySewingHdrClass.class,
                     DailySewingHdrEditDialogClass.class
             );  
             
@@ -62,7 +62,7 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                        " dtl.id, to_char(dtl.tanggal,'YYYYMMDD') tanggal, dtl.auditdate, dtl.audituser ",    
+                        " dtl.id, to_char(dtl.tanggal,'YYYY-MM-DD') tanggal, dtl.auditdate, dtl.audituser ",    
 
                         // 2 tables and joins                                                
                         " dailysewing_hdr dtl " ,
@@ -73,12 +73,13 @@ extends KDataBrowserBaseClass {
                     );   
 
      
-//            setColumnNames( "fk", "ID", "ID" );
-//            setColumnNames( "fk", "PRNO", "PRNo" );
-//            setColumnNames( "fk", "TANGGAL", "Tanggal" );
-//            setColumnNames( "fk", "STYLENAME", "StyleName" );
-//            setColumnNames( "fk", "BUYERID", "BuyerID" );
-//            setColumnNames( "fk", "BUYERNAME", "BuyerName" );
+            setColumnNames( "dtl", "ID", "ID" );
+            setColumnNames( "dtl", "TANGGAL", "Tanggal" );
+            setColumnNames( "dtl", "AUDITDATE", "Audit Date" );
+            setColumnNames( "dtl", "AUDITUSER", "Audit User" );
+            
+             setDefaultOrder( "ID" );
+
        
 
             // load data

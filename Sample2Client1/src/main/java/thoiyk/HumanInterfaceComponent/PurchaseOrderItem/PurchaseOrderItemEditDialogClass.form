@@ -95,7 +95,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="client_address1" min="-2" pref="124" max="-2" attributes="0"/>
+                          <Component id="LblQtyNeeded" min="-2" pref="124" max="-2" attributes="0"/>
                           <Component id="client_address2" min="-2" pref="124" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="itemIDLbl" min="-2" pref="50" max="-2" attributes="0"/>
@@ -140,7 +140,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="client_address1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="LblQtyNeeded" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="32" max="32767" attributes="0"/>
@@ -179,7 +179,7 @@
                 <Property name="name" type="java.lang.String" value="ID" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="client_address1">
+            <Component class="javax.swing.JTextField" name="LblQtyNeeded">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="0"/>

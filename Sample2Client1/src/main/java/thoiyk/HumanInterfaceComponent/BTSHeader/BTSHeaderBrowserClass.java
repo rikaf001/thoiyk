@@ -21,9 +21,10 @@ import javax.swing.*;
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
-import ProblemDomainComponent.pr_newClass;
+import ProblemDomainComponent.BTSHeaderClass;
 
 
 public class BTSHeaderBrowserClass 
@@ -46,7 +47,7 @@ extends KDataBrowserBaseClass {
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    pr_newClass.class,
+                    BTSHeaderClass.class,
                     BTSHeaderEditDialogClass.class
             );  
             
@@ -84,10 +85,18 @@ extends KDataBrowserBaseClass {
             setColumnNames( "pr", "NOBC", "NoBC" );
             setColumnNames( "pr", "TGLBC", "TglBC" );
        
-
+            setDefaultOrder( "ID" );
             // load data
             super.initializeTable();   
             
+            adjustColumnWidth( "ID", 40 );
+            adjustColumnWidth( "Nomor", 80 );
+            adjustColumnWidth( "Tanggal", 80 );
+            adjustColumnWidth( "SupplierName",100 );
+            adjustColumnWidth( "NoBC",80 );
+            adjustColumnWidth( "TglBC",80 );
+            
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
             
     }        
 

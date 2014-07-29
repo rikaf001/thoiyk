@@ -22,6 +22,7 @@ import javax.swing.*;
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import KFramework30.Widgets.DataBrowser.TableCellRenderers.ImageCellRendererClass;
 
 // system
 import ProblemDomainComponent.accessoriesClass;
@@ -65,7 +66,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " acs.id, act.NAMA TYPE, sup.nama SUPPLIER, acs.KODE, acs.UKURAN, acs.COLOUR, acs.DESCRIPTION ",
+                " acs.id, act.NAMA TYPE, acs.image,sup.nama SUPPLIER, acs.KODE, acs.UKURAN, acs.COLOUR, acs.DESCRIPTION ",
                 
                 // 2 tablas and joins                                             
                 " ACCESSORIES acs   " +
@@ -81,7 +82,7 @@ extends KDataBrowserBaseClass {
             setColumnNames( "acs", "ID", "ID" );
             //setColumnNames( "acs", "ACCESSORIESTYPEID", "TypeID" );
             setColumnNames( "act", "TYPE", "TypeName" );                                           
-            //setColumnNames( "acs", "SUPPLIERID", "SupplierID" );
+            setColumnNames( "acs", "IMAGE", "Pic" );
             setColumnNames( "acs", "SUPPLIER", "SupplierName" );
             setColumnNames( "acs", "KODE", "Code" );
             setColumnNames( "acs", "UKURAN", "Size" );
@@ -90,7 +91,7 @@ extends KDataBrowserBaseClass {
             //setColumnNames( "acs", "QTY", "Qty" );
             setDefaultOrder( "  ID " );
 
-          //  setRowsHeight( 150 );
+            setRowsHeight( 150 );
             
             // load data
             super.initializeTable();   
@@ -104,14 +105,14 @@ extends KDataBrowserBaseClass {
             adjustColumnWidth( "Code", 50 );
             adjustColumnWidth( "Size", 50 );
             adjustColumnWidth( "Colour", 50 );
-            adjustColumnWidth( "Description", 100 );
+            adjustColumnWidth( "Description", 200 );
             //adjustColumnWidth( "Qty", 50 );
             //adjustColumnType( "Cost", BROWSER_COLUMN_TYPE_CURRENCY );            
             //adjustColumnFont(  "Cost",  new Font( "arial", Font.BOLD, 10  ) );             
             //adjustColumnForegroundColor( "Cost", Color.BLUE  );
-            
-            //adjustColumnWidth( "IMAGE", 210 );  
-            //setColumnRenderer( "IMAGE", new ImageCellRendererClass( tableModel, log, 120, 150 ) );
+            //adjustColumnType( "Cost", BROWSER_COLUMN_TYPE_CURRENCY ); 
+            adjustColumnWidth( "Pic", 210 );  
+            setColumnRenderer( "Pic", new ImageCellRendererClass( tableModel, log, 120, 150 ) );
             
     }        
 

@@ -62,7 +62,7 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " fk.ID, fk.prno, fk.ok, fk.reject, fk.total, fk.tanggal, fk.stylename, fk.buyerid, fk.buyername ",
+                " fk.ID, fk.prno,fk.stylename, fk.tanggal, fk.stylename, fk.buyerid, fk.buyername ",
                 
                 // 2 tablas and joins                                             
                 " FORMPACKING_HDR fk   " ,
@@ -71,7 +71,7 @@ extends KDataBrowserBaseClass {
                 "ID" 
                                                                                              
                     );   
-
+/*
      
             setColumnNames( "fk", "ID", "ID" );
             setColumnNames( "fk", "PRNO", "PRNo" );
@@ -83,7 +83,7 @@ extends KDataBrowserBaseClass {
             setColumnNames( "fk", "REJECT", "Reject" );
             setColumnNames( "fk", "TOTAL", "Total" );
        
-
+*/
             // load data
             super.initializeTable();   
             

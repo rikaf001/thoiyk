@@ -24,6 +24,8 @@ import KFramework30.Base.*;
 import KFramework30.Widgets.DataBrowser.KBrowserDataWriterInterface;
 import KFramework30.Widgets.DataBrowser.cellRenderingHookInterface;
 import KFramework30.Widgets.DataBrowser.recordClass;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_DATE;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
 import ProblemDomainComponent.BTSDetailClass;
@@ -101,10 +103,12 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "bts.id,poi.category,poi.itemname,bts.itemqty,uta.nama itemunit, RETRIEVE_BKS_PRNO(bts.itemid) pr_no, RETRIEVE_BKS_STYLE(bts.itemid) style, RETRIEVE_BKS_NO(bts.itemid) no_bks,RETRIEVE_BKS_TGL(bts.itemid) tgl_bks ",    
+                        "bts.id,poi.category,poi.itemname,bts.actualqty,uta.nama itemunit, RETRIEVE_BTS_PRNO(bts.itemid) pr_no, RETRIEVE_BTS_STYLE(bts.itemid) style, bks_hdr.nomor no_bks,bks_hdr.tanggal tgl_bks ",    
 
                         // 2 tables and joins                                                
                         " bts_dtl bts " +
+                        " left join bts_hdr hdr on bts.hdrid=hdr.id " +
+                        " left join bks_hdr on hdr.poid = bks_hdr.id " +
                         "left join v_po_item poi on bts.itemid=poi.id " +
                         "left join unittype uta on bts.itemunitid=uta.id " +
                         "left join unittype utb on bts.actualunitid=utb.id " ,
@@ -118,18 +122,16 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     throw new KExceptionClass( "Data base type not recognized " + configuration.getField("databaseType"), null );
                 }
                 
-/*                setColumnNames( "pi", "ID", "ID" );             
-                setColumnNames( "pi", "HDRID", "HDRID" );
-                setColumnNames( "pi", "ITEMID", "ItemID" );             
-                setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
-                setColumnNames( "pi", "ITEMUNITID", "ItemUnitID" );
-                setColumnNames( "pi", "ACTUALQTY", "ActualQTY" );
-                setColumnNames( "pi", "ACTUALUNITID", "ActualUnitID" );
-                setColumnNames( "pi", "CREATEDBY", "CreatedBy" );
-                setColumnNames( "pi", "DATECREATED", "DateCreated" );
-                setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
-                setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-*/                  
+                setColumnNames( "pi", "ID", "ID" );             
+                setColumnNames( "pi", "CATEGORY", "Category" );
+                setColumnNames( "pi", "ITEMNAME", "ItemName" );             
+                setColumnNames( "pi", "ACTUALQTY", "ActualQty" );
+                setColumnNames( "pi", "ITEMUNIT", "ItemUnit" );
+                setColumnNames( "pi", "PR_NO", "PRNo" );
+                setColumnNames( "pi", "STYLE", "Style" );
+                setColumnNames( "pi", "NO_BKS", "NoBKS" );
+                setColumnNames( "pi", "TGL_BKS", "TglBKS" );
+                 
                 // replace criteria
                 setDefaultCriteria( " hdrid = ? " );               
                 bindDefaultParameter1( ":hdrid",  parentID  );     
@@ -143,10 +145,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
-                          "bts.id,poi.category,poi.itemname,bts.itemqty,uta.nama itemunit, RETRIEVE_BKS_PRNO(bts.itemid) pr_no, RETRIEVE_BKS_STYLE(bts.itemid) style, RETRIEVE_BKS_NO(bts.itemid) no_bks,RETRIEVE_BKS_TGL(bts.itemid) tgl_bks  ",    
+                        // 1 fields                    
+                        "bts.id,poi.category,poi.itemname,bts.actualqty,uta.nama itemunit, RETRIEVE_BTS_PRNO(bts.itemid) pr_no, RETRIEVE_BTS_STYLE(bts.itemid) style, bks_hdr.nomor no_bks,bks_hdr.tanggal tgl_bks ",    
 
                         // 2 tables and joins                                                
                         " bts_dtl bts " +
+                       " left join bts_hdr hdr on bts.hdrid=hdr.id " +
+                        " left join bks_hdr on hdr.poid = bks_hdr.id " +
                         "left join v_po_item poi on bts.itemid=poi.id " +
                         "left join unittype uta on bts.itemunitid=uta.id " +
                         "left join unittype utb on bts.actualunitid=utb.id " ,
@@ -162,24 +167,34 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
                 // FOR ALL INVOICES
                 
-  /*              setColumnNames( "pi", "ID", "ID" );             
-                setColumnNames( "pi", "HDRID", "HDRID" );
-                setColumnNames( "pi", "ITEMID", "ItemID" );             
-                setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
-                setColumnNames( "pi", "ITEMUNITID", "ItemUnitID" );
-                setColumnNames( "pi", "ACTUALQTY", "ActualQTY" );
-                setColumnNames( "pi", "ACTUALUNITID", "ActualUnitID" );
-                setColumnNames( "pi", "CREATEDBY", "CreatedBy" );
-                setColumnNames( "pi", "DATECREATED", "DateCreated" );
-                setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
-                setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-    */            
+                setColumnNames( "pi", "ID", "ID" );             
+                setColumnNames( "pi", "CATEGORY", "Category" );
+                setColumnNames( "pi", "ITEMNAME", "ItemName" );             
+                setColumnNames( "pi", "ACTUALQTY", "ActualQty" );
+                setColumnNames( "pi", "ITEMUNIT", "ItemUnit" );
+                setColumnNames( "pi", "PR_NO", "PRNo" );
+                setColumnNames( "pi", "STYLE", "Style" );
+                setColumnNames( "pi", "NO_BKS", "NoBKS" );
+                setColumnNames( "pi", "TGL_BKS", "TglBKS" );         
             }
 
-            setDefaultOrder( "itemid" );
+            setDefaultOrder( "ID" );
                                 
             
-            super.initializeTable();             
+            super.initializeTable();          
+            
+            adjustColumnWidth( "ID", 60 );
+            adjustColumnWidth( "Category", 100 );
+            adjustColumnWidth( "ItemName", 200 );
+            adjustColumnWidth( "ActualQty", 100 );
+            adjustColumnWidth( "ItemUnit", 100 );
+            adjustColumnWidth( "PRNo",100 );
+            adjustColumnWidth( "Style", 100 );
+            adjustColumnWidth( "NoBKS", 100 );
+            adjustColumnWidth( "TglBKS", 100 );
+            
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
+            adjustColumnType("TglBKS",BROWSER_COLUMN_TYPE_DATE);
 
             if( mode == POITEM_BY_PO ){                        
                 

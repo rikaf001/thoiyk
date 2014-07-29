@@ -21,9 +21,10 @@ import javax.swing.*;
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
-import ProblemDomainComponent.pr_newClass;
+import ProblemDomainComponent.SummaryRepCuttingHdrClass;
 
 
 public class SummaryRepCuttingHdrBrowserClass 
@@ -46,7 +47,7 @@ extends KDataBrowserBaseClass {
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    pr_newClass.class,
+                    SummaryRepCuttingHdrClass.class,
                     SummaryRepCuttingHdrEditDialogClass.class
             );  
             
@@ -62,7 +63,7 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " src.ID, src.prno, src.buyername, src.material, src.stylename,src.suppliername ",
+                " src.ID, src.prdate, src.prno, src.buyername, src.material, src.stylename,src.suppliername ",
                 
                 // 2 tablas and joins                                             
                 " V_SUMMARYREPCUTTING src   "   
@@ -74,17 +75,28 @@ extends KDataBrowserBaseClass {
                     );   
 
      
-    /*        setColumnNames( "fk", "ID", "ID" );
-            setColumnNames( "fk", "PRNO", "PRNo" );
-            setColumnNames( "fk", "TANGGAL", "Tanggal" );
-            setColumnNames( "fk", "STYLENAME", "StyleName" );
-            setColumnNames( "fk", "BUYERID", "BuyerID" );
-            setColumnNames( "fk", "BUYERNAME", "BuyerName" );
-      */ 
+            setColumnNames( "src", "ID", "ID" );
+            setColumnNames( "src", "PRDATE", "PR Date" );
+            setColumnNames( "src", "PRNO", "PR No" );
+            setColumnNames( "src", "BUYERNAME", "Buyer Name" );
+            setColumnNames( "src", "MATERIAL", "Material" );
+            setColumnNames( "src", "STYLENAME", "Style Name" );
+            setColumnNames( "src", "SUPPLIERNAME", "Supplier Name" );
+            
+            setDefaultOrder( "ID" );
 
             // load data
             super.initializeTable();   
-            
+                        
+            adjustColumnWidth( "ID", 40 );
+            adjustColumnWidth( "PR Date", 100 );
+            adjustColumnWidth( "PR No", 120 );
+            adjustColumnWidth( "Style Name", 100 );
+            adjustColumnWidth( "Material", 100 );
+            adjustColumnWidth( "Buyer Name", 200 );
+            adjustColumnWidth( "Supplier Name", 200 );
+     
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );     
             
     }        
 

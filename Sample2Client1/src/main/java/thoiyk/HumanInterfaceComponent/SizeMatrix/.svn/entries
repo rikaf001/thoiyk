@@ -1,0 +1,63 @@
+10
+
+dir
+0
+https://svn.code.sf.net/p/k-framework/code/trunk/Sample2Client1/src/main/java/thoiyk/HumanInterfaceComponent/SizeMatrix
+https://svn.code.sf.net/p/k-framework/code
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5af50125-c909-4175-a8d9-2fb2f3153ed6
+
+SizeMatrixBrowserClass.java
+file
+
+
+
+add
+
+SizeMatrixEditDialogClass.form
+file
+
+
+
+add
+
+SizeMatrixEditDialogClass.java
+file
+
+
+
+add
+
+SizeMatrixFrameClass.form
+file
+
+
+
+add
+
+SizeMatrixFrameClass.java
+file
+
+
+
+add
+

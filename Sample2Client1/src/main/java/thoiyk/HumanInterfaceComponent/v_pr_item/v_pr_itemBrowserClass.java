@@ -55,7 +55,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " ID, CATEGORY, NAMA ",
+                " ID, SUBCATEGORY, NAMA ",
                 
                 // 2 tablas and joins                                             
                 " v_pr_item vsri",
@@ -67,7 +67,7 @@ extends KDataBrowserBaseClass {
 
             // define column settings
             setColumnNames( "vsri", "ID", "ID" );
-            setColumnNames( "vsri", "CATEGORY", "Category" );
+            setColumnNames( "vsri", "SUBCATEGORY", "SubCategory" );
             setColumnNames( "vsri", "NAMA", "Nama" );
             
             // load data

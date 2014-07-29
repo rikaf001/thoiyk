@@ -193,7 +193,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ItemID"/>
+            <Property name="text" type="java.lang.String" value="Select Item"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTelp">
@@ -201,7 +201,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ItemQty"/>
+            <Property name="text" type="java.lang.String" value="Qty Item"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="qtyLabel">
@@ -217,7 +217,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ItemUnitID"/>
+            <Property name="text" type="java.lang.String" value="Unit Item"/>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
         </Component>
@@ -226,7 +226,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ActualQty"/>
+            <Property name="text" type="java.lang.String" value="Qty Actual"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="toleranceLabel">
@@ -264,7 +264,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ActualUnitID"/>
+            <Property name="text" type="java.lang.String" value="Unit Actual"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="LblItemID">
@@ -285,7 +285,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="AuditDate"/>
+            <Property name="text" type="java.lang.String" value="Audit Date"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="createdbyLbl">
@@ -306,7 +306,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="10" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="AuditUser"/>
+            <Property name="text" type="java.lang.String" value="Audit User"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="LblAuditUser">

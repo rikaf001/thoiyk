@@ -50,7 +50,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Properties;
 import java.util.Vector;
-import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderEditDialogClass;
+import thoiyk.HumanInterfaceComponent.ReceivedOrder.outstandingorderEditDialogClass;
 
 
 
@@ -141,11 +141,11 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "sri", "ID", "ID" );             
                 //setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" ); 
-                setColumnNames( "sri", "QTY", "Qty" ); 
+                setColumnNames( "vsri", "ITEMNAME", "Description" ); 
+                setColumnNames( "sri", "QTY", "QtyOrder" ); 
                 setColumnNames( "ut", "UNIT", "Unit" ); 
-                setColumnNames( "sri", "COMP", "Comp" ); 
-                setColumnNames( "sri", "TOLERANCE", "Toleransi" ); 
+                setColumnNames( "sri", "COMP", "Cons" ); 
+                setColumnNames( "sri", "TOLERANCE", "Tolerance" ); 
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
                 setDefaultCriteria( " samplerecordid = ? " );               
                 bindDefaultParameter1( ":samperecordid",  parentID  );     
@@ -177,10 +177,10 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 setColumnNames( "sri", "ID", "ID" );             
 //                setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" ); 
-                setColumnNames( "sri", "QTY", "Qty" );  
+                setColumnNames( "vsri", "ITEMNAME", "Description" ); 
+                setColumnNames( "sri", "QTY", "QtyOrder" );  
                 setColumnNames( "ut", "UNIT", "Unit" ); 
-                setColumnNames( "sri", "COMP", "Comp" );  
+                setColumnNames( "sri", "COMP", "Cons" );  
                 setColumnNames( "sri", "TOLERANCE", "Tolerance" );  
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
 
@@ -195,7 +195,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
             adjustColumnWidth( "ID", 50 );
   //          adjustColumnWidth( "ItemID", 50 );
             adjustColumnWidth( "Category", 150 );
-            adjustColumnWidth( "ItemName", 200 );
+            adjustColumnWidth( "Description", 200 );
             
             if( mode == SRITEM_BY_SR ){                        
                 

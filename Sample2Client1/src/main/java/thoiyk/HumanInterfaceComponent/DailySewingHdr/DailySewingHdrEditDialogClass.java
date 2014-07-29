@@ -35,24 +35,29 @@ import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.DailySewingHdrClass;
 import ProblemDomainComponent.buyerClass;
 import ProblemDomainComponent.ProdRecClass;
+import java.awt.Dimension;
 //import ProblemDomainComponent.FormSewingTypeClass;
 import java.awt.Font;
 import java.awt.print.PageFormat;
 import java.io.File;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Locale;
+import javax.swing.JDialog;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JRViewer;
 import net.sf.jasperreports.view.JasperViewer;
 import thoiyk.HumanInterfaceComponent.DailySewingDtl.DailySewingDtlBrowserClass;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
 import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;
 
 
@@ -221,7 +226,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         issuedbyLbl = new javax.swing.JLabel();
-        lblID = new javax.swing.JLabel();
+        LblHdrID = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         LblAuditUser = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -302,9 +307,9 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         issuedbyLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         issuedbyLbl.setName("AuditDate"); // NOI18N
 
-        lblID.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        lblID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        lblID.setName("ID"); // NOI18N
+        LblHdrID.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        LblHdrID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        LblHdrID.setName("ID"); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel10.setText("AuditUser");
@@ -361,7 +366,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(75, 75, 75)
-                                .add(lblID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 127, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(LblHdrID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 127, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap(28, Short.MAX_VALUE)
                                 .add(jLabel4)
@@ -392,7 +397,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                         .add(10, 10, 10)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
                             .add(idLbl)
-                            .add(lblID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(LblHdrID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jDateChooser1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -637,27 +642,32 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     }//GEN-LAST:event_newButtonActionPerformed
 
     private void printGraphButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printGraphButton2ActionPerformed
-       
+        
         try 
         {
+            
             Map<String, Object> parameters = new HashMap<String, Object>();
-            Integer hdrID = Integer.parseInt(lblID.getText());
+            Integer hdrID = Integer.parseInt(LblHdrID.getText());
             parameters.put("hdrid", hdrID);
-            
-            //Class.forName("oracle.jdbc.OracleDriver") ;
-            File file = new File("src/main/java/thoiyk/HumanInterfaceComponent/DailySewingHdr/dailySewing.jrxml");
-            JasperDesign jasperDesign = JRXmlLoader.load(file);
-            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
-           Connection jdbcConnection = DriverManager.getConnection(configuration.getField( "jasper_jdbc" ), "sample", "sample");
+            Connection jdbcConnection = DriverManager.getConnection(configuration.getField( "jasper_jdbc" ), "sample", "sample");            
+            JasperReport jasperReport = (JasperReport)JRLoader.loadObject(new URL(configuration.getField( "jasper_url" )+"report/dailySewing.jasper"));              
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,parameters,jdbcConnection);
-            JasperViewer.viewReport(jasperPrint,false);
-            
-                           
-        }
+             
+            JDialog jv = new JDialog();
+            jv.setModal(true);
+            jv.setMinimumSize(new Dimension(700,600));
+            jv.setLocation(300,100);
+            jv.getContentPane().add(new JRViewer(jasperPrint));
+            jv.validate();
+            jv.pack();
+            jv.setVisible(true);
+          
+            }
          catch( Exception error	){
             log.log( this, KMetaUtilsClass.getStackTrace( error ) );
             KMetaUtilsClass.showErrorMessageFromException( this, error );
-        }
+        }        
+            
             
     }//GEN-LAST:event_printGraphButton2ActionPerformed
     
@@ -665,6 +675,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JButton CancelButton;
     private javax.swing.JToolBar DesktopToolbar;
     private javax.swing.JLabel LblAuditUser;
+    private javax.swing.JLabel LblHdrID;
     private javax.swing.JTable POItemBrowserJTable;
     private javax.swing.JButton applyButton;
     private javax.swing.JButton deleteButton;
@@ -684,7 +695,6 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
-    private javax.swing.JLabel lblID;
     private javax.swing.JButton newButton;
     private javax.swing.JButton okButton;
     private javax.swing.JButton printButton;

@@ -169,7 +169,7 @@
                                   </Group>
                                   <Component id="prnoLbl" alignment="0" max="32767" attributes="0"/>
                                   <Component id="stylenameLbl" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="client_id6" max="32767" attributes="0"/>
+                                  <Component id="LblHdrID" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace pref="19" max="32767" attributes="0"/>
                               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -187,7 +187,7 @@
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="2" attributes="0">
                                   <Component id="idLbl" alignment="2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="client_id6" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="LblHdrID" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="2" attributes="0">
@@ -285,7 +285,7 @@
                 <Property name="name" type="java.lang.String" value="AuditDate" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="client_id6">
+            <Component class="javax.swing.JLabel" name="LblHdrID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="10" style="0"/>

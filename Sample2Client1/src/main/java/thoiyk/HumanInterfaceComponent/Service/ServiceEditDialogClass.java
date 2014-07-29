@@ -107,15 +107,15 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         client_id2 = new javax.swing.JLabel();
-        client_address1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cbAccType = new javax.swing.JComboBox();
         client_address4 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         system_user_mask = new javax.swing.JLabel();
         okButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
-        topLabel = new javax.swing.JLabel();
         client_id1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -128,7 +128,7 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Service", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 3, 10))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Service", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 3, 10))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -141,9 +141,6 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         client_id2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         client_id2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         client_id2.setName("ID"); // NOI18N
-
-        client_address1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        client_address1.setName("Description"); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel10.setText("Description");
@@ -162,6 +159,11 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         jLabel13.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel13.setText("Name");
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setName("Description"); // NOI18N
+        jScrollPane1.setViewportView(jTextArea1);
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -169,17 +171,17 @@ implements  KDialogInterface, KDialogEventCallbackInterface
             .add(jPanel1Layout.createSequentialGroup()
                 .add(10, 10, 10)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel1)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel8)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel13)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel10))
-                .add(6, 6, 6)
+                    .add(jLabel1)
+                    .add(jLabel8)
+                    .add(jLabel13)
+                    .add(jLabel10))
+                .add(4, 4, 4)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(client_id2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(cbAccType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(client_address4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 179, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(client_address1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 301, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .add(cbAccType, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(client_address4)
+                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -197,13 +199,17 @@ implements  KDialogInterface, KDialogEventCallbackInterface
                     .add(jLabel13)
                     .add(client_address4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
-                    .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(client_address1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(0, 0, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .add(0, 0, Short.MAX_VALUE)
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
-        jPanel1.setBounds(0, 60, 410, 140);
+        jPanel1.setBounds(0, 0, 410, 200);
         jLayeredPane1.add(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jPanel1.getAccessibleContext().setAccessibleName("Accessories");
 
@@ -231,13 +237,6 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         });
         CancelButton.setBounds(430, 100, 80, 20);
         jLayeredPane1.add(CancelButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        topLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        topLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/topBar.jpg"))); // NOI18N
-        topLabel.setMaximumSize(new java.awt.Dimension(100, 44));
-        topLabel.setMinimumSize(new java.awt.Dimension(100, 44));
-        topLabel.setBounds(0, -3, 680, 650);
-        jLayeredPane1.add(topLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         client_id1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_id1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -297,7 +296,6 @@ implements  KDialogInterface, KDialogEventCallbackInterface
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton;
     private javax.swing.JComboBox cbAccType;
-    private javax.swing.JTextField client_address1;
     private javax.swing.JTextField client_address4;
     private javax.swing.JLabel client_id1;
     private javax.swing.JLabel client_id2;
@@ -307,9 +305,10 @@ implements  KDialogInterface, KDialogEventCallbackInterface
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton okButton;
     private javax.swing.JLabel system_user_mask;
-    private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 
     

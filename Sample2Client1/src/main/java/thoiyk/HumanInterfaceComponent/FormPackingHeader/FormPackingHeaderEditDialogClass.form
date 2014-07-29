@@ -38,7 +38,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-              <Component id="jLayeredPane1" min="-2" pref="395" max="-2" attributes="0"/>
+              <Component id="jLayeredPane1" min="-2" pref="430" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="DesktopToolbar" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -109,7 +109,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Form Finishing">
+                <TitledBorder title="Form Packing List Actual">
                   <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder title="Form Packing">
                       <Font PropertyName="font" name="Dialog" size="10" style="3"/>
@@ -125,7 +125,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-              <JLayeredPaneConstraints x="0" y="50" width="470" height="340" layer="0" position="-1"/>
+              <JLayeredPaneConstraints x="0" y="50" width="470" height="370" layer="0" position="-1"/>
             </Constraint>
           </Constraints>
 
@@ -133,25 +133,28 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="idLbl" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel18" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTelp3" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTelp4" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTelp5" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel10" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="idLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel18" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTelp3" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTelp4" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTelp5" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel10" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblTelp6" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="buyernameLbl3" alignment="0" max="32767" attributes="0"/>
-                          <Component id="buyernameLbl2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="buyernameLbl1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="LblAtn" alignment="0" max="32767" attributes="0"/>
+                          <Component id="LblDescription" alignment="0" max="32767" attributes="0"/>
+                          <Component id="LblNegara" alignment="0" max="32767" attributes="0"/>
                           <Component id="prnoLbl" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="pridLbl" min="-2" pref="179" max="-2" attributes="0"/>
@@ -160,9 +163,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="LblBuyerID" min="-2" pref="53" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="LblBuyerName" max="32767" attributes="0"/>
                           </Group>
                           <Component id="client_id6" alignment="0" min="-2" pref="251" max="-2" attributes="0"/>
@@ -170,6 +171,7 @@
                           <Component id="stylenameLbl" alignment="0" max="32767" attributes="0"/>
                           <Component id="issuedbyLbl" alignment="1" max="32767" attributes="0"/>
                           <Component id="LblAuditUser" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jTextField8" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -214,25 +216,29 @@
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="jLabel18" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="LblBuyerID" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="LblBuyerName" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="lblTelp3" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="buyernameLbl1" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="LblNegara" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="lblTelp4" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="buyernameLbl2" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="LblDescription" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="lblTelp5" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="buyernameLbl3" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="LblAtn" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblTelp6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="jLabel8" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="issuedbyLbl" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
@@ -414,7 +420,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="10" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="OK"/>
+                <Property name="text" type="java.lang.String" value="Country"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTelp4">
@@ -422,7 +428,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="10" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Reject"/>
+                <Property name="text" type="java.lang.String" value="Description"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTelp5">
@@ -430,10 +436,10 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="10" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Total"/>
+                <Property name="text" type="java.lang.String" value="Attn"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="buyernameLbl1">
+            <Component class="javax.swing.JLabel" name="LblNegara">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="0"/>
@@ -443,10 +449,10 @@
                     <EtchetBorder/>
                   </Border>
                 </Property>
-                <Property name="name" type="java.lang.String" value="OK" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="Negara" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="buyernameLbl2">
+            <Component class="javax.swing.JLabel" name="LblDescription">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="0"/>
@@ -456,10 +462,10 @@
                     <EtchetBorder/>
                   </Border>
                 </Property>
-                <Property name="name" type="java.lang.String" value="Reject" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="Description" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="buyernameLbl3">
+            <Component class="javax.swing.JLabel" name="LblAtn">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="0"/>
@@ -469,7 +475,7 @@
                     <EtchetBorder/>
                   </Border>
                 </Property>
-                <Property name="name" type="java.lang.String" value="Total" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="Atn" noResource="true"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="LblBuyerID">
@@ -484,17 +490,6 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="BuyerID" noResource="true"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Verdana" size="10" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="..."/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="LblBuyerName">
               <Properties>
@@ -581,6 +576,19 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="lblTelp6">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="PO"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField8">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="PO" noResource="true"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JLabel" name="topLabel">

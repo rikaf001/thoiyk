@@ -21,6 +21,7 @@ import javax.swing.*;
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
 import ProblemDomainComponent.pr_newClass;
@@ -62,7 +63,7 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " fk.ID, fk.prno, fk.tanggal, fk.stylename, fk.buyerid, fk.buyername ",
+                " fk.ID, fk.prno, fk.tanggal, fk.stylename,fk.buyername ",
                 
                 // 2 tablas and joins                                             
                 " cuttingdailyrep_hdr fk   " ,
@@ -76,15 +77,21 @@ extends KDataBrowserBaseClass {
             setColumnNames( "fk", "ID", "ID" );
             setColumnNames( "fk", "PRNO", "PRNo" );
             setColumnNames( "fk", "TANGGAL", "Tanggal" );
-            setColumnNames( "fk", "STYLENAME", "StyleName" );
-            setColumnNames( "fk", "BUYERID", "BuyerID" );
-            setColumnNames( "fk", "BUYERNAME", "BuyerName" );
-       
+            setColumnNames( "fk", "STYLENAME", "Style Name" );
+            setColumnNames( "fk", "BUYERNAME", "Buyer Name" );
+                   
+            setDefaultOrder( "ID" );
 
             // load data
             super.initializeTable();   
             
-            
+            adjustColumnWidth( "ID", 40 );
+            adjustColumnWidth( "PRNo", 80 );
+            adjustColumnWidth( "Tanggal", 80 );
+            adjustColumnWidth( "Style Name", 100 );
+            adjustColumnWidth( "Buyer Name", 200 );
+     
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );     
     }        
 
 

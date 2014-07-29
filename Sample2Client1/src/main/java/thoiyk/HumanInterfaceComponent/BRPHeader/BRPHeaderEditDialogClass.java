@@ -38,10 +38,21 @@ import ProblemDomainComponent.BRPHeaderClass;
 import ProblemDomainComponent.BRPHeaderClass;
 import ProblemDomainComponent.ServiceTypeClass;
 import ProblemDomainComponent.v_PenerimaClass;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.print.PageFormat;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.text.DateFormat;
-import thoiyk.HumanInterfaceComponent.BKBHeader.BKBHeaderBrowserClass;
+import java.util.HashMap;
+import javax.swing.JDialog;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JRViewer;
+import thoiyk.HumanInterfaceComponent.BKBHeader.BKBHeaderBRPBrowserClass;
 //import thoiyk.HumanInterfaceComponent.ProductOutHeader.ProductOutHeaderBrowserClass;
 import thoiyk.HumanInterfaceComponent.BRPDetail.BRPDetailBrowserClass;
 
@@ -217,16 +228,16 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         issuedbyLbl = new javax.swing.JLabel();
-        client_id6 = new javax.swing.JLabel();
+        LblHdrID = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         LblAuditUser = new javax.swing.JLabel();
-        Supplier_Text04Edit = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         printGraphButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         cbPemberi = new javax.swing.JComboBox();
+        LblHdrID1 = new javax.swing.JLabel();
         topLabel = new javax.swing.JLabel();
         bkbidLbl = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -304,9 +315,9 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         issuedbyLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         issuedbyLbl.setName("AuditDate"); // NOI18N
 
-        client_id6.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        client_id6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        client_id6.setName("ID"); // NOI18N
+        LblHdrID.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        LblHdrID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        LblHdrID.setName("ID"); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel10.setText("AuditUser");
@@ -314,9 +325,6 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         LblAuditUser.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         LblAuditUser.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         LblAuditUser.setName("AuditUser"); // NOI18N
-
-        Supplier_Text04Edit.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        Supplier_Text04Edit.setName("Nomor"); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel3.setText("Nomor");
@@ -383,6 +391,10 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
             }
         });
 
+        LblHdrID1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        LblHdrID1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        LblHdrID1.setName("Nomor"); // NOI18N
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -398,15 +410,15 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel10))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(client_id6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(Supplier_Text04Edit)
-                    .add(jDateChooser1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                    .add(LblHdrID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(issuedbyLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 169, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(LblAuditUser, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 169, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(LblHdrID1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jDateChooser1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                     .add(cbPemberi, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -414,17 +426,16 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
                             .add(idLbl)
-                            .add(client_id6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(LblHdrID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jLabel3)
-                                    .add(Supplier_Text04Edit, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabel4))
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel3)
+                            .add(LblHdrID1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel4)
                             .add(jDateChooser1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
@@ -677,262 +688,32 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
     private void printGraphButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printGraphButton1ActionPerformed
         
-            try{
+             
+        try 
+        {
+            
+            Map<String, Object> parameters = new HashMap<String, Object>();
+            Integer hdrID = Integer.parseInt(LblHdrID.getText());
+            parameters.put("BRPId", hdrID);
+            Connection jdbcConnection = DriverManager.getConnection(configuration.getField( "jasper_jdbc" ), "sample", "sample");            
+            JasperReport jasperReport = (JasperReport)JRLoader.loadObject(new URL(configuration.getField( "jasper_url" )+"report/BRP.jasper"));              
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,parameters,jdbcConnection);
+             
+            JDialog jv = new JDialog();
+            jv.setModal(true);
+            jv.setMinimumSize(new Dimension(700,600));
+            jv.setLocation(300,100);
+            jv.getContentPane().add(new JRViewer(jasperPrint));
+            jv.validate();
+            jv.pack();
+            jv.setVisible(true);
           
-            log.log( this, "Printing Bukti Return Pabrik" );
-            persistentObjectManagerClass persistentObjectManager = 
-                    new persistentObjectManagerClass( configuration, log );             
-
-            //materialize the sdg
-         //   BTBHeadersamplerecordClassClass po = new BRPHeaderClass();
-         //   po = (BRPHeaderClass) persistentObjectManager.copy4( sdg_id, ASHURSampleDeliveryGroupClass.class );  
-
-            persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
-            BRPHeaderClass BRPHdr = ( BRPHeaderClass ) POM.copy4( ((BRPHeaderClass)KDialogController.getCurrentObjectDisplayed()).getID(), BRPHeaderClass.class );
-            
-            //materialize Product In Type
-            //persistentObjectManagerClass POMBRPHdrType = new persistentObjectManagerClass(configuration, log);
-            //BTBTypeClass BRPHdrType = ( BTBTypeClass ) POMBRPHdrType.copy4( BRPHdr.getTypeID(), BTBTypeClass.class );
-
-            //materialize Supplier
-            //persistentObjectManagerClass POMSupp = new persistentObjectManagerClass(configuration, log);
-            //supplierClass Supp = ( supplierClass ) POMSupp.copy4( BRPHdr.getSupplierID(), supplierClass.class );
-
-            //BTBHeaderTermClass poterm = new BTBHeaderTermClass();
-            //poterm = (BTBHeaderTermClass) persistentObjectManager.copy4( po.getTermPaymentID(), BTBHeaderTermClass.class );  
-
-            //materialize Penerima
-            persistentObjectManagerClass POMPenerima = new persistentObjectManagerClass(configuration, log);
-            v_PenerimaClass Penerima = ( v_PenerimaClass ) POMPenerima.copy4( BRPHdr.getPenerimaID(), v_PenerimaClass.class );
-
-            //materialize tipe service
-//            persistentObjectManagerClass POMService = new persistentObjectManagerClass(configuration, log);
-//           ServiceTypeClass Service = ( ServiceTypeClass ) POMService.copy4( BRPHdr.getServiceTypeID(), ServiceTypeClass.class );
-
-          //KMetaUtilsClass.showMessage(this,po.getSupplier_Text01() );
-            
-            // ---------------------------------------------------------------------------------------
-            //Header section
-            KPrintSectionClass headerSection = new KPrintSectionClass(configuration, log, 520, 140);           
-
-            // Header: Address "Mount Holly"
-            headerSection.setFont( new Font( "arial", Font.PLAIN,                        8) ); 
-//            headerSection.printText("Kframework Municipal Utilities Authority ",   350, 40 );
-//            headerSection.printText("(Certification Number:1234)",              350, 50 );
-//            headerSection.printText("300 Saturn Road, PO BOX 486",                350, 60 );
-//            headerSection.printText("Mount Everest KA 08060",                         350, 70 );
-//            headerSection.printText("Phone 609-123-1223  Fax: 609-123-1234",        350, 80 );
-//            headerSection.printText("Email: vmaxxed@users.sourceforge.net",                        350, 90 );
-//            
-            headerSection.setFont( new Font( "arial", Font.PLAIN,                       12) );
-            headerSection.printText("BUKTI RETURN PABRIK",          170, 100 );
-            headerSection.printLine(170,114,307,114);            
-//            headerSection.setFont( new Font( "arial", Font.PLAIN,                        10) );
-//            headerSection.printText("Date:",                                          0, 120 );
-//            headerSection.printText( KMetaUtilsClass.time(),                          70, 120 );
-//            headerSection.printText("Summary #: ",                                  350, 120 );
-//            headerSection.printText(Long.toString(po.getID()),                                 405, 120 );
-   
-
-            // ---------------------------------------------------------------------------------------
-            
-            // Address section
-//            KPrintSectionClass addressSection = new KPrintSectionClass(configuration, log, 520, 130 );                 
-//            addressSection.setFont( new Font( "arial", Font.BOLD, 10) );
-//            addressSection.printText("PO No:",                                         0, 20 );
-//            addressSection.printText(po.getNomor(),                                    0, 30 );
-//            addressSection.printText("Ship To:",                               350, 20 );
-//            addressSection.printText("Ship To:",                               350, 20 );
-   
-            KPrintSectionClass leftTopSection = new KPrintSectionClass(configuration, log, 520, 130 );                 
-  /*          leftTopSection.setFont( new Font( "arial", Font.PLAIN, 10) );
-            leftTopSection.printText("PO No",                                         0, 20 );
-            leftTopSection.printText(po.getNomor(),                                   40, 20 );
-            leftTopSection.printText("Date",                                          0, 30 );
-            leftTopSection.printText(po.getPODate().toLocaleString(),                 40, 30 );
-            leftTopSection.printText("To",                                            0, 40 );
-            leftTopSection.printText(po.getSupplier_Text01(),                         40, 40 );
-            leftTopSection.printText(po.getSupplier_Text02(),                         40, 50 );
-            leftTopSection.printText(po.getSupplier_Text03(),                         40, 60 );
-            leftTopSection.printText("Atn.",                                           0, 70 );
-            leftTopSection.printText(po.getSupplier_Text04(),                         40, 70 );
-            
-*/
-           // KPrintSectionClass rightTopSection = new KPrintSectionClass(configuration, log, 520, 130 );                 
-            leftTopSection.setFont( new Font( "arial", Font.PLAIN, 10) );
-//            leftTopSection.printText("Ship To",                                         320, 20 );
-            leftTopSection.printText(configuration.getField("per_nama").toString(),0, 20 );
-            leftTopSection.printText(configuration.getField("per_alamat1").toString(),0, 30 );
-            leftTopSection.printText(configuration.getField("per_alamat2").toString(),0, 40 );
-//            leftTopSection.printText("NPWP",                                            0, 50 );
-//            leftTopSection.printText("123.123.123.123",                                 0, 60 );
-            leftTopSection.printText("Phone: "+configuration.getField("per_telp").toString()+" Fax: "+configuration.getField("per_fax").toString(),0, 50 );
-//            leftTopSection.printText("Atn.",                                            320, 70 );
-//            leftTopSection.printText("Arum / Ibu Lisye",                                360, 70 );
-
-            
-            // informasi BTB
-            leftTopSection.printText("NO",                              300, 20 );
-            leftTopSection.printText(BRPHdr.getNomor(),                 360, 20 );
-            leftTopSection.printText("Tgl",                             300, 30 );
-            leftTopSection.printText(BRPHdr.getTanggal().toString(),    360, 30 );
-            leftTopSection.printText("Pemberi",                        300, 40 );
-            leftTopSection.printText(Penerima.getName(),          360, 40 );
-            
-            // get a KePrintJob
-            KPrintJobClass printJob = 
-                new KPrintJobClass( configuration, log ); 
-
-            PageFormat fixedPageFormat = ( PageFormat ) KPrintJobClass.defaultPageFormat.clone();
-            fixedPageFormat.setOrientation( PageFormat.PORTRAIT );
-            
-            printJob.useSpecificPrintingDefaults(
-                KPrintJobClass.defaultPrinterJob, fixedPageFormat );   
-
-            // start job 
-            printJob.setDefaultFont( new Font("Arial", Font.PLAIN, 10) );  
-            printJob.setLeftMargin( 50 );
-            printJob.setBottomMargin( 40 );
-           
-            printJob.startPrintJob();   //pop up system print dialog box            
-            
-            printJob.SetHeader( headerSection, KPrintJobClass.CENTER );                         
-            
-            printJob.printSection( leftTopSection, KPrintJobClass.CENTER );
-            //printJob.printSection( rightTopSection, KPrintJobClass.CENTER );
-            
-            
-           dbTransactionClientClass dbTransaction = 
-           new dbTransactionClientClass( configuration, log ); 
-
-            dbTransaction.prepare(
-              "select rownum, brb.id, pr.prno,pri.category,pri.nama itemname,brb.itemqty qty,ut.nama unit,RETRIEVE_BTB_NO(brb.itemid) no_btb,brb.keterangan "+ 
-                    " from brp_dtl brb " +
-                    "left join v_pr_item pri on brb.itemid=pri.id " +
-                    "left join brp_hdr hdr on brb.hdrid=hdr.id " +
-                    "left join bkb_hdr bkb on hdr.bkbid=bkb.id " +
-                    "left join productionrecord pr on bkb.prid=pr.id " +
-                    "left join unittype ut on brb.itemunitid=ut.id " +
-                " where brb.hdrid=:v1 "
-                    );
-
-                dbTransaction.bind( ":v1",  BRPHdr.getID() );                  
-                dbTransaction.executeQuery( 0, 655356 );
-                // --------------------------------------------------------    
-                
-               //to get analysis info
-                dbTransactionClientClass AnalysisdbTransaction = 
-                    new dbTransactionClientClass( configuration, log ); 
-                    
-                //for each sample, print sample and get analysis info
-                //while( dbTransaction.fetch() ) { 
-                    //print out sample info
-                    KPrintSectionClass poitem = new KPrintSectionClass(configuration, log, 520, 90 ); 
-                    
-                    poitem.setFont( new Font( "arial", Font.PLAIN, 8) );
-                    
-                    //String valueBuffer = (String) dbTransaction.getProperty( "SAMPLE_LAB_ID" );   
-                    // setup the DB printer
-                    KPrintDataTableClass dbTable = new KPrintDataTableClass( 
-                               configuration, log, 
-                               dbTransaction, printJob, 0, 655356 );
-                
-                    //print anasys info
-                    dbTable.addField( "ROWNUM","No",10 );
-                    dbTable.addField( "PRNO","PRNo",30 );
-                    dbTable.addField( "ITEMNAME", "Name",200 );
-                    dbTable.addField( "QTY","Qty",30 );
-                    dbTable.addField( "UNIT","Unit",50 );        
-                    dbTable.addField( "NO_BTB","BTBNo",50 );        
-                    dbTable.addField( "KETERANGAN","Keterangan",100 );        
-                    
-                    
-                    
-                    //dbTable.addSummary( "CLIENT PRICE", KPrintDataTableClass.SUM, "Total: $", null, 2 );
-                    
-                    
-                    dbTable.setPrintingField( "No" );
-                    dbTable.setPrintingField( "PRNo" );
-                    dbTable.setPrintingField( "Name" );
-                    dbTable.setPrintingField( "Qty" );
-                    dbTable.setPrintingField( "Unit" );
-                    dbTable.setPrintingField( "BTBNo" );
-                    dbTable.setPrintingField( "Keterangan" );
-                    
-                   
-                    
-                    
-                    // summary
-                    //dbTable.addSummary( "Price", KPrintDataTableClass.SUM, null, null, 2 );
-                  
-                    
-                    dbTable.setHorizontalSpace( 10 );
-                    printJob.setDefaultFont( new Font("Arial", Font.PLAIN, 8) ); 
-                    int oldLeftMargin = printJob.getLeftMargin();
-                    printJob.setLeftMargin(40);              
-                    dbTable.setHeadersMode( dbTable.HEADER_TYPE_INLINEHEADER );                 
-                    
-                    dbTable.print();
-                    
-                    printJob.setDefaultFont( new Font("Arial", Font.PLAIN, 10) );
-                    printJob.setLeftMargin(oldLeftMargin);
-                   
-                    //Footer section
-                    KPrintSectionClass footerSection = new KPrintSectionClass(configuration, log, 520, 140);           
-                    
-                    footerSection.setFont( new Font( "arial", Font.PLAIN, 10) );
-                    
-                    footerSection.printText("Penerima",         0, 10 );
-                    footerSection.printText(BRPHdr.getAuditUser(),0, 30 );
-                    footerSection.printText(DateFormat.getDateTimeInstance().format(BRPHdr.getAuditDate()),0, 40 );
-                    footerSection.printText("Kontrol Kualitas", 200, 10 );
-                    footerSection.printText("Mengetahui",       400, 10 );
-                    
-//                    footerSection.printText("Term Payment",                                   0, 120 );
-//                    footerSection.printText(poterm.getName(),                                   100, 120 );
-//                    footerSection.printText("Delivery Date",                                  0, 130 );
-//                    footerSection.printText(po.getDeliveryDate().toLocaleString(),                 100, 130 );
-//                    footerSection.printText("Note",                                            0, 140 );
-                    
-                   
-                    
-                    printJob.printSection( footerSection, KPrintJobClass.CENTER );
-                    //footerSection.printText(po.get,                         40, 40 );
-
-                    //footerSection.printText("Note",                                            0, 40 );
-
-                    
-//                    
-//                    String valueBuffer = (String) dbTransaction.getProperty( "ITEMNAME" ); 
-//                    poitem.printText(valueBuffer,                                    65, 10 );
-//                    valueBuffer = (String) dbTransaction.getProperty( "KODE" ); 
-//                    poitem.printText(valueBuffer,                                    265, 10 );
-//                    valueBuffer = (String) dbTransaction.getProperty( "PRID" ); 
-//                    poitem.printText(valueBuffer,                                     365, 10 );
-//                    valueBuffer = (String) dbTransaction.getProperty( "QTY" ); 
-//                    poitem.printText(valueBuffer,                                     415, 10 );
-//                    
-//                     printJob.printSection( poitem, KPrintJobClass.CENTER );
-                    
-                    
-
-                //}
-   
-                    
-                                
-            printJob.submitPrintJob();  
-
-
-            
+            }
+         catch( Exception error	){
+            log.log( this, KMetaUtilsClass.getStackTrace( error ) );
+            KMetaUtilsClass.showErrorMessageFromException( this, error );
         }
-
-        catch( Exception error	){
             
-                // log error
-                log.log( this, KMetaUtilsClass.getStackTrace( error ) );		                
-                // show error message
-                KMetaUtilsClass.showErrorMessageFromException( this,  error );
-        } 
                     
             
 
@@ -941,7 +722,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try
         {
-            BKBHeaderBrowserClass POBrowser = new BKBHeaderBrowserClass(
+            BKBHeaderBRPBrowserClass POBrowser = new BKBHeaderBRPBrowserClass(
                 configuration, log, new javax.swing.JTable(), this );
 
             POBrowser.initializeTable();
@@ -987,12 +768,12 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JButton CancelButton;
     private javax.swing.JToolBar DesktopToolbar;
     private javax.swing.JLabel LblAuditUser;
+    private javax.swing.JLabel LblHdrID;
+    private javax.swing.JLabel LblHdrID1;
     private javax.swing.JTable POItemBrowserJTable;
-    private javax.swing.JTextField Supplier_Text04Edit;
     private javax.swing.JButton applyButton;
     private javax.swing.JLabel bkbidLbl;
     private javax.swing.JComboBox cbPemberi;
-    private javax.swing.JLabel client_id6;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton filterButton;

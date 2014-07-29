@@ -39,7 +39,7 @@ import ProblemDomainComponent.ProdRecClass;
 import java.awt.Font;
 import java.awt.print.PageFormat;
 import thoiyk.HumanInterfaceComponent.FormSewingDetail.FormSewingDetailBrowserClass;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
 import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;
 
 
@@ -983,7 +983,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try
         {
-            ProdRecBrowserClass PRBrowser = new ProdRecBrowserClass(
+            ProdRecBrowserSimpleClass PRBrowser = new ProdRecBrowserSimpleClass(
                 configuration, log, new javax.swing.JTable(), this );
 
             PRBrowser.initializeTable();

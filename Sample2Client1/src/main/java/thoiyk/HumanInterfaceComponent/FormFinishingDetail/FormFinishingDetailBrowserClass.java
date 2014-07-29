@@ -101,7 +101,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "  dtl.id, dtl.warna, dtl.ok, dtl.reject, dtl.total  ",    
+                        "  dtl.id,dtl.buyername,dtl.prno,dtl.style,dtl.qtyorder,dtl.qtyexport,dtl.qtycutting,dtl.qtysendwash,dtl.lbr,dtl.qtyreceivewash,dtl.qtybutton  ",    
 
                         // 2 tables and joins                                                
                         " formfinishing_dtl dtl " ,

@@ -101,7 +101,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "brb.id, pr.prno,pri.category,pri.nama itemname,brb.itemqty qty,ut.nama unit,RETRIEVE_BTB_NO(brb.itemid) no_btb,brb.keterangan ",    
+                        "brb.id, pri.category,pri.nama itemname,brb.itemqty qty,ut.nama unit,pr.prno,RETRIEVE_BRP_BKB_NO(brb.itemid) no_bkb,brb.keterangan ",    
 
                         // 2 tables and joins                                                
                         " brp_dtl brb " +
@@ -145,8 +145,9 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
+         
                         // 1 fields                    
-                        "brb.id, pr.prno,pri.category,pri.nama itemname,brb.itemqty qty,ut.nama unit,RETRIEVE_BTB_NO(brb.itemid) no_btb,brb.keterangan ",    
+                        "brb.id, pri.category,pri.nama itemname,brb.itemqty qty,ut.nama unit,pr.prno,RETRIEVE_BRP_BKB_NO(brb.itemid) no_bkb,brb.keterangan ",    
 
                         // 2 tables and joins                                                
                         " brp_dtl brb " +

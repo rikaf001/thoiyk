@@ -35,6 +35,8 @@ import ProblemDomainComponent.systemUserClass;
 import java.awt.Cursor;
 import java.util.Map;
 import java.util.Vector;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 public class systemUserEditDialogClass extends javax.swing.JDialog implements KDialogInterface
 {
@@ -45,8 +47,9 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
 
     // has
     private KDialogControllerClass          KDialogController;
-
-        
+    private KNonVisibleBinaryWidgetClass    signatureRawDataContainer;
+    
+    private KBusinessObjectClass businessObject;        
     
     public systemUserEditDialogClass( 
         KConfigurationClass configurationParam,
@@ -59,7 +62,7 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
         super( parentWindow, java.awt.Dialog.ModalityType.DOCUMENT_MODAL );
         initComponents ();
         pack ();
-        setSize( 630, 340 );
+        //setSize( 630, 340 );
         KMetaUtilsClass.centerInScreen( this );
         
         // uses
@@ -71,6 +74,13 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
                 configurationParam, logParam, 
                 systemUserClass.class, 
                 this, getContentPane() );  
+                
+        signatureRawDataContainer = new KNonVisibleBinaryWidgetClass(
+                   configurationParam, logParam, "Signature", 1024 /* 1Kb start size, its dynamic dont worry */ );
+        
+        KDialogController.addNonVisibleWidget( signatureRawDataContainer );
+        //KDialogController.setEventCallback(  this);
+
 
     }
 
@@ -78,7 +88,8 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
     
     private void checkSecurity()
     throws KExceptionClass
-    {               
+    {        
+        
     }    
     
     //--------------------------------------------------------------------------
@@ -87,6 +98,15 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
         // start
         KDialogController.initializeDialog( dialogModeParam, ID, foreingKeys );        
         checkSecurity();  
+              
+        //systemUserClass sysUser = (systemUserClass) businessObject;
+       // (systemUserClass)KDialogController.getCurrentObjectDisplayed()).getSignature()
+        
+        if( ((systemUserClass)KDialogController.getCurrentObjectDisplayed()).getSignature() != null ){
+            
+            pictureLabel.setIcon(  new ImageIcon( ((systemUserClass)KDialogController.getCurrentObjectDisplayed()).getSignature()   ) );            
+        }
+
     }
 
     public void setupTables(long businessObjectOID) throws KExceptionClass {
@@ -123,10 +143,12 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
         jLabel10 = new javax.swing.JLabel();
         system_user_role1 = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
-        system_user_mask = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        pictureLabel = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         okButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
-        applyButton = new javax.swing.JButton();
         textLabel = new javax.swing.JLabel();
         topLabel = new javax.swing.JLabel();
 
@@ -142,45 +164,45 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "User Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 10))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("Id ");
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel8.setText("Full Name");
 
-        system_user_name.setFont(new java.awt.Font("Arial", 0, 10));
+        system_user_name.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         system_user_name.setName("system_user_name"); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel4.setText("Password");
 
         system_user_password.setName("system_user_password"); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel5.setText("Is Admin ?");
 
-        system_user_phone.setFont(new java.awt.Font("Arial", 0, 10));
+        system_user_phone.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         system_user_phone.setName("system_user_phone"); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel6.setText("Email");
 
-        system_user_email.setFont(new java.awt.Font("Arial", 0, 10));
+        system_user_email.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         system_user_email.setName("system_user_email"); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel7.setText("Notes");
 
-        system_user_notes.setFont(new java.awt.Font("Arial", 0, 10));
+        system_user_notes.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         system_user_notes.setName("system_user_notes"); // NOI18N
         jScrollPane1.setViewportView(system_user_notes);
 
-        system_user_id1.setFont(new java.awt.Font("Arial", 0, 10));
+        system_user_id1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         system_user_id1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         system_user_id1.setName("system_user_id"); // NOI18N
 
-        system_user_role.setFont(new java.awt.Font("Arial", 0, 10));
+        system_user_role.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         system_user_role.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Y", "N" }));
         system_user_role.setName("system_user_isadmin"); // NOI18N
         system_user_role.addActionListener(new java.awt.event.ActionListener() {
@@ -189,17 +211,17 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel9.setText("Phone");
 
-        system_user_name1.setFont(new java.awt.Font("Arial", 0, 10));
+        system_user_name1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         system_user_name1.setName("system_user_fullname"); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel10.setText("User Name");
 
-        system_user_role1.setFont(new java.awt.Font("Arial", 0, 10));
-        system_user_role1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Default", "Admin" }));
+        system_user_role1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        system_user_role1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Default", "Admin", "Finance" }));
         system_user_role1.setName("system_user_role"); // NOI18N
         system_user_role1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,8 +229,26 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Arial", 0, 10));
-        jLabel11.setText("Rol");
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jLabel11.setText("Role");
+
+        jButton1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jButton1.setText("Load Signature");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1loadImage(evt);
+            }
+        });
+
+        pictureLabel.setToolTipText("");
+        pictureLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pictureLabel.setName("prodPictureXXX"); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel12.setText("image best fit size:  164 x 60  px");
+
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jLabel13.setText("Notes");
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -216,48 +256,56 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .add(4, 4, 4)
-                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(300, 300, 300)
-                .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(4, 4, 4)
-                .add(system_user_id1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(300, 300, 300)
-                .add(system_user_role, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(4, 4, 4)
-                .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 110, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(40, 40, 40)
-                .add(jLabel8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 110, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(90, 90, 90)
-                .add(jLabel11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(4, 4, 4)
-                .add(system_user_name, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(10, 10, 10)
-                .add(system_user_name1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 190, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(10, 10, 10)
-                .add(system_user_role1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(4, 4, 4)
-                .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(70, 70, 70)
-                .add(jLabel6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(130, 130, 130)
-                .add(jLabel9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(4, 4, 4)
-                .add(system_user_password, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(10, 10, 10)
-                .add(system_user_email, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 190, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(10, 10, 10)
-                .add(system_user_phone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(4, 4, 4)
-                .add(jLabel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(4, 4, 4)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 490, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(300, 300, 300)
+                        .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(system_user_id1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(300, 300, 300)
+                        .add(system_user_role, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 110, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(40, 40, 40)
+                        .add(jLabel8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 110, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(90, 90, 90)
+                        .add(jLabel11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(system_user_name, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(10, 10, 10)
+                        .add(system_user_name1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 190, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(10, 10, 10)
+                        .add(system_user_role1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(70, 70, 70)
+                        .add(jLabel6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(130, 130, 130)
+                        .add(jLabel9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(system_user_password, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(10, 10, 10)
+                        .add(system_user_email, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 190, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(10, 10, 10)
+                        .add(system_user_phone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(jLabel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(0, 0, Short.MAX_VALUE))
+                            .add(jScrollPane1))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jLabel12)
+                            .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 119, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(pictureLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 174, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                .add(0, 4, Short.MAX_VALUE))
+            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jPanel1Layout.createSequentialGroup()
+                    .add(14, 14, 14)
+                    .add(jLabel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(434, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -286,21 +334,32 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
                     .add(system_user_password, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(system_user_email, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(system_user_phone, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(10, 10, 10)
-                .add(jLabel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(10, 10, 10)
+                        .add(jLabel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(0, 0, 0)
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 119, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(pictureLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabel12)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jButton1)))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jPanel1Layout.createSequentialGroup()
+                    .add(124, 124, 124)
+                    .add(jLabel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(120, Short.MAX_VALUE)))
         );
 
-        jPanel1.setBounds(0, 60, 510, 280);
+        jPanel1.setBounds(0, 60, 510, 270);
         jLayeredPane1.add(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        system_user_mask.setText("jLabel2");
-        system_user_mask.setName("system_user_mask"); // NOI18N
-        system_user_mask.setBounds(14, 373, 122, 25);
-        jLayeredPane1.add(system_user_mask, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        okButton.setFont(new java.awt.Font("Arial", 0, 10));
-        okButton.setText("Aceptar");
+        okButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        okButton.setText("Accept");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
@@ -309,8 +368,8 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
         okButton.setBounds(530, 80, 80, 20);
         jLayeredPane1.add(okButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        CancelButton.setFont(new java.awt.Font("Arial", 0, 10));
-        CancelButton.setText("Cancelar");
+        CancelButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        CancelButton.setText("Cancel");
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CloseButtonActionPerformed(evt);
@@ -319,25 +378,13 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
         CancelButton.setBounds(530, 110, 80, 20);
         jLayeredPane1.add(CancelButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        applyButton.setFont(new java.awt.Font("Arial", 0, 10));
-        applyButton.setText("Aplicar"); // NOI18N
-        applyButton.setName("applyButton"); // NOI18N
-        applyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                applyButtonActionPerformed(evt);
-            }
-        });
-        applyButton.setBounds(530, 140, 80, 20);
-        jLayeredPane1.add(applyButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        textLabel.setFont(new java.awt.Font("Rockwell", 0, 24));
+        textLabel.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
         textLabel.setForeground(new java.awt.Color(255, 255, 255));
         textLabel.setText("Edit User");
         textLabel.setBounds(10, 0, 270, 50);
         jLayeredPane1.add(textLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        topLabel.setFont(new java.awt.Font("Dialog", 1, 24));
-        topLabel.setForeground(java.awt.Color.white);
+        topLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         topLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/topBar.jpg"))); // NOI18N
         topLabel.setMaximumSize(new java.awt.Dimension(100, 44));
         topLabel.setMinimumSize(new java.awt.Dimension(100, 44));
@@ -352,7 +399,7 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 340, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 333, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -389,21 +436,6 @@ public class systemUserEditDialogClass extends javax.swing.JDialog implements KD
 
 
 
-private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyButtonActionPerformed
-        try {
-
-            KDialogController.OKbuttonActionPerformed();
-                            
-        } catch (KExceptionClass error ) {
-
-              // log error
-              log.log( this, KMetaUtilsClass.getStackTrace( error ) );
-
-              // show error message
-              KMetaUtilsClass.showErrorMessageFromException(  getOwner(), error );               
-        } 
-}//GEN-LAST:event_applyButtonActionPerformed
-
 
 private void system_user_roleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_system_user_roleActionPerformed
 
@@ -412,14 +444,67 @@ private void system_user_roleActionPerformed(java.awt.event.ActionEvent evt) {//
 private void system_user_role1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_system_user_role1ActionPerformed
    
 }//GEN-LAST:event_system_user_role1ActionPerformed
+
+    private void jButton1loadImage(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1loadImage
+
+        loadPic();
+    }//GEN-LAST:event_jButton1loadImage
    
+public void loadPic(){
+    
+    try{
+        
+          JFileChooser chooser = new JFileChooser();
+          int returnVal = chooser.showOpenDialog( this );
+          
+          if( returnVal == JFileChooser.APPROVE_OPTION ){
+       
+              // get file path
+              String fileChosen = chooser.getSelectedFile().getAbsolutePath();
+                               
+              KBinaryDataClass fileContents = new KBinaryDataClass();
+              
+              fileContents.loadFromDisk( fileChosen );
+              
+              // replace image
+              log.log( this, "Replace Image...." + fileContents.length() );   
+              
+              pictureLabel.setIcon( new ImageIcon( fileContents.data() ) );              
+              pictureLabel.repaint();
+              
+              signatureRawDataContainer.setBinaryData( fileContents.data() );
+          }
+          
+        } catch (KExceptionClass error ) {
+
+              // log error
+              log.log( this, KMetaUtilsClass.getStackTrace( error ) );
+
+              // show error message
+              KMetaUtilsClass.showErrorMessageFromException( getOwner(), error );               
+        }           
+}
+
+
+  // @Override
+    private void postEdit(KBusinessObjectClass businessObject) throws Exception {
+        
+        systemUserClass sysUser = (systemUserClass) businessObject;
+        
+        if( sysUser.getSignature() != null ){
+            
+            pictureLabel.setIcon(  new ImageIcon( sysUser.getSignature() ) );            
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton;
-    private javax.swing.JButton applyButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -430,9 +515,9 @@ private void system_user_role1ActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton okButton;
+    private javax.swing.JLabel pictureLabel;
     private javax.swing.JTextField system_user_email;
     private javax.swing.JLabel system_user_id1;
-    private javax.swing.JLabel system_user_mask;
     private javax.swing.JTextField system_user_name;
     private javax.swing.JTextField system_user_name1;
     private javax.swing.JTextArea system_user_notes;
@@ -443,6 +528,7 @@ private void system_user_role1ActionPerformed(java.awt.event.ActionEvent evt) {/
     private javax.swing.JLabel textLabel;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
+
 
 
 

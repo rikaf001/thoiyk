@@ -24,6 +24,8 @@ import KFramework30.Base.*;
 import KFramework30.Widgets.DataBrowser.KBrowserDataWriterInterface;
 import KFramework30.Widgets.DataBrowser.cellRenderingHookInterface;
 import KFramework30.Widgets.DataBrowser.recordClass;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_DATE;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
 import ProblemDomainComponent.BTBDetailClass;
@@ -124,18 +126,17 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     throw new KExceptionClass( "Data base type not recognized " + configuration.getField("databaseType"), null );
                 }
                 
-                /*setColumnNames( "pi", "ID", "ID" );             
-                setColumnNames( "pi", "HDRID", "HDRID" );
-                setColumnNames( "pi", "ITEMID", "ItemID" );             
-                setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
-                setColumnNames( "pi", "ITEMUNITID", "ItemUnitID" );
-                setColumnNames( "pi", "ACTUALQTY", "ActualQTY" );
-                setColumnNames( "pi", "ACTUALUNITID", "ActualUnitID" );
-                setColumnNames( "pi", "CREATEDBY", "CreatedBy" );
-                setColumnNames( "pi", "DATECREATED", "DateCreated" );
-                setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
-                setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-                  */
+                setColumnNames( "btb", "ID", "ID" );             
+                setColumnNames( "btb", "PONO", "PONo" );
+                setColumnNames( "btb", "PRNO", "PRNo" );   
+                setColumnNames( "btb", "STYLE", "Style" );  
+                setColumnNames( "btb", "NAME", "Name" );  
+                setColumnNames( "btb", "ITEMQTY", "Qty Item" );  
+                setColumnNames( "btb", "ITEMUNIT", "Unit Item" );  
+                setColumnNames( "btb", "ACTUALQTY", "Qty Actual" );  
+                setColumnNames( "btb", "ACTUALUNIT", "Unit Actual" ); 
+               
+                 
                 // replace criteria
                 setDefaultCriteria( " hdrid = ? " );               
                 bindDefaultParameter1( ":hdrid",  parentID  );     
@@ -175,24 +176,33 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
                 // FOR ALL INVOICES
                 
-                /*setColumnNames( "pi", "ID", "ID" );             
-                setColumnNames( "pi", "HDRID", "HDRID" );
-                setColumnNames( "pi", "ITEMID", "ItemID" );             
-                setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
-                setColumnNames( "pi", "ITEMUNITID", "ItemUnitID" );
-                setColumnNames( "pi", "ACTUALQTY", "ActualQTY" );
-                setColumnNames( "pi", "ACTUALUNITID", "ActualUnitID" );
-                setColumnNames( "pi", "CREATEDBY", "CreatedBy" );
-                setColumnNames( "pi", "DATECREATED", "DateCreated" );
-                setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
-                setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-                */
+                setColumnNames( "btb", "ID", "ID" );             
+                setColumnNames( "btb", "PONO", "PONo" );
+                setColumnNames( "btb", "PRNO", "PRNo" );   
+                setColumnNames( "btb", "STYLE", "Style" );  
+                setColumnNames( "btb", "NAME", "Name" );  
+                setColumnNames( "btb", "ITEMQTY", "Qty Item" );  
+                setColumnNames( "btb", "ITEMUNIT", "Unit Item" );  
+                setColumnNames( "btb", "ACTUALQTY", "Qty Actual" );  
+                setColumnNames( "btb", "ACTUALUNIT", "Unit Actual" ); 
             }
 
-            setDefaultOrder( "id" );
+            setDefaultOrder( "ID" );
                                 
             
             super.initializeTable();             
+
+            adjustColumnWidth( "ID", 60 );
+            adjustColumnWidth( "PONo", 100 );
+            adjustColumnWidth( "PRNo", 100 );
+            adjustColumnWidth( "Style", 100 );
+            adjustColumnWidth( "Name", 200 );
+            adjustColumnWidth( "Qty Item" , 100 );
+            adjustColumnWidth( "Unit Item",100 );
+            adjustColumnWidth( "Qty Actual", 100 );
+            adjustColumnWidth( "Unit Actual", 100 );
+            
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
 
             if( mode == POITEM_BY_PO ){                        
                 

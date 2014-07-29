@@ -6,7 +6,6 @@
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[100, 100]"/>
     </Property>
-    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="2"/>
@@ -46,7 +45,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-              <Component id="jLayeredPane1" min="-2" pref="357" max="-2" attributes="0"/>
+              <Component id="jLayeredPane1" min="-2" pref="300" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="DesktopToolbar" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -132,7 +131,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-              <JLayeredPaneConstraints x="0" y="60" width="450" height="300" layer="0" position="-1"/>
+              <JLayeredPaneConstraints x="0" y="0" width="450" height="300" layer="0" position="-1"/>
             </Constraint>
           </Constraints>
 
@@ -155,21 +154,27 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jDateChooser1" alignment="0" pref="164" max="32767" attributes="0"/>
-                          <Component id="penerimaCb" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jDateChooser3" alignment="0" pref="164" max="32767" attributes="0"/>
-                          <Component id="jDateChooser4" alignment="0" pref="164" max="32767" attributes="0"/>
-                          <Component id="cbKawasan" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="client_id6" min="-2" pref="59" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jDateChooser1" alignment="0" pref="164" max="32767" attributes="0"/>
+                                  <Component id="penerimaCb" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jDateChooser3" alignment="0" pref="164" max="32767" attributes="0"/>
+                                  <Component id="jDateChooser4" alignment="0" pref="164" max="32767" attributes="0"/>
+                                  <Component id="cbKawasan" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="issuedbyLbl" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="LblAuditUser" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Supplier_Text04Edit" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Supplier_Text04Edit2" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="issuedbyLbl" alignment="0" max="32767" attributes="0"/>
-                          <Component id="LblAuditUser" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Supplier_Text04Edit" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Supplier_Text04Edit2" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="LblHdrID" min="-2" pref="59" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="LblPRNo" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -182,7 +187,8 @@
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="2" attributes="0">
                                   <Component id="idLbl" alignment="2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="client_id6" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="LblHdrID" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="LblPRNo" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="2" attributes="0">
@@ -291,7 +297,7 @@
                 <Property name="name" type="java.lang.String" value="AuditDate" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="client_id6">
+            <Component class="javax.swing.JLabel" name="LblHdrID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="10" style="0"/>
@@ -524,32 +530,21 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbKawasanActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="LblPRNo">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="10" style="0"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                    <EtchetBorder/>
+                  </Border>
+                </Property>
+                <Property name="name" type="java.lang.String" value="ID" noResource="true"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="topLabel">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="24" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" id="white" palette="0" red="ff" type="palette"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" noResource="true" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/resources/topBar.jpg"/>
-            </Property>
-            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[100, 44]"/>
-            </Property>
-            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[100, 44]"/>
-            </Property>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-              <JLayeredPaneConstraints x="0" y="0" width="770" height="640" layer="0" position="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

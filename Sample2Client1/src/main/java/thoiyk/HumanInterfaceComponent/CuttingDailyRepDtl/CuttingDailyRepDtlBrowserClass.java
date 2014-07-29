@@ -100,8 +100,8 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
-              " dtl.id, vsi.category,dtl.itemname bahan,mk.nama marker,dtl.colour,dtl.lxs xs,dtl.ls s,dtl.lm m,dtl.ll l,dtl.lxl xl,dtl.lxxl xxl, " +
-                " dtl.lxxxl xxxl,dtl.ttlqtyratio,dtl.layer,dtl.totalfabricused,dtl.yy " ,
+              " dtl.id, vsi.category,dtl.itemname bahan,mk.nama marker,dtl.colour, " +
+                " dtl.ttlqtyratio,dtl.layer,dtl.totalfabricused,dtl.yy " ,
                 " cuttingdailyrep_dtl dtl " +
                 " left join v_sr_item vsi on dtl.itemid=vsi.id " +
                 " left join marker mk on dtl.markerid=mk.id   " ,
@@ -139,8 +139,8 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
               if( configuration.getField("databaseType").equals( "oracle" )  ){
                     
                     super.initializeSQLQuery(     
-              " dtl.id, vsi.category,dtl.itemname bahan,mk.nama marker,dtl.colour,dtl.lxs xs,dtl.ls s,dtl.lm m,dtl.ll l,dtl.lxl xl,dtl.lxxl xxl, " +
-                " dtl.lxxxl xxxl,dtl.ttlqtyratio,dtl.layer,dtl.totalfabricused,dtl.yy " ,
+              " dtl.id, vsi.category,dtl.itemname bahan,mk.nama marker,dtl.colour, " +
+                " dtl.ttlqtyratio,dtl.layer,dtl.totalfabricused,dtl.yy " ,
                 " cuttingdailyrep_dtl dtl " +
                 " left join v_sr_item vsi on dtl.itemid=vsi.id " +
                 " left join marker mk on dtl.markerid=mk.id   " ,
@@ -156,18 +156,6 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
                 // FOR ALL INVOICES
                 
-  /*              setColumnNames( "pi", "ID", "ID" );             
-                setColumnNames( "pi", "HDRID", "HDRID" );
-                setColumnNames( "pi", "ITEMID", "ItemID" );             
-                setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
-                setColumnNames( "pi", "ITEMUNITID", "ItemUnitID" );
-                setColumnNames( "pi", "ACTUALQTY", "ActualQTY" );
-                setColumnNames( "pi", "ACTUALUNITID", "ActualUnitID" );
-                setColumnNames( "pi", "CREATEDBY", "CreatedBy" );
-                setColumnNames( "pi", "DATECREATED", "DateCreated" );
-                setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
-                setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-    */            
             }
 
             setDefaultOrder( "itemid" );

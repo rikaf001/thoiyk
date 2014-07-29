@@ -33,7 +33,7 @@ import KFramework30.Widgets.KDialogControllerClass;
 import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
 import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.LaporanProduksiHeaderClass;
-import ProblemDomainComponent.outstandingorderClass;
+import ProblemDomainComponent.ReceivedOrderClass;
 import ProblemDomainComponent.ProdRecClass;
 import ProblemDomainComponent.samplerecordClass;
 import ProblemDomainComponent.v_Laprod_SelectClass;
@@ -41,8 +41,8 @@ import ProblemDomainComponent.v_Laprod_SelectClass;
 import java.awt.Font;
 import java.awt.print.PageFormat;
 import thoiyk.HumanInterfaceComponent.LaporanProduksiDetail.LaporanProduksiDetailBrowserClass;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserClass;
-import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderBrowserClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
+import thoiyk.HumanInterfaceComponent.ReceivedOrder.outstandingorderBrowserClass;
 
 
 public class LaporanProduksiHeaderEditDialogClass 

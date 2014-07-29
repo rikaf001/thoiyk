@@ -79,7 +79,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " ID, PRNO, BUYERID,BUYERNAME, CATEGORY, ITEMNAME, QTYNEED",
+                " ID, PRNO, BUYERNAME,SUBCATEGORY, ITEMNAME, QTYNEED",
                 
                 // 2 tablas and joins                                             
                 " v_po_item vpoi"    ,
@@ -93,16 +93,23 @@ extends KDataBrowserBaseClass {
             // define column settings
             setColumnNames( "vpoi", "ID", "ID" );
             setColumnNames( "vpoi", "PRNO", "PRNO" );
-            setColumnNames( "vpoi", "BUYERID", "BuyerID" );
-            setColumnNames( "vpoi", "CATEGORY", "Category" );
-            setColumnNames( "vpoi", "ITEMNAME", "ItemName" );
-            setColumnNames( "vpoi", "QTYNEED", "QtyNeed" );
+            setColumnNames( "vpoi", "BUYERNAME", "Buyer Name" );
+            setColumnNames( "vpoi", "SUBCATEGORY", "SubCategory" );
+            setColumnNames( "vpoi", "ITEMNAME", "Description" );
+            setColumnNames( "vpoi", "QTYNEED", "Qty Need" );
             
+            setDefaultOrder( "itemid" );
             // load data
             super.initializeTable();   
             
-            // some customization
             
+            // some customization
+            adjustColumnWidth( "ID", 60 );
+            adjustColumnWidth( "PRNO", 80 );
+            adjustColumnWidth( "Buyer Name", 100 );        
+            adjustColumnWidth( "SubCategory", 100 );
+            adjustColumnWidth( "Description", 200 );
+             adjustColumnWidth( "Qty Need", 100 );
             
     }        
 

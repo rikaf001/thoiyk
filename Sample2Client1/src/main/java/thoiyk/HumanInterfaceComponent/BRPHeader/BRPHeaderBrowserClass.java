@@ -21,6 +21,7 @@ import javax.swing.*;
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 import ProblemDomainComponent.BRPHeaderClass;
 
 // system
@@ -76,20 +77,22 @@ extends KDataBrowserBaseClass {
                     );   
 
      
-        //    setColumnNames( "pr", "ID", "ID" );
-            //setColumnNames( "pt", "TYPE", "Type" );
-          //  setColumnNames( "pr", "NOMOR", "Nomor" );
-            //setColumnNames( "pr", "TANGGAL", "Tanggal" );
-           // setColumnNames( "sup", "PEMBERINAME", "PemberiName" );
-//            setColumnNames( "pr", "NOSJ", "NoSJ" );
-//            setColumnNames( "pr", "TGLSJ", "TglSJ" );
-           // setColumnNames( "pr", "NOBC", "NoBC" );
-            //setColumnNames( "pr", "TGLBC", "TglBC" );
-       
+            setColumnNames( "pr", "ID", "ID" );
+            setColumnNames( "pr", "TANGGAL", "Tanggal" );
+            setColumnNames( "bkb", "NO_BKB", "BKBNo" );
+            setColumnNames( "pr", "NOMOR", "Nomor" );
 
+       
+            setDefaultOrder( "ID" );
             // load data
             super.initializeTable();   
+             adjustColumnWidth( "ID", 40 );
+            adjustColumnWidth( "Nomor", 80 );
+            adjustColumnWidth( "Tanggal", 80 );
+
+
             
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
             
     }        
 

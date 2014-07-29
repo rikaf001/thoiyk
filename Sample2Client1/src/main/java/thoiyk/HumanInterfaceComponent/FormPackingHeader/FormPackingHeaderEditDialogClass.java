@@ -40,7 +40,7 @@ import ProblemDomainComponent.ProdRecClass;
 import java.awt.Font;
 import java.awt.print.PageFormat;
 import thoiyk.HumanInterfaceComponent.FormPackingDetail.FormPackingDetailBrowserClass;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
 import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;
 
 
@@ -223,14 +223,15 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         lblTelp3 = new javax.swing.JLabel();
         lblTelp4 = new javax.swing.JLabel();
         lblTelp5 = new javax.swing.JLabel();
-        buyernameLbl1 = new javax.swing.JLabel();
-        buyernameLbl2 = new javax.swing.JLabel();
-        buyernameLbl3 = new javax.swing.JLabel();
+        LblNegara = new javax.swing.JLabel();
+        LblDescription = new javax.swing.JLabel();
+        LblAtn = new javax.swing.JLabel();
         LblBuyerID = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         LblBuyerName = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         printGraphButton1 = new javax.swing.JButton();
+        lblTelp6 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
         topLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         POItemBrowserJTable = new javax.swing.JTable();
@@ -288,7 +289,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         jLayeredPane1.add(applyButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Form Packing", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 3, 10)), "Form Finishing", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 3, 10))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Form Packing", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 3, 10)), "Form Packing List Actual", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 3, 10))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
 
         jDateChooser1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -351,37 +352,29 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
         jLabel18.setText("BuyerID");
 
         lblTelp3.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        lblTelp3.setText("OK");
+        lblTelp3.setText("Country");
 
         lblTelp4.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        lblTelp4.setText("Reject");
+        lblTelp4.setText("Description");
 
         lblTelp5.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        lblTelp5.setText("Total");
+        lblTelp5.setText("Attn");
 
-        buyernameLbl1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        buyernameLbl1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        buyernameLbl1.setName("OK"); // NOI18N
+        LblNegara.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        LblNegara.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        LblNegara.setName("Negara"); // NOI18N
 
-        buyernameLbl2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        buyernameLbl2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        buyernameLbl2.setName("Reject"); // NOI18N
+        LblDescription.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        LblDescription.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        LblDescription.setName("Description"); // NOI18N
 
-        buyernameLbl3.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        buyernameLbl3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        buyernameLbl3.setName("Total"); // NOI18N
+        LblAtn.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        LblAtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        LblAtn.setName("Atn"); // NOI18N
 
         LblBuyerID.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         LblBuyerID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         LblBuyerID.setName("BuyerID"); // NOI18N
-
-        jButton1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jButton1.setText("...");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         LblBuyerName.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         LblBuyerName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -425,6 +418,11 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                 .addContainerGap())
         );
 
+        lblTelp6.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        lblTelp6.setText("PO");
+
+        jTextField8.setName("PO"); // NOI18N
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -432,22 +430,24 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, idLbl)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel4)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel3)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel6)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel15)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel18)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp3)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp4)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp5)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel8)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel10))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, idLbl)
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel4)
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel3)
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel6)
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel15)
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel18)
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp3)
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp4)
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp5)
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel8)
+                        .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel10))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp6))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, buyernameLbl3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, buyernameLbl2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, buyernameLbl1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, LblAtn, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, LblDescription, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.LEADING, LblNegara, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, prnoLbl, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
                         .add(pridLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 179, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -455,15 +455,14 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                         .add(jButton2))
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
                         .add(LblBuyerID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(LblBuyerName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .add(org.jdesktop.layout.GroupLayout.LEADING, client_id6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 251, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jDateChooser1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 251, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(org.jdesktop.layout.GroupLayout.LEADING, stylenameLbl, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(issuedbyLbl, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(LblAuditUser, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .add(LblAuditUser, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jTextField8))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -498,21 +497,24 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
                     .add(jLabel18)
                     .add(LblBuyerID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jButton1)
                     .add(LblBuyerName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
                     .add(lblTelp3)
-                    .add(buyernameLbl1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(LblNegara, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
                     .add(lblTelp4)
-                    .add(buyernameLbl2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(LblDescription, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
                     .add(lblTelp5)
-                    .add(buyernameLbl3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, Short.MAX_VALUE)
+                    .add(LblAtn, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(21, 21, 21)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(lblTelp6)
+                    .add(jTextField8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
                     .add(jLabel8)
                     .add(issuedbyLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -523,7 +525,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
                 .addContainerGap())
         );
 
-        jPanel1.setBounds(0, 50, 470, 340);
+        jPanel1.setBounds(0, 50, 470, 370);
         jLayeredPane1.add(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         topLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -686,7 +688,7 @@ implements KDialogInterface, KDialogControllerClass.KDialogEventCallbackInterfac
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(0, 0, 0)
-                .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 395, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 430, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(DesktopToolbar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -754,7 +756,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try
         {
-            ProdRecBrowserClass PRBrowser = new ProdRecBrowserClass(
+            ProdRecBrowserSimpleClass PRBrowser = new ProdRecBrowserSimpleClass(
                 configuration, log, new javax.swing.JTable(), this );
 
             PRBrowser.initializeTable();
@@ -779,16 +781,24 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
                 persistentObjectManagerClass persistentObjectManager =
                 new persistentObjectManagerClass( configuration, log );
-
                 ProdRecClass pr = new ProdRecClass();
-
                 pr = (ProdRecClass) persistentObjectManager.copy4( parentID, ProdRecClass.class );
+
+                // buyer
+                persistentObjectManagerClass POMBuyer =
+                new persistentObjectManagerClass( configuration, log );
+                buyerClass buyer = new buyerClass();
+                buyer = (buyerClass) persistentObjectManager.copy4( pr.getBuyerid(), buyerClass.class );
 
                 pridLbl.setText(Long.toString(pr.getId()));
                 prnoLbl.setText(pr.getPrno());
                 LblBuyerID.setText(Long.toString(pr.getBuyerid()));
                 LblBuyerName.setText(pr.getBuyername());
                 stylenameLbl.setText(pr.getStyle());
+                LblNegara.setText(buyer.getNegara());
+                LblDescription.setText(pr.getDescription());
+                LblAtn.setText(buyer.getContactperson());
+                
 
             }
 
@@ -798,48 +808,6 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             KMetaUtilsClass.showErrorMessageFromException( this, error );
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try
-        {
-            buyerBrowserClass buyerBrowser = new buyerBrowserClass(
-                configuration, log, new javax.swing.JTable(), this );
-
-            buyerBrowser.initializeTable();
-
-            selectDialogClass selector = new selectDialogClass(
-                configuration, log, this, buyerBrowser, "Select Buyer" );
-
-            // dont want to allow this, for example
-            selector.getNewButton().setEnabled(false);
-            selector.getDeleteButton().setEnabled(false);
-            parentID = selector.showDialog();
-
-            if( parentID < 0 )
-            {
-                throw new KExceptionClass( "You must select a Buyer !", null);
-
-            }
-            else
-            {
-
-                // ---------------------------------------------------------------------
-                // display the buyer name
-                persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
-                buyerClass buyer = new buyerClass();
-                buyer = ( buyerClass ) POM.copy4( parentID, buyerClass.class );
-
-                LblBuyerID.setText( Long.toString(buyer.getId()) );
-                LblBuyerName.setText( buyer.getNama() );
-                // ---------------------------------------------------------------------
-            }
-
-        }
-        catch( Exception error	){
-            log.log( this, KMetaUtilsClass.getStackTrace( error ) );
-            KMetaUtilsClass.showErrorMessageFromException( this, error );
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void printGraphButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printGraphButton1ActionPerformed
 
@@ -1084,21 +1052,20 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton;
     private javax.swing.JToolBar DesktopToolbar;
+    private javax.swing.JLabel LblAtn;
     private javax.swing.JLabel LblAuditUser;
     private javax.swing.JLabel LblBuyerID;
     private javax.swing.JLabel LblBuyerName;
+    private javax.swing.JLabel LblDescription;
+    private javax.swing.JLabel LblNegara;
     private javax.swing.JTable POItemBrowserJTable;
     private javax.swing.JButton applyButton;
-    private javax.swing.JLabel buyernameLbl1;
-    private javax.swing.JLabel buyernameLbl2;
-    private javax.swing.JLabel buyernameLbl3;
     private javax.swing.JLabel client_id6;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton filterButton;
     private javax.swing.JLabel idLbl;
     private javax.swing.JLabel issuedbyLbl;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel10;
@@ -1116,9 +1083,12 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lblTelp3;
     private javax.swing.JLabel lblTelp4;
     private javax.swing.JLabel lblTelp5;
+    private javax.swing.JLabel lblTelp6;
     private javax.swing.JButton newButton;
     private javax.swing.JButton okButton;
     private javax.swing.JLabel pridLbl;

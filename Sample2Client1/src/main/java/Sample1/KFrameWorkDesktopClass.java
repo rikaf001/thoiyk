@@ -65,6 +65,8 @@ import thoiyk.HumanInterfaceComponent.MutasiBaku.MutasiBakuFrameClass;
 import thoiyk.HumanInterfaceComponent.MutasiJadi.MutasiJadiFrameClass;
 import thoiyk.HumanInterfaceComponent.MutasiMesin.MutasiMesinFrameClass;
 import thoiyk.HumanInterfaceComponent.MutasiSisa.MutasiSisaFrameClass;
+import thoiyk.HumanInterfaceComponent.OBD.OBDFrameClass;
+import thoiyk.HumanInterfaceComponent.OBDType.OBDTypeFrameClass;
 import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderFrameClass;
 import thoiyk.HumanInterfaceComponent.accessories.accessoriesFrameClass;
 import thoiyk.HumanInterfaceComponent.accessoriestype.accessoriestypeFrameClass;
@@ -74,12 +76,19 @@ import thoiyk.HumanInterfaceComponent.kontak.kontakFrameClass;
 import thoiyk.HumanInterfaceComponent.mesin.mesinFrameClass;
 import thoiyk.HumanInterfaceComponent.mesintype.mesintypeFrameClass;
 import thoiyk.HumanInterfaceComponent.negara.negaraFrameClass;
-import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderFrameClass;
+import thoiyk.HumanInterfaceComponent.ReceivedOrder.outstandingorderFrameClass;
 import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecFrameClass;
 import thoiyk.HumanInterfaceComponent.Service.ServiceFrameClass;
 import thoiyk.HumanInterfaceComponent.ServiceType.ServiceTypeFrameClass;
+import thoiyk.HumanInterfaceComponent.SewingOpBreakDown.SewingOpBreakDownFrameClass;
+import thoiyk.HumanInterfaceComponent.SewingThreadCount.SewingThreadCountFrameClass;
 import thoiyk.HumanInterfaceComponent.SizeColour.SizeColourFrameClass;
+import thoiyk.HumanInterfaceComponent.SizeMatrix.SizeMatrixFrameClass;
+import thoiyk.HumanInterfaceComponent.SizeType.SizeTypeFrameClass;
 import thoiyk.HumanInterfaceComponent.SummaryRepCuttingHdr.SummaryRepCuttingHdrFrameClass;
+import thoiyk.HumanInterfaceComponent.SummaryRepSewingHdr.SummaryRepSewingHdrFrameClass;
+import thoiyk.HumanInterfaceComponent.Thread.ThreadFrameClass;
+import thoiyk.HumanInterfaceComponent.UnitType.UnitTypeFrameClass;
 import thoiyk.HumanInterfaceComponent.inv_PemasukanSisa.inv_PemasukanSisaFrameClass;
 import thoiyk.HumanInterfaceComponent.inv_PengeluaranBaku.inv_PengeluaranBakuFrameClass;
 import thoiyk.HumanInterfaceComponent.inv_PengeluaranSisa.inv_PengeluaranSisaFrameClass;
@@ -145,9 +154,14 @@ implements desktopAccessInterface, ActionListener
         stockItem = new javax.swing.JMenuItem();
         stocktypeItem = new javax.swing.JMenuItem();
         supplierItem = new javax.swing.JMenuItem();
-        SampleRecord = new javax.swing.JMenuItem();
-        SizeItem = new javax.swing.JMenuItem();
         MarkerItem = new javax.swing.JMenuItem();
+        SizeType = new javax.swing.JMenuItem();
+        SizeMatrix = new javax.swing.JMenuItem();
+        Thread = new javax.swing.JMenuItem();
+        OBDType = new javax.swing.JMenuItem();
+        OBD = new javax.swing.JMenuItem();
+        UnitType = new javax.swing.JMenuItem();
+        SampleRecord = new javax.swing.JMenuItem();
         outstandingorderItem = new javax.swing.JMenuItem();
         PRItem = new javax.swing.JMenuItem();
         POItem = new javax.swing.JMenuItem();
@@ -158,21 +172,20 @@ implements desktopAccessInterface, ActionListener
         BKSItem = new javax.swing.JMenuItem();
         BRBItem = new javax.swing.JMenuItem();
         BRSItem = new javax.swing.JMenuItem();
-        Produksi = new javax.swing.JMenu();
-        Cutting = new javax.swing.JMenu();
+        CuttingMenu = new javax.swing.JMenu();
         FabricReqItem = new javax.swing.JMenuItem();
         CuttingDailyItem = new javax.swing.JMenuItem();
         SumaryCuttingItem = new javax.swing.JMenuItem();
-        Sewing = new javax.swing.JMenu();
+        Production = new javax.swing.JMenu();
         DailySewing = new javax.swing.JMenuItem();
-        FormKain = new javax.swing.JMenuItem();
-        FormCutting = new javax.swing.JMenuItem();
-        FormSewing = new javax.swing.JMenuItem();
-        FormWashing = new javax.swing.JMenuItem();
+        SummaryRepSewing = new javax.swing.JMenuItem();
+        SewingOpBreakDown = new javax.swing.JMenuItem();
+        SewingThreadCount = new javax.swing.JMenuItem();
+        FinishingPacking = new javax.swing.JMenu();
         FormFinishing = new javax.swing.JMenuItem();
         FormPacking = new javax.swing.JMenuItem();
+        Shipping = new javax.swing.JMenu();
         FormShipping = new javax.swing.JMenuItem();
-        LaporanProduksi = new javax.swing.JMenuItem();
         LaporanBC = new javax.swing.JMenu();
         PemasukanBaku = new javax.swing.JMenuItem();
         BrngDlmProses = new javax.swing.JMenuItem();
@@ -231,7 +244,7 @@ implements desktopAccessInterface, ActionListener
         StatusBar.setAutoscrolls(true);
         StatusBar.setName("StatusBar"); // NOI18N
 
-        desktopStatusLabel.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
+        desktopStatusLabel.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         desktopStatusLabel.setText("Starting...");
         desktopStatusLabel.setName("desktopStatusLabel"); // NOI18N
 
@@ -259,7 +272,7 @@ implements desktopAccessInterface, ActionListener
         DesktopToolbar.setMaximumSize(new java.awt.Dimension(367, 42));
         DesktopToolbar.setName("DesktopToolbar"); // NOI18N
 
-        newButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
+        newButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/new1.jpg"))); // NOI18N
         newButton.setText("New");
         newButton.setToolTipText("Crea nuevo elemento");
@@ -275,7 +288,7 @@ implements desktopAccessInterface, ActionListener
         newButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(newButton);
 
-        editButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
+        editButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/edit1.jpg"))); // NOI18N
         editButton.setText("Edit");
         editButton.setActionCommand("edit");
@@ -290,7 +303,7 @@ implements desktopAccessInterface, ActionListener
         editButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(editButton);
 
-        deleteButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
+        deleteButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete1.jpg"))); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setActionCommand("delete");
@@ -310,7 +323,7 @@ implements desktopAccessInterface, ActionListener
         jSeparator1.setPreferredSize(new java.awt.Dimension(15, 0));
         DesktopToolbar.add(jSeparator1);
 
-        sortButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
+        sortButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         sortButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/sort1.jpg"))); // NOI18N
         sortButton.setText("Sort");
         sortButton.setActionCommand("sort");
@@ -325,7 +338,7 @@ implements desktopAccessInterface, ActionListener
         sortButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(sortButton);
 
-        filterButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
+        filterButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         filterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/filter1.jpg"))); // NOI18N
         filterButton.setText("Filter");
         filterButton.setActionCommand("filter");
@@ -345,7 +358,7 @@ implements desktopAccessInterface, ActionListener
         jSeparator2.setPreferredSize(new java.awt.Dimension(15, 0));
         DesktopToolbar.add(jSeparator2);
 
-        printButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
+        printButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/print1.jpg"))); // NOI18N
         printButton.setText("Print");
         printButton.setActionCommand("print");
@@ -360,7 +373,7 @@ implements desktopAccessInterface, ActionListener
         printButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(printButton);
 
-        exportButton1.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
+        exportButton1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         exportButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/export1.jpg"))); // NOI18N
         exportButton1.setText("Export");
         exportButton1.setActionCommand("exportcsv");
@@ -380,7 +393,7 @@ implements desktopAccessInterface, ActionListener
         jSeparator3.setPreferredSize(new java.awt.Dimension(15, 0));
         DesktopToolbar.add(jSeparator3);
 
-        refreshButton.setFont(new java.awt.Font("Shruti", 0, 10)); // NOI18N
+        refreshButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/refresh1.jpg"))); // NOI18N
         refreshButton.setText("Refresh");
         refreshButton.setActionCommand("refresh");
@@ -587,25 +600,6 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(supplierItem);
 
-        SampleRecord.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        SampleRecord.setText("Sample Record");
-        SampleRecord.setName("SampleRecord"); // NOI18N
-        SampleRecord.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SampleRecordActionPerformed(evt);
-            }
-        });
-        masterData.add(SampleRecord);
-
-        SizeItem.setText("Size");
-        SizeItem.setName("SizeItem"); // NOI18N
-        SizeItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SizeItemActionPerformed(evt);
-            }
-        });
-        masterData.add(SizeItem);
-
         MarkerItem.setText("Marker");
         MarkerItem.setName("MarkerItem"); // NOI18N
         MarkerItem.addActionListener(new java.awt.event.ActionListener() {
@@ -615,7 +609,71 @@ implements desktopAccessInterface, ActionListener
         });
         masterData.add(MarkerItem);
 
+        SizeType.setText("Size Type");
+        SizeType.setName("SizeType"); // NOI18N
+        SizeType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SizeTypeActionPerformed(evt);
+            }
+        });
+        masterData.add(SizeType);
+
+        SizeMatrix.setText("Sze Matrix");
+        SizeMatrix.setName("SizeMatrix"); // NOI18N
+        SizeMatrix.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SizeMatrixActionPerformed(evt);
+            }
+        });
+        masterData.add(SizeMatrix);
+
+        Thread.setText("Thread");
+        Thread.setName("Thread"); // NOI18N
+        Thread.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ThreadActionPerformed(evt);
+            }
+        });
+        masterData.add(Thread);
+
+        OBDType.setText("OBD Type");
+        OBDType.setName("OBDType"); // NOI18N
+        OBDType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OBDTypeActionPerformed(evt);
+            }
+        });
+        masterData.add(OBDType);
+
+        OBD.setText("OBD");
+        OBD.setName("OBD"); // NOI18N
+        OBD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OBDActionPerformed(evt);
+            }
+        });
+        masterData.add(OBD);
+
+        UnitType.setText("Unit Type");
+        UnitType.setName("UnitType"); // NOI18N
+        UnitType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UnitTypeActionPerformed(evt);
+            }
+        });
+        masterData.add(UnitType);
+
         MainMenu.add(masterData);
+
+        SampleRecord.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        SampleRecord.setText("Sample Record");
+        SampleRecord.setName("SampleRecord"); // NOI18N
+        SampleRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SampleRecordActionPerformed(evt);
+            }
+        });
+        MainMenu.add(SampleRecord);
 
         outstandingorderItem.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         outstandingorderItem.setText("Received Order");
@@ -713,13 +771,11 @@ implements desktopAccessInterface, ActionListener
 
         MainMenu.add(Gudang);
 
-        Produksi.setText("Produksi");
-        Produksi.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        Produksi.setName("Produksi"); // NOI18N
+        CuttingMenu.setText("Cutting");
+        CuttingMenu.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        CuttingMenu.setName("mnCutting"); // NOI18N
 
-        Cutting.setText("Cutting");
-        Cutting.setName("Cutting"); // NOI18N
-
+        FabricReqItem.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         FabricReqItem.setText("Fabric Request");
         FabricReqItem.setName("FabricReqItem"); // NOI18N
         FabricReqItem.addActionListener(new java.awt.event.ActionListener() {
@@ -727,8 +783,9 @@ implements desktopAccessInterface, ActionListener
                 FabricReqItemActionPerformed(evt);
             }
         });
-        Cutting.add(FabricReqItem);
+        CuttingMenu.add(FabricReqItem);
 
+        CuttingDailyItem.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         CuttingDailyItem.setText("Cutting Daily Request");
         CuttingDailyItem.setName("CuttingDailyItem"); // NOI18N
         CuttingDailyItem.addActionListener(new java.awt.event.ActionListener() {
@@ -736,8 +793,9 @@ implements desktopAccessInterface, ActionListener
                 CuttingDailyItemActionPerformed(evt);
             }
         });
-        Cutting.add(CuttingDailyItem);
+        CuttingMenu.add(CuttingDailyItem);
 
+        SumaryCuttingItem.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         SumaryCuttingItem.setText("Summary Report Cutting");
         SumaryCuttingItem.setName("SumaryCuttingItem"); // NOI18N
         SumaryCuttingItem.addActionListener(new java.awt.event.ActionListener() {
@@ -745,13 +803,15 @@ implements desktopAccessInterface, ActionListener
                 SumaryCuttingItemActionPerformed(evt);
             }
         });
-        Cutting.add(SumaryCuttingItem);
+        CuttingMenu.add(SumaryCuttingItem);
 
-        Produksi.add(Cutting);
+        MainMenu.add(CuttingMenu);
 
-        Sewing.setText("Sewing");
-        Sewing.setName("Sewing"); // NOI18N
+        Production.setText("Production");
+        Production.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        Production.setName("Production"); // NOI18N
 
+        DailySewing.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         DailySewing.setText("Daily Sewing");
         DailySewing.setName("DailySewing"); // NOI18N
         DailySewing.addActionListener(new java.awt.event.ActionListener() {
@@ -759,49 +819,43 @@ implements desktopAccessInterface, ActionListener
                 DailySewingActionPerformed(evt);
             }
         });
-        Sewing.add(DailySewing);
+        Production.add(DailySewing);
 
-        Produksi.add(Sewing);
-
-        FormKain.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        FormKain.setText("FormKain");
-        FormKain.setName("FormKain"); // NOI18N
-        FormKain.addActionListener(new java.awt.event.ActionListener() {
+        SummaryRepSewing.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        SummaryRepSewing.setText("Summary Report Sewing");
+        SummaryRepSewing.setName("SummaryRepSewing"); // NOI18N
+        SummaryRepSewing.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FormKainActionPerformed(evt);
+                SummaryRepSewingActionPerformed(evt);
             }
         });
-        Produksi.add(FormKain);
+        Production.add(SummaryRepSewing);
 
-        FormCutting.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        FormCutting.setText("FormCutting");
-        FormCutting.setName("FormCutting"); // NOI18N
-        FormCutting.addActionListener(new java.awt.event.ActionListener() {
+        SewingOpBreakDown.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        SewingOpBreakDown.setText("Sewing Operation BreakDown");
+        SewingOpBreakDown.setName("SewingOpBreakDown"); // NOI18N
+        SewingOpBreakDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FormCuttingActionPerformed(evt);
+                SewingOpBreakDownActionPerformed(evt);
             }
         });
-        Produksi.add(FormCutting);
+        Production.add(SewingOpBreakDown);
 
-        FormSewing.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        FormSewing.setText("FormSewing");
-        FormSewing.setName("FormSewing"); // NOI18N
-        FormSewing.addActionListener(new java.awt.event.ActionListener() {
+        SewingThreadCount.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        SewingThreadCount.setText("Sewing Thread Count");
+        SewingThreadCount.setName("SewingThreadCount"); // NOI18N
+        SewingThreadCount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FormSewingActionPerformed(evt);
+                SewingThreadCountActionPerformed(evt);
             }
         });
-        Produksi.add(FormSewing);
+        Production.add(SewingThreadCount);
 
-        FormWashing.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        FormWashing.setText("FormWashing");
-        FormWashing.setName("FormWashing"); // NOI18N
-        FormWashing.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FormWashingActionPerformed(evt);
-            }
-        });
-        Produksi.add(FormWashing);
+        MainMenu.add(Production);
+
+        FinishingPacking.setText("Fiishing / Packing");
+        FinishingPacking.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        FinishingPacking.setName("FinishingPacking"); // NOI18N
 
         FormFinishing.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         FormFinishing.setText("FormFinishing");
@@ -811,17 +865,22 @@ implements desktopAccessInterface, ActionListener
                 FormFinishingActionPerformed(evt);
             }
         });
-        Produksi.add(FormFinishing);
+        FinishingPacking.add(FormFinishing);
 
-        FormPacking.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        FormPacking.setText("FormPacking");
+        FormPacking.setText("Packing List Actual");
         FormPacking.setName("FormPacking"); // NOI18N
         FormPacking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FormPackingActionPerformed(evt);
             }
         });
-        Produksi.add(FormPacking);
+        FinishingPacking.add(FormPacking);
+
+        MainMenu.add(FinishingPacking);
+
+        Shipping.setText("Packing");
+        Shipping.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        Shipping.setName("Shipping"); // NOI18N
 
         FormShipping.setText("Form Shipping");
         FormShipping.setName("FormShipping"); // NOI18N
@@ -830,19 +889,9 @@ implements desktopAccessInterface, ActionListener
                 FormShippingActionPerformed(evt);
             }
         });
-        Produksi.add(FormShipping);
+        Shipping.add(FormShipping);
 
-        LaporanProduksi.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        LaporanProduksi.setText("Laporan Produksi");
-        LaporanProduksi.setName("LaporanProduksi"); // NOI18N
-        LaporanProduksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LaporanProduksiActionPerformed(evt);
-            }
-        });
-        Produksi.add(LaporanProduksi);
-
-        MainMenu.add(Produksi);
+        MainMenu.add(Shipping);
 
         LaporanBC.setText("Laporan BC");
         LaporanBC.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -1366,33 +1415,9 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
       openInternalFrame( BRSHeaderFrameClass.class, "BRS (Bukti Return Supplier)" );
     }//GEN-LAST:event_BRSItemActionPerformed
 
-    private void FormKainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormKainActionPerformed
-         openInternalFrame( FormKainHeaderFrameClass.class, "Form Kain" );
-    }//GEN-LAST:event_FormKainActionPerformed
-
-    private void FormCuttingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormCuttingActionPerformed
-         openInternalFrame( FormCuttingHeaderFrameClass.class, "Form Cutting" );
-    }//GEN-LAST:event_FormCuttingActionPerformed
-
-    private void FormSewingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormSewingActionPerformed
-         openInternalFrame( FormSewingHeaderFrameClass.class, "Form Sewing" );
-    }//GEN-LAST:event_FormSewingActionPerformed
-
-    private void FormWashingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormWashingActionPerformed
-         openInternalFrame( FormWashingHeaderFrameClass.class, "Form Washing" );
-    }//GEN-LAST:event_FormWashingActionPerformed
-
     private void FormFinishingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormFinishingActionPerformed
          openInternalFrame( FormFinishingHeaderFrameClass.class, "Form Finishing" );
     }//GEN-LAST:event_FormFinishingActionPerformed
-
-    private void FormPackingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormPackingActionPerformed
-         openInternalFrame( FormPackingHeaderFrameClass.class, "Form Packing" );
-    }//GEN-LAST:event_FormPackingActionPerformed
-
-    private void LaporanProduksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanProduksiActionPerformed
-         openInternalFrame( LaporanProduksiHeaderFrameClass.class, "Laporan Produksi" );
-    }//GEN-LAST:event_LaporanProduksiActionPerformed
 
     private void PemasukanBakuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PemasukanBakuActionPerformed
         openInternalFrame( BCPemasukanBakuFrameClass.class, "Pemasukan Bahan Baku & Penolong" );
@@ -1466,10 +1491,6 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         openInternalFrame( FormShippingHeaderFrameClass.class, "Form Shipping" );
     }//GEN-LAST:event_FormShippingActionPerformed
 
-    private void SizeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SizeItemActionPerformed
-        openInternalFrame( SizeColourFrameClass.class, "Size" );
-    }//GEN-LAST:event_SizeItemActionPerformed
-
     private void FabricReqItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FabricReqItemActionPerformed
         openInternalFrame( FabricRequestHdrFrameClass.class, "Fabric Request" );
     }//GEN-LAST:event_FabricReqItemActionPerformed
@@ -1490,6 +1511,46 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         openInternalFrame( DailySewingHdrFrameClass.class, "Daily Sewing" );
     }//GEN-LAST:event_DailySewingActionPerformed
 
+    private void SummaryRepSewingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SummaryRepSewingActionPerformed
+        openInternalFrame( SummaryRepSewingHdrFrameClass.class, "Summary Report Sewing" );
+    }//GEN-LAST:event_SummaryRepSewingActionPerformed
+
+    private void SizeTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SizeTypeActionPerformed
+        openInternalFrame( SizeTypeFrameClass.class, "Size Type" );
+    }//GEN-LAST:event_SizeTypeActionPerformed
+
+    private void SizeMatrixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SizeMatrixActionPerformed
+      openInternalFrame( SizeMatrixFrameClass.class, "Size Matrix" ); 
+    }//GEN-LAST:event_SizeMatrixActionPerformed
+
+    private void ThreadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThreadActionPerformed
+      openInternalFrame( ThreadFrameClass.class, "Thread" ); 
+    }//GEN-LAST:event_ThreadActionPerformed
+
+    private void OBDTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OBDTypeActionPerformed
+      openInternalFrame( OBDTypeFrameClass.class, "OBD Type" ); 
+    }//GEN-LAST:event_OBDTypeActionPerformed
+
+    private void OBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OBDActionPerformed
+      openInternalFrame( OBDFrameClass.class, "OBD" ); 
+    }//GEN-LAST:event_OBDActionPerformed
+
+    private void SewingOpBreakDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SewingOpBreakDownActionPerformed
+       openInternalFrame( SewingOpBreakDownFrameClass.class, "Sewing Operation Break Down" ); 
+    }//GEN-LAST:event_SewingOpBreakDownActionPerformed
+
+    private void UnitTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UnitTypeActionPerformed
+        openInternalFrame( UnitTypeFrameClass.class, "Unit Type" ); 
+    }//GEN-LAST:event_UnitTypeActionPerformed
+
+    private void SewingThreadCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SewingThreadCountActionPerformed
+           openInternalFrame( SewingThreadCountFrameClass.class, "Sewing Thread Count" ); 
+    }//GEN-LAST:event_SewingThreadCountActionPerformed
+
+    private void FormPackingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormPackingActionPerformed
+         openInternalFrame( FormPackingHeaderFrameClass.class, "Packing List Actual" ); 
+    }//GEN-LAST:event_FormPackingActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1505,25 +1566,21 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JMenuItem BrngKelSisa;
     private javax.swing.JMenuItem BrngMskJadi;
     private javax.swing.JMenuItem BrngMskSisa;
-    private javax.swing.JMenu Cutting;
     private javax.swing.JMenuItem CuttingDailyItem;
+    private javax.swing.JMenu CuttingMenu;
     private javax.swing.JMenuItem DailySewing;
     private javax.swing.JToolBar DesktopToolbar;
     private javax.swing.JMenuItem Exit;
     private javax.swing.JMenuItem FabricReqItem;
-    private javax.swing.JMenuItem FormCutting;
+    private javax.swing.JMenu FinishingPacking;
     private javax.swing.JMenuItem FormFinishing;
-    private javax.swing.JMenuItem FormKain;
     private javax.swing.JMenuItem FormPacking;
-    private javax.swing.JMenuItem FormSewing;
     private javax.swing.JMenuItem FormShipping;
-    private javax.swing.JMenuItem FormWashing;
     private javax.swing.JMenu Gudang;
     private javax.swing.JMenuItem JenisDokPabean;
     private javax.swing.JMenuItem KodeKwsn;
     private javax.swing.JMenu LaporanBC;
     private javax.swing.JMenu LaporanInventory;
-    private javax.swing.JMenuItem LaporanProduksi;
     private javax.swing.JMenu MainMenu;
     private javax.swing.JMenuItem MarkerItem;
     private javax.swing.JMenu MenuConf;
@@ -1533,6 +1590,8 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JMenuItem MutasiJadi;
     private javax.swing.JMenuItem MutasiMesin;
     private javax.swing.JMenuItem MutasiSisa;
+    private javax.swing.JMenuItem OBD;
+    private javax.swing.JMenuItem OBDType;
     private javax.swing.JMenuItem POItem;
     private javax.swing.JMenuItem PRItem;
     private javax.swing.JMenuItem PemasukanBaku;
@@ -1540,12 +1599,18 @@ private void openHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JMenuItem PemasukanSisa;
     private javax.swing.JMenuItem PengeluaranBaku;
     private javax.swing.JMenuItem PengeluaranSisa;
-    private javax.swing.JMenu Produksi;
+    private javax.swing.JMenu Production;
     private javax.swing.JMenuItem SampleRecord;
-    private javax.swing.JMenu Sewing;
-    private javax.swing.JMenuItem SizeItem;
+    private javax.swing.JMenuItem SewingOpBreakDown;
+    private javax.swing.JMenuItem SewingThreadCount;
+    private javax.swing.JMenu Shipping;
+    private javax.swing.JMenuItem SizeMatrix;
+    private javax.swing.JMenuItem SizeType;
     private javax.swing.JPanel StatusBar;
     private javax.swing.JMenuItem SumaryCuttingItem;
+    private javax.swing.JMenuItem SummaryRepSewing;
+    private javax.swing.JMenuItem Thread;
+    private javax.swing.JMenuItem UnitType;
     private javax.swing.JMenuItem Usuarios;
     private javax.swing.JMenuItem accessoriesItem;
     private javax.swing.JMenuItem accessoriestypeItem;

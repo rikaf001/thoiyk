@@ -101,10 +101,14 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " dtl.id, dtl.prno, dtl.auditdate, dtl.audituser ",    
+                        " dtl.id, dtl.prno, pr.qty,dtl.J0845,dtl.J0930,dtl.J1015,dtl.J1100,dtl.J1145,dtl.J1330,dtl.J1415,dtl.J1500,dtl.J1545,dtl.J1630,dtl.J1715,dtl.J1800,dtl.J1945,dtl.J2030,dtl.J2115,dtl.J2200, "+
+                        " dtl.totaloutput,dtl.grandtotal,dtl.blc,dtl.hadiropr,dtl.hadirhp,dtl.absentopr,dtl.absenthp, dtl.audituser,dtl.auditdate ",    
 
                         // 2 tables and joins                                                
-                        " dailysewing_dtl dtl " ,
+                        " dailysewing_dtl dtl " +
+                        " left join " +
+                        " productionrecord pr " +
+                        " on dtl.prid=pr.id " ,
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              

@@ -21,6 +21,7 @@ import javax.swing.*;
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
 import ProblemDomainComponent.pr_newClass;
@@ -62,12 +63,12 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                "  pr.ID, pr.nomor, ts.name service,pr.tanggal, tr.name penerimaname, pr.nobc, pr.tglbc  ",
+                "  pr.ID, pr.nomor, ts.name service,pr.tanggal, pr.penerima penerimaname, pr.nobc, pr.tglbc  ",
                 
                 // 2 tablas and joins                                             
                 "  bks_hdr pr    "  +
                 "  left join servicetype ts on pr.servicetypeid=ts.id "  +
-                "  left join v_penerima tr on pr.penerimaid=tr.id "  
+                "  "  
                  ,
                                                                 
                 // 3 llave principal (mayusculas!)
@@ -75,11 +76,28 @@ extends KDataBrowserBaseClass {
                                                                                              
                     );   
 
-     
+                setColumnNames( "pr", "ID", "ID" );             
+                setColumnNames( "pr", "NOMOR", "Nomor" );          
+                setColumnNames( "pr", "SERVICE", "Service" );
+                setColumnNames( "pr", "TANGGAL", "Tanggal" );
+                setColumnNames( "pr", "PENERIMANAME", "Penerima" );
+                setColumnNames( "pr", "NOBC", "NoBC" );
+                setColumnNames( "pr", "TGLBC", "TglBC" );
+                
+                setDefaultOrder( "ID" );
 
             // load data
             super.initializeTable();   
+              // some customization
+            adjustColumnWidth( "ID", 40 );
+            adjustColumnWidth( "Nomor", 100 );
+            adjustColumnWidth( "Service", 90 );
+            adjustColumnWidth("Tanggal", 90 );
+            adjustColumnWidth( "Penerima", 100 );
+            adjustColumnWidth( "NoBC", 90 );
+            adjustColumnWidth( "TglBC", 100 );
             
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
             
     }        
 

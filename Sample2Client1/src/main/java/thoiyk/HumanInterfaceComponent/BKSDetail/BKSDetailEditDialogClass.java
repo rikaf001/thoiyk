@@ -79,15 +79,7 @@ implements KDialogInterface
         typeComboFiller1.load();        
         KDialogController.addNonVisibleWidget( typeComboFiller1 );  // to map it           
 
-       KDropDownFillerClass typeComboFiller2 = new KDropDownFillerClass(
-                        configuration, log, 
-                        //SQL, might have parameters and where clause or order by
-                        " select ID,  NAMA from UNITTYPE ",
-                        "ID", currCombo1, "ActualUnitID"
-                        );
-
-        typeComboFiller2.load();        
-        KDialogController.addNonVisibleWidget( typeComboFiller2 );  // to map it           
+         
         
 
         // start
@@ -144,18 +136,14 @@ implements KDialogInterface
         lblTelp = new javax.swing.JLabel();
         qtyLabel = new javax.swing.JTextField();
         lblHp = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        toleranceLabel = new javax.swing.JTextField();
         system_user_id1 = new javax.swing.JLabel();
         lblID1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         itemidLabel = new javax.swing.JLabel();
         lblNama1 = new javax.swing.JLabel();
         createdbyLbl = new javax.swing.JLabel();
         lblNama2 = new javax.swing.JLabel();
         LblAuditUser = new javax.swing.JLabel();
         currCombo = new javax.swing.JComboBox();
-        currCombo1 = new javax.swing.JComboBox();
         okButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
         applyButton = new javax.swing.JButton();
@@ -181,23 +169,17 @@ implements KDialogInterface
         ID.setName("ID"); // NOI18N
 
         lblNama.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        lblNama.setText("ItemID");
+        lblNama.setText("Item ID");
 
         lblTelp.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        lblTelp.setText("ItemQty");
+        lblTelp.setText("Item Qty");
 
         qtyLabel.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         qtyLabel.setName("ItemQty"); // NOI18N
 
         lblHp.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        lblHp.setText("ItemUnitID");
+        lblHp.setText("Item Unit");
         lblHp.setName(""); // NOI18N
-
-        jLabel1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jLabel1.setText("ActualQty");
-
-        toleranceLabel.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        toleranceLabel.setName("ActualQty"); // NOI18N
 
         system_user_id1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         system_user_id1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -206,9 +188,6 @@ implements KDialogInterface
         lblID1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         lblID1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblID1.setText("HDRID");
-
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jLabel2.setText("ActualUnitID");
 
         itemidLabel.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         itemidLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -237,45 +216,29 @@ implements KDialogInterface
             }
         });
 
-        currCombo1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        currCombo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "IDR", "USD" }));
-        currCombo1.setName("TypeIDSelect"); // NOI18N
-        currCombo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                currCombo1ActionPerformed(evt);
-            }
-        });
-
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(12, 12, 12)
+                .add(10, 10, 10)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblID)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblID1)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblNama)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblTelp)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblHp)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel1)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel2)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblNama1)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lblNama2))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                    .add(lblID)
+                    .add(lblID1)
+                    .add(lblNama)
+                    .add(lblTelp)
+                    .add(lblHp)
+                    .add(lblNama1)
+                    .add(lblNama2))
+                .add(20, 20, 20)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(system_user_id1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(itemidLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(qtyLabel)
-                    .add(currCombo, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(currCombo, 0, 190, Short.MAX_VALUE)
+                    .add(ID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 98, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(createdbyLbl, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(LblAuditUser, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(toleranceLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 190, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(currCombo1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 186, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(ID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 98, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(0, 0, Short.MAX_VALUE)))
+                    .add(LblAuditUser, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .add(0, 39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -301,15 +264,7 @@ implements KDialogInterface
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
                     .add(lblHp)
                     .add(currCombo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
-                    .add(jLabel1)
-                    .add(toleranceLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
-                    .add(jLabel2)
-                    .add(currCombo1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, 18)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
                     .add(lblNama1)
                     .add(createdbyLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -317,7 +272,7 @@ implements KDialogInterface
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
                     .add(lblNama2)
                     .add(LblAuditUser, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(33, 33, 33))
         );
 
         okButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -367,7 +322,7 @@ implements KDialogInterface
                 .add(CancelButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(10, 10, 10)
                 .add(applyButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
             .add(layout.createSequentialGroup()
                 .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(0, 0, Short.MAX_VALUE))
@@ -440,10 +395,6 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         // TODO add your handling code here:
     }//GEN-LAST:event_currComboActionPerformed
 
-    private void currCombo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currCombo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_currCombo1ActionPerformed
-
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -454,10 +405,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.ButtonGroup clientDiscountGroup;
     private javax.swing.JLabel createdbyLbl;
     private javax.swing.JComboBox currCombo;
-    private javax.swing.JComboBox currCombo1;
     private javax.swing.JLabel itemidLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblHp;
     private javax.swing.JLabel lblID;
@@ -469,7 +417,6 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JButton okButton;
     private javax.swing.JTextField qtyLabel;
     private javax.swing.JLabel system_user_id1;
-    private javax.swing.JTextField toleranceLabel;
     // End of variables declaration//GEN-END:variables
 
 

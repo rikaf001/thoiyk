@@ -38,8 +38,8 @@ import static thoiyk.HumanInterfaceComponent.ProdutionRecordItem.ProdRecItemBrow
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Properties;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserClass;
-import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderEditDialogClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
+import thoiyk.HumanInterfaceComponent.ReceivedOrder.outstandingorderEditDialogClass;
 
 
 
@@ -110,7 +110,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , vsri.category,vsri.nama itemname, sri.qty, ut.nama unit, sri.comp, sri.tolerance, sri.qtyneed,vdtl.stok, vdtl.podate ||' '|| vdtl.pono  as PO, vdtl.poqty, sri.qtyneed-(vdtl.stok+vdtl.poqty) qtyactual,  vdtl.btbdate ||' '|| vdtl.btbno as btb, vdtl.btbqty, vdtl.qtysisa, vdtl.persenqty  ",    
+                        " sri.id , sri.itemid, vsri.subcategory,vsri.nama itemname, sri.qty, ut.nama unit, sri.comp, sri.tolerance, sri.qtyneed,vdtl.stok, vdtl.podate ||' '|| vdtl.pono  as PO, vdtl.poqty, sri.qtyneed-(vdtl.stok+vdtl.poqty) qtyactual,  vdtl.btbdate ||' '|| vdtl.btbno as btb, vdtl.btbqty, vdtl.qtysisa, vdtl.persenqty  ",    
 
                         // 2 tables and joins                                                
                         " productionrecorditem sri " +
@@ -130,14 +130,22 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                                
 
                 setColumnNames( "sri", "ID", "TypeID" );             
- //               setColumnNames( "sri", "ITEMID", "ItemID" );             
-                setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
-                setColumnNames( "sri", "QTY", "Qty" );  
+               setColumnNames( "sri", "ITEMID", "ItemID" );             
+                setColumnNames( "vsri", "SUBCATEGORY", "SubCategory" );             
+                setColumnNames( "vsri", "ITEMNAME", "Description" );             
+                setColumnNames( "sri", "QTY", "Qty Order" );  
                 setColumnNames( "ut", "UNIT", "Unit" );  
-                setColumnNames( "sri", "COMP", "Comp" );             
+                setColumnNames( "sri", "COMP", "Cons" );             
                 setColumnNames( "sri", "TOLERANCE", "Tolerance" );             
-                setColumnNames( "sri", "QTYNEED", "QtyNeed" );  
+                setColumnNames( "sri", "QTYNEED", "Qty Need" );  
+                setColumnNames( "sri", "STOK", "Stock" ); 
+                setColumnNames( "sri", "PO", "PO No & Date" ); 
+                setColumnNames( "sri", "POQTY", "Qty PO" ); 
+                setColumnNames( "sri", "QTYACTUAL", "Qty Actual" ); 
+                setColumnNames( "sri", "BTB", "BTB No & Date" ); 
+                setColumnNames( "sri", "BTBQTY", "Qty BTB" ); 
+                setColumnNames( "sri", "QTYSISA", "+/-" ); 
+                setColumnNames( "sri", "PERSENQTY", "+/- (%)" ); 
 
 
                                 
@@ -155,7 +163,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qty,ut.nama unit, sri.comp, sri.tolerance, sri.qtyneed ",    
+                        " sri.id , sri.itemid, vsri.subcategory,vsri.nama itemname, sri.qty,ut.nama unit, sri.comp, sri.tolerance, sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " productionrecorditem sri " +
@@ -175,30 +183,51 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
 
                 setColumnNames( "sri", "ID", "TypeID" );             
-                setColumnNames( "sri", "ITEMID", "ItemID" );             
-                setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
-                setColumnNames( "sri", "QTY", "Qty" );    
-                setColumnNames( "ut", "UNIT", "Unit" ); 
-                setColumnNames( "sri", "COMP", "Comp" );             
+               setColumnNames( "sri", "ITEMID", "ItemID" );             
+                setColumnNames( "vsri", "SUBCATEGORY", "SubCategory" );             
+                setColumnNames( "vsri", "ITEMNAME", "Description" );             
+                setColumnNames( "sri", "QTY", "Qty Order" );  
+                setColumnNames( "ut", "UNIT", "Unit" );  
+                setColumnNames( "sri", "COMP", "Cons" );             
                 setColumnNames( "sri", "TOLERANCE", "Tolerance" );             
-                setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
+                setColumnNames( "sri", "QTYNEED", "Qty Need" );  
+                setColumnNames( "sri", "STOK", "Stock" ); 
+                setColumnNames( "sri", "PO", "PO No & Date" ); 
+                setColumnNames( "sri", "POQTY", "Qty PO" ); 
+                setColumnNames( "sri", "QTYACTUAL", "Qty Actual" ); 
+                setColumnNames( "sri", "BTB", "BTB No & Date" ); 
+                setColumnNames( "sri", "BTBQTY", "Qty BTB" ); 
+                setColumnNames( "sri", "QTYSISA", "+/-" ); 
+                setColumnNames( "sri", "PERSENQTY", "+/- (%)" ); 
+     
                 
             }
 
             setDefaultOrder( "itemid" );
                                 
             
-            super.initializeTable();             
+           super.initializeTable();             
 
-          /*  adjustColumnWidth( "id", 60 );
-            adjustColumnWidth( "Name", 200 );
-            adjustColumnWidth( "Date", 130 );
-            adjustColumnWidth( "STATUS", 100 );            
-            adjustColumnWidth( "TOTAL", 100 );
+            adjustColumnWidth( "TypeID", 50 );
+            adjustColumnWidth( "ItemID", 50 );
+            adjustColumnWidth( "SubCategory", 100 );
+            adjustColumnWidth( "Qty Order", 80 );
+            adjustColumnWidth( "Unit", 80 );
+            adjustColumnWidth( "Cons", 80 );            
+            adjustColumnWidth( "Tolerance", 80 );
+            adjustColumnWidth( "Qty Need", 80 );
+            adjustColumnWidth( "Stock", 80 );
+            adjustColumnWidth( "PO No & Date", 80 );
+            adjustColumnWidth( "Qty PO", 80 );
+            adjustColumnWidth( "Qty Actual", 80 );
+            adjustColumnWidth( "BTB No & Date", 80 );
+            adjustColumnWidth( "Qty BTB", 80 );
+            adjustColumnWidth( "+/-", 80 );
+            adjustColumnWidth( "+/- (%)", 80 );
             
-            adjustColumnType( "Date", BROWSER_COLUMN_TYPE_DATE ); // so that autofilter will use date format
-            */
+            
+          //  adjustColumnType( "Date", BROWSER_COLUMN_TYPE_DATE ); // so that autofilter will use date format
+           
             if( mode == SRITEM_BY_SR ){                        
                 
                 
@@ -373,7 +402,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                         if( mode == ALL_SAMPLERECORD ){
 
                             // build a client browser
-                               ProdRecBrowserClass pr_new = new ProdRecBrowserClass(
+                               ProdRecBrowserSimpleClass pr_new = new ProdRecBrowserSimpleClass(
                                         configuration, log, new javax.swing.JTable(), getParentWindow() );
 
                                pr_new.initializeTable();   

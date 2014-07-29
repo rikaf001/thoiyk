@@ -35,15 +35,15 @@ import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.FormShippingHeaderClass;
 import ProblemDomainComponent.buyerClass;
-import ProblemDomainComponent.outstandingorderClass;
+import ProblemDomainComponent.ReceivedOrderClass;
 import ProblemDomainComponent.ProdRecClass;
 //import ProblemDomainComponent.FormShippingTypeClass;
 import java.awt.Font;
 import java.awt.print.PageFormat;
 import thoiyk.HumanInterfaceComponent.FormShippingDetail.FormShippingDetailBrowserClass;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserClass;
+import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
 import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;
-import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderBrowserClass;
+import thoiyk.HumanInterfaceComponent.ReceivedOrder.outstandingorderBrowserClass;
 
 
 public class FormShippingHeaderEditDialogClass 
@@ -1154,7 +1154,7 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             
                 
                 persistentObjectManagerClass persistentObjectManager = new persistentObjectManagerClass( configuration, log );                
-                outstandingorderClass ro = (outstandingorderClass) persistentObjectManager.copy4( parentID, outstandingorderClass.class );  
+                ReceivedOrderClass ro = (ReceivedOrderClass) persistentObjectManager.copy4( parentID, ReceivedOrderClass.class );  
 
                 persistentObjectManagerClass POM =  new persistentObjectManagerClass( configuration, log );                
                 buyerClass buyer = (buyerClass) POM.copy4( ro.getBuyerid(), buyerClass.class );  

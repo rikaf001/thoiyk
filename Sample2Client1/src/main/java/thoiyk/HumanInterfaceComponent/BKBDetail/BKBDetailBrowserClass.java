@@ -24,6 +24,7 @@ import KFramework30.Base.*;
 import KFramework30.Widgets.DataBrowser.KBrowserDataWriterInterface;
 import KFramework30.Widgets.DataBrowser.cellRenderingHookInterface;
 import KFramework30.Widgets.DataBrowser.recordClass;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
 import ProblemDomainComponent.BKBDetailClass;
@@ -106,8 +107,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                         // 2 tables and joins                                                
                         " bkb_dtl bkb " +
                         "left join v_pr_item pri on bkb.itemid=pri.id " +
-                        "left join unittype uta on bkb.actualunitid=uta.id " +
-                        "left join unittype utb on bkb.actualunitid=utb.id " ,
+                        "left join unittype uta on bkb.itemunitid=uta.id ",
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -118,18 +118,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     throw new KExceptionClass( "Data base type not recognized " + configuration.getField("databaseType"), null );
                 }
                 
-                /*setColumnNames( "pi", "ID", "ID" );             
-                setColumnNames( "pi", "HDRID", "HDRID" );
-                setColumnNames( "pi", "ITEMID", "ItemID" );             
-                setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
-                setColumnNames( "pi", "ITEMUNITID", "ItemUnitID" );
-                setColumnNames( "pi", "ACTUALQTY", "ActualQTY" );
-                setColumnNames( "pi", "ACTUALUNITID", "ActualUnitID" );
-                setColumnNames( "pi", "CREATEDBY", "CreatedBy" );
-                setColumnNames( "pi", "DATECREATED", "DateCreated" );
-                setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
-                setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-                  */
+                setColumnNames( "pi", "ID", "ID" );             
+                setColumnNames( "pi", "NAME", "Nama" );
+                setColumnNames( "pi", "ITEMQTY", "ItemQty" );             
+                setColumnNames( "pi", "ITEMUNIT", "Unit" );
+                setColumnNames( "pi", "NO_BTB", "NoBTB" );
+                setColumnNames( "pi", "TANGGAL", "Tanggal" );
+                setColumnNames( "pi", "NO_BC", "NoBC" );
                 // replace criteria
                 setDefaultCriteria( " hdrid = ? " );               
                 bindDefaultParameter1( ":hdrid",  parentID  );     
@@ -143,17 +138,16 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
-                           // 1 fields                    
-                        "bkb.id,pri.nama name,bkb.itemqty, uta.nama itemunit, RETRIEVE_BTB_NO(itemid) no_btb,RETRIEVE_BTB_TGL(itemid) tanggal,RETRIEVE_BTB_NOBC(itemid) no_bc",    
+                        // 1 fields                    
+                        "bkb.id,pri.nama name,bkb.itemqty, uta.nama itemunit, RETRIEVE_BTB_NO(itemid) no_btb,RETRIEVE_BTB_TGL(itemid) tanggal,RETRIEVE_BTB_NOBC(itemid) no_bc ",    
 
                         // 2 tables and joins                                                
                         " bkb_dtl bkb " +
                         "left join v_pr_item pri on bkb.itemid=pri.id " +
-                        "left join unittype uta on bkb.actualunitid=uta.id " +
-                        "left join unittype utb on bkb.actualunitid=utb.id " ,
+                        "left join unittype uta on bkb.itemunitid=uta.id ",
 
                         // 3 key of primary PDC object
-                        "ID"                                                                                              
+                        "ID"                                                                                                   
                             );    
                     
                 }else{
@@ -163,24 +157,31 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
                 // FOR ALL INVOICES
                 
-                /*setColumnNames( "pi", "ID", "ID" );             
-                setColumnNames( "pi", "HDRID", "HDRID" );
-                setColumnNames( "pi", "ITEMID", "ItemID" );             
-                setColumnNames( "pi", "ITEMQTY", "ItemQTY" );
-                setColumnNames( "pi", "ITEMUNITID", "ItemUnitID" );
-                setColumnNames( "pi", "ACTUALQTY", "ActualQTY" );
-                setColumnNames( "pi", "ACTUALUNITID", "ActualUnitID" );
-                setColumnNames( "pi", "CREATEDBY", "CreatedBy" );
-                setColumnNames( "pi", "DATECREATED", "DateCreated" );
-                setColumnNames( "pi", "MODIFIEDBY", "ModifiedBy" );
-                setColumnNames( "pi", "DATEMODIFIED", "DateModified" );
-                */
+                setColumnNames( "pi", "ID", "ID" );             
+                setColumnNames( "pi", "NAME", "Nama" );
+                setColumnNames( "pi", "ITEMQTY", "ItemQty" );             
+                setColumnNames( "pi", "ITEMUNIT", "Unit" );
+                setColumnNames( "pi", "NO_BTB", "NoBTB" );
+                setColumnNames( "pi", "TANGGAL", "Tanggal" );
+                setColumnNames( "pi", "NO_BC", "NoBC" );
+                
             }
 
             setDefaultOrder( "itemid" );
                                 
             
-            super.initializeTable();             
+            super.initializeTable();   
+            
+            adjustColumnWidth( "ID", 40 );
+            adjustColumnWidth( "Nama", 200 );
+            adjustColumnWidth( "ItemQty", 80 );
+            adjustColumnWidth( "Unit",80 );
+            adjustColumnWidth( "NoBTB",80 );
+            adjustColumnWidth( "Tanggal",80 );
+            adjustColumnWidth( "NoBC",80 );
+            
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
+            
 
             if( mode == POITEM_BY_PO ){                        
                 

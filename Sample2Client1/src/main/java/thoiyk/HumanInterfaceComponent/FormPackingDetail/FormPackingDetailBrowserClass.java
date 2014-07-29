@@ -101,7 +101,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " dtl.id,dtl.warna,dtl.ok,dtl.reject,dtl.total ",    
+                        " dtl.id,dtl.qtotal ",    
 
                         // 2 tables and joins                                                
                         " formpacking_dtl dtl " ,
@@ -141,7 +141,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                     // 1 fields                    
-                        " dtl.id,dtl.warna,dtl.ok,dtl.reject,dtl.total ",    
+                        " dtl.id,dtl.qtotal ",    
 
                         // 2 tables and joins                                                
                         " formpacking_dtl dtl " ,

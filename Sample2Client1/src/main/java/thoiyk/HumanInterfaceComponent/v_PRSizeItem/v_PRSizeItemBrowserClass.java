@@ -100,9 +100,9 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     
                     super.initializeSQLQuery(     
 
-                         // 1 fields                    
-                        " pai.id, pai.warna,pai.xs,pai.s,pai.m,pai.l,pai.xl,pai.xxl,pai.xxxl",    
+                         "pai.ID,pai.PRID,pai.CATEGORY, pai.SUBCATEGORY, pai.NAMA, pai.UNIT, pai.COLOUR ",
 
+        
                         // 2 tables and joins                                                
                         " v_prsizeitem pai ",
 
@@ -137,7 +137,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " pai.id, pai.warna,pai.xs,pai.s,pai.m,pai.l,pai.xl,pai.xxl,pai.xxxl",    
+           "pai.ID,pai.PRID,pai.CATEGORY, pai.SUBCATEGORY, pai.NAMA, pai.UNIT, pai.COLOUR ",
 
                         // 2 tables and joins                                                
                         " v_prsizeitem pai ",
@@ -168,7 +168,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                                 
             
             super.initializeTable();             
-
+//adjustColumnType( "Date", BROWSER_COLUMN_TYPE_DATE );
           /*  adjustColumnWidth( "id", 60 );
             adjustColumnWidth( "Name", 200 );
             adjustColumnWidth( "Date", 130 );

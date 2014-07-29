@@ -22,7 +22,7 @@ import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.BTBDetailClass;
 //import ProblemDomainComponent.productionrecordClass;
 import java.util.Map;
-import thoiyk.HumanInterfaceComponent.v_pr_item.v_pr_itemBrowserClass;
+import thoiyk.HumanInterfaceComponent.v_po_item.v_po_itemBrowserSimpleClass;
 //import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderBrowserClass;
 
 // rtl
@@ -81,7 +81,8 @@ implements KDialogInterface
         typeComboFiller1.load();        
         KDialogController.addNonVisibleWidget( typeComboFiller1 );  // to map it           
 
-       KDropDownFillerClass typeComboFiller2 = new KDropDownFillerClass(
+   
+           KDropDownFillerClass typeComboFiller2 = new KDropDownFillerClass(
                         configuration, log, 
                         //SQL, might have parameters and where clause or order by
                         " select ID,  NAMA from UNITTYPE ",
@@ -90,7 +91,8 @@ implements KDialogInterface
 
         typeComboFiller2.load();        
         KDialogController.addNonVisibleWidget( typeComboFiller2 );  // to map it           
-        
+
+   
 
         // start
         KDialogController.initializeDialog( dialogModeParam, ID, foreingKeys  );
@@ -184,20 +186,20 @@ implements KDialogInterface
         ID.setName("ID"); // NOI18N
 
         lblNama.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        lblNama.setText("ItemID");
+        lblNama.setText("Select Item");
 
         lblTelp.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        lblTelp.setText("ItemQty");
+        lblTelp.setText("Qty Item");
 
         qtyLabel.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         qtyLabel.setName("ItemQty"); // NOI18N
 
         lblHp.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        lblHp.setText("ItemUnitID");
+        lblHp.setText("Unit Item");
         lblHp.setName(""); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jLabel1.setText("ActualQty");
+        jLabel1.setText("Qty Actual");
 
         toleranceLabel.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         toleranceLabel.setName("ActualQty"); // NOI18N
@@ -211,21 +213,21 @@ implements KDialogInterface
         lblID1.setText("HDRID");
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jLabel2.setText("ActualUnitID");
+        jLabel2.setText("Unit Actual");
 
         LblItemID.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         LblItemID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         LblItemID.setName("ItemID"); // NOI18N
 
         lblNama1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        lblNama1.setText("AuditDate");
+        lblNama1.setText("Audit Date");
 
         createdbyLbl.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         createdbyLbl.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         createdbyLbl.setName("AuditDate"); // NOI18N
 
         lblNama2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        lblNama2.setText("AuditUser");
+        lblNama2.setText("Audit User");
 
         LblAuditUser.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         LblAuditUser.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -441,14 +443,10 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         // TODO add your handling code here:
     }//GEN-LAST:event_currComboActionPerformed
 
-    private void currCombo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currCombo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_currCombo1ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try
         {
-            v_pr_itemBrowserClass supplierBrowser = new v_pr_itemBrowserClass(
+            v_po_itemBrowserSimpleClass supplierBrowser = new v_po_itemBrowserSimpleClass(
                 configuration, log, new javax.swing.JTable(), this );
 
             supplierBrowser.initializeTable();
@@ -488,6 +486,10 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             KMetaUtilsClass.showErrorMessageFromException( this, error );
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void currCombo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currCombo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_currCombo1ActionPerformed
 
 
     
