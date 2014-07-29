@@ -37,7 +37,7 @@ del Sample2Client1.jar
 
 del activation-1.1.jar
 del jcalendar-1.3.2.jar
-del jcommon-1.0.0.jar
+del jcommon-1.0.15.jar
 del jfreechart-1.0.0.jar
 del swing-layout-1.0.3.jar
 del openjpa-2.0.0.jar
@@ -46,17 +46,17 @@ del xmlpull-1.1.3.1.jar
 del xpp3_min-1.1.4c.jar
 del xstream-1.4.3.jar
 
-
+pause
 echo "* Update all libraries... "
-copy ..\..\..\target\Sample2Server1\WEB-INF\lib\KFramework3Base-3.1.jar                       KFrameworkBase.jar
-copy ..\..\..\target\Sample2Server1\WEB-INF\lib\KFramework3Client-3.1.jar                     KFrameworkClient.jar
-copy ..\..\..\target\Sample2Server1\WEB-INF\lib\KFramework3Server-3.1.jar                     KFrameworkServer.jar
-copy ..\..\..\target\Sample2Server1\WEB-INF\lib\Sample2ProblemDomainComponent-3.1.jar         Sample2ProblemDomainComponent.jar
-copy ..\..\..\..\Sample2Client1\target\Sample2Client1-3.1.jar                                 Sample2Client1.jar
+copy ..\..\..\target\Sample2Server1\WEB-INF\lib\KFramework3Base-3.1.jar KFrameworkBase.jar
+copy ..\..\..\target\Sample2Server1\WEB-INF\lib\KFramework3Client-3.1.jar KFrameworkClient.jar
+copy ..\..\..\target\Sample2Server1\WEB-INF\lib\KFramework3Server-3.1.jar KFrameworkServer.jar
+copy ..\..\..\target\Sample2Server1\WEB-INF\lib\Sample2ProblemDomainComponent-3.1.jar Sample2ProblemDomainComponent.jar
+copy ..\..\..\..\Sample2Client1\target\Sample2Client1-3.1.jar Sample2Client1.jar
 
 copy ..\..\..\target\Sample2Server1\WEB-INF\lib\activation-1.1.jar                            activation-1.1.jar
 copy ..\..\..\target\Sample2Server1\WEB-INF\lib\jcalendar-1.3.2.jar                           jcalendar-1.3.2.jar
-copy ..\..\..\target\Sample2Server1\WEB-INF\lib\jcommon-1.0.0.jar                             jcommon-1.0.0.jar
+copy ..\..\..\target\Sample2Server1\WEB-INF\lib\jcommon-1.0.15.jar                             jcommon-1.0.15.jar
 copy ..\..\..\target\Sample2Server1\WEB-INF\lib\jfreechart-1.0.0.jar                          jfreechart-1.0.0.jar
 copy ..\..\..\target\Sample2Server1\WEB-INF\lib\swing-layout-1.0.3.jar                        swing-layout-1.0.3.jar
 copy ..\..\..\target\Sample2Server1\WEB-INF\lib\openjpa-2.0.0.jar                             javax.persistence.jar
@@ -65,29 +65,36 @@ copy ..\..\..\target\Sample2Server1\WEB-INF\lib\xmlpull-1.1.3.1.jar             
 copy ..\..\..\target\Sample2Server1\WEB-INF\lib\xpp3_min-1.1.4c.jar                           xpp3_min-1.1.4c.jar
 copy ..\..\..\target\Sample2Server1\WEB-INF\lib\xstream-1.4.3.jar                             xstream-1.4.3.jar
 
+copy ..\..\..\target\Sample2Server1\WEB-INF\lib\jasperreports-3.5.3.jar                       jasperreports-3.5.3.jar
+copy ..\..\..\target\Sample2Server1\WEB-INF\lib\jasperreports-5.2.0.jar 			jasperreports-5.2.0.jar
+
 
 rem sign all 
+rem create cert: keytool -genkey -alias <alias name> -keystore <key file> -validity 365
 echo "* sign libraries... "
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    KFrameworkBase.jar                    KFrameworkKey01  
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    KFrameworkClient.jar             	    KFrameworkKey01  
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    KFrameworkServer.jar      			KFrameworkKey01  
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    Sample2ProblemDomainComponent.jar     KFrameworkKey01  
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    Sample2Client1.jar                    KFrameworkKey01  
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe"  -keystore KFrameworkStore00  -storepass password  -keypass password    KFrameworkBase.jar                    ThoiykApp  
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    KFrameworkClient.jar             	    ThoiykApp  
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    KFrameworkServer.jar      			ThoiykApp  
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    Sample2ProblemDomainComponent.jar     ThoiykApp  
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    Sample2Client1.jar                    ThoiykApp  
 
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    activation-1.1.jar  	                    KFrameworkKey01  
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    jcalendar-1.3.2.jar  	                    KFrameworkKey01 
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    jcommon-1.0.0.jar	                        KFrameworkKey01 
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    jfreechart-1.0.0.jar	                    KFrameworkKey01 
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    swing-layout-1.0.3.jar  	                KFrameworkKey01 
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    javax.persistence.jar  	                KFrameworkKey01 
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    activation-1.1.jar  	                    ThoiykApp  
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    jcalendar-1.3.2.jar  	                    ThoiykApp 
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    jcommon-1.0.15.jar	                        ThoiykApp 
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    jfreechart-1.0.0.jar	                    ThoiykApp 
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    swing-layout-1.0.3.jar  	                ThoiykApp 
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    javax.persistence.jar  	                ThoiykApp 
 
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    xmlpull-1.1.3.1.jar	                    KFrameworkKey01 
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    xpp3_min-1.1.4c.jar  	                    KFrameworkKey01 
-jarsigner  -keystore KFrameworkStore00  -storepass password  -keypass password    xstream-1.4.3.jar  	                    KFrameworkKey01 
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    xmlpull-1.1.3.1.jar	                    ThoiykApp 
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    xpp3_min-1.1.4c.jar  	                    ThoiykApp 
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    xstream-1.4.3.jar  	                    ThoiykApp 
 
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    jasperreports-3.5.3.jar  	                    ThoiykApp 
+"C:\Program Files (x86)\Java\jdk1.7.0_21\bin\jarsigner.exe" -keystore KFrameworkStore00  -storepass password  -keypass password    jasperreports-5.2.0.jar   	                    ThoiykApp 
  
 
 
 
 rem -------------------------------------------
 echo "* Done. "
+pause

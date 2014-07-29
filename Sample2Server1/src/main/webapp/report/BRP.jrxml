@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12ab0f9d-1ebc-471a-af47-1b124c05e5a8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="22"/>
+	<property name="ireport.y" value="98"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="BRPId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[$P{BRPId}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select 
+ brp_hdr.nomor,
+ brp_hdr.tanggal,
+ line.nama pemberi,
+pri.nama itemname,brp_dtl.itemqty,uta.nama itemunit,pr.prno,brp_dtl.keterangan,
+su.system_user_fullname audituser,
+su.signature
+,RETRIEVE_BRP_BKB_NO(brp_dtl.itemid) bkb_no,RETRIEVE_BRP_BKB_TGL(brp_dtl.itemid) bkb_tgl
+from
+brp_dtl
+left join brp_hdr on brp_dtl.hdrid=brp_hdr.id
+left join line on brp_hdr.penerimaid=line.id
+left join v_pr_item pri on brp_dtl.itemid=pri.id 
+left join unittype uta on brp_dtl.itemunitid=uta.id
+left join bkb_hdr bkb on brp_hdr.bkbid=bkb.id 
+left join productionrecord pr on bkb.prid=pr.id 
+left join unittype utb on brp_dtl.actualunitid=utb.id 
+left join systemuserclass su on su.system_user_name=brp_hdr.audituser
+where
+brp_dtl.hdrid=$P{BRPId}]]>
+	</queryString>
+	<field name="NOMOR" class="java.lang.String"/>
+	<field name="TANGGAL" class="java.sql.Timestamp"/>
+	<field name="PEMBERI" class="java.lang.String"/>
+	<field name="ITEMNAME" class="java.lang.String"/>
+	<field name="ITEMQTY" class="java.math.BigDecimal"/>
+	<field name="ITEMUNIT" class="java.lang.String"/>
+	<field name="PRNO" class="java.lang.String"/>
+	<field name="KETERANGAN" class="java.lang.String"/>
+	<field name="AUDITUSER" class="java.lang.String"/>
+	<field name="SIGNATURE" class="java.awt.Image"/>
+	<field name="BKB_NO" class="java.lang.String"/>
+	<field name="BKB_TGL" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="555" height="20" uuid="12ba14bb-1784-4e10-812d-1339422c6cbd"/>
+				<textElement textAlignment="Center" markup="none"/>
+				<textFieldExpression><![CDATA["BUKTI RETURN PABRIK (BRP)"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="103" splitType="Stretch">
+			<textField>
+				<reportElement x="396" y="0" width="59" height="20" uuid="dcfee0a1-b44f-4d01-a568-bcd7eeef04b0"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["BRP No."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="20" width="59" height="20" uuid="0064f198-5b14-4132-86d5-098aaa881930"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Tanggal"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="40" width="59" height="20" uuid="0ffcbb72-af0a-4784-85cf-53d547a75645"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Pemberi"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="e5217ab6-b9ab-442c-b3f3-f0ba9c36f98d"/>
+				<textFieldExpression><![CDATA[$F{NOMOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="20" width="100" height="20" uuid="2c7d496f-1ed0-4cad-b326-5cf9af5ea41e"/>
+				<textFieldExpression><![CDATA[$F{TANGGAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="40" width="100" height="20" uuid="26521e5e-a79a-4251-83ba-ed49cbdda235"/>
+				<textFieldExpression><![CDATA[$F{PEMBERI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="38" width="222" height="20" uuid="335c6e01-17dc-4dd5-9b5b-5f3354b1c1ae"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Kab. Bogor Jawa Barat 16650"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="18" width="222" height="20" uuid="5c87db76-1701-42a2-95c2-db299e8fc332"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Jalan Raya Darmaga Km-7 No.61"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="58" width="222" height="20" uuid="2033469e-14ff-4848-9c17-507f5f234f32"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Telp. (0251) 420042, 625484"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="78" width="222" height="20" uuid="16d70f4f-3751-4a09-9330-b5a6b19cb960"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Fax. (0251) 627465"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="222" height="20" uuid="eced325e-363c-443e-98de-11d0bbcf97f5"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Pintu Mas Garmindo, PT"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="23" height="20" uuid="65bc14d0-76fa-4adb-a48f-0cf66bc0c722"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA["No"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="256" y="0" width="73" height="20" uuid="246bd508-7bdd-42e9-8a64-8b3e09027ac8"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[PR No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="0" width="121" height="20" uuid="5b1a3c8c-b7eb-4d2d-9ec3-b837c3345948"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Item Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="159" y="0" width="49" height="20" uuid="fc1c0b4b-6791-404d-9b10-a83b70472cca"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="0" width="48" height="20" uuid="95be2d68-5be4-4734-bc0d-1d12420ab10f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Unit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="0" width="85" height="20" uuid="b82504da-52a4-466c-ad46-f2d78e548654"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="0" width="67" height="20" uuid="90e346c8-9223-4bd6-a449-c5b9e49e1e55"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[BKB No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="0" width="74" height="20" uuid="e0d1c4a9-1ae6-496c-8f24-4baeb606463f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[BKB Tgl]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="2" width="553" height="1" uuid="76e90d58-cd14-47c6-bb93-43b2e87a1932"/>
+			</line>
+			<line>
+				<reportElement x="3" y="19" width="553" height="1" uuid="600861ec-0ea9-492e-9fd3-265c66c27275"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="23" height="20" uuid="8f3484d4-83f3-42b8-bf79-120f35ad6bb9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="38" y="1" width="121" height="20" uuid="6d9e0db1-08fc-4927-8fa6-1c28ad883823"/>
+				<textElement verticalAlignment="Middle" markup="styled"/>
+				<textFieldExpression><![CDATA[$F{ITEMNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="2" width="49" height="17" uuid="41e3f461-2c93-47c5-bb4f-4f54bc5d04a7"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ITEMQTY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="0" width="48" height="19" uuid="2c1115ac-7cdc-460f-9135-9b8d90fd3cae"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ITEMUNIT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="256" y="0" width="73" height="19" uuid="2c8d6265-7e94-4bc5-ad54-f6c12aa9eed6"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PRNO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="329" y="0" width="67" height="20" uuid="fd1c689f-83c8-40f3-a328-bc5fc4dee904"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BKB_NO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="396" y="0" width="74" height="20" uuid="382c4f0e-a6ea-4ad3-94ca-da53c8708458"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BKB_TGL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="470" y="1" width="85" height="20" uuid="fd4ca254-9675-424c-84f4-6225c07770ff"/>
+				<textElement verticalAlignment="Middle" markup="styled"/>
+				<textFieldExpression><![CDATA[$F{KETERANGAN}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="23" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="146" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="63" width="159" height="20" uuid="70a05a43-723f-4359-aeb1-ae63e64c5a6e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Dikeluarkan Oleh"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="126" width="159" height="20" uuid="57027613-e800-456f-9ee4-417a9acaffad"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{AUDITUSER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="63" width="159" height="20" uuid="5ec5a599-6427-4ee5-bbce-3c64202eae06"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Disetujui Oleh"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="63" width="159" height="20" uuid="26e563b4-7d75-4bdb-9664-a0f5c50d8530"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Diterima Oleh"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="38" y="83" width="100" height="43" uuid="f19741d2-3f22-4561-a329-4050ce2cfb38"/>
+				<imageExpression><![CDATA[$F{SIGNATURE}]]></imageExpression>
+			</image>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="0" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12ab0f9d-1ebc-471a-af47-1b124c05e5a8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="88"/>
+	<property name="ireport.y" value="240"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="POId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[$P{POId}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select d.id,d.term,d.currency,d.nomor,d.podate,d.supplier_text01,d.supplier_text02,d.supplier_text03,d.supplier_text04,d.vat,d.itemname,d.unit,d.unitprice,d.qty,d.price,suser1.system_user_fullname issuedby,suser2.system_user_fullname checkedby,suser1.system_user_fullname,suser2.signature  checkedsign,suser1.signature  issuedsign from
+(
+select   po.id,pot.name term,neg.currency,po.nomor,po.podate podate,po.supplier_text01,po.supplier_text02,po.supplier_text03,po.supplier_text04,po.vat,
+pri.nama itemname,
+pri.unit,
+poi.unitprice,sum(nvl(poi.qty,0)) qty, sum(poi.unitprice*poi.qty) price,po.issuedby,po.checkedby
+from
+v_purchaseorderitem poi
+left join purchaseorder po on poi.purchaseorderid=po.id
+left join purchaseorderterm pot on po.termpaymentid=pot.id
+left join negara neg on po.currencyid=neg.id
+left join v_prallitem pri on poi.itemid=pri.id
+where
+poi.purchaseorderid=$P{POId}
+group by po.id,pot.name ,neg.currency,po.nomor,po.podate ,po.supplier_text01,po.supplier_text02,po.supplier_text03,po.supplier_text04,po.vat,
+pri.nama ,
+pri.unit,
+poi.unitprice,po.issuedby,po.checkedby
+) d
+left join systemuserclass suser1 on suser1.system_user_name=d.issuedby
+left join systemuserclass suser2 on suser2.system_user_name=d.checkedby]]>
+	</queryString>
+	<field name="ID" class="java.math.BigDecimal"/>
+	<field name="TERM" class="java.lang.String"/>
+	<field name="CURRENCY" class="java.lang.String"/>
+	<field name="NOMOR" class="java.lang.String"/>
+	<field name="PODATE" class="java.sql.Timestamp"/>
+	<field name="SUPPLIER_TEXT01" class="java.lang.String"/>
+	<field name="SUPPLIER_TEXT02" class="java.lang.String"/>
+	<field name="SUPPLIER_TEXT03" class="java.lang.String"/>
+	<field name="SUPPLIER_TEXT04" class="java.lang.String"/>
+	<field name="VAT" class="java.lang.String"/>
+	<field name="ITEMNAME" class="java.lang.String"/>
+	<field name="UNIT" class="java.lang.String"/>
+	<field name="UNITPRICE" class="java.math.BigDecimal"/>
+	<field name="QTY" class="java.math.BigDecimal"/>
+	<field name="PRICE" class="java.math.BigDecimal"/>
+	<field name="ISSUEDBY" class="java.lang.String"/>
+	<field name="ISSUEDSIGN" class="java.awt.Image"/>
+	<field name="CHECKEDBY" class="java.lang.String"/>
+	<field name="SYSTEM_USER_FULLNAME" class="java.lang.String"/>
+	<field name="CHECKEDSIGN" class="java.awt.Image"/>
+	<variable name="PRICE_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{PRICE}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="555" height="20" uuid="12ba14bb-1784-4e10-812d-1339422c6cbd"/>
+				<textElement textAlignment="Center" markup="none"/>
+				<textFieldExpression><![CDATA["PURCHASE ORDER"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="185" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="59" height="20" uuid="dcfee0a1-b44f-4d01-a568-bcd7eeef04b0"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["PO No."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="20" width="59" height="20" uuid="0064f198-5b14-4132-86d5-098aaa881930"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["PODate"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="40" width="59" height="20" uuid="0ffcbb72-af0a-4784-85cf-53d547a75645"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Supplier"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="0" width="100" height="20" uuid="e5217ab6-b9ab-442c-b3f3-f0ba9c36f98d"/>
+				<textFieldExpression><![CDATA[$F{NOMOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="20" width="100" height="20" uuid="e4b19aaf-d000-49a3-9012-c6189640bc75"/>
+				<textFieldExpression><![CDATA[$F{PODATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="100" width="59" height="20" uuid="3028e3e7-6400-49b8-a334-4a59c114bdac"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Attn."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="120" width="59" height="20" uuid="b762c342-a87e-491a-bf15-4e8a005c3480"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Isssued By"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="40" width="241" height="20" uuid="e0d9c58f-33a6-441c-806b-6f873be0a4c2"/>
+				<textFieldExpression><![CDATA[$F{SUPPLIER_TEXT01}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="60" width="241" height="20" uuid="431df549-3e5c-40a0-a777-aad7f26f398e"/>
+				<textFieldExpression><![CDATA[$F{SUPPLIER_TEXT02}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="80" width="241" height="20" uuid="3144176c-517a-4569-9b6a-3f7cd511614f"/>
+				<textFieldExpression><![CDATA[$F{SUPPLIER_TEXT03}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="100" width="241" height="20" uuid="8dfbba78-b476-478c-953e-9e89c1f7f75f"/>
+				<textFieldExpression><![CDATA[$F{SUPPLIER_TEXT04}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="120" width="100" height="20" uuid="da11a458-bfc3-45fc-898b-d6bf7ddfb2a0"/>
+				<textFieldExpression><![CDATA[$F{ISSUEDBY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="140" width="59" height="20" uuid="f795fcad-e56d-4427-87c3-3881074543f0"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Term"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="140" width="100" height="20" uuid="b6db5288-de36-4b4d-83e8-d5950a99cafd"/>
+				<textFieldExpression><![CDATA[$F{TERM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="160" width="59" height="20" uuid="9086f5c7-e919-47f2-89f1-1344ccaf8e56"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["VAT"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="160" width="100" height="20" uuid="8d6d703f-0444-455d-83dc-2dc4523bbe3e"/>
+				<textFieldExpression><![CDATA[$F{VAT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="40" width="59" height="20" uuid="d2a5a3f0-9b8e-42a2-926a-c7ff64c8e432"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Ship to"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="392" y="40" width="161" height="20" uuid="d23d95d9-ebf3-476f-b5bb-1169ae6b80e6"/>
+				<textFieldExpression><![CDATA["Pintu Mas Garmindo, PT"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="392" y="60" width="161" height="20" uuid="8d0a5b6f-8f69-4997-953f-187fed1e4c87"/>
+				<textFieldExpression><![CDATA["Jl.Raya Dramarga Km-7 No.61"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="80" width="161" height="20" uuid="bb0ded48-98e9-46fe-b1ac-d1dab03d4774"/>
+				<textFieldExpression><![CDATA["Kab.Bogor Jawa Barat 16650"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="108" width="154" height="20" uuid="e0defb15-01bd-4aa9-bbcd-8142a6083f4f"/>
+				<textFieldExpression><![CDATA[$F{ISSUEDBY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="108" width="59" height="20" uuid="b4a3afcb-9fb6-4923-afb6-75a0576ef59d"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Up"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="23" height="20" uuid="65bc14d0-76fa-4adb-a48f-0cf66bc0c722"/>
+				<textElement textAlignment="Right" markup="none"/>
+				<textFieldExpression><![CDATA["No"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="0" width="252" height="20" uuid="de0d58c2-ec5f-4d53-b88c-3170bc11270b"/>
+				<text><![CDATA[ITEMNAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="0" width="65" height="20" uuid="df76dc49-f95e-4b5f-840b-e910f19324a5"/>
+				<text><![CDATA[UNIT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="1" width="78" height="20" uuid="6d94372b-67e2-4c8a-9ccc-310ed5102252"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[UNITPRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="428" y="1" width="54" height="20" uuid="2c63a435-2107-47de-ba25-4891da5493f9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="482" y="0" width="71" height="20" uuid="794b0bd9-41da-43d8-a040-3ae9caa99288"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="5" y="0" width="548" height="1" uuid="3ebcc24d-5354-4109-8d44-79b15e393677"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Immediate">
+			<textField>
+				<reportElement x="0" y="0" width="23" height="20" uuid="8f3484d4-83f3-42b8-bf79-120f35ad6bb9"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="33" y="1" width="252" height="20" uuid="e26402fb-9ccd-4005-b5a9-ce34aae590dc"/>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA[$F{ITEMNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="1" width="65" height="20" uuid="b2a4a326-9782-48c9-8f27-750e16dd9ca5"/>
+				<textFieldExpression><![CDATA[$F{UNIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="1" width="78" height="20" uuid="6b9286ec-1bad-4bb3-a59c-bcc3fb104118"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{UNITPRICE})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="1" width="54" height="20" uuid="7591b405-116f-414f-8c6e-f1dd6165ebf5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{QTY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="482" y="1" width="71" height="20" uuid="f279cb0f-c83d-4772-b6d2-511cc90c47b5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($F{PRICE})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="19" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="102" splitType="Stretch">
+			<textField>
+				<reportElement x="196" y="15" width="154" height="20" uuid="726b7d8d-28f0-4702-b31a-9a349dd4f438"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Approved By"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="228" y="35" width="100" height="35" uuid="596f1a73-89de-4091-938c-747f389cf506"/>
+				<imageExpression><![CDATA[$F{CHECKEDSIGN}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="196" y="70" width="154" height="20" uuid="4fe04e2e-6cce-43af-bdbb-3bb0142b2da3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CHECKEDBY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="15" width="154" height="20" uuid="e55ccc27-ea29-4fa8-bb30-c16a63f1cd08"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Supplier"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="70" width="154" height="20" uuid="f0efe9f5-201e-4722-8917-2755ceabf02b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["(                                           )"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="70" width="154" height="20" uuid="ad7dd5e2-e568-411b-8ff8-01b6ad730298"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ISSUEDBY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="15" width="154" height="20" uuid="5bc4606f-3dbd-42d8-8060-0ed67c993b7e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Issued By"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="33" y="35" width="100" height="35" uuid="9d0783cf-33f2-47f7-9bd1-a64348a4acf0"/>
+				<imageExpression><![CDATA[$F{ISSUEDSIGN}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="102" splitType="Stretch">
+			<textField>
+				<reportElement x="351" y="20" width="100" height="20" uuid="2eaf9caf-891f-4bc2-b79e-ccc77380ac1c"/>
+				<textFieldExpression><![CDATA["Total"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="351" y="40" width="100" height="20" uuid="14f05b67-4ec4-47b7-8664-4aa5911ca945"/>
+				<textFieldExpression><![CDATA["VAT"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="351" y="60" width="100" height="20" uuid="20be3ef0-aa7d-49ec-8295-857fbc89c009"/>
+				<textFieldExpression><![CDATA["Grand Total"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="20" width="100" height="20" uuid="c81ebc1b-52cc-46de-ab1e-3a6675f98527"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00").format($V{PRICE_1}.intValue())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="40" width="100" height="20" uuid="25d3125a-d9ea-4817-8749-cfae89bde787"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{VAT}.equals( "Y")  ? new java.text.DecimalFormat("#,##0.00").format( $V{PRICE_1}.intValue() * 0.1 )  : "0.00"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="60" width="100" height="20" uuid="1f6ba812-450b-4870-9371-e541a90841be"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VAT}.equals("Y" ) ? new java.text.DecimalFormat("#,##0.00").format( $V{PRICE_1}.intValue() * 1.1 )  : new java.text.DecimalFormat("#,##0.00").format($V{PRICE_1}.intValue())]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="5" y="0" width="548" height="1" uuid="db718b81-8965-498c-ae56-362b9db2b4f5"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
