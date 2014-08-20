@@ -241,9 +241,9 @@ group by prz.hdrid]]>
 
 --,RETRIEVE_PR_PO_TGL(pr.prno,pi.id) PO
 --,RETRIEVE_PR_PO_QTY(pr.prno,pi.id) POQTY
-vdtl.PONO,
+vdtl.PONO ||' '|| vdtl.PODATE  PONO,
 vdtl.POQTY,
-vdtl.BTBNO,
+vdtl.BTBNO || ' ' || vdtl.BTBDATE BTBNO,
 vdtl.BTBQTY,
 --RETRIEVE_PR_ITEM_OS(pr.prno) PO_ITEM,
 --,RETRIEVE_PR_BTB_NO(pr.prno,pi.itemid) BTB
