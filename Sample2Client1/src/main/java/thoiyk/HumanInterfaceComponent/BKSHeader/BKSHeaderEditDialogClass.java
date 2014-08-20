@@ -18,11 +18,7 @@ package thoiyk.HumanInterfaceComponent.BKSHeader;
 
 // rtl
 import KFramework30.Base.*;
-import KFramework30.Communication.dbTransactionClientClass;
 import KFramework30.Communication.persistentObjectManagerClass;
-import KFramework30.Printing.KPrintDataTableClass;
-import KFramework30.Printing.KPrintJobClass;
-import KFramework30.Printing.KPrintSectionClass;
 import java.util.Map;
 
 // app
@@ -34,18 +30,12 @@ import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
 import KFramework30.Widgets.KDropDownFillerClass;
 import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.BKSHeaderClass;
-import ProblemDomainComponent.ServiceTypeClass;
 import ProblemDomainComponent.PurchaseOrderClass;
-import ProblemDomainComponent.samplerecordClass;
 import ProblemDomainComponent.supplierClass;
-import ProblemDomainComponent.v_PenerimaClass;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.print.PageFormat;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.text.DateFormat;
 import java.util.HashMap;
 import javax.swing.JDialog;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -54,7 +44,6 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JRViewer;
 import thoiyk.HumanInterfaceComponent.BKSDetail.BKSDetailBrowserClass;
-import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
 import thoiyk.HumanInterfaceComponent.PurchaseOrder.PurchaseOrderApprovedBrowserClass;
 import thoiyk.HumanInterfaceComponent.supplier.supplierBrowserClass;
 

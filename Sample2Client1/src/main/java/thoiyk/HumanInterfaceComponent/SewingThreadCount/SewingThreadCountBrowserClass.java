@@ -23,7 +23,7 @@ import KFramework30.Widgets.*;
 import KFramework30.Base.*;
 
 // system
-import ProblemDomainComponent.pr_newClass;
+import ProblemDomainComponent.SewingThreadCountClass;
 
 
 public class SewingThreadCountBrowserClass 
@@ -46,7 +46,7 @@ extends KDataBrowserBaseClass {
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    pr_newClass.class,
+                    SewingThreadCountClass.class,
                     SewingThreadCountEditDialogClass.class
             );  
             

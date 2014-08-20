@@ -18,11 +18,7 @@ package thoiyk.HumanInterfaceComponent.SewingOpBreakDown;
 
 // rtl
 import KFramework30.Base.*;
-import KFramework30.Communication.dbTransactionClientClass;
 import KFramework30.Communication.persistentObjectManagerClass;
-import KFramework30.Printing.KPrintDataTableClass;
-import KFramework30.Printing.KPrintJobClass;
-import KFramework30.Printing.KPrintSectionClass;
 import java.util.Map;
 
 // app
@@ -38,25 +34,24 @@ import ProblemDomainComponent.ProdRecClass;
 import ProblemDomainComponent.ReceivedOrderClass;
 import ProblemDomainComponent.samplerecordClass;
 import ProblemDomainComponent.stocktypeClass;
-//import ProblemDomainComponent.FormSewingTypeClass;
-import java.awt.Font;
-import java.awt.print.PageFormat;
+import java.awt.Dimension;
 import java.io.File;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.HashMap;
-import java.util.Locale;
-import net.sf.jasperreports.engine.JREmptyDataSource;
+import javax.swing.JDialog;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JRViewer;
 import net.sf.jasperreports.view.JasperViewer;
 import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
 import thoiyk.HumanInterfaceComponent.SewingOpBreakDownDtl.SewingOpBreakDownDtlBrowserClass;
-import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;
 
 
 public class SewingOpBreakDownEditDialogClass 
@@ -755,27 +750,34 @@ private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     }//GEN-LAST:event_newButtonActionPerformed
 
     private void printGraphButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printGraphButton2ActionPerformed
-       
-        try 
+
+            try 
         {
+            
             Map<String, Object> parameters = new HashMap<String, Object>();
             Integer hdrID = Integer.parseInt(lblID.getText());
             parameters.put("hdrid", hdrID);
-            
-            //Class.forName("oracle.jdbc.OracleDriver") ;
-            File file = new File("src/main/java/thoiyk/HumanInterfaceComponent/SewingOpBreakDown/dailySewing.jrxml");
-            JasperDesign jasperDesign = JRXmlLoader.load(file);
-            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
-           Connection jdbcConnection = DriverManager.getConnection(configuration.getField( "jasper_jdbc" ), "sample", "sample");
+            Connection jdbcConnection = DriverManager.getConnection(configuration.getField( "jasper_jdbc" ), "sample", "sample");            
+            JasperReport jasperReport = (JasperReport)JRLoader.loadObject(new URL(configuration.getField( "jasper_url" )+"report/SewingOpBreakDown.jasper"));              
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,parameters,jdbcConnection);
-            JasperViewer.viewReport(jasperPrint,false);
-            
-                           
-        }
+             
+            JDialog jv = new JDialog();
+            jv.setModal(true);
+            jv.setMinimumSize(new Dimension(700,600));
+            jv.setLocation(300,100);
+            jv.getContentPane().add(new JRViewer(jasperPrint));
+            jv.validate();
+            jv.pack();
+            jv.setVisible(true);
+          
+            }
          catch( Exception error	){
             log.log( this, KMetaUtilsClass.getStackTrace( error ) );
             KMetaUtilsClass.showErrorMessageFromException( this, error );
         }
+        
+               
+        
             
     }//GEN-LAST:event_printGraphButton2ActionPerformed
 

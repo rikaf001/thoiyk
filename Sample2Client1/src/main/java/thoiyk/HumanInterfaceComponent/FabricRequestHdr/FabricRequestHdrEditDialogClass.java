@@ -18,11 +18,7 @@ package thoiyk.HumanInterfaceComponent.FabricRequestHdr;
 
 // rtl
 import KFramework30.Base.*;
-import KFramework30.Communication.dbTransactionClientClass;
 import KFramework30.Communication.persistentObjectManagerClass;
-import KFramework30.Printing.KPrintDataTableClass;
-import KFramework30.Printing.KPrintJobClass;
-import KFramework30.Printing.KPrintSectionClass;
 import java.util.Map;
 
 // app
@@ -36,9 +32,6 @@ import ProblemDomainComponent.FabricRequestHdrClass;
 import ProblemDomainComponent.buyerClass;
 import ProblemDomainComponent.ProdRecClass;
 import java.awt.Dimension;
-//import ProblemDomainComponent.FormKainTypeClass;
-import java.awt.Font;
-import java.awt.print.PageFormat;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;

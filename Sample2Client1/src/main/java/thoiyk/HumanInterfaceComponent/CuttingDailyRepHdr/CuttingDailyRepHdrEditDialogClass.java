@@ -18,15 +18,10 @@ package thoiyk.HumanInterfaceComponent.CuttingDailyRepHdr;
 
 // rtl
 import KFramework30.Base.*;
-import KFramework30.Communication.dbTransactionClientClass;
 import KFramework30.Communication.persistentObjectManagerClass;
-import KFramework30.Printing.KPrintDataTableClass;
-import KFramework30.Printing.KPrintJobClass;
-import KFramework30.Printing.KPrintSectionClass;
 import java.util.Map;
 
 // app
-import Sample1.UserCustomWidgets.JCalendarDemoWidgetAdapterClass;
 
 // fwk
 import KFramework30.Widgets.KDialogControllerClass;
@@ -40,24 +35,16 @@ import ProblemDomainComponent.samplerecordClass;
 import ProblemDomainComponent.stocktypeClass;
 import java.awt.Dimension;
 //import ProblemDomainComponent.FormCuttingTypeClass;
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.print.PageFormat;
-import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.HashMap;
 import javax.swing.JDialog;
-import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JRViewer;
-import net.sf.jasperreports.view.JasperViewer;
 import thoiyk.HumanInterfaceComponent.CuttingDailyRepDtl.CuttingDailyRepDtlBrowserClass;
 import thoiyk.HumanInterfaceComponent.ProductionRecord.ProdRecBrowserSimpleClass;
 import thoiyk.HumanInterfaceComponent.buyer.buyerBrowserClass;

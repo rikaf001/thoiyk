@@ -129,7 +129,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="11" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="idLbl" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -176,7 +176,7 @@
                                       <Component id="LblPONo1" alignment="0" pref="184" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="85" max="32767" attributes="0"/>
+                              <EmptySpace pref="86" max="32767" attributes="0"/>
                               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>

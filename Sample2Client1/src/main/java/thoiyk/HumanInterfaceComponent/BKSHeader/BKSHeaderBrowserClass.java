@@ -22,9 +22,9 @@ import javax.swing.*;
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
 import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
+import ProblemDomainComponent.BKSHeaderClass;
 
 // system
-import ProblemDomainComponent.pr_newClass;
 
 
 public class BKSHeaderBrowserClass 
@@ -47,7 +47,7 @@ extends KDataBrowserBaseClass {
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    pr_newClass.class,
+                    BKSHeaderClass.class,
                     BKSHeaderEditDialogClass.class
             );  
             

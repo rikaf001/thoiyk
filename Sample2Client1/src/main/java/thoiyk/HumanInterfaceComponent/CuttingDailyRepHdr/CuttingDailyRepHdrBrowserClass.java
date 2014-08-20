@@ -24,7 +24,7 @@ import KFramework30.Base.*;
 import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
-import ProblemDomainComponent.pr_newClass;
+import ProblemDomainComponent.CuttingDailyRepHdrClass;
 
 
 public class CuttingDailyRepHdrBrowserClass 
@@ -47,7 +47,7 @@ extends KDataBrowserBaseClass {
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    pr_newClass.class,
+                    CuttingDailyRepHdrClass.class,
                     CuttingDailyRepHdrEditDialogClass.class
             );  
             
