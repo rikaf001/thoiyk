@@ -170,8 +170,17 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
       <artifactId>jcalendar</artifactId>
       <version>1.3.2</version>
     </dependency>
-           
-    
+    <dependency>
+        <groupId>net.sf.jasperreports</groupId>
+        <artifactId>jasperreports</artifactId>
+      <version>5.2.0</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+        <groupId>commons-collections</groupId>
+        <artifactId>commons-collections</artifactId>
+      <version>3.2.1</version>
+    </dependency>
 </dependencies>
 
   

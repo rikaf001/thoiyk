@@ -57,12 +57,21 @@ extends KBusinessObjectClass
     @Column(name = "productionrecordid")
     private long ProductionRecordID;
     
+    @Column(name = "prno")
+    private String PRNo;
+    
+    
     @Column(name = "itemid")
     private long ItemID;
+
+    
+    @Column(name = "unitprice")
+    private double UnitPrice;
     
     @Column(name = "qty")
     private double Qty;
     
+
     
     @KBusinessObjectClass.KObjectVersion
     @Column(name = "version")
@@ -105,6 +114,15 @@ extends KBusinessObjectClass
         this.ItemID = ItemID;
     }
 
+
+    public double getUnitPrice() {
+        return UnitPrice;
+    }
+
+    public void setUnitPrice(double UnitPrice) {
+        this.UnitPrice = UnitPrice;
+    }
+
     public double getQty() {
         return Qty;
     }
@@ -113,7 +131,7 @@ extends KBusinessObjectClass
         this.Qty = Qty;
     }
 
-    
+
 
     public long getVersion() {
         return version;
@@ -122,6 +140,16 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
+
+    public String getPRNo() {
+        return PRNo;
+    }
+
+    public void setPRNo(String PRNo) {
+        this.PRNo = PRNo;
+    }
+
+    
     
 
 

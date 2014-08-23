@@ -35,7 +35,7 @@ import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
 import KFramework30.Widgets.selectDialogClass;
 import ProblemDomainComponent.pr_newClass;
 //import ProblemDomainComponent.pr_newitemClass;
-import ProblemDomainComponent.productionrecorditemClass;
+import ProblemDomainComponent.ProdRecItemClass;
 import ProblemDomainComponent.systemMailClass;
 
 // rtl
@@ -83,7 +83,7 @@ implements KDialogInterface
         // has - defaulted     
         KDialogController = new KDialogControllerClass(                 
                 configuration, log, 
-                productionrecorditemClass.class, this, getContentPane() );        
+                ProdRecItemClass.class, this, getContentPane() );        
                             
     }
     

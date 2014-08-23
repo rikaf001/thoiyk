@@ -50,7 +50,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Properties;
 import java.util.Vector;
-import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderEditDialogClass;
+import thoiyk.HumanInterfaceComponent.ReceivedOrder.outstandingorderEditDialogClass;
 
 
 
@@ -121,13 +121,13 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname,sri.qtyneed ",    
+                        " sri.id , vsri.category,vsri.nama itemname,sri.qty,ut.nama unit,sri.comp,sri.tolerance,sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " samplerecorditem sri " +
-                        " left join v_sr_item vsri on sri.itemid=vsri.id"    ,
+                        " left join v_sr_item vsri on sri.itemid=vsri.id" +
+                        " left join unittype ut on sri.unittypeid=ut.id"    ,
                         // 3 key of primary PDC object
-                        //"sri.id"
                         "ID"
                             );    
                     
@@ -137,59 +137,35 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 }
                 
                                
-                // if inside a client edit, allow edit of some fields
-                                                            
-                // writeable -> true
-                //setColumnNames( "", "OK", "OK", true );                        
-                
-                // Read Only
                 
                 setColumnNames( "sri", "ID", "ID" );             
-                setColumnNames( "sri", "ITEMID", "ItemID" );             
+                //setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
+                setColumnNames( "vsri", "ITEMNAME", "Description" ); 
+                setColumnNames( "sri", "QTY", "QtyOrder" ); 
+                setColumnNames( "ut", "UNIT", "Unit" ); 
+                setColumnNames( "sri", "COMP", "Cons" ); 
+                setColumnNames( "sri", "TOLERANCE", "Tolerance" ); 
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
-                
-                // writeable -> true
-                //setColumnNames( "FAC", "FAC_DATE", "Date", true );                        
-                //setColumnNames( "STATUS", "FACSTATUS_STATUS", "STATUS", true );                
-                //setColumnNames( "FAC", "FAC_TOTAL", "TOTAL", false );   
-                
-                // replace criteria
-                //setDefaultCriteria( " client_id = ? " );                
-                //bindDefaultParameter1( ":client_id",  parentID  );       
                 setDefaultCriteria( " samplerecordid = ? " );               
                 bindDefaultParameter1( ":samperecordid",  parentID  );     
                 
             }else{  // mode = ALL_INVOICES
                 
-                // this is NOT a read write browsers
-                //setBrowserSaveListener(this);
                 
               if( configuration.getField("databaseType").equals( "oracle" )  ){
                     
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        " sri.id , sri.itemid, vsri.category,vsri.nama itemname, sri.qtyneed ",    
+                        " sri.id ,vsri.category,vsri.nama itemname, sri.qty,ut.nama unit, sri.comp, sri.tolerance, sri.qtyneed ",    
 
                         // 2 tables and joins                                                
                         " samplerecorditem sri " +
-                        " left join v_sr_item vsri on sri.itemid=vsri.id"    ,
+                        " left join v_sr_item vsri on sri.itemid=vsri.id"   +
+                        " left join unittype ut on sri.unittypeid=ut.id"    ,
                         // 3 key of primary PDC object
-                        //"sri.id"
                         "ID"
-
-                            /*
-                            // 1 fields                    
-                        "  fac.fac_id , fac.fac_name, to_CHAR( fac.fac_date, 'yyyy-mm-dd HH24:MI:SS' ) as fac_date, status.facstatus_status, fac.fac_total ",    
-
-                        // 2 tables and joins                                                
-                        " sample_factura fac " +
-                        " left join sample_factura_status status on status.facstatus_id = fac.facstatus_id  ",  
-
-                        // 3 key of primary PDC object
-                        "FAC_ID"*/                                                                                              
                             );    
                     
                 }else{
@@ -197,84 +173,34 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     throw new KExceptionClass( "Data base type not recognized " + configuration.getField("databaseType"), null );
                 }               
                 
-                // FOR ALL INVOICES
-                
-              /*
-                // mayusculas
-                setColumnNames( "FAC", "FAC_ID", "id" );             
-                setColumnNames( "FAC", "FAC_NAME", "Name" );            
-                setColumnNames( "FAC", "FAC_DATE", "Date" );                        
-                setColumnNames( "STATUS", "FACSTATUS_STATUS", "STATUS" );
-                setColumnNames( "FAC", "FAC_TOTAL", "TOTAL" );                                
-              */  
+         
                 setColumnNames( "sri", "ID", "ID" );             
-                setColumnNames( "sri", "ITEMID", "ItemID" );             
+//                setColumnNames( "sri", "ITEMID", "ItemID" );             
                 setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
+                setColumnNames( "vsri", "ITEMNAME", "Description" ); 
+                setColumnNames( "sri", "QTY", "QtyOrder" );  
+                setColumnNames( "ut", "UNIT", "Unit" ); 
+                setColumnNames( "sri", "COMP", "Cons" );  
+                setColumnNames( "sri", "TOLERANCE", "Tolerance" );  
                 setColumnNames( "sri", "QTYNEED", "QtyNeed" );             
 
-              /*setColumnNames( "sri", "id", "id" ); 
-                setColumnNames( "sri", "samplerecordid", "SampleRecordID" ); 
-                setColumnNames( "sri", "itemid", "ItemID" ); 
-                setColumnNames( "sri", "qty", "Qty" ); 
-                setColumnNames( "sri", "comp", "Comp" ); 
-                setColumnNames( "sri", "qtyneed", "QtyNeed" ); 
-                */
                 
             }
 
-            setDefaultOrder( "itemid" );
+            setDefaultOrder( "ItemID" );
                                 
             
             super.initializeTable();             
 
             adjustColumnWidth( "ID", 50 );
-            adjustColumnWidth( "ItemID", 50 );
+  //          adjustColumnWidth( "ItemID", 50 );
             adjustColumnWidth( "Category", 150 );
-            adjustColumnWidth( "ItemName", 200 );
+            adjustColumnWidth( "Description", 200 );
             
-           /* 
-            adjustColumnType( "Date", BROWSER_COLUMN_TYPE_DATE ); // so that autofilter will use date format
-            */
             if( mode == SRITEM_BY_SR ){                        
-                
-                
-                //DATE -->>
-     //           setColumnRenderer("Date", new CalendarCellRendererClass(tableModel, log)); //<-- no necessary and looks awful
-      //          setColumnEditor("Date", new CalendarCellEditorClass(tableModel, log));
-                //DATE -->>
-                
-                
-                
-                // OK box
-                //setColumnRenderer("OK", new CheckBoxCellRendererClass(tableModel, log) );
-                //setColumnEditor("OK", new CheckBoxCellEditorClass(tableModel, log) );                
-                //adjustColumnWidth( "OK", 30 );            
-                
-               
-                
-                // STATUS COMBO
-        //        dbTransactionClientClass query = new dbTransactionClientClass(configuration, log);
-        //        query.prepare( " select FACSTATUS_STATUS from SAMPLE_FACTURA_STATUS " );
-        //        query.executeQuery( 0 , 999 );                  
-         //       Vector< String > options = new Vector< String >();
-         //       while( query.fetch() ) options.add( (String )query.getField( "FACSTATUS_STATUS" ) );                
-                
-         //       setColumnEditor("STATUS", new ComboCellEditorClass( options,  tableModel, log, true ) );
-         //       setColumnRenderer("STATUS", new ComboCellRendererClass( options, tableModel, log) );
-                   
-                // TOTAL
-                // for the total, leave the default text editor assigned when set to editable
                 
             }
             
-//            adjustColumnType( "TOTAL", BROWSER_COLUMN_TYPE_CURRENCY );
-            
- //           adjustColumnFont(  "id",  new Font( "arial", Font.PLAIN, 10  ) );            
-  //          adjustColumnFont(  "Name",  new Font( "arial", Font.PLAIN, 10 )  );                        
-   //         adjustColumnFont(  "Date",  new Font( "arial", Font.PLAIN, 10 )  );                        
-   //         adjustColumnFont(  "STATUS",  new Font( "arial", Font.PLAIN, 10 )  );                        
-   //         adjustColumnFont(  "TOTAL",  new Font( "arial", Font.BOLD, 10 )  );            
                        
     }        
 

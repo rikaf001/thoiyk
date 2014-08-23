@@ -22,6 +22,7 @@ import javax.swing.*;
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import KFramework30.Widgets.DataBrowser.TableCellRenderers.ImageCellRendererClass;
 
 // system
 import ProblemDomainComponent.sparepartClass;
@@ -64,7 +65,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " sp.ID, sp.SPAREPARTTYPEID,spt.NAMA TYPE, sp.SUPPLIERID,sup.nama SUPPLIER, sp.KODE, sp.UKURAN, sp.MESIN, sp.QTY",
+                " sp.ID,sp.image,spt.NAMA TYPE,sup.nama SUPPLIER, sp.KODE, sp.UKURAN, sp.MESIN, sp.DESCRIPTION",
                 
                 // 2 tablas and joins                                             
                 " SPAREPART sp   "  +
@@ -78,32 +79,38 @@ extends KDataBrowserBaseClass {
 
             // define column settings
             setColumnNames( "sp", "ID", "ID" );
-            setColumnNames( "sp", "SPAREPARTTYPEID", "TypeID" );
+            //setColumnNames( "sp", "SPAREPARTTYPEID", "TypeID" );
             setColumnNames( "spt", "TYPE", "TypeName" );
-            setColumnNames( "sp", "SUPPLIERID", "SupplierID" );
+            setColumnNames( "sp", "IMAGE", "Pic" );
             setColumnNames( "sup", "SUPPLIER", "SupplierName" );
             setColumnNames( "sp", "KODE", "Code" );
             setColumnNames( "sp", "UKURAN", "Size" );
             setColumnNames( "sp", "MESIN", "Machine" );
-            setColumnNames( "sp", "QTY", "Qty" );
+            setColumnNames( "sp", "DESCRIPTION", "Description" );
+            //setColumnNames( "sp", "QTY", "Qty" );
             setDefaultOrder( "  ID " );
 
-            //            setRowsHeight( 150 );
+            setRowsHeight( 150 );
             
             // load data
             super.initializeTable();   
             
             // some customization
-            //adjustColumnWidth( "id", 100 );
-            //adjustColumnWidth( "Name", 200 );  
-            //adjustColumnWidth( "Cost", 100 );  
+            adjustColumnWidth( "ID", 50 );
+            adjustColumnWidth( "TypeName", 100 );  
+            adjustColumnWidth( "SupplierName", 200 );  
+            adjustColumnWidth( "Code", 100 ); 
+            adjustColumnWidth( "Size", 100 ); 
+            adjustColumnWidth( "Machine", 100 ); 
+            adjustColumnWidth( "Description", 200 ); 
+            
             
             //adjustColumnType( "Cost", BROWSER_COLUMN_TYPE_CURRENCY );            
             //adjustColumnFont(  "Cost",  new Font( "arial", Font.BOLD, 10  ) );             
             //adjustColumnForegroundColor( "Cost", Color.BLUE  );
             
-  //          adjustColumnWidth( "IMAGE", 210 );  
-   //         setColumnRenderer( "IMAGE", new ImageCellRendererClass( tableModel, log, 120, 150 ) );
+           adjustColumnWidth( "Pic", 210 );  
+           setColumnRenderer( "Pic", new ImageCellRendererClass( tableModel, log, 120, 150 ) );
             
     }        
 

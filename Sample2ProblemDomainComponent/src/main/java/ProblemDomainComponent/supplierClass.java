@@ -18,14 +18,11 @@ package ProblemDomainComponent;
 import KFramework30.Base.KBusinessObjectClass;
 import KFramework30.Base.KExceptionClass;
 import java.awt.Component;
-import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
@@ -58,8 +55,8 @@ extends KBusinessObjectClass
     private String telp;
     @Column(name = "fax")
     private String fax;
-    @Column(name = "negaraid")
-    private String negaraid;
+    @Column(name = "negara")
+    private String negara;
     @Column(name = "npwp")
     private String npwp;
    
@@ -67,11 +64,11 @@ extends KBusinessObjectClass
     }
 
     //=================================================================    
-    public Long getId() {
+       public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -107,12 +104,12 @@ extends KBusinessObjectClass
         this.fax = fax;
     }
 
-    public String getNegaraid() {
-        return negaraid;
+    public String getNegara() {
+        return negara;
     }
 
-    public void setNegaraid(String negaraid) {
-        this.negaraid = negaraid;
+    public void setNegara(String negara) {
+        this.negara = negara;
     }
 
     public String getNpwp() {
@@ -123,6 +120,8 @@ extends KBusinessObjectClass
         this.npwp = npwp;
     }
 
+    
+   
     @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {
     }

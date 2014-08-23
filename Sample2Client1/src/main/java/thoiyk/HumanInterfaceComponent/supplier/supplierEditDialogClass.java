@@ -184,9 +184,9 @@ implements KDialogInterface
 
         jTextField1.setName("fax"); // NOI18N
 
-        jTextField4.setName("negaraid"); // NOI18N
+        jTextField4.setName("negara"); // NOI18N
 
-        jLabel2.setText("NegaraID:");
+        jLabel2.setText("Negara");
 
         jLabel4.setText("NPWP:");
 
@@ -216,7 +216,8 @@ implements KDialogInterface
                     .add(jTextField2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                     .add(jTextField1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                     .add(jTextField4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                    .add(jTextField6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)))
+                    .add(jTextField6, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -249,10 +250,10 @@ implements KDialogInterface
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jTextField6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel4))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jPanel1.setBounds(0, 0, 510, 210);
+        jPanel1.setBounds(0, 0, 510, 230);
         jLayeredPane1.add(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         okButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
@@ -295,7 +296,7 @@ implements KDialogInterface
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 229, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents

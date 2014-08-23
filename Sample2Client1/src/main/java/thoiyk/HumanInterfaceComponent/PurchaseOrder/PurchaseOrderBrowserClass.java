@@ -22,6 +22,7 @@ import javax.swing.*;
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
 import ProblemDomainComponent.PurchaseOrderClass;
@@ -66,7 +67,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " po.ID ID,po.NOMOR,po.PODATE,po.SUPPLIERID,sup.NAMA SUPPLIERNAME, po.ISSUEDBY ",
+                " po.ID ID,case when po.checkedby is not null then 'aproved'  else '' end  as status,po.NOMOR,po.PODATE,sup.NAMA SUPPLIERNAME, po.ISSUEDBY ",
                 
                 // 2 tablas and joins                                             
                 " PURCHASEORDER po   "+
@@ -80,11 +81,14 @@ extends KDataBrowserBaseClass {
             // define column settings
             
             setColumnNames( "po", "ID", "ID" );
-            setColumnNames( "po", "NOMOR", "PONumber" );
-            setColumnNames( "po", "PODATE", "PODate" );
-            setColumnNames( "po", "SUPPLIERID", "SupplierID" );
-            setColumnNames( "sup", "SUPPLIERNAME", "SupplierName" );
-            setColumnNames( "po", "ISSUEDBY", "IssuedBy" );
+            setColumnNames( "po", "STATUS", "Status" );
+            setColumnNames( "po", "NOMOR", "NO PO" );
+            setColumnNames( "po", "PODATE", "PO Date" );
+            //setColumnNames( "po", "SUPPLIERID", "SupplierID" );
+            setColumnNames( "sup", "SUPPLIERNAME", "Supplier Name" );
+            setColumnNames( "po", "ISSUEDBY", "Issued By" );
+            
+            setDefaultOrder( "ID" );
 
 
             
@@ -92,7 +96,16 @@ extends KDataBrowserBaseClass {
             
             // load data
             super.initializeTable();   
+                        // some customization
+            adjustColumnWidth( "ID", 40 );
+            adjustColumnWidth( "Status", 80 );
+            adjustColumnWidth( "NO PO", 80 );
+            adjustColumnWidth( "PO Date", 80 );
+            adjustColumnWidth( "Supplier Name", 200 );
+            adjustColumnWidth( "Issued By", 80 );
             
+                        
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
 
     }        
 

@@ -68,7 +68,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " ID , KODE ",
+                " ID , KODE, NEGARA",
                 
                 // 2 tablas and joins                                             
                 " MATAUANG mu ",  
@@ -79,8 +79,9 @@ extends KDataBrowserBaseClass {
                     );   
 
             // define column settings
-            //setColumnNames( "mu", "ID", "id" );
-            //setColumnNames( "mu", "MATAUANG", "MataUang" );
+            setColumnNames( "mu", "ID", "id" );
+            setColumnNames( "mu", "KODE", "Currency" );
+            setColumnNames( "mu", "NEGARA", "Country" );
                 
                        
             setDefaultOrder( "  ID " );

@@ -70,41 +70,33 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " ID, BUYERID, STYLE, QTY, to_CHAR( shipdate, 'yyyy-mm-dd HH24:MI:SS' ) as shipdate, productin, productout, line, remark ",
+                " os.ID, pr.prno status, byr.nama as buyername, os.STYLE, os.QTY, to_CHAR( os.shipdate, 'yyyy-mm-dd HH24:MI:SS' ) as shipdate, os.productin, os.productout, os.line, os.remark ",
                 
                 // 2 tablas and joins                                             
-                " outstandingorder os   "  ,
+                " outstandingorder os   " +
+                    " left join buyer byr on byr.id=os.buyerid "+
+                    " left join productionrecord pr on os.id=pr.selectid ",
                                                    
                 // 3 llave principal (mayusculas!)
                 "ID" 
                                                                                              
                     );   
 
-            // define column settings
-           // setColumnNames( "stk", "ID", "id" );
-       /*     setColumnNames( "stk", "STOCKTYPEID", "StockTypeID" );
-            setColumnNames( "stk", "BUYERID", "BuyerID" );                                      
-            //setColumnNames( "stk", "PRODUCT", "Product" );                                      
-            setColumnNames( "stk", "COLOUR", "Colour" );                                      
-            setColumnNames( "stk", "IMAGE", "Image" );                                      
-            setDefaultOrder( "  ID " );
-*/
-            //setRowsHeight( 150 );
+            setColumnNames( "os", "ID", "ID" );             
+            setColumnNames( "pr", "STATUS", "Status" );             
+            setColumnNames( "byr", "BUYERNAME", "BuyerName" ); 
+            setColumnNames( "os", "STYLE", "Style" ); 
+            setColumnNames( "os", "QTY", "Qty" ); 
+            setColumnNames( "os", "SHIPDATE", "ShipDate" ); 
+            setColumnNames( "os", "PRODUCTIN", "ProductIn" ); 
+            setColumnNames( "os", "PRODUCTOUT", "ProductOut" ); 
+            setColumnNames( "os", "LINE", "Line" ); 
+            setColumnNames( "os", "REMARK", "Remark" ); 
+
             
             // load data
             super.initializeTable();   
             
-            // some customization
-            //adjustColumnWidth( "id", 100 );
-            //adjustColumnWidth( "Name", 200 );  
-            //adjustColumnWidth( "Cost", 100 );  
-            
-            //adjustColumnType( "Cost", BROWSER_COLUMN_TYPE_CURRENCY );            
-            //adjustColumnFont(  "Cost",  new Font( "arial", Font.BOLD, 10  ) );             
-            //adjustColumnForegroundColor( "Cost", Color.BLUE  );
-            
-            //adjustColumnWidth( "IMAGE", 210 );  
-            //setColumnRenderer( "IMAGE", new ImageCellRendererClass( tableModel, log, 120, 150 ) );
             
     }        
 

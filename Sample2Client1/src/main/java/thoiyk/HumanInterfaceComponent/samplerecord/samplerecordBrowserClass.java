@@ -65,7 +65,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                "sr.ID, 'SR'||sr.ID as nomor, srt.nama as type, srs.nama as status,sr.style, byr.nama buyer, description, issuedby ",
+                "sr.ID, sr.srno as nomor, srt.nama,sr.style, sr.buyername buyer, description, issuedby ",
                 
                 // 2 tablas and joins                                             
                 " SAMPLERECORD sr   " +
@@ -80,9 +80,9 @@ extends KDataBrowserBaseClass {
 
             // define column settings
             setColumnNames( "sr", "ID", "ID" );
-            setColumnNames( "sr", "NOMOR", "SRid" );
-            setColumnNames( "srt", "TYPE", "Type" );
-            setColumnNames( "sr", "STATUS", "Status" );
+            setColumnNames( "sr", "NOMOR", "No" );
+            setColumnNames( "srt", "NAMA", "Type" );
+            //setColumnNames( "sr", "STATUS", "Status" );
             setColumnNames( "sr", "STYLE", "Style" );
             setColumnNames( "byr", "BUYER", "Buyer" );
             setColumnNames( "sr", "DESCRIPTION", "Description" );
@@ -99,9 +99,9 @@ extends KDataBrowserBaseClass {
             super.initializeTable();   
             
             // some customization
-            //adjustColumnWidth( "ID", 70 );
-            //adjustColumnWidth( "BUYER", 150 );
-            //adjustColumnWidth( "DESCRIPTION", 200 );
+            adjustColumnWidth( "ID", 40 );
+            adjustColumnWidth( "No", 80 );
+            adjustColumnWidth( "Description", 200 );
             
             adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
             

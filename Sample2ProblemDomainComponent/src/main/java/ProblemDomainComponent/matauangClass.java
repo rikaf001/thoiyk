@@ -52,17 +52,19 @@ extends KBusinessObjectClass
         
     @Column(name = "kode")
     private String kode;
+    @Column(name = "negara")
+    private String negara;
     
 
     public matauangClass() throws KExceptionClass {
     }
 
     //=================================================================    
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -73,9 +75,15 @@ extends KBusinessObjectClass
     public void setKode(String kode) {
         this.kode = kode;
     }
-    
 
-    
+    public String getNegara() {
+        return negara;
+    }
+
+    public void setNegara(String negara) {
+        this.negara = negara;
+    }
+
     @Override
     public void validateInput(String currentField, Component currentComponent) throws KExceptionClass {
     }

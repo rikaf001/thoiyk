@@ -18,17 +18,14 @@ package thoiyk.HumanInterfaceComponent.supplier;
 //rtl
 import thoiyk.HumanInterfaceComponent.supplier.*;
 import javax.swing.*;
-import java.awt.*;
 
 // utilities
 import KFramework30.Widgets.*;
 import KFramework30.Base.*;
-import KFramework30.Communication.persistentObjectManagerClass;
 import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
 import ProblemDomainComponent.supplierClass;
-import java.util.HashMap;
 
 
 public class supplierBrowserClass 
@@ -67,7 +64,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " ID , NAMA, ALAMAT, TELP, FAX, NEGARAID, NPWP ",
+                " ID , NAMA, ALAMAT, TELP, FAX, NEGARA, NPWP ",
                 
                 // 2 tablas and joins                                             
                 " SUPPLIER sup ",  
@@ -83,7 +80,7 @@ extends KDataBrowserBaseClass {
             setColumnNames( "sup", "ALAMAT", "Alamat" );
             setColumnNames( "sup", "TELP", "Telp" );
             setColumnNames( "sup", "FAX", "Fax" );
-            setColumnNames( "sup", "NEGARAID", "NegaraID" );
+            setColumnNames( "sup", "NEGARA", "Negara" );
             setColumnNames( "sup", "NPWP", "NPWP" );
                 
                        

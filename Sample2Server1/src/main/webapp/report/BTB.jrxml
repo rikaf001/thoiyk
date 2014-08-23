@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12ab0f9d-1ebc-471a-af47-1b124c05e5a8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="36"/>
+	<property name="ireport.y" value="144"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="BTBId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[$P{BTBId}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select 
+hdr.nomor,hdr.tanggal,hdr.suppliername,hdr.nosj,hdr.tglsj,hdr.nobc,hdr.tglbc,su.system_user_fullname issuedby,hdr.kawasanid,kw.nama kawasan,hdr.poid,po.nomor pono,dok.nama jenisdok,
+poi.itemname,dtl.itemqty,ut.nama itemunit,dtl.actualqty,ut2.nama actualunit,poi.style,su.signature,poi.prno,poi.style
+from
+btb_dtl dtl
+left join purchaseorderitem poit on dtl.itemid=poit.itemid
+left join btb_hdr hdr on dtl.hdrid=hdr.id
+left join kodekawasan kw on hdr.kawasanid=kw.id
+left join purchaseorder po on hdr.poid=po.id
+left join jenisdokpabean dok on hdr.jenisdokid=dok.id
+left join v_po_item poi on dtl.itemid=poi.id 
+left join unittype ut on dtl.itemunitid = ut.id
+left join unittype ut2 on dtl.actualunitid = ut2.id
+left join systemuserclass su on su.system_user_name=hdr.audituser
+where
+hdr.id=$P{BTBId}]]>
+	</queryString>
+	<field name="NOMOR" class="java.lang.String"/>
+	<field name="TANGGAL" class="java.sql.Timestamp"/>
+	<field name="SUPPLIERNAME" class="java.lang.String"/>
+	<field name="NOSJ" class="java.lang.String"/>
+	<field name="TGLSJ" class="java.sql.Timestamp"/>
+	<field name="NOBC" class="java.lang.String"/>
+	<field name="TGLBC" class="java.sql.Timestamp"/>
+	<field name="ISSUEDBY" class="java.lang.String"/>
+	<field name="KAWASANID" class="java.math.BigDecimal"/>
+	<field name="KAWASAN" class="java.lang.String"/>
+	<field name="POID" class="java.math.BigDecimal"/>
+	<field name="PONO" class="java.lang.String"/>
+	<field name="JENISDOK" class="java.lang.String"/>
+	<field name="ITEMNAME" class="java.lang.String"/>
+	<field name="ITEMQTY" class="java.math.BigDecimal"/>
+	<field name="ITEMUNIT" class="java.lang.String"/>
+	<field name="ACTUALQTY" class="java.math.BigDecimal"/>
+	<field name="ACTUALUNIT" class="java.lang.String"/>
+	<field name="STYLE" class="java.lang.String"/>
+	<field name="SIGNATURE" class="java.awt.Image"/>
+	<field name="PRNO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="555" height="20" uuid="12ba14bb-1784-4e10-812d-1339422c6cbd"/>
+				<textElement textAlignment="Center" markup="none"/>
+				<textFieldExpression><![CDATA["BUKTI TERIMA BARANG (BTB)"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="161" splitType="Stretch">
+			<textField>
+				<reportElement x="352" y="0" width="59" height="20" uuid="dcfee0a1-b44f-4d01-a568-bcd7eeef04b0"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["BTB No."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="20" width="59" height="20" uuid="0064f198-5b14-4132-86d5-098aaa881930"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Tanggal"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="40" width="59" height="20" uuid="0ffcbb72-af0a-4784-85cf-53d547a75645"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Supplier"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="0" width="100" height="20" uuid="e5217ab6-b9ab-442c-b3f3-f0ba9c36f98d"/>
+				<textFieldExpression><![CDATA[$F{NOMOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="116" width="59" height="20" uuid="3028e3e7-6400-49b8-a334-4a59c114bdac"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["No. BC"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="136" width="59" height="20" uuid="b762c342-a87e-491a-bf15-4e8a005c3480"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Tgl BC"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="20" width="100" height="20" uuid="2c7d496f-1ed0-4cad-b326-5cf9af5ea41e"/>
+				<textFieldExpression><![CDATA[$F{TANGGAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="40" width="144" height="20" uuid="22158a5e-0b96-4fa6-b5be-60ceff78ef82"/>
+				<textFieldExpression><![CDATA[$F{SUPPLIERNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="80" width="59" height="20" uuid="3f806434-99a2-422b-97c0-a733f4cb7717"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Tgl SJ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="60" width="59" height="20" uuid="d617e4bd-d133-442e-a1cd-1cf7b90d8f66"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["No. SJ"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="60" width="100" height="20" uuid="1544354e-dac5-4e24-bfdc-749e5845121c"/>
+				<textFieldExpression><![CDATA[$F{NOSJ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="80" width="100" height="20" uuid="e8f5fdc8-f873-41c9-b6fd-bb12d93cce78"/>
+				<textFieldExpression><![CDATA[$F{TGLSJ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="116" width="100" height="20" uuid="287346e0-1556-47f6-8bb2-28a7e41bf177"/>
+				<textFieldExpression><![CDATA[$F{NOBC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="136" width="100" height="20" uuid="169ef674-a2d8-430e-a6dc-a86415224edf"/>
+				<textFieldExpression><![CDATA[$F{TGLBC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="222" height="20" uuid="88ef7dae-57e3-4f3a-a58f-0df84c7e828d"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Pintu Mas Garmindo, PT"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="20" width="222" height="20" uuid="057da787-b66a-48fa-abbd-cdb107bb5dae"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Jalan Raya Darmaga Km-7 No.61"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="40" width="222" height="20" uuid="ed5d840e-3fab-496d-a1d0-4e38939ff1e8"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Kab. Bogor Jawa Barat 16650"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="60" width="222" height="20" uuid="3929af96-35f3-4b75-824c-a5f79130f74e"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Telp. (0251) 420042, 625484"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="80" width="222" height="20" uuid="7596a601-1a72-4089-add4-0e7725375145"/>
+				<textElement markup="none"/>
+				<textFieldExpression><![CDATA["Fax. (0251) 627465"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="23" height="31" uuid="65bc14d0-76fa-4adb-a48f-0cf66bc0c722"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<textFieldExpression><![CDATA["No"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="318" y="0" width="70" height="31" uuid="bf75db1f-3491-4792-af2f-2351c0ab6829"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="1" width="160" height="30" uuid="c0adf25e-a530-4ac3-9ab9-badf33b84a00"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="0" width="27" height="31" uuid="76e983ba-5ba2-4726-9d1c-764b1055b99e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="0" width="29" height="31" uuid="4e7da286-8264-4cab-af76-b7d53f0a3a43"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Unit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="247" y="1" width="30" height="30" uuid="52759323-53a0-4eb7-9894-507fec6ceca4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Qty Actual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="388" y="1" width="84" height="30" uuid="56faa54a-9e96-4c18-8500-bc030a9829bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="0" width="41" height="31" uuid="c2eb1093-b278-4790-a109-f38996c02879"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Unit Actual]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="1" width="555" height="1" uuid="ebf70f1e-e1e1-4c20-84de-d9b3b64566c5"/>
+			</line>
+			<line>
+				<reportElement x="0" y="29" width="555" height="1" uuid="fa6559a4-59eb-4613-a539-1b37b9a03ad3"/>
+			</line>
+			<staticText>
+				<reportElement x="471" y="0" width="84" height="30" uuid="a3222dde-280d-4dd0-aac5-c60ec9d6c8bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Style]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="1" width="23" height="20" uuid="8f3484d4-83f3-42b8-bf79-120f35ad6bb9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="1" width="30" height="20" uuid="cfc1c7fd-b076-4aec-8131-9a409a14477b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ACTUALQTY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="1" width="41" height="20" uuid="476168f8-5ced-4784-9628-b83d3f25fea1"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ACTUALUNIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="0" width="29" height="20" uuid="17cb9a11-8383-49ee-8238-7f5acf209627"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ITEMUNIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="0" width="27" height="20" uuid="05f1200b-d523-4c5f-9064-d74e0f2d1909"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ITEMQTY}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="33" y="1" width="160" height="19" uuid="e343292e-abd7-44d8-9c20-e2cf27381d67"/>
+				<textElement verticalAlignment="Middle" markup="styled"/>
+				<textFieldExpression><![CDATA[$F{ITEMNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="0" width="70" height="20" uuid="93570736-7ba7-4337-96d9-e29615546e2c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="388" y="0" width="84" height="20" uuid="fcf193c1-0007-4b95-9a09-b83a832ab9bf"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PRNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="0" width="83" height="20" uuid="7335fa02-725c-43d8-9c27-fd67ac5eec65"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{STYLE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="23" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="183" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="139" width="159" height="20" uuid="bdbe0411-f903-4cba-8f5e-2d347ab00fbe"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ISSUEDBY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="76" width="159" height="20" uuid="cb724a50-d36d-40c2-af8a-df2025c87744"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Received By"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="23" y="96" width="124" height="43" uuid="29dc7e85-70ac-47ca-a19f-50e3dddddf15"/>
+				<imageExpression><![CDATA[$F{SIGNATURE}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="193" y="76" width="159" height="20" uuid="25a37369-b8f9-408c-b721-748726328ec4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Quality Control"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="76" width="159" height="20" uuid="80e3e154-9cc3-4ba6-a966-c1965cb71900"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Knowledge By"]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

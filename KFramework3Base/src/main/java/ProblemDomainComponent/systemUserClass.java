@@ -62,6 +62,10 @@ extends KBusinessObjectClass {
     private String       system_user_role;
     private String       system_user_isadmin;    
     
+    @Lob
+    @Column(name = "signature")
+    private byte[] Signature;  
+        
    
     
     /** Creates new analysisClass */
@@ -83,7 +87,8 @@ extends KBusinessObjectClass {
         system_user_notes = "";
         
         system_user_role = "Default";  
-        system_user_isadmin = "N";          
+        system_user_isadmin = "N";         
+        
         
     }
 
@@ -165,6 +170,14 @@ extends KBusinessObjectClass {
     
 
     // ID
+
+    public byte[] getSignature() {
+        return Signature;
+    }
+
+    public void setSignature(byte[] Signature) {
+        this.Signature = Signature;
+    }
     
     
            

@@ -26,6 +26,412 @@ svn:special svn:externals svn:needs-lock
 
 5af50125-c909-4175-a8d9-2fb2f3153ed6
 
+BCPemasukanBaku
+dir
+
+
+
+add
+
+BCPemasukanBakuDetail
+dir
+
+
+
+add
+
+BKBDetail
+dir
+
+
+
+add
+
+BKBHeader
+dir
+
+
+
+add
+
+BKSDetail
+dir
+
+
+
+add
+
+BKSHeader
+dir
+
+
+
+add
+
+BRPDetail
+dir
+
+
+
+add
+
+BRPHeader
+dir
+
+
+
+add
+
+BRSDetail
+dir
+
+
+
+add
+
+BRSHeader
+dir
+
+
+
+add
+
+BTBDetail
+dir
+
+
+
+add
+
+BTBHeader
+dir
+
+
+
+add
+
+BTSDetail
+dir
+
+
+
+add
+
+BTSHeader
+dir
+
+
+
+add
+
+BarangDalamProses
+dir
+
+
+
+add
+
+BarangKeluarBaku
+dir
+
+
+
+add
+
+BarangKeluarBakuDetail
+dir
+
+
+
+add
+
+BarangKeluarJadi
+dir
+
+
+
+add
+
+BarangKeluarJadiDetail
+dir
+
+
+
+add
+
+BarangKeluarSisa
+dir
+
+
+
+add
+
+BarangKeluarSisaDetail
+dir
+
+
+
+add
+
+BarangMasukJadi
+dir
+
+
+
+add
+
+BarangMasukSisa
+dir
+
+
+
+add
+
+BarangMasukSisaDetail
+dir
+
+
+
+add
+
+CuttingDailyRepDtl
+dir
+
+
+
+add
+
+CuttingDailyRepHdr
+dir
+
+
+
+add
+
+DailySewingDtl
+dir
+
+
+
+add
+
+DailySewingHdr
+dir
+
+
+
+add
+
+FabricRequestDtl
+dir
+
+
+
+add
+
+FabricRequestHdr
+dir
+
+
+
+add
+
+FormCuttingDetail
+dir
+
+
+
+add
+
+FormCuttingHeader
+dir
+
+
+
+add
+
+FormFinishingDetail
+dir
+
+
+
+add
+
+FormFinishingHeader
+dir
+
+
+
+add
+
+FormKainDetail
+dir
+
+
+
+add
+
+FormKainHeader
+dir
+
+
+
+add
+
+FormPackingDetail
+dir
+
+
+
+add
+
+FormPackingHeader
+dir
+
+
+
+add
+
+FormSewingDetail
+dir
+
+
+
+add
+
+FormSewingHeader
+dir
+
+
+
+add
+
+FormShippingDetail
+dir
+
+
+
+add
+
+FormShippingHeader
+dir
+
+
+
+add
+
+FormWashingDetail
+dir
+
+
+
+add
+
+FormWashingHeader
+dir
+
+
+
+add
+
+JenisDokPabean
+dir
+
+
+
+add
+
+KodeKawasan
+dir
+
+
+
+add
+
+LaporanProduksiDetail
+dir
+
+
+
+add
+
+LaporanProduksiHeader
+dir
+
+
+
+add
+
+Marker
+dir
+
+
+
+add
+
+MutasiBaku
+dir
+
+
+
+add
+
+MutasiJadi
+dir
+
+
+
+add
+
+MutasiMesin
+dir
+
+
+
+add
+
+MutasiSisa
+dir
+
+
+
+add
+
+OBD
+dir
+
+
+
+add
+
+OBDType
+dir
+
+
+
+add
+
+ProductionRecord
+dir
+
+
+
+add
+
+ProductionRecordSize
+dir
+
+
+
+add
+
+ProdutionRecordItem
+dir
+
+
+
+add
+
 PurchaseOrder
 dir
 
@@ -34,6 +440,111 @@ dir
 add
 
 PurchaseOrderItem
+dir
+
+
+
+add
+
+ReceivedOrder
+dir
+
+
+
+add
+
+ReceivedOrderItem
+dir
+
+
+
+add
+
+Service
+dir
+
+
+
+add
+
+ServiceType
+dir
+
+
+
+add
+
+SewingOpBreakDown
+dir
+
+
+
+add
+
+SewingOpBreakDownDtl
+dir
+
+
+
+add
+
+SewingThreadCount
+dir
+
+
+
+add
+
+SewingThreadCountDtl
+dir
+
+
+
+add
+
+SizeColour
+dir
+
+
+
+add
+
+SizeMatrix
+dir
+
+
+
+add
+
+SizeType
+dir
+
+
+
+add
+
+SummaryRepCuttingHdr
+dir
+
+
+
+add
+
+SummaryRepSewingHdr
+dir
+
+
+
+add
+
+Thread
+dir
+
+
+
+add
+
+UnitType
 dir
 
 
@@ -69,6 +580,27 @@ dir
 add
 
 fabrictype
+dir
+
+
+
+add
+
+inv_PemasukanSisa
+dir
+
+
+
+add
+
+inv_PengeluaranBaku
+dir
+
+
+
+add
+
+inv_PengeluaranSisa
 dir
 
 
@@ -117,20 +649,6 @@ dir
 
 add
 
-orderanitem
-dir
-
-
-
-add
-
-outstandingorder
-dir
-
-
-
-add
-
 pr_from_sr
 dir
 
@@ -153,6 +671,13 @@ dir
 add
 
 pr_newitem
+dir
+
+
+
+add
+
+reservedorderitem
 dir
 
 
@@ -202,6 +727,118 @@ dir
 add
 
 supplier
+dir
+
+
+
+add
+
+v_MachineAndSparepart
+dir
+
+
+
+add
+
+v_PRAllItem
+dir
+
+
+
+add
+
+v_PRHeadItem
+dir
+
+
+
+add
+
+v_PRSizeItem
+dir
+
+
+
+add
+
+v_Penerima
+dir
+
+
+
+add
+
+v_Select_BarangKeluarBakuDetail
+dir
+
+
+
+add
+
+v_Select_BarangKeluarJadiDetail
+dir
+
+
+
+add
+
+v_Select_BarangKeluarSisaDetail
+dir
+
+
+
+add
+
+v_Select_BarangMasukSisaDetail
+dir
+
+
+
+add
+
+v_Select_MutasiBaku
+dir
+
+
+
+add
+
+v_Select_MutasiJadi
+dir
+
+
+
+add
+
+v_Select_MutasiMesin
+dir
+
+
+
+add
+
+v_Select_MutasiSisa
+dir
+
+
+
+add
+
+v_po_item
+dir
+
+
+
+add
+
+v_pr_item
+dir
+
+
+
+add
+
+v_sr_item
 dir
 
 

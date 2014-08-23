@@ -72,7 +72,7 @@ extends KDataBrowserBaseClass {
             // set the SQL
             super.initializeSQLQuery( 
                 
-                " pr.ID,st.nama type, pr.STYLE, pr.BUYERID,byr.NAMA BUYERNAME,pr.DESCRIPTION, pr.QTY ",
+                " pr.ID,pr.prno,st.nama type, pr.STYLE, pr.BUYERID,byr.NAMA BUYERNAME,pr.DESCRIPTION, pr.QTY ",
                 
                 // 2 tablas and joins                                             
                 " productionrecord pr   "  +
@@ -87,6 +87,7 @@ extends KDataBrowserBaseClass {
 
      
             setColumnNames( "pr", "ID", "ID" );
+            setColumnNames( "pr", "PRNO", "PRNo" );
             setColumnNames( "st", "TYPE", "TypeName" );
             setColumnNames( "pr", "STYLE", "Style" );
             setColumnNames( "pr", "BUYERID", "BuyerID" );
@@ -95,22 +96,8 @@ extends KDataBrowserBaseClass {
             setColumnNames( "pr", "QTY", "Qty" );
        
 
-            //setRowsHeight( 150 );
-            
             // load data
             super.initializeTable();   
-            
-            // some customization
-            //adjustColumnWidth( "id", 100 );
-            //adjustColumnWidth( "Name", 200 );  
-            //adjustColumnWidth( "Cost", 100 );  
-            
-            //adjustColumnType( "Cost", BROWSER_COLUMN_TYPE_CURRENCY );            
-            //adjustColumnFont(  "Cost",  new Font( "arial", Font.BOLD, 10  ) );             
-            //adjustColumnForegroundColor( "Cost", Color.BLUE  );
-            
-            //adjustColumnWidth( "IMAGE", 210 );  
-            //setColumnRenderer( "IMAGE", new ImageCellRendererClass( tableModel, log, 120, 150 ) );
             
     }        
 

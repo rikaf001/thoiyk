@@ -35,7 +35,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jLayeredPane1" alignment="0" pref="197" max="32767" attributes="0"/>
+          <Component id="jLayeredPane1" alignment="0" pref="250" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -68,39 +68,46 @@
           </AccessibilityProperties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-              <JLayeredPaneConstraints x="0" y="60" width="540" height="130" layer="0" position="-1"/>
+              <JLayeredPaneConstraints x="0" y="60" width="540" height="180" layer="0" position="-1"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jLabel10" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="poidLbl" alignment="0" max="32767" attributes="0"/>
+                          <Component id="client_id2" alignment="0" pref="50" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="136" pref="392" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel9" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="jLabel12" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="jLabel11" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="LblQtyNeeded" min="-2" pref="124" max="-2" attributes="0"/>
+                          <Component id="client_address2" min="-2" pref="124" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="itemIDLbl" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="client_address1" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="poidLbl" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="client_id2" alignment="0" pref="50" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel9" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="PRNoLbl" min="-2" pref="101" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="itemIDLbl" min="-2" pref="89" max="-2" attributes="0"/>
+                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="320" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="57" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -116,17 +123,27 @@
                           <Component id="jLabel10" min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="poidLbl" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel9" min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="itemIDLbl" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="PRNoLbl" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="client_address1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="client_address2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LblQtyNeeded" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -162,7 +179,7 @@
                 <Property name="name" type="java.lang.String" value="ID" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="client_address1">
+            <Component class="javax.swing.JTextField" name="LblQtyNeeded">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="0"/>
@@ -180,7 +197,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="..."/>
+                <Property name="text" type="java.lang.String" value="pick from PR"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -219,6 +236,43 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="PurchaseOrderID" noResource="true"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="client_address2">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="0"/>
+                </Property>
+                <Property name="name" type="java.lang.String" value="UnitPrice" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel12">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Unit Price"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="PRNoLbl">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="0"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                    <EtchetBorder/>
+                  </Border>
+                </Property>
+                <Property name="name" type="java.lang.String" value="PRNo" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Machine/SparePart"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

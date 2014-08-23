@@ -6,6 +6,7 @@ Feedback / Bug Reports yoser174@gmail.com
 
 This project used:
 KFRAMEWORK  (http://k-framework.sourceforge.net/)
+ 
  */
 
 
@@ -53,6 +54,10 @@ extends KBusinessObjectClass
     private long accessoriestypeid;
     @Column(name = "supplierid")
     private long supplierid;
+    @Column(name = "suppliername")
+    private String SupplierName;
+    @Column(name = "unit")
+    private String unit;
     @Column(name = "kode")
     private String kode;
     @Column(name = "ukuran")
@@ -61,8 +66,7 @@ extends KBusinessObjectClass
     private String colour;
     @Column(name = "description")
     private String description;
-    @Column(name = "qty")
-    private long qty;
+   
        
     @Lob
     @Column(name = "image")
@@ -72,12 +76,11 @@ extends KBusinessObjectClass
     public accessoriesClass() throws KExceptionClass {
     }
 
-    //=================================================================    
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -97,6 +100,14 @@ extends KBusinessObjectClass
         this.supplierid = supplierid;
     }
 
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
     public String getKode() {
         return kode;
     }
@@ -112,8 +123,6 @@ extends KBusinessObjectClass
     public void setUkuran(String ukuran) {
         this.ukuran = ukuran;
     }
-
-    
 
     public String getColour() {
         return colour;
@@ -131,15 +140,7 @@ extends KBusinessObjectClass
         this.description = description;
     }
 
-    public long getQty() {
-        return qty;
-    }
-
-    public void setQty(long qty) {
-        this.qty = qty;
-    }
-
-   public byte[] getImage() {
+    public byte[] getImage() {
         return image;
     }
 
@@ -147,7 +148,14 @@ extends KBusinessObjectClass
         this.image = image;
     }
 
+    public String getSupplierName() {
+        return SupplierName;
+    }
 
+    public void setSupplierName(String SupplierName) {
+        this.SupplierName = SupplierName;
+    }
+    
 
 
     @Override

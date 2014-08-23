@@ -28,6 +28,9 @@ import KFramework30.Widgets.DataBrowser.TableCellRenderers.CheckBoxCellEditorCla
 import KFramework30.Widgets.DataBrowser.TableCellRenderers.CheckBoxCellRendererClass;
 import KFramework30.Widgets.DataBrowser.cellRenderingHookInterface;
 import KFramework30.Widgets.DataBrowser.recordClass;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_CURRENCY;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERIC2;
+import static KFramework30.Widgets.KDataBrowserBaseClass.BROWSER_COLUMN_TYPE_NUMERICNOFORMAT;
 
 // system
 import ProblemDomainComponent.PurchaseOrderItemClass;
@@ -108,11 +111,11 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "poi.id , poi.itemid , vsri.category,vsri.itemname,poi.qty  ",    
+                        "poi.id  , vsri.subcategory,poi.prno,vsri.description itemname, poi.unitprice, poi.qty, (poi.unitprice * poi.qty) price",    
 
                         // 2 tables and joins                                                
-                        " purchaseorderitem poi " +
-                            " left join v_po_item vsri on poi.itemid=vsri.id",
+                        " purchaseorderitem poi " +                            
+                            " left join V_PO_DTL vsri on poi.itemid=vsri.id",
 
                         // 3 key of primary PDC object
                         "ID"                                                                                              
@@ -124,10 +127,12 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 }
                 
                 setColumnNames( "poi", "ID", "ID" );             
-                setColumnNames( "poi", "ITEMID", "ItemID" );             
-                setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
-                setColumnNames( "poi", "QTY", "Qty" );             
+                setColumnNames( "vsri", "SUBCATEGORY", "SubCategory" );             
+                setColumnNames( "vsri", "ITEMNAME", "Item Name" );             
+                setColumnNames( "poi", "PRNO", "NO PR" );             
+                setColumnNames( "poi", "UNITPRICE", "Unit Price" );             
+                setColumnNames( "poi", "QTY", "Qty PO" );        
+                setColumnNames( "poi", "PRICE", "Price" );             
                   
                 // replace criteria
                 setDefaultCriteria( " purchaseorderid = ? " );               
@@ -143,12 +148,14 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                     super.initializeSQLQuery(     
 
                         // 1 fields                    
-                        "poi.id , poi.itemid , vsri.category,vsri.itemname,poi.qty  ",    
+                        // 1 fields                    
+                        "poi.id  , vsri.subcategory,poi.prno,vsri.description itemname, poi.unitprice, poi.qty, (poi.unitprice * poi.qty) price",    
 
                         // 2 tables and joins                                                
-                        " purchaseorderitem poi " +
-                            " left join v_po_item vsri on poi.itemid=vsri.id",
+                        " purchaseorderitem poi " +                            
+                            " left join V_PO_DTL vsri on poi.itemid=vsri.id",
 
+      
                         // 3 key of primary PDC object
                         "ID"                                                                                              
 
@@ -161,18 +168,34 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
                 
                 // FOR ALL INVOICES
                 
-                setColumnNames( "poi", "ID", "ID" );             
-                setColumnNames( "poi", "ITEMID", "ItemID" );             
-                setColumnNames( "vsri", "CATEGORY", "Category" );             
-                setColumnNames( "vsri", "ITEMNAME", "ItemName" );             
-                setColumnNames( "poi", "QTY", "Qty" );             
+                             setColumnNames( "poi", "ID", "ID" );             
+                setColumnNames( "vsri", "SUBCATEGORY", "SubCategory" );             
+                setColumnNames( "vsri", "ITEMNAME", "Item Name" );             
+                setColumnNames( "poi", "PRNO", "NO PR" );             
+                setColumnNames( "poi", "UNITPRICE", "Unit Price" );             
+                setColumnNames( "poi", "QTY", "Qty PO" );        
+                setColumnNames( "poi", "PRICE", "Price" );              
                 
             }
 
             setDefaultOrder( "itemid" );
                                 
             
-            super.initializeTable();             
+            super.initializeTable();     
+            
+            
+            adjustColumnWidth( "ID", 60 );
+            adjustColumnWidth( "SubCategory", 100 );
+            adjustColumnWidth( "Item Name", 200 );
+            adjustColumnWidth( "NO PR", 100 );            
+            adjustColumnWidth( "Unit Price", 100 );
+            adjustColumnWidth( "Qty PO", 100 );
+            adjustColumnWidth( "Price", 100 );
+            
+            adjustColumnType("ID",  BROWSER_COLUMN_TYPE_NUMERICNOFORMAT );
+            adjustColumnType( "Item Name", BROWSER_COLUMN_TYPE_CHARACTER );
+            adjustColumnType( "Unit Price", BROWSER_COLUMN_TYPE_NUMERIC2 );
+            adjustColumnType( "Price", BROWSER_COLUMN_TYPE_NUMERIC2 );
 
           /*  adjustColumnWidth( "id", 60 );
             adjustColumnWidth( "Name", 200 );

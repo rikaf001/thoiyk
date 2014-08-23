@@ -18,14 +18,10 @@ package ProblemDomainComponent;
 import KFramework30.Base.KBusinessObjectClass;
 import KFramework30.Base.KExceptionClass;
 import java.awt.Component;
-import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
@@ -61,9 +57,12 @@ extends KBusinessObjectClass
     private String npwp;
     @Column(name = "noizintpb")
     private String noizintpb;
-    @Column(name = "buyerkontakid")
-    private String buyerkontakid;
+    @Column(name = "contactperson")
+    private String contactperson;
     
+    @Column(name = "negara")
+    private String Negara;
+
     @KObjectVersion
     @Column(name = "version")
     private long version;
@@ -130,14 +129,23 @@ extends KBusinessObjectClass
         this.noizintpb = noizintpb;
     }
 
-    public String getBuyerkontakid() {
-        return buyerkontakid;
+    public String getContactperson() {
+        return contactperson;
     }
 
-    public void setBuyerkontakid(String buyerkontakid) {
-        this.buyerkontakid = buyerkontakid;
+    public void setContactperson(String contactperson) {
+        this.contactperson = contactperson;
     }
 
+    public String getNegara() {
+        return Negara;
+    }
+
+    public void setNegara(String Negara) {
+        this.Negara = Negara;
+    }
+
+    
     public long getVersion() {
         return version;
     }

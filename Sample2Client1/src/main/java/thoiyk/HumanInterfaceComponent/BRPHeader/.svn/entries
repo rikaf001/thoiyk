@@ -1,0 +1,63 @@
+10
+
+dir
+0
+https://svn.code.sf.net/p/k-framework/code/trunk/Sample2Client1/src/main/java/thoiyk/HumanInterfaceComponent/BRPHeader
+https://svn.code.sf.net/p/k-framework/code
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5af50125-c909-4175-a8d9-2fb2f3153ed6
+
+BRPHeaderBrowserClass.java
+file
+
+
+
+add
+
+BRPHeaderEditDialogClass.form
+file
+
+
+
+add
+
+BRPHeaderEditDialogClass.java
+file
+
+
+
+add
+
+BRPHeaderFrameClass.form
+file
+
+
+
+add
+
+BRPHeaderFrameClass.java
+file
+
+
+
+add
+

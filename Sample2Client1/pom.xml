@@ -84,7 +84,52 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
       <groupId>${project.groupId}</groupId>
       <artifactId>Sample2ProblemDomainComponent</artifactId>
       <version>${project.version}</version>
-    </dependency>       
+    </dependency>
+    <dependency>
+      <groupId>net.sf.jasperreports</groupId>
+      <artifactId>jasperreports</artifactId>
+      <version>5.2.0</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>jasperreports</groupId>
+      <artifactId>jasperreports</artifactId>
+      <version>3.5.3</version>
+    </dependency>
+    <dependency>
+      <groupId>tomcat</groupId>
+      <artifactId>jasper-compiler-jdt</artifactId>
+      <version>5.5.23</version>
+    </dependency>
     
+     <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>KFramework3Base</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- ORACLE database driver 
+     <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>KFramework3Base</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc5</artifactId>
+            <version>11.2.0.3</version>
+    </dependency>
+ 
+    <dependency>
+      <groupId>com.github.ferstl</groupId>
+      <artifactId>spring-jdbc-oracle-ojdbc</artifactId>
+      <version>0.9.0</version>
+    </dependency>
+       -->
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>3.2.1</version>
+    </dependency>
   </dependencies>
 </project>

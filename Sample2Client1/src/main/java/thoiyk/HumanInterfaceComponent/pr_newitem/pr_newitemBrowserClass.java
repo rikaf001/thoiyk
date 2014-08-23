@@ -42,7 +42,7 @@ import ProblemDomainComponent.sample_facturaClass;
 
 // system
 //import ProblemDomainComponent.pr_newitemClass;
-import ProblemDomainComponent.productionrecorditemClass;
+import ProblemDomainComponent.ProdRecItemClass;
 import thoiyk.HumanInterfaceComponent.pr_new.pr_newBrowserClass;
 import static thoiyk.HumanInterfaceComponent.pr_newitem.pr_newitemBrowserClass.ALL_SAMPLERECORD;
 import static thoiyk.HumanInterfaceComponent.pr_newitem.pr_newitemBrowserClass.SRITEM_BY_SR;
@@ -51,7 +51,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Properties;
 import java.util.Vector;
-import thoiyk.HumanInterfaceComponent.outstandingorder.outstandingorderEditDialogClass;
+import thoiyk.HumanInterfaceComponent.ReceivedOrder.outstandingorderEditDialogClass;
 
 
 
@@ -88,7 +88,7 @@ KBrowserDataWriterInterface // to make it RW  OPTIONAL
             super(
                     configurationParam, logParam,
                     true, tableParam, parentWindow,  
-                    productionrecorditemClass.class,
+                    ProdRecItemClass.class,
                     pr_newitemEditDialogClass.class
             );  
             

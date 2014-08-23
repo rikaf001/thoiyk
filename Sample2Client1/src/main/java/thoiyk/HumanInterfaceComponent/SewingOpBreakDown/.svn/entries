@@ -1,0 +1,84 @@
+10
+
+dir
+0
+https://svn.code.sf.net/p/k-framework/code/trunk/Sample2Client1/src/main/java/thoiyk/HumanInterfaceComponent/SewingOpBreakDown
+https://svn.code.sf.net/p/k-framework/code
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5af50125-c909-4175-a8d9-2fb2f3153ed6
+
+SewingOpBreakDown.jasper
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+SewingOpBreakDown.jrxml
+file
+
+
+
+add
+
+SewingOpBreakDownBrowserClass.java
+file
+
+
+
+add
+
+SewingOpBreakDownEditDialogClass.form
+file
+
+
+
+add
+
+SewingOpBreakDownEditDialogClass.java
+file
+
+
+
+add
+
+SewingOpBreakDownFrameClass.form
+file
+
+
+
+add
+
+SewingOpBreakDownFrameClass.java
+file
+
+
+
+add
+

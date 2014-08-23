@@ -18,16 +18,12 @@ package ProblemDomainComponent;
 import KFramework30.Base.KBusinessObjectClass;
 import KFramework30.Base.KExceptionClass;
 import java.awt.Component;
-import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
@@ -64,7 +60,13 @@ extends KBusinessObjectClass
     
     @Column(name = "buyerid")
     private long  buyerid;
-        
+
+    @Column(name = "buyername")
+    private String buyername;
+
+    @Column(name = "prno")
+    private String prno;
+
     @Column(name = "description")
     private String description;
     
@@ -79,8 +81,12 @@ extends KBusinessObjectClass
     @Column(name = "image")
     private byte[] image;  
     
-    @Column(name = "issuedby")
-    private String issuedby;
+    @Column(name = "auditdate")
+    @Temporal(TemporalType.TIMESTAMP)   
+    private Date AuditDate;
+    
+    @Column(name = "audituser")
+    private String AuditUser;
   
       
     @KBusinessObjectClass.KObjectVersion
@@ -108,22 +114,12 @@ extends KBusinessObjectClass
         this.selectid = selectid;
     }
 
-    
     public long getSamplerecordstatusid() {
         return samplerecordstatusid;
     }
 
     public void setSamplerecordstatusid(long samplerecordstatusid) {
         this.samplerecordstatusid = samplerecordstatusid;
-    }
-
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public long getSamplerecordtypeid() {
@@ -134,20 +130,44 @@ extends KBusinessObjectClass
         this.samplerecordtypeid = samplerecordtypeid;
     }
 
-    public String getStyle() {
-        return style;
-    }
-
-    public void setStyle(String style) {
-        this.style = style;
-    }
-
     public long getBuyerid() {
         return buyerid;
     }
 
     public void setBuyerid(long buyerid) {
         this.buyerid = buyerid;
+    }
+
+    public String getBuyername() {
+        return buyername;
+    }
+
+    public void setBuyername(String buyername) {
+        this.buyername = buyername;
+    }
+
+    public String getPrno() {
+        return prno;
+    }
+
+    public void setPrno(String prno) {
+        this.prno = prno;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
     }
 
     public String getQty() {
@@ -158,8 +178,6 @@ extends KBusinessObjectClass
         this.qty = qty;
     }
 
-    
-    
     public byte[] getImage() {
         return image;
     }
@@ -168,13 +186,22 @@ extends KBusinessObjectClass
         this.image = image;
     }
 
-    public String getIssuedby() {
-        return issuedby;
+    public Date getAuditDate() {
+        return AuditDate;
     }
 
-    public void setIssuedby(String issuedby) {
-        this.issuedby = issuedby;
+    public void setAuditDate(Date AuditDate) {
+        this.AuditDate = AuditDate;
     }
+
+    public String getAuditUser() {
+        return AuditUser;
+    }
+
+    public void setAuditUser(String AuditUser) {
+        this.AuditUser = AuditUser;
+    }
+
 
     public long getVersion() {
         return version;
@@ -183,6 +210,7 @@ extends KBusinessObjectClass
     public void setVersion(long version) {
         this.version = version;
     }
+    
     
  
     @Override

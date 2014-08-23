@@ -50,14 +50,18 @@ extends KBusinessObjectClass
     
     @Column(name = "mesintypeid")
     private long mesintypeid;
+    @Column(name = "unit")
+    private String unit;
     @Column(name = "kode")
     private String kode;
     @Column(name = "supplierid")
     private String supplierid;
+    @Column(name = "suppliername")
+    private String SupplierName;
+    
     @Column(name = "description")
     private String description;
-    @Column(name = "qty")
-    private long qty;
+    
 
         
     @Lob
@@ -68,11 +72,11 @@ extends KBusinessObjectClass
     }
 
     //=================================================================    
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -82,6 +86,14 @@ extends KBusinessObjectClass
 
     public void setMesintypeid(long mesintypeid) {
         this.mesintypeid = mesintypeid;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public String getKode() {
@@ -108,14 +120,6 @@ extends KBusinessObjectClass
         this.description = description;
     }
 
-    public long getQty() {
-        return qty;
-    }
-
-    public void setQty(long qty) {
-        this.qty = qty;
-    }
-
     public byte[] getImage() {
         return image;
     }
@@ -123,8 +127,15 @@ extends KBusinessObjectClass
     public void setImage(byte[] image) {
         this.image = image;
     }
-    
 
+    public String getSupplierName() {
+        return SupplierName;
+    }
+
+    public void setSupplierName(String SupplierName) {
+        this.SupplierName = SupplierName;
+    }
+    
  
 
     @Override

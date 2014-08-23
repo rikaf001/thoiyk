@@ -52,14 +52,18 @@ extends KBusinessObjectClass
     private String spareparttypeid;
     @Column(name = "supplierid")
     private String supplierid;
+     @Column(name = "suppliername")
+    private String SupplierName;
+    @Column(name = "unit")
+    private String unit;
     @Column(name = "kode")
     private String kode;
     @Column(name = "ukuran")
     private String ukuran;
     @Column(name = "mesin")
     private String mesin;
-    @Column(name = "qty")
-    private String qty;
+    @Column(name = "description")
+    private String Description;
   
     @Lob
     @Column(name = "image")
@@ -93,6 +97,14 @@ extends KBusinessObjectClass
         this.supplierid = supplierid;
     }
 
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
     public String getKode() {
         return kode;
     }
@@ -117,14 +129,6 @@ extends KBusinessObjectClass
         this.mesin = mesin;
     }
 
-    public String getQty() {
-        return qty;
-    }
-
-    public void setQty(String qty) {
-        this.qty = qty;
-    }
-
     public byte[] getImage() {
         return image;
     }
@@ -132,7 +136,22 @@ extends KBusinessObjectClass
     public void setImage(byte[] image) {
         this.image = image;
     }
-  
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+    public String getSupplierName() {
+        return SupplierName;
+    }
+
+    public void setSupplierName(String SupplierName) {
+        this.SupplierName = SupplierName;
+    }
     
 
     @Override

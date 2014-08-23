@@ -220,50 +220,50 @@ implements KDialogInterface
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Client Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 10))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("Id ");
 
-        client_name.setFont(new java.awt.Font("Arial", 0, 10));
+        client_name.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_name.setName("clientName"); // NOI18N
 
-        client_address.setFont(new java.awt.Font("Arial", 0, 10));
+        client_address.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_address.setName("clientAddress"); // NOI18N
 
-        client_id.setFont(new java.awt.Font("Arial", 0, 10));
+        client_id.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_id.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         client_id.setName("clientId"); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel9.setText("Address");
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel10.setText("Name");
 
         clientExpressDelivery.setBackground(new java.awt.Color(255, 255, 255));
-        clientExpressDelivery.setFont(new java.awt.Font("Verdana", 0, 10));
+        clientExpressDelivery.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         clientExpressDelivery.setText("Express Delivery");
         clientExpressDelivery.setName("clientExpressDelivery"); // NOI18N
 
         clientDiscount0.setBackground(new java.awt.Color(255, 255, 255));
         clientDiscountGroup.add(clientDiscount0);
-        clientDiscount0.setFont(new java.awt.Font("Verdana", 0, 10));
+        clientDiscount0.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         clientDiscount0.setText("0%");
         clientDiscount0.setName("clientDiscount"); // NOI18N
 
         clientDiscount20.setBackground(new java.awt.Color(255, 255, 255));
         clientDiscountGroup.add(clientDiscount20);
-        clientDiscount20.setFont(new java.awt.Font("Verdana", 0, 10));
+        clientDiscount20.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         clientDiscount20.setText("20%");
         clientDiscount20.setName("clientDiscount"); // NOI18N
 
         clientDiscount30.setBackground(new java.awt.Color(255, 255, 255));
         clientDiscountGroup.add(clientDiscount30);
-        clientDiscount30.setFont(new java.awt.Font("Verdana", 0, 10));
+        clientDiscount30.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         clientDiscount30.setText("30%");
         clientDiscount30.setName("clientDiscount"); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 10));
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Discount: ");
 
@@ -273,32 +273,32 @@ implements KDialogInterface
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .add(4, 4, 4)
-                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(10, 10, 10)
-                .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 110, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(180, 180, 180)
-                .add(jLabel9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(4, 4, 4)
-                .add(client_id, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(10, 10, 10)
-                .add(client_name, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 280, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(10, 10, 10)
-                .add(client_address, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(4, 4, 4)
-                .add(clientExpressDelivery)
-                .add(153, 153, 153)
-                .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(10, 10, 10)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(clientDiscount0)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(90, 90, 90)
-                        .add(clientDiscount30))
+                        .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(10, 10, 10)
+                        .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 110, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(180, 180, 180)
+                        .add(jLabel9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(40, 40, 40)
-                        .add(clientDiscount20))))
+                        .add(client_id, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(10, 10, 10)
+                        .add(client_name, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 280, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(10, 10, 10)
+                        .add(client_address, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(clientExpressDelivery)
+                        .add(153, 153, 153)
+                        .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(10, 10, 10)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(clientDiscount0)
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(90, 90, 90)
+                                .add(clientDiscount30))
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(40, 40, 40)
+                                .add(clientDiscount20))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -329,7 +329,7 @@ implements KDialogInterface
         system_user_mask.setBounds(14, 373, 122, 25);
         jLayeredPane1.add(system_user_mask, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton2.setFont(new java.awt.Font("Verdana", 0, 10));
+        jButton2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jButton2.setText("Example POM Execute");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -339,7 +339,7 @@ implements KDialogInterface
         jButton2.setBounds(240, 170, 160, 23);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        okButton.setFont(new java.awt.Font("Arial", 0, 10));
+        okButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         okButton.setText("Ok");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,7 +349,7 @@ implements KDialogInterface
         okButton.setBounds(530, 80, 80, 20);
         jLayeredPane1.add(okButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        CancelButton.setFont(new java.awt.Font("Arial", 0, 10));
+        CancelButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         CancelButton.setText("Cancel");
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -359,7 +359,7 @@ implements KDialogInterface
         CancelButton.setBounds(530, 110, 80, 20);
         jLayeredPane1.add(CancelButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        applyButton.setFont(new java.awt.Font("Arial", 0, 10));
+        applyButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         applyButton.setText("Apply"); // NOI18N
         applyButton.setName("applyButton"); // NOI18N
         applyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -370,13 +370,13 @@ implements KDialogInterface
         applyButton.setBounds(530, 140, 80, 20);
         jLayeredPane1.add(applyButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        textLabel.setFont(new java.awt.Font("Rockwell", 0, 24));
+        textLabel.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
         textLabel.setForeground(new java.awt.Color(255, 255, 255));
         textLabel.setText("Edit Clients");
         textLabel.setBounds(140, 0, 270, 50);
         jLayeredPane1.add(textLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        sendMailsampleButton.setFont(new java.awt.Font("Verdana", 0, 10));
+        sendMailsampleButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         sendMailsampleButton.setText("Send Mail Sample");
         sendMailsampleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -386,7 +386,7 @@ implements KDialogInterface
         sendMailsampleButton.setBounds(420, 170, 170, 23);
         jLayeredPane1.add(sendMailsampleButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton1.setFont(new java.awt.Font("Verdana", 0, 10));
+        jButton1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jButton1.setText("Sample Access Table Data");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -399,12 +399,12 @@ implements KDialogInterface
         DesktopToolbar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         DesktopToolbar.setFloatable(false);
         DesktopToolbar.setRollover(true);
-        DesktopToolbar.setFont(new java.awt.Font("Tahoma", 0, 12));
+        DesktopToolbar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         DesktopToolbar.setMargin(new java.awt.Insets(200, 0, 0, 0));
         DesktopToolbar.setMaximumSize(new java.awt.Dimension(367, 42));
         DesktopToolbar.setMinimumSize(new java.awt.Dimension(367, 42));
 
-        newButton.setFont(new java.awt.Font("Verdana", 0, 10));
+        newButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         newButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/new1.jpg"))); // NOI18N
         newButton.setText("New");
         newButton.setToolTipText("Create a link to asociado"); // NOI18N
@@ -419,7 +419,7 @@ implements KDialogInterface
         newButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(newButton);
 
-        editButton.setFont(new java.awt.Font("Verdana", 0, 10));
+        editButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         editButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/edit1.jpg"))); // NOI18N
         editButton.setText("Edit");
         editButton.setToolTipText("Edit asociado"); // NOI18N
@@ -434,7 +434,7 @@ implements KDialogInterface
         editButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(editButton);
 
-        deleteButton.setFont(new java.awt.Font("Verdana", 0, 10));
+        deleteButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete1.jpg"))); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setToolTipText("Remove link to asociado"); // NOI18N
@@ -453,7 +453,7 @@ implements KDialogInterface
         jSeparator1.setPreferredSize(new java.awt.Dimension(15, 0));
         DesktopToolbar.add(jSeparator1);
 
-        sortButton.setFont(new java.awt.Font("Verdana", 0, 10));
+        sortButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         sortButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/sort.jpg"))); // NOI18N
         sortButton.setText("Sort");
         sortButton.setActionCommand("sort");
@@ -467,7 +467,7 @@ implements KDialogInterface
         sortButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DesktopToolbar.add(sortButton);
 
-        filterButton.setFont(new java.awt.Font("Verdana", 0, 10));
+        filterButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         filterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/filter1.jpg"))); // NOI18N
         filterButton.setText("Filter");
         filterButton.setActionCommand("filter");
@@ -485,7 +485,7 @@ implements KDialogInterface
         jSeparator2.setPreferredSize(new java.awt.Dimension(15, 0));
         DesktopToolbar.add(jSeparator2);
 
-        printButton.setFont(new java.awt.Font("Verdana", 0, 10));
+        printButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         printButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/print.jpg"))); // NOI18N
         printButton.setText("Print");
         printButton.setActionCommand("print");
@@ -502,7 +502,7 @@ implements KDialogInterface
         jSeparator3.setPreferredSize(new java.awt.Dimension(15, 0));
         DesktopToolbar.add(jSeparator3);
 
-        refreshButton.setFont(new java.awt.Font("Verdana", 0, 10));
+        refreshButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/refresh1.jpg"))); // NOI18N
         refreshButton.setText("Refresh");
         refreshButton.setActionCommand("refresh");
@@ -519,7 +519,7 @@ implements KDialogInterface
         jSeparator4.setPreferredSize(new java.awt.Dimension(15, 0));
         DesktopToolbar.add(jSeparator4);
 
-        saveChangesButton1.setFont(new java.awt.Font("Verdana", 0, 10));
+        saveChangesButton1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         saveChangesButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/edit1.jpg"))); // NOI18N
         saveChangesButton1.setText("Apply Changes");
         saveChangesButton1.setActionCommand("save");
@@ -536,13 +536,12 @@ implements KDialogInterface
         DesktopToolbar.setBounds(0, 200, 620, 46);
         jLayeredPane1.add(DesktopToolbar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 10));
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel8.setText("Invoices");
         jLabel8.setBounds(0, 190, 110, 10);
         jLayeredPane1.add(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        topLabel1.setFont(new java.awt.Font("Dialog", 1, 24));
-        topLabel1.setForeground(java.awt.Color.white);
+        topLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         topLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/topBar.jpg"))); // NOI18N
         topLabel1.setMaximumSize(new java.awt.Dimension(100, 44));
         topLabel1.setMinimumSize(new java.awt.Dimension(100, 44));
@@ -565,7 +564,7 @@ implements KDialogInterface
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        totalLabel.setFont(new java.awt.Font("Arial", 3, 14));
+        totalLabel.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         totalLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         totalLabel.setText("total");
 

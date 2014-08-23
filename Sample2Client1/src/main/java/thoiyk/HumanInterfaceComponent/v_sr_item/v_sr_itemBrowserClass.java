@@ -17,6 +17,7 @@ package thoiyk.HumanInterfaceComponent.v_sr_item;
  */
 //rtl
 import javax.swing.*;
+import javax.swing.*;
 
 // utilities
 import KFramework30.Widgets.*;
@@ -56,7 +57,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " ID, CATEGORY, NAMA ",
+                " ID, CATEGORY,SUBCATEGORY, NAMA ",
                 
                 // 2 tablas and joins                                             
                 " v_sr_item vsri",
@@ -69,11 +70,15 @@ extends KDataBrowserBaseClass {
             // define column settings
             setColumnNames( "vsri", "ID", "ID" );
             setColumnNames( "vsri", "CATEGORY", "Category" );
+            setColumnNames( "vsri", "SUBCATEGORY", "SubCategory" );
             setColumnNames( "vsri", "NAMA", "Nama" );
             
             // load data
             super.initializeTable();   
             
+            adjustColumnWidth( "ID", 50 ); 
+            adjustColumnWidth( "Category", 100 ); 
+            adjustColumnWidth( "SubCategory", 100 ); 
             adjustColumnWidth( "Nama", 500 );  
             
     }        

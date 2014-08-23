@@ -72,7 +72,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " fbc.ID, fbc.FABRICTYPEID, fbt.nama TYPE, fbc.SUPPLIERID, sup.nama SUPPLIER, fbc.KODE, fbc.CONTENT,fbc.CONSTRUCTION, fbc.FINISHING,  fbc.COLOUR, fbc.QTY, fbc.WIDTH, fbc.WEIGHT",
+                " fbc.ID,fbt.nama TYPE,sup.nama SUPPLIER, fbc.KODE, fbc.CONTENT,fbc.CONSTRUCTION, fbc.FINISHING,  fbc.COLOUR, fbc.WIDTH, fbc.WEIGHT",
                 
                 // 2 tablas and joins                                             
                 " FABRIC fbc   "  +
@@ -86,16 +86,16 @@ extends KDataBrowserBaseClass {
 
             // define column settings
             setColumnNames( "fbc", "ID", "ID" );
-            setColumnNames( "fbc", "FABRICTYPEID", "TypeID" );
+            //setColumnNames( "fbc", "FABRICTYPEID", "TypeID" );
             setColumnNames( "fbt", "TYPE", "TypeName" );
-            setColumnNames( "fbc", "SUPPLIERID", "SupplierID" );
+            //setColumnNames( "fbc", "SUPPLIERID", "SupplierID" );
             setColumnNames( "sup", "SUPPLIER", "SupplierName" );
             setColumnNames( "fbc", "KODE", "Code" );
             setColumnNames( "fbc", "CONTENT", "Content" );
             setColumnNames( "fbc", "CONSTRUCTION", "Construction" );
             setColumnNames( "fbc", "FINISHING", "Finishing" );
             setColumnNames( "fbc", "COLOUR", "Colour" );
-            setColumnNames( "fbc", "QTY", "Qty" );
+            //setColumnNames( "fbc", "QTY", "Qty" );
             setColumnNames( "fbc", "WIDTH", "Width" );
             setColumnNames( "fbc", "WEIGHT", "Weigth" );
             setDefaultOrder( "  ID " );

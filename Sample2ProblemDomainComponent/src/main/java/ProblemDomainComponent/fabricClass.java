@@ -52,6 +52,10 @@ extends KBusinessObjectClass
     private long fabrictypeid;
     @Column(name = "supplierid")
     private long supplierid;
+    @Column(name = "suppliername")
+    private String SupplierName;
+    @Column(name = "unit")
+    private String unit;
     @Column(name = "kode")
     private String kode;
     @Column(name = "content")
@@ -66,8 +70,8 @@ extends KBusinessObjectClass
     private String width;
     @Column(name = "weight")
     private String weight;
-    @Column(name = "qty")
-    private long qty;
+   @Column(name = "description")
+    private String Description;
 
         
     @Lob
@@ -79,11 +83,11 @@ extends KBusinessObjectClass
     }
 
     //=================================================================    
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -101,6 +105,14 @@ extends KBusinessObjectClass
 
     public void setSupplierid(long supplierid) {
         this.supplierid = supplierid;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public String getKode() {
@@ -159,20 +171,28 @@ extends KBusinessObjectClass
         this.weight = weight;
     }
 
-    public long getQty() {
-        return qty;
-    }
-
-    public void setQty(long qty) {
-        this.qty = qty;
-    }
-
     public byte[] getImage() {
         return image;
     }
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public String getSupplierName() {
+        return SupplierName;
+    }
+
+    public void setSupplierName(String SupplierName) {
+        this.SupplierName = SupplierName;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String Description) {
+        this.Description = Description;
     }
     
     

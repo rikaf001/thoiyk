@@ -67,7 +67,7 @@ extends KDataBrowserBaseClass {
             super.initializeSQLQuery( 
                 
                 // 1 campos                    
-                " ID , NAMA, MATAUANGID ",
+                " ID , NAMA, CURRENCY ",
                 
                 // 2 tablas and joins                                             
                 " NEGARA neg ",  
@@ -80,7 +80,7 @@ extends KDataBrowserBaseClass {
             // define column settings
             setColumnNames( "neg", "ID", "id" );
             setColumnNames( "neg", "NAMA", "Nama" );
-            setColumnNames( "neg", "MATAUANGID", "MatauangID" );
+            setColumnNames( "neg", "CURRENCY", "Currency" );
                 
                        
             setDefaultOrder( "  NAMA " );

@@ -24,6 +24,7 @@ package thoiyk.HumanInterfaceComponent.fabric;
 //K
 import thoiyk.HumanInterfaceComponent.fabric.*;
 import KFramework30.Base.*;
+import KFramework30.Communication.persistentObjectManagerClass;
 import KFramework30.Widgets.KDialogControllerClass;
 import KFramework30.Widgets.KDialogControllerClass.KDialogEventCallbackInterface;
 import KFramework30.Widgets.KDialogControllerClass.KDialogInterface;
@@ -131,7 +132,7 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        client_id2 = new javax.swing.JLabel();
+        LblID = new javax.swing.JLabel();
         pictureLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         client_address1 = new javax.swing.JTextField();
@@ -148,17 +149,18 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         client_address6 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         client_address7 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        client_address8 = new javax.swing.JTextField();
         cbFabricType = new javax.swing.JComboBox();
         supplierid = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        client_address8 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        LblSupplierName = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         okButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
-        applyButton = new javax.swing.JButton();
-        textLabel = new javax.swing.JLabel();
-        topLabel = new javax.swing.JLabel();
         client_id1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -172,28 +174,28 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Products", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 10))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Fabric", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 3, 10))); // NOI18N
         jPanel1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Id ");
+        jLabel1.setText("ID");
 
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel8.setText("Fabric Type");
 
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel9.setText("Supplier:");
+        jLabel9.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel9.setText("Supplier");
 
-        client_id2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        client_id2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        client_id2.setName("id"); // NOI18N
+        LblID.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        LblID.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        LblID.setName("id"); // NOI18N
 
         pictureLabel.setToolTipText("");
         pictureLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pictureLabel.setName("prodPictureXXX"); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jButton1.setText("Load Image");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,52 +204,46 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         });
 
         client_address1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        client_address1.setName("kode"); // NOI18N
+        client_address1.setName("unit"); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel10.setText("Code:");
+        jLabel10.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel10.setText("Unit");
 
-        jLabel11.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel11.setText("Content:");
+        jLabel11.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel11.setText("Content");
 
         client_address2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_address2.setName("content"); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel12.setText("Construction:");
+        jLabel12.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel12.setText("Construction");
 
         client_address3.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_address3.setName("construction"); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel13.setText("Finishing:");
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel13.setText("Finishing");
 
         client_address4.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_address4.setName("finishing"); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel14.setText("Colour:");
+        jLabel14.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel14.setText("Colour");
 
         client_address5.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_address5.setName("colour"); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel15.setText("Width:");
+        jLabel15.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel15.setText("Width");
 
         client_address6.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_address6.setName("width"); // NOI18N
 
-        jLabel16.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel16.setText("Weight:");
+        jLabel16.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel16.setText("Weight");
 
         client_address7.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_address7.setName("weight"); // NOI18N
-
-        jLabel17.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel17.setText("Qty:");
-
-        client_address8.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        client_address8.setName("qty"); // NOI18N
 
         cbFabricType.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         cbFabricType.setName("cbFabricType"); // NOI18N
@@ -268,8 +264,31 @@ implements  KDialogInterface, KDialogEventCallbackInterface
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Verdana", 2, 11)); // NOI18N
         jLabel2.setText("image best fit size:  197 x 134 px");
+
+        client_address8.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        client_address8.setName("kode"); // NOI18N
+        client_address8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                client_address8ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel17.setText("Code");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setName("Description"); // NOI18N
+        jScrollPane1.setViewportView(jTextArea1);
+
+        LblSupplierName.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        LblSupplierName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        LblSupplierName.setName("SupplierName"); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jLabel18.setText("Description");
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -285,172 +304,134 @@ implements  KDialogInterface, KDialogEventCallbackInterface
                     .add(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 119, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .add(1, 1, 1)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 38, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 71, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel9)
+                    .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel16)
+                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                        .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel14, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                        .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel15, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .add(jLabel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 59, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel12)
+                    .add(jLabel18))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(client_address2)
+                    .add(client_address3)
+                    .add(client_address4)
+                    .add(client_address5)
+                    .add(client_address6)
+                    .add(client_address7)
+                    .add(client_address8)
+                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(jLabel9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .add(LblID, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(122, 122, 122))
+                    .add(cbFabricType, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jLabel13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jLabel14, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .add(36, 36, 36)
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(client_address4)
-                                    .add(client_address5)
-                                    .add(client_address6)
-                                    .add(client_address7)
-                                    .add(client_address8)))
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
-                                .add(jLabel12, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(36, 36, 36)
-                                .add(client_address3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                        .add(163, 163, 163))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .add(0, 0, Short.MAX_VALUE)
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(64, 64, 64)
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(client_id2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jPanel1Layout.createSequentialGroup()
-                                        .add(supplierid, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                                .add(250, 250, 250))
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jLabel8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 110, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(cbFabricType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 172, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(163, 163, 163))))
+                        .add(client_address1)
+                        .add(61, 61, 61))
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(36, 36, 36)
-                                .add(client_address1))
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jLabel11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(36, 36, 36)
-                                .add(client_address2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(jLabel17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jLabel16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jLabel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(0, 0, Short.MAX_VALUE))))
+                        .add(supplierid, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 38, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jButton2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 24, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(LblSupplierName, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(26, 26, 26)
-                                .add(pictureLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabel2))
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(16, 16, 16)
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(client_id2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                    .add(jPanel1Layout.createSequentialGroup()
-                                        .add(cbFabricType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(2, 2, 2)
-                                        .add(supplierid, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                    .add(jButton2)
-                                    .add(jPanel1Layout.createSequentialGroup()
-                                        .add(jLabel8)
-                                        .add(9, 9, 9)
-                                        .add(jLabel9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(client_address1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jLabel11)
-                                    .add(client_address2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jLabel12)
-                                    .add(client_address3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jLabel13)
-                                    .add(client_address4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                        .add(11, 11, 11)
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(client_address5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jLabel14)))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jButton1))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel15)
-                    .add(client_address6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(LblID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(3, 3, 3)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel8)
+                            .add(cbFabricType, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(supplierid, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jButton2)
+                            .add(LblSupplierName, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(client_address1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(4, 4, 4)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(client_address8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel11)
+                            .add(client_address2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel12)
+                            .add(client_address3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel13)
+                            .add(client_address4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel14)
+                            .add(client_address5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel15)
+                            .add(client_address6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.CENTER)
+                            .add(jLabel16)
+                            .add(client_address7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(26, 26, 26)
+                        .add(pictureLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabel2))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(198, 198, 198)
+                        .add(jButton1)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel16)
-                    .add(client_address7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel17)
-                    .add(client_address8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(0, 5, Short.MAX_VALUE))
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 86, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel18))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBounds(0, 60, 540, 330);
+        jPanel1.setBounds(0, 0, 560, 410);
         jLayeredPane1.add(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jPanel1.getAccessibleContext().setAccessibleName("Fabric");
 
-        okButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        okButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         okButton.setText("Ok");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
             }
         });
-        okButton.setBounds(550, 70, 80, 20);
+        okButton.setBounds(570, 70, 80, 20);
         jLayeredPane1.add(okButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        CancelButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        CancelButton.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         CancelButton.setText("Cancel");
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CloseButtonActionPerformed(evt);
             }
         });
-        CancelButton.setBounds(550, 100, 80, 20);
+        CancelButton.setBounds(570, 100, 80, 20);
         jLayeredPane1.add(CancelButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        applyButton.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        applyButton.setText("Apply"); // NOI18N
-        applyButton.setName("applyButton"); // NOI18N
-        applyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                applyButtonActionPerformed(evt);
-            }
-        });
-        applyButton.setBounds(550, 130, 80, 20);
-        jLayeredPane1.add(applyButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        textLabel.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
-        textLabel.setForeground(new java.awt.Color(255, 255, 255));
-        textLabel.setText("Fabric");
-        textLabel.setBounds(140, 0, 270, 50);
-        jLayeredPane1.add(textLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        topLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        topLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/topBar.jpg"))); // NOI18N
-        topLabel.setMaximumSize(new java.awt.Dimension(100, 44));
-        topLabel.setMinimumSize(new java.awt.Dimension(100, 44));
-        topLabel.setBounds(0, -3, 660, 650);
-        jLayeredPane1.add(topLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         client_id1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         client_id1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -467,7 +448,7 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
+                .add(jLayeredPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -501,21 +482,6 @@ implements  KDialogInterface, KDialogEventCallbackInterface
         dispose ();
     }//GEN-LAST:event_closeDialog
 
-private void applyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyButtonActionPerformed
-        try {
-
-            KDialogController.OKbuttonActionPerformed();
-                            
-        } catch (KExceptionClass error ) {
-
-              // log error
-              log.log( this, KMetaUtilsClass.getStackTrace( error ) );
-
-              // show error message
-              KMetaUtilsClass.showErrorMessageFromException( getOwner(), error );               
-        } 
-}//GEN-LAST:event_applyButtonActionPerformed
-
 private void loadImage(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadImage
 
     loadPic();
@@ -544,9 +510,19 @@ private void loadImage(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadIm
 
             parentID = selector.showDialog();
 
-            supplierid.setText( Long.toString(parentID));
+            
 
-            //if( parentID == -1 ) throw new KExceptionClass( "You must select a client for the invoice!", null);
+            if( parentID == -1 ) 
+                throw new KExceptionClass( "You must select a client for the invoice!", null);
+            else
+            {
+                supplierid.setText( Long.toString(parentID));
+                  // display the supplier name                
+                persistentObjectManagerClass POM = new persistentObjectManagerClass(configuration, log);
+                supplierClass  supp= new supplierClass();
+                supp = ( supplierClass ) POM.copy4( parentID, supplierClass.class );
+                LblSupplierName.setText(supp.getNama());
+            }
 
             /*
             * */
@@ -556,6 +532,10 @@ private void loadImage(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadIm
             KMetaUtilsClass.showErrorMessageFromException( this, error );
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void client_address8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_client_address8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_client_address8ActionPerformed
     
 
 public void loadPic(){
@@ -596,7 +576,8 @@ public void loadPic(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton;
-    private javax.swing.JButton applyButton;
+    private javax.swing.JLabel LblID;
+    private javax.swing.JLabel LblSupplierName;
     private javax.swing.JComboBox cbFabricType;
     private javax.swing.JTextField client_address1;
     private javax.swing.JTextField client_address2;
@@ -607,7 +588,6 @@ public void loadPic(){
     private javax.swing.JTextField client_address7;
     private javax.swing.JTextField client_address8;
     private javax.swing.JLabel client_id1;
-    private javax.swing.JLabel client_id2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -619,16 +599,17 @@ public void loadPic(){
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton okButton;
     private javax.swing.JLabel pictureLabel;
     private javax.swing.JLabel supplierid;
-    private javax.swing.JLabel textLabel;
-    private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 
     
